@@ -57,31 +57,9 @@ dockers:
     - "ghcr.io/northcutted/docker-docs:latest"
     dockerfile: Dockerfile.release
     build_flag_templates:
-    - "--platform=linux/amd64"
+    - "--platform=linux/amd64,linux/arm64"
     - "--label=org.opencontainers.image.created={{.Date}}"
     - "--label=org.opencontainers.image.name={{.ProjectName}}"
     - "--label=org.opencontainers.image.revision={{.FullCommit}}"
     - "--label=org.opencontainers.image.version={{.Version}}"
     - "--label=org.opencontainers.image.source={{.GitURL}}"
-
-  - image_templates:
-    - "ghcr.io/northcutted/docker-docs:{{ .Tag }}-arm64"
-    dockerfile: Dockerfile.release
-    goarch: arm64
-    build_flag_templates:
-    - "--platform=linux/arm64"
-    - "--label=org.opencontainers.image.created={{.Date}}"
-    - "--label=org.opencontainers.image.name={{.ProjectName}}"
-    - "--label=org.opencontainers.image.revision={{.FullCommit}}"
-    - "--label=org.opencontainers.image.version={{.Version}}"
-    - "--label=org.opencontainers.image.source={{.GitURL}}"
-
-docker_manifests:
-  - name_template: "ghcr.io/northcutted/docker-docs:{{ .Tag }}"
-    image_templates:
-    - "ghcr.io/northcutted/docker-docs:{{ .Tag }}"
-    - "ghcr.io/northcutted/docker-docs:{{ .Tag }}-arm64"
-  - name_template: "ghcr.io/northcutted/docker-docs:latest"
-    image_templates:
-    - "ghcr.io/northcutted/docker-docs:latest"
-    - "ghcr.io/northcutted/docker-docs:{{ .Tag }}-arm64"

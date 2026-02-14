@@ -1,5 +1,5 @@
 # Build stage
-FROM golang:1.24-alpine AS builder
+FROM golang:1.25-alpine AS builder
 
 WORKDIR /app
 
@@ -34,7 +34,10 @@ FROM gcr.io/distroless/static-debian12:nonroot
 WORKDIR /
 
 # Copy our Go binary from the GoReleaser output (usually in /docker-docs)
-COPY docker-docs /usr/local/bin/docker-docs
+# IMPORTANT: When using buildx with goreleaser, artifacts are put in a platform-specific directory
+# e.g. linux_amd64/docker-docs or linux_arm64/docker-docs
+ARG TARGETPLATFORM
+COPY $TARGETPLATFORM/docker-docs usr/local/bin/docker-docs
 
 # Copy external tools
 COPY --from=builder /tmp/tools/syft /usr/local/bin/syft
