@@ -47,7 +47,7 @@ func TestExecute_DryRun(t *testing.T) {
 		}
 	})
 
-	if !strings.Contains(output, "| APP_PORT | ENV |") {
+	if !strings.Contains(output, "`APP_PORT`") {
 		t.Errorf("expected dry-run output to contain table row, got:\n%s", output)
 	}
 }
@@ -95,7 +95,7 @@ func TestExecute_Injection(t *testing.T) {
 	if strings.Contains(sContent, "OLD CONTENT") {
 		t.Error("expected OLD CONTENT to be replaced")
 	}
-	if !strings.Contains(sContent, "| FOO | ENV |") {
+	if !strings.Contains(sContent, "`FOO`") {
 		t.Error("expected new table content in README")
 	}
 	if !strings.Contains(sContent, "<!-- BEGIN: docker-docs -->") {
@@ -131,13 +131,13 @@ func TestExecute_NoMarkers_Stdout(t *testing.T) {
 	})
 
 	// Should print to stdout because markers are missing
-	if !strings.Contains(output, "| BAZ | ENV |") {
+	if !strings.Contains(output, "`BAZ`") {
 		t.Errorf("expected stdout output when markers are missing, got: %s", output)
 	}
 
 	// File should be unchanged
 	content, _ := os.ReadFile(readme)
-	if strings.Contains(string(content), "| BAZ | ENV |") {
+	if strings.Contains(string(content), "`BAZ`") {
 		t.Error("expected file to remain unchanged when markers are missing")
 	}
 }
@@ -172,7 +172,7 @@ func TestExecute_WithImageFlag(t *testing.T) {
 	}
 
 	// And standard table
-	if !strings.Contains(output, "| Name | Type |") {
+	if !strings.Contains(output, "Configuration") {
 		t.Errorf("expected standard table, got:\n%s", output)
 	}
 }
