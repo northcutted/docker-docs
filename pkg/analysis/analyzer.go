@@ -4,12 +4,59 @@ import (
 	"fmt"
 	"sort"
 	"sync"
+
+	"golang.org/x/sync/errgroup"
 )
 
 type Runner interface {
 	Name() string
 	IsAvailable() bool
 	Run(image string) (*ImageStats, error)
+}
+
+// AnalyzeMatrix runs analysis on multiple images in parallel.
+func AnalyzeMatrix(images []string, runners []Runner) ([]*ImageStats, error) {
+	var g errgroup.Group
+
+	// Create a slice to hold results, mutex for safe append?
+	// Or just assign by index if we want order?
+	// Assigning by index is better for stability.
+	results := make([]*ImageStats, len(images))
+
+	for i, img := range images {
+		// Capture loop variables
+		i, img := i, img
+		g.Go(func() error {
+			// Run analysis for this image
+			// Note: AnalyzeImage uses the runners. Since runners are stateless (mostly), this is fine.
+			stats, err := AnalyzeImage(img, runners)
+			if err != nil {
+				// If one fails, we probably shouldn't fail the whole batch, just log error?
+				// But errgroup cancels on first error.
+				// Spec says "log warning but do not fail" for individual tools.
+				// For the whole image?
+				// Let's return a partial stat object with error info if possible, or just log and return nil stats.
+				fmt.Printf("Matrix Analysis Failed for %s: %v\n", img, err)
+				return nil // Don't fail the group
+			}
+			results[i] = stats
+			return nil
+		})
+	}
+
+	if err := g.Wait(); err != nil {
+		return nil, err
+	}
+
+	// Filter out nils if any failed
+	var validResults []*ImageStats
+	for _, res := range results {
+		if res != nil {
+			validResults = append(validResults, res)
+		}
+	}
+
+	return validResults, nil
 }
 
 // AnalyzeImage runs all available runners and merges results.

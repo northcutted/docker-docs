@@ -1,79 +1,38 @@
-# syntax=docker/dockerfile:1
-FROM alpine:3.19
+# Build stage
+FROM golang:alpine AS builder
 
-# -----------------------------------------------------------------------------
-# BUILD ARGUMENTS
-# -----------------------------------------------------------------------------
+WORKDIR /app
 
-# @name: VERSION
-# @description: The application version to build.
-# @default: 1.0.0
-ARG VERSION=1.0.0
+COPY go.mod go.sum ./
+RUN go mod download
 
-# @name: BUILD_DATE
-# @description: The date the image was built (RFC3339).
-# @required: true
-ARG BUILD_DATE
+COPY . .
 
-# -----------------------------------------------------------------------------
-# ENVIRONMENT VARIABLES
-# -----------------------------------------------------------------------------
+# Build the application
+RUN CGO_ENABLED=0 GOOS=linux go build -o docker-docs .
 
-# @name: APP_ENV
-# @description: The environment the app is running in (dev, staging, prod).
-# @default: production
-ENV APP_ENV="production"
+# Runtime image
+FROM alpine:latest
 
-# @name: DATABASE_URL
-# @description: Connection string for the primary database.
-# @required: true
-ENV DATABASE_URL=""
+# Install runtime dependencies
+RUN apk add --no-cache \
+    curl \
+    docker-cli \
+    git \
+    bash \
+    ca-certificates
 
-# @name: LOG_LEVEL
-# @description: Global logging level. Options: DEBUG, INFO, WARN, ERROR.
-# @default: INFO
-ENV LOG_LEVEL INFO
+# Install syft
+RUN curl -sSfL https://raw.githubusercontent.com/anchore/syft/main/install.sh | sh -s -- -b /usr/local/bin
 
-# Testing the parser's ability to handle equality vs space separation
-# @name: API_TIMEOUT
-# @description: Timeout in seconds for external API calls.
-ENV API_TIMEOUT=30
+# Install grype
+RUN curl -sSfL https://raw.githubusercontent.com/anchore/grype/main/install.sh | sh -s -- -b /usr/local/bin
 
-# -----------------------------------------------------------------------------
-# COMPLEX CASES (The "Torture" Section)
-# -----------------------------------------------------------------------------
+# Install dive
+RUN curl -L https://github.com/wagoodman/dive/releases/download/v0.12.0/dive_0.12.0_linux_amd64.tar.gz -o dive.tar.gz && \
+    tar -xzf dive.tar.gz -C /usr/local/bin dive && \
+    rm dive.tar.gz
 
-# @name: FEATURE_FLAGS
-# @description: A JSON string of enabled feature flags.
-# @default: {"new_ui": false}
-ENV FEATURE_FLAGS='{"new_ui": false, "beta_access": true}'
+COPY --from=builder /app/docker-docs /usr/local/bin/docker-docs
 
-# @name: PATH_additions
-# @description: Extensions to the system path.
-# This is a multi-line instruction test.
-ENV PATH="/opt/myapp/bin:$PATH" \
-    LD_LIBRARY_PATH="/opt/myapp/lib"
-
-# @name: UNDOCUMENTED_VAR
-# This variable has a comment but no magic @description, should likely be ignored or parsed as empty desc.
-ENV SECRET_SAUCE="szechuan"
-
-# This variable has NO comments at all.
-ENV RAW_VAR="raw"
-
-# -----------------------------------------------------------------------------
-# METADATA & PORTS
-# -----------------------------------------------------------------------------
-
-# @name: org.opencontainers.image.authors
-LABEL org.opencontainers.image.authors="platform-team@example.com"
-
-# @name: HTTP Service
-# @description: The main web server port.
-EXPOSE 8080
-
-# @name: Metrics
-# @description: Prometheus metrics endpoint.
-EXPOSE 9090/tcp
-
-CMD ["./myapp"]
+ENTRYPOINT ["docker-docs"]

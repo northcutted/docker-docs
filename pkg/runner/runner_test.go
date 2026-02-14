@@ -3,7 +3,7 @@ package runner
 import (
 	"testing"
 
-	"docker-docs/pkg/analysis"
+	"github.com/northcutted/docker-docs/pkg/analysis"
 )
 
 // FakeRunner allows mocking external commands

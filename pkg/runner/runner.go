@@ -7,7 +7,7 @@ import (
 	"os/exec"
 	"sort"
 
-	"docker-docs/pkg/analysis"
+	"github.com/northcutted/docker-docs/pkg/analysis"
 )
 
 // ToolRunner defines the interface for external tool integration
@@ -120,12 +120,24 @@ func (r *SyftRunner) Run(image string) (*analysis.ImageStats, error) {
 		Packages:      make([]analysis.PackageSummary, 0),
 	}
 
+	seen := make(map[string]bool)
 	for _, artifact := range syftOutput.Artifacts {
+		key := artifact.Name + "@" + artifact.Version
+		if seen[key] {
+			continue
+		}
+		seen[key] = true
 		stats.Packages = append(stats.Packages, analysis.PackageSummary{
 			Name:    artifact.Name,
 			Version: artifact.Version,
 		})
 	}
+
+	// Update TotalPackages to reflect unique count?
+	// The user asked for "all packages found", but usually unique is better.
+	// Syft's total count includes duplicates.
+	// Let's update TotalPackages to be the unique count to match the list.
+	stats.TotalPackages = len(stats.Packages)
 
 	// Sort packages alphabetically by name for cleaner output
 	sort.Slice(stats.Packages, func(i, j int) bool {

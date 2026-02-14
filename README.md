@@ -1,73 +1,153 @@
-# My Project
+# Docker Documentation Generator
 
-Here is the configuration:
+A powerful CLI tool that automatically generates comprehensive Markdown documentation from your Dockerfiles. It goes beyond static analysis by building your image and running deep inspections using industry-standard tools like `syft`, `grype`, and `dive`.
 
+## Features
+
+- 📝 **Automatic Documentation**: Parses standard Dockerfile instructions (`FROM`, `ENV`, `RUN`, `EXPOSE`, etc.) into clean Markdown.
+- 🔍 **Deep Analysis**:
+  - **Syft**: Generates a Software Bill of Materials (SBOM) to list all installed packages.
+  - **Grype**: Scans the image for vulnerabilities.
+  - **Dive**: Analyzes layer efficiency and wasted space.
+- 🏗️ **Build & Inspect**: Automatically builds the container image to perform dynamic analysis.
+- 🧩 **Matrix Support**: Scan multiple Dockerfiles in a single run (e.g., `dev.Dockerfile`, `prod.Dockerfile`).
+- 🎨 **Customizable Templates**: Uses Go templates for flexible output formatting.
+
+## Installation
+
+### Go Install
+
+```bash
+go install github.com/northcutted/docker-docs@latest
+```
+
+### Docker
+
+```bash
+docker run --rm -v $(pwd):/app -w /app ghcr.io/northcutted/docker-docs:latest
+```
+
+## Usage
+
+### Basic Usage
+
+Run the tool in your project directory:
+
+```bash
+docker-docs
+```
+
+This will look for a `docker-docs.yaml` configuration file by default.
+
+### CLI Arguments
+
+```bash
+docker-docs --config my-config.yaml --output README.md
+```
+
+- `--config`, `-c`: Path to configuration file (default: `docker-docs.yaml`). If found, this enables **Config Mode**.
+- `--output`, `-o`: Output file path (default: `README.md`).
+- `--file`, `-f`: Path to Dockerfile (Legacy Mode only).
+- `--image`: Docker image tag to analyze (Legacy Mode only).
+- `--dry-run`: Print output to stdout instead of modifying files.
+
+## Configuration Reference (`docker-docs.yaml`)
+
+The `docker-docs.yaml` file is the heart of the tool. It allows you to define multiple sections of documentation that will be injected into your output file (e.g., `README.md`).
+
+### Structure
+
+```yaml
+# The file where documentation will be injected (default: README.md)
+output: "README.md"
+
+# A list of documentation sections to generate
+sections:
+  - type: "config"      # Generates docs for a single Dockerfile
+    marker: "main"      # Maps to <!-- BEGIN: docker-docs:main -->
+    source: "Dockerfile" # Path to the Dockerfile
+    image: "myapp:latest" # (Optional) Image to analyze for deep inspection
+
+  - type: "matrix"      # Generates a comparison table for multiple images
+    marker: "comparison" # Maps to <!-- BEGIN: docker-docs:comparison -->
+    images:             # List of images to compare
+      - "myapp:dev"
+      - "myapp:prod"
+      - "alpine:latest"
+```
+
+### Markers
+
+To tell `docker-docs` where to insert the generated content, you must add **HTML comments** (markers) to your target file (e.g., `README.md`).
+
+For a section with `marker: "main"`, add this to your README:
+
+```markdown
+<!-- BEGIN: docker-docs:main -->
+<!-- END: docker-docs:main -->
+```
+
+Everything between these two lines will be overwritten by the tool.
+
+### Section Types
+
+#### 1. `config`
+Parses a Dockerfile and optionally analyzes a built image.
+
+- **`marker`** (Required): unique string to identify the injection point.
+- **`source`** (Optional): Path to the `Dockerfile`. Defaults to `Dockerfile`.
+- **`image`** (Optional): If provided, the tool will pull/build and analyze this image using Syft, Grype, and Dive.
+
+#### 2. `matrix`
+Generates a comparison table for multiple images, showing size, vulnerability counts, and efficiency scores.
+
+- **`marker`** (Required): Unique string to identify the injection point.
+- **`images`** (Required): A list of image tags to analyze and compare.
+
+## GitHub Action
+
+You can easily integrate this tool into your CI/CD pipeline using the GitHub Action:
+
+```yaml
+name: Generate Docker Docs
+on:
+  push:
+    paths:
+      - 'Dockerfile'
+      - 'docker-docs.yaml'
+
+jobs:
+  docs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Generate Documentation
+        uses: northcutted/docker-docs@main
+        with:
+          config: 'docker-docs.yaml'
+          output: 'README.md'
+      
+      - name: Commit changes
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "docs: update docker documentation"
+          file_pattern: README.md
+```
+
+## Legacy Mode
+
+If no `docker-docs.yaml` is found, the tool runs in **Legacy Mode**:
+
+1. Parses `./Dockerfile` (or file specified by `-f`).
+2. (Optional) Analyzes the image specified by `--image`.
+3. Injects the output into `README.md` using the **default markers**:
+
+```markdown
 <!-- BEGIN: docker-docs -->
-
-| Name | Type | Description | Default | Required |
-|------|------|-------------|---------|----------|
-| VERSION | ARG | The application version to build. | 1.0.0 | false |
-| BUILD_DATE | ARG | The date the image was built (RFC3339). |  | true |
-| APP_ENV | ENV | The environment the app is running in (dev, staging, prod). | production | false |
-| DATABASE_URL | ENV | Connection string for the primary database. |  | true |
-| LOG_LEVEL | ENV | Global logging level. Options: DEBUG, INFO, WARN, ERROR. | INFO | false |
-| API_TIMEOUT | ENV | Timeout in seconds for external API calls. | 30 | false |
-| FEATURE_FLAGS | ENV | A JSON string of enabled feature flags. | {"new_ui": false} | false |
-| PATH_additions | ENV | Extensions to the system path. | /opt/myapp/bin:$PATH | false |
-| UNDOCUMENTED_VAR | ENV |  | szechuan | false |
-| RAW_VAR | ENV |  | raw | false |
-| org.opencontainers.image.authors | LABEL |  | platform-team@example.com | false |
-| 8080 | EXPOSE | The main web server port. | 8080 | false |
-| 9090/tcp | EXPOSE | Prometheus metrics endpoint. | 9090/tcp | false |
-
-## Image Analysis (my-app:latest)
-
-| Metric | Value |
-|--------|-------|
-| Size | 7.66 MB |
-| Architecture | arm64/linux |
-| Efficiency | 100.0% (0.00 MB wasted) |
-| Total Layers | 1 |
-
-### Security Summary
-Critical: 0 | High: 0 | Medium: 3
-<details>
-<summary>Vulnerabilities Details (9 found)</summary>
-
-| ID | Severity | Package | Version |
-|----|----------|---------|---------|
-| CVE-2025-60876 | Medium | busybox | 1.36.1-r20 |
-| CVE-2025-60876 | Medium | busybox-binsh | 1.36.1-r20 |
-| CVE-2025-60876 | Medium | ssl_client | 1.36.1-r20 |
-| CVE-2024-58251 | Low | busybox | 1.36.1-r20 |
-| CVE-2024-58251 | Low | busybox-binsh | 1.36.1-r20 |
-| CVE-2024-58251 | Low | ssl_client | 1.36.1-r20 |
-| CVE-2025-46394 | Low | busybox | 1.36.1-r20 |
-| CVE-2025-46394 | Low | busybox-binsh | 1.36.1-r20 |
-| CVE-2025-46394 | Low | ssl_client | 1.36.1-r20 |
-</details>
-<details>
-<summary>Packages (15 total)</summary>
-
-| Package | Version |
-|---------|---------|
-| alpine-baselayout | 3.4.3-r2 |
-| alpine-baselayout-data | 3.4.3-r2 |
-| alpine-keys | 2.4-r1 |
-| apk-tools | 2.14.4-r0 |
-| busybox | 1.36.1-r20 |
-| busybox-binsh | 1.36.1-r20 |
-| ca-certificates-bundle | 20250911-r0 |
-| libc-utils | 0.7.2-r5 |
-| libcrypto3 | 3.1.8-r1 |
-| libssl3 | 3.1.8-r1 |
-| musl | 1.2.4_git20230717-r5 |
-| musl-utils | 1.2.4_git20230717-r5 |
-| scanelf | 1.3.7-r2 |
-| ssl_client | 1.36.1-r20 |
-| zlib | 1.3.1-r0 |
-</details>
-
 <!-- END: docker-docs -->
+```
 
-Footer info.
+## License
+
+MIT

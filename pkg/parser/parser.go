@@ -20,6 +20,17 @@ type Documentation struct {
 	Items []DocItem
 }
 
+// FilterByType returns items of a specific type (ARG, ENV, LABEL, EXPOSE).
+func (d *Documentation) FilterByType(t string) []DocItem {
+	var filtered []DocItem
+	for _, item := range d.Items {
+		if item.Type == t {
+			filtered = append(filtered, item)
+		}
+	}
+	return filtered
+}
+
 // Parse reads a Dockerfile and extracts documentation metadata.
 func Parse(filename string) (*Documentation, error) {
 	f, err := os.Open(filename)
@@ -38,75 +49,115 @@ func Parse(filename string) (*Documentation, error) {
 	}
 
 	for _, node := range result.AST.Children {
-		item := DocItem{}
-		// Look for comments immediately preceding the instruction
-		parseComments(node, &item)
+		// 1. Parse comments into a list of metadata objects
+		metas := parseComments(node)
+
+		var items []DocItem
 
 		switch strings.ToUpper(node.Value) {
 		case "ARG":
-			item.Type = "ARG"
-			parseArgEnv(node, &item)
+			items = parseMultiKV(node, "ARG")
 		case "ENV":
-			item.Type = "ENV"
-			parseArgEnv(node, &item)
+			items = parseMultiKV(node, "ENV")
 		case "LABEL":
-			item.Type = "LABEL"
-			parseLabel(node, &item)
+			items = parseMultiKV(node, "LABEL")
 		case "EXPOSE":
-			item.Type = "EXPOSE"
-			item.Name = node.Next.Value // Usually just the port number
-			if item.Value == "" {
-				item.Value = node.Next.Value
-			}
+			items = parseExpose(node)
 		default:
 			continue
 		}
 
-		// If we found something relevant, add it
-		if item.Name != "" || item.Type == "EXPOSE" {
-			// For EXPOSE, name might be ambiguous, usually it's the port.
-			// If name wasn't set by comment, use the port as name?
-			// The spec says: Name string // e.g., "PORT".
-			// For EXPOSE 8080, Name might be "8080" effectively if not named.
-			if item.Name == "" && item.Type == "EXPOSE" {
-				item.Name = item.Value
+		// 2. Merge metadata into items
+		// Strategy:
+		// - If we have multiple items and multiple metas, map 1:1.
+		// - If we have multiple items but only 1 meta, apply meta to first item only?
+		//   User spec: "associating the single comment to all of them might look weird".
+		//   So yes, map 1:1. Remaining items get no metadata (unless we decide otherwise later).
+		for i := range items {
+			if i < len(metas) {
+				m := metas[i]
+				if m.Name != "" {
+					items[i].Name = m.Name
+				}
+				if m.Description != "" {
+					items[i].Description = m.Description
+				}
+				if m.Value != "" {
+					// @default tag overrides inferred value
+					items[i].Value = m.Value
+				}
+				if m.Required {
+					items[i].Required = true
+				}
 			}
-			doc.Items = append(doc.Items, item)
+			doc.Items = append(doc.Items, items[i])
 		}
 	}
 
 	return doc, nil
 }
 
-func parseComments(node *parser.Node, item *DocItem) {
+func parseComments(node *parser.Node) []DocItem {
 	if node.PrevComment == nil {
-		return
+		return nil
 	}
+
+	var metas []DocItem
+	current := DocItem{}
+	seen := make(map[string]bool)
+	hasContent := false
+
 	scanner := bufio.NewScanner(strings.NewReader(strings.Join(node.PrevComment, "\n")))
 	for scanner.Scan() {
 		line := scanner.Text()
 		line = strings.TrimSpace(line)
-		// Magic comments start with #
-		// but parser already gives us the comment lines.
-		// However, buildkit parser might include the # or not depending on version?
-		// Checking source: PrevComment is slice of strings, usually includes the #.
-
 		cleanLine := strings.TrimPrefix(line, "#")
 		cleanLine = strings.TrimSpace(cleanLine)
 
+		var tag string
 		if strings.HasPrefix(cleanLine, "@name:") {
-			item.Name = strings.TrimSpace(strings.TrimPrefix(cleanLine, "@name:"))
+			tag = "name"
 		} else if strings.HasPrefix(cleanLine, "@description:") {
-			item.Description = strings.TrimSpace(strings.TrimPrefix(cleanLine, "@description:"))
+			tag = "desc"
 		} else if strings.HasPrefix(cleanLine, "@default:") {
-			item.Value = strings.TrimSpace(strings.TrimPrefix(cleanLine, "@default:"))
+			tag = "default"
 		} else if strings.HasPrefix(cleanLine, "@required:") {
+			tag = "required"
+		}
+
+		if tag != "" {
+			// If we've already seen this tag in the current block, start a new one
+			if seen[tag] {
+				if hasContent {
+					metas = append(metas, current)
+				}
+				current = DocItem{}
+				seen = make(map[string]bool)
+				hasContent = false
+			}
+			seen[tag] = true
+			hasContent = true
+		}
+
+		if tag == "name" {
+			current.Name = strings.TrimSpace(strings.TrimPrefix(cleanLine, "@name:"))
+		} else if tag == "desc" {
+			current.Description = strings.TrimSpace(strings.TrimPrefix(cleanLine, "@description:"))
+		} else if tag == "default" {
+			current.Value = strings.TrimSpace(strings.TrimPrefix(cleanLine, "@default:"))
+		} else if tag == "required" {
 			val := strings.TrimSpace(strings.TrimPrefix(cleanLine, "@required:"))
 			if val == "true" {
-				item.Required = true
+				current.Required = true
 			}
 		}
 	}
+
+	if hasContent {
+		metas = append(metas, current)
+	}
+
+	return metas
 }
 
 // Helper to strip surrounding quotes
@@ -117,64 +168,84 @@ func stripQuotes(s string) string {
 	return s
 }
 
-func parseArgEnv(node *parser.Node, item *DocItem) {
-	// Format: ENV KEY=VALUE or ENV KEY VALUE
-	// Node structure for ENV/ARG usually has children or Next pointer chain.
-	// Buildkit parser:
-	// "ENV KEY=VALUE" -> Value="ENV", Next -> Value="KEY=VALUE"
-	// "ENV KEY VALUE" -> Value="ENV", Next -> Value="KEY", Next -> Value="VALUE"
-
+// parseMultiKV handles ENV, ARG, LABEL which can have multiple key-value pairs (except ARG usually 1)
+func parseMultiKV(node *parser.Node, typeStr string) []DocItem {
+	var items []DocItem
 	if node.Next == nil {
-		return
+		return items
 	}
 
-	// Helper to handle KEY=VALUE vs KEY VALUE
-	// In newer buildkit parser, it might normalize, but let's check basic structure.
+	// DEBUG: Dump the whole chain
+	// curr := node.Next
+	// i := 0
+	// for curr != nil {
+	//     fmt.Printf("DEBUG [%d]: %q\n", i, curr.Value)
+	//     curr = curr.Next
+	//     i++
+	// }
 
-	firstArg := node.Next.Value
+	// Heuristic based on observation of Buildkit parser (v1.x?):
+	// ENV K=V -> K, V, =
+	// ENV K V -> K, V, ""
+	// ENV K=V K2=V2 -> K, V, =, K2, V2, =
 
-	if strings.Contains(firstArg, "=") {
-		// KEY=VALUE format
-		parts := strings.SplitN(firstArg, "=", 2)
-		if item.Name == "" {
-			item.Name = parts[0]
+	// So we iterate in steps of 3?
+
+	curr := node.Next
+	for curr != nil {
+		key := curr.Value
+		if key == "" {
+			// Should not happen for key?
+			curr = curr.Next
+			continue
 		}
-		// Only set value (default) if not overridden by comment
-		if item.Value == "" && len(parts) > 1 {
-			item.Value = stripQuotes(parts[1])
+
+		var val string
+		if curr.Next != nil {
+			val = curr.Next.Value
+			// strip quotes? Buildkit seems to keep quotes for Value node?
+			// In debug output: Next.Next Value: "\"/opt/myapp/bin:$PATH\""
+			// Yes, quotes are present.
+			val = stripQuotes(val)
 		}
-	} else {
-		// KEY VALUE format
-		if item.Name == "" {
-			item.Name = firstArg
+
+		item := DocItem{
+			Type:  typeStr,
+			Name:  key,
+			Value: val,
 		}
-		if item.Value == "" && node.Next.Next != nil {
-			item.Value = stripQuotes(node.Next.Next.Value)
+		items = append(items, item)
+
+		// Advance
+		if curr.Next != nil {
+			if curr.Next.Next != nil {
+				// Check separator
+				// sep := curr.Next.Next.Value
+				// If sep is "" or "=", we skip it.
+				curr = curr.Next.Next.Next
+			} else {
+				// End of chain (Key, Val, nil) - Wait, we saw Key, Val, "".
+				// So if Next.Next is nil, maybe we stop?
+				curr = nil
+			}
+		} else {
+			curr = nil
 		}
 	}
+
+	return items
 }
 
-func parseLabel(node *parser.Node, item *DocItem) {
-	// LABEL usually is KEY=VALUE
-	if node.Next == nil {
-		return
+func parseExpose(node *parser.Node) []DocItem {
+	var items []DocItem
+	curr := node.Next
+	for curr != nil {
+		item := DocItem{Type: "EXPOSE"}
+		// EXPOSE 8080 or EXPOSE 80/tcp
+		item.Name = curr.Value // Default name is the port
+		item.Value = curr.Value
+		items = append(items, item)
+		curr = curr.Next
 	}
-
-	first := node.Next.Value
-
-	if strings.Contains(first, "=") {
-		parts := strings.SplitN(first, "=", 2)
-		if item.Name == "" {
-			item.Name = parts[0]
-		}
-		item.Value = stripQuotes(parts[1])
-	} else {
-		// Might be separated nodes
-		if item.Name == "" {
-			item.Name = first
-		}
-		if node.Next.Next != nil {
-			item.Value = stripQuotes(node.Next.Next.Value)
-		}
-	}
+	return items
 }

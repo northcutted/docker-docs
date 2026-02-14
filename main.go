@@ -1,6 +1,6 @@
 package main
 
-import "docker-docs/cmd"
+import "github.com/northcutted/docker-docs/cmd"
 
 func main() {
 	cmd.Execute()

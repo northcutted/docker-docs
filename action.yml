@@ -1,0 +1,18 @@
+name: 'Docker Documentation Generator'
+description: 'Automatically generate README documentation from Dockerfiles'
+author: 'northcutted'
+inputs:
+  config:
+    description: 'Path to configuration file'
+    default: 'docker-docs.yaml'
+  output:
+    description: 'Output file path'
+    default: 'README.md'
+runs:
+  using: 'docker'
+  image: 'Dockerfile' # Uses the tool's own Dockerfile to run itself
+  args:
+    - "--config"
+    - ${{ inputs.config }}
+    - "--output"
+    - ${{ inputs.output }}

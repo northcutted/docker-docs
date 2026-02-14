@@ -4,8 +4,8 @@ import (
 	"strings"
 	"testing"
 
-	"docker-docs/pkg/analysis"
-	"docker-docs/pkg/parser"
+	"github.com/northcutted/docker-docs/pkg/analysis"
+	"github.com/northcutted/docker-docs/pkg/parser"
 )
 
 func TestRender(t *testing.T) {
@@ -27,12 +27,11 @@ func TestRender(t *testing.T) {
 		t.Fatalf("Render() error = %v", err)
 	}
 
-	expectedHeader := "| Name | Type | Description | Default | Required |"
-	if !strings.Contains(output, expectedHeader) {
-		t.Errorf("expected output to contain header %q", expectedHeader)
+	if !strings.Contains(output, "### Environment Variables") {
+		t.Errorf("expected output to contain Environment Variables section")
 	}
-	if strings.Contains(output, "Image Analysis") {
-		t.Error("expected output NOT to contain Image Analysis")
+	if strings.Contains(output, "🛡️ Security & Efficiency") {
+		t.Error("expected output NOT to contain Security section")
 	}
 
 	// Test Case 2: With Stats
@@ -60,17 +59,23 @@ func TestRender(t *testing.T) {
 		t.Fatalf("Render(stats) error = %v", err)
 	}
 
-	if !strings.Contains(output, "## Image Analysis (test:latest)") {
-		t.Error("expected output to contain Image Analysis header")
+	if !strings.Contains(output, "# 🐳 Docker Image Analysis: test:latest") {
+		t.Error("expected output to contain Docker Image Analysis header")
 	}
-	if !strings.Contains(output, "| Size | 50 MB |") {
-		t.Error("expected output to contain Size")
+	// Check for badges
+	if !strings.Contains(output, "img.shields.io/static/v1?label=Size") {
+		t.Error("expected output to contain Size badge")
 	}
-	if !strings.Contains(output, "Critical: 1") {
-		t.Error("expected output to contain Critical count")
+	// Check for sections
+	if !strings.Contains(output, "### Environment Variables") {
+		t.Error("expected output to contain Environment Variables section")
 	}
-	if !strings.Contains(output, "| CVE-2023-1234 | Critical | openssl | 1.1.1 |") {
-		t.Error("expected output to contain CVE table row")
+	if !strings.Contains(output, "## 🛡️ Security & Efficiency") {
+		t.Error("expected output to contain Security section")
+	}
+	// Check for vulnerability
+	if !strings.Contains(output, "[CVE-2023-1234](https://nvd.nist.gov/vuln/detail/CVE-2023-1234)") {
+		t.Error("expected output to contain CVE link")
 	}
 	if !strings.Contains(output, "| python | 3.9 |") {
 		t.Error("expected output to contain python package")
