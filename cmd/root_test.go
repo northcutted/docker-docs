@@ -17,11 +17,12 @@ func captureOutput(f func()) string {
 
 	f()
 
-	w.Close()
+	// These errors are typically ignored in test helpers, but linter complains
+	_ = w.Close()
 	os.Stdout = old
 
 	var buf bytes.Buffer
-	io.Copy(&buf, r)
+	_, _ = io.Copy(&buf, r)
 	return buf.String()
 }
 

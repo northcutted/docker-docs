@@ -37,7 +37,10 @@ func Parse(filename string) (*Documentation, error) {
 	if err != nil {
 		return nil, err
 	}
-	defer f.Close()
+	defer func() {
+		// Ignore error on close in defer as we are reading only
+		_ = f.Close()
+	}()
 
 	result, err := parser.Parse(f)
 	if err != nil {
@@ -133,19 +136,20 @@ func parseComments(node *parser.Node) []DocItem {
 				}
 				current = DocItem{}
 				seen = make(map[string]bool)
-				hasContent = false
+				// hasContent = false // This was the ineffectual assignment reported by linter
 			}
 			seen[tag] = true
 			hasContent = true
 		}
 
-		if tag == "name" {
+		switch tag {
+		case "name":
 			current.Name = strings.TrimSpace(strings.TrimPrefix(cleanLine, "@name:"))
-		} else if tag == "desc" {
+		case "desc":
 			current.Description = strings.TrimSpace(strings.TrimPrefix(cleanLine, "@description:"))
-		} else if tag == "default" {
+		case "default":
 			current.Value = strings.TrimSpace(strings.TrimPrefix(cleanLine, "@default:"))
-		} else if tag == "required" {
+		case "required":
 			val := strings.TrimSpace(strings.TrimPrefix(cleanLine, "@required:"))
 			if val == "true" {
 				current.Required = true
@@ -175,21 +179,10 @@ func parseMultiKV(node *parser.Node, typeStr string) []DocItem {
 		return items
 	}
 
-	// DEBUG: Dump the whole chain
-	// curr := node.Next
-	// i := 0
-	// for curr != nil {
-	//     fmt.Printf("DEBUG [%d]: %q\n", i, curr.Value)
-	//     curr = curr.Next
-	//     i++
-	// }
-
 	// Heuristic based on observation of Buildkit parser (v1.x?):
 	// ENV K=V -> K, V, =
 	// ENV K V -> K, V, ""
 	// ENV K=V K2=V2 -> K, V, =, K2, V2, =
-
-	// So we iterate in steps of 3?
 
 	curr := node.Next
 	for curr != nil {

@@ -237,8 +237,12 @@ func (r *DiveRunner) Run(image string) (*analysis.ImageStats, error) {
 	if err != nil {
 		return nil, fmt.Errorf("failed to create temp file: %w", err)
 	}
-	defer os.Remove(tmpFile.Name())
-	tmpFile.Close() // Close immediately, dive will write to it
+	defer func() {
+		// Attempt to remove file, ignore error (best effort cleanup)
+		_ = os.Remove(tmpFile.Name())
+	}()
+	// Close immediately, dive will write to it. Ignore error.
+	_ = tmpFile.Close()
 
 	// Note: CI=true suppresses interactive UI which might be default for dive?
 	// The --json flag should suffice.
