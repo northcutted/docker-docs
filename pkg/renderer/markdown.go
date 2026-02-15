@@ -143,11 +143,56 @@ const matrixTemplate = `
 {{- range .Matrix }}
 | ` + "`{{ .ImageTag }}`" + ` | ![Size]({{ .SizeBadge }}) | ![Vulns]({{ .VulnBadge }}) | {{ printf "%.1f" .Efficiency }}% | {{ .OS }}/{{ .Architecture }} |
 {{- end }}
+
+{{- range .Matrix }}
+
+<details>
+<summary><strong>🔍 Full Report: {{ .ImageTag }}</strong></summary>
+
+## 🛡️ Security & Efficiency
+
+**Base Image:** ` + "`{{ .OS }} ({{ .Architecture }})`" + `
+**Efficiency Score:** {{ printf "%.1f" .Efficiency }}%
+
+### Vulnerabilities
+| Critical | High | Medium | Low |
+|:---:|:---:|:---:|:---:|
+| {{ if gt (index .VulnSummary "Critical") 0 }}🔴 {{ else }}🟢 {{ end }}{{ index .VulnSummary "Critical" }} | {{ if gt (index .VulnSummary "High") 0 }}🟠 {{ else }}🟢 {{ end }}{{ index .VulnSummary "High" }} | {{ index .VulnSummary "Medium" }} | {{ index .VulnSummary "Low" }} |
+
+<details>
+<summary><strong>👇 Expand Vulnerability Details ({{ .TotalVulns }} found)</strong></summary>
+
+| ID | Severity | Package | Version |
+|----|----------|---------|---------|
+{{- range .Vulnerabilities }}
+| [{{ .ID }}](https://nvd.nist.gov/vuln/detail/{{ .ID }}) | {{ .Severity }} | ` + "`{{ .Package }}`" + ` | ` + "`{{ .Version }}`" + ` |
+{{- end }}
+</details>
+
+<details>
+<summary><strong>📦 Installed Packages ({{ .TotalPackages }} total)</strong></summary>
+
+| Package | Version |
+|---------|---------|
+{{- range .Packages }}
+| {{ .Name }} | {{ .Version }} |
+{{- end }}
+</details>
+
+</details>
+{{- end }}
 `
 
 // RenderMatrix generates the comparison table for multiple images.
 func RenderMatrix(stats []*analysis.ImageStats) (string, error) {
-	tmpl, err := template.New("docker-docs-matrix").Parse(matrixTemplate)
+	tmpl, err := template.New("docker-docs-matrix").Funcs(template.FuncMap{
+		"index": func(m map[string]int, k string) int {
+			if v, ok := m[k]; ok {
+				return v
+			}
+			return 0
+		},
+	}).Parse(matrixTemplate)
 	if err != nil {
 		return "", err
 	}
