@@ -1,0 +1,14 @@
+output: "README.md"
+sections:
+  - type: "config"
+    marker: "config"
+    source: "Dockerfile"
+    # Analyzing public node image to demonstrate capabilities
+    image: "node:18-alpine"
+
+  - type: "matrix"
+    marker: "comparison"
+    images:
+      - "node:16-alpine"
+      - "node:18-alpine"
+      - "node:20-alpine"

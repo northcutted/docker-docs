@@ -1,0 +1,14 @@
+output: "README.md"
+sections:
+  - type: "config"
+    marker: "config"
+    source: "Dockerfile"
+    # We use a public image here for demonstration to ensure analysis works without local build
+    image: "python:3.9-slim" 
+
+  - type: "matrix"
+    marker: "comparison"
+    images:
+      - "python:3.9-slim"
+      - "python:3.10-slim"
+      - "python:3.11-slim"
