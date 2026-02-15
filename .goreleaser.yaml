@@ -51,19 +51,42 @@ changelog:
       - '^docs:'
       - '^test:'
 
-dockers_v2:
-  - images:
-    - "ghcr.io/northcutted/docker-docs"
-    tags:
-      - "v{{ .Version }}"
-      - "{{ if .IsNightly }}nightly{{ end }}"
-      - "{{ if not .IsNightly }}latest{{ end }}"
+dockers:
+  - image_templates:
+    - "ghcr.io/northcutted/docker-docs:{{ .Tag }}"
+    - "ghcr.io/northcutted/docker-docs:latest"
     dockerfile: Dockerfile.release
-    sbom: "{{ not .IsNightly }}"
-    labels:
-      "org.opencontainers.image.description": "Docker Docs is a CLI tool that generates documentation for Dockerfiles, making it easier to understand and maintain your container images."
-      "org.opencontainers.image.created": "{{.Date}}"
-      "org.opencontainers.image.name": "{{.ProjectName}}"
-      "org.opencontainers.image.revision": "{{.FullCommit}}"
-      "org.opencontainers.image.version": "{{.Version}}"
-      "org.opencontainers.image.source": "{{.GitURL}}"
+    use: buildx
+    build_flag_templates:
+    - "--platform=linux/amd64,linux/arm64"
+    - "--label=org.opencontainers.image.created={{.Date}}"
+    - "--label=org.opencontainers.image.name={{.ProjectName}}"
+    - "--label=org.opencontainers.image.revision={{.FullCommit}}"
+    - "--label=org.opencontainers.image.version={{.Version}}"
+    - "--label=org.opencontainers.image.source={{.GitURL}}"
+
+sboms:
+  - artifacts: archive
+
+signs:
+  - cmd: cosign
+    certificate: '${artifact}.pem'
+    args:
+      - sign-blob
+      - '--output-certificate=${certificate}'
+      - '--output-signature=${signature}'
+      - '${artifact}'
+      - '--yes'
+    artifacts: checksum
+    output: true
+
+docker_signs:
+  - cmd: cosign
+    artifacts: all
+    args:
+      - sign
+      - '${artifact}'
+      - '--yes'
+
+slsa_provenance:
+  enabled: true
