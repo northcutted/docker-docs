@@ -1,0 +1,11 @@
+output: "README.md"
+sections:
+  - type: "config"
+    marker: "python"
+    source: "python/Dockerfile"
+  - type: "config"
+    marker: "node"
+    source: "node/Dockerfile"
+  - type: "config"
+    marker: "go"
+    source: "go/Dockerfile"
