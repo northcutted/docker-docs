@@ -166,17 +166,6 @@ func (r *ManifestRunner) Run(image string) (*analysis.ImageStats, error) {
 	// In this case, we just return the single architecture if we can find it,
 	// BUT 'docker inspect' already handles single image details.
 	// 'docker manifest inspect' on a single image often returns the V2 Schema 2 JSON directly.
-	// Let's try to parse that to be consistent.
-	type SingleManifest struct {
-		Config struct {
-			Platform *Platform `json:"platform,omitempty"` // Sometimes here? No, config is digest.
-		} `json:"config"`
-		// Actually, single manifest usually doesn't show platform explicitly in top level easily
-		// without fetching config blob.
-		// So if it's not a list, we might assume it's single arch, which RuntimeRunner covers.
-		// But let's verify if 'manifest inspect' output contains platform info.
-		// Often it's just schemaVersion, mediaType, config, layers.
-	}
 
 	// If we can't parse as index, we'll assume no multi-arch info available from manifest
 	// or it's a single image. We return empty stats (not error) to avoid noise.
