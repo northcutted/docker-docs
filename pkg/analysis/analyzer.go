@@ -153,6 +153,9 @@ func mergeStats(dest, src *ImageStats) {
 	if src.TotalPackages != 0 {
 		dest.TotalPackages = src.TotalPackages
 	}
+	if len(src.SupportedArchitectures) > 0 {
+		dest.SupportedArchitectures = src.SupportedArchitectures
+	}
 	if len(src.Packages) > 0 {
 		dest.Packages = append(dest.Packages, src.Packages...)
 	}

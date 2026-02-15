@@ -86,6 +86,104 @@ func (r *RuntimeRunner) Run(image string) (*analysis.ImageStats, error) {
 	return stats, nil
 }
 
+// ManifestRunner runs 'docker manifest inspect <image>'
+type ManifestRunner struct {
+	binary string
+}
+
+func (r *ManifestRunner) Name() string { return "manifest" }
+
+func (r *ManifestRunner) IsAvailable() bool {
+	// Check docker
+	if _, err := exec.LookPath("docker"); err == nil {
+		r.binary = "docker"
+		return true
+	}
+	// Podman manifest inspect also works
+	if _, err := exec.LookPath("podman"); err == nil {
+		r.binary = "podman"
+		return true
+	}
+	return false
+}
+
+func (r *ManifestRunner) Run(image string) (*analysis.ImageStats, error) {
+	if r.binary == "" {
+		if !r.IsAvailable() {
+			return nil, fmt.Errorf("no container runtime found")
+		}
+	}
+
+	// Try standard manifest inspect
+	// Need DOCKER_CLI_EXPERIMENTAL=enabled for older docker to be safe
+	cmd := exec.Command(r.binary, "manifest", "inspect", image)
+	cmd.Env = append(os.Environ(), "DOCKER_CLI_EXPERIMENTAL=enabled")
+
+	output, err := cmd.Output()
+	if err != nil {
+		// Fallback or just return empty stats (optional feature)
+		// We'll return error so analyzer can log warning
+		return nil, fmt.Errorf("manifest inspect failed: %w", err)
+	}
+
+	// Manifest inspect can return a single manifest or a manifest list.
+	// We need to handle both structures loosely.
+	// Structure for Manifest List:
+	type Platform struct {
+		Architecture string `json:"architecture"`
+		OS           string `json:"os"`
+	}
+	type Manifest struct {
+		Platform Platform `json:"platform"`
+	}
+	type ManifestIndex struct {
+		Manifests []Manifest `json:"manifests"`
+	}
+
+	// First try to unmarshal as Index
+	var index ManifestIndex
+	if err := json.Unmarshal(output, &index); err == nil && len(index.Manifests) > 0 {
+		// It's a manifest list
+		var archs []string
+		seen := make(map[string]bool)
+		for _, m := range index.Manifests {
+			// Format: linux/amd64
+			key := fmt.Sprintf("%s/%s", m.Platform.OS, m.Platform.Architecture)
+			if !seen[key] {
+				seen[key] = true
+				archs = append(archs, key)
+			}
+		}
+		sort.Strings(archs)
+		return &analysis.ImageStats{
+			ImageTag:               image,
+			SupportedArchitectures: archs,
+		}, nil
+	}
+
+	// If not a list, it might be a single manifest (e.g. locally built image or specific tag)
+	// In this case, we just return the single architecture if we can find it,
+	// BUT 'docker inspect' already handles single image details.
+	// 'docker manifest inspect' on a single image often returns the V2 Schema 2 JSON directly.
+	// Let's try to parse that to be consistent.
+	type SingleManifest struct {
+		Config struct {
+			Platform *Platform `json:"platform,omitempty"` // Sometimes here? No, config is digest.
+		} `json:"config"`
+		// Actually, single manifest usually doesn't show platform explicitly in top level easily
+		// without fetching config blob.
+		// So if it's not a list, we might assume it's single arch, which RuntimeRunner covers.
+		// But let's verify if 'manifest inspect' output contains platform info.
+		// Often it's just schemaVersion, mediaType, config, layers.
+	}
+
+	// If we can't parse as index, we'll assume no multi-arch info available from manifest
+	// or it's a single image. We return empty stats (not error) to avoid noise.
+	// Wait, if we return nil, analyzer might log warning.
+	// Let's return empty valid stats so it merges safely.
+	return &analysis.ImageStats{ImageTag: image}, nil
+}
+
 // SyftRunner runs 'syft <image> -o json'
 type SyftRunner struct{}
 

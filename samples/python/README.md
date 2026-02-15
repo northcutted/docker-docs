@@ -19,6 +19,7 @@
 ## 🛡️ Security & Efficiency
 
 **Base Image:** `linux (arm64)`
+**Supported Architectures:** `linux/386, linux/amd64, linux/arm, linux/arm64, linux/ppc64le, linux/riscv64, linux/s390x, unknown/unknown`
 **Efficiency Score:** 97.3%
 
 ### Vulnerabilities
@@ -280,11 +281,11 @@
 
 ### 🏷️ Supported Tags
 
-| Tag | Size | Vulns | Efficiency | OS/Arch |
-|-----|------|-------|------------|---------|
-| `python:3.9-slim` | ![Size](https://img.shields.io/static/v1?label=Size&message=144.71+MB&color=blue) | ![Vulns](https://img.shields.io/static/v1?label=Security&message=77+Vulns+%283+Crit%29&color=red) | 97.3% | linux/arm64 |
-| `python:3.10-slim` | ![Size](https://img.shields.io/static/v1?label=Size&message=144.62+MB&color=blue) | ![Vulns](https://img.shields.io/static/v1?label=Security&message=41+Vulns+%280+Crit%29&color=orange) | 97.3% | linux/arm64 |
-| `python:3.11-slim` | ![Size](https://img.shields.io/static/v1?label=Size&message=147.15+MB&color=blue) | ![Vulns](https://img.shields.io/static/v1?label=Security&message=39+Vulns+%280+Crit%29&color=orange) | 97.4% | linux/arm64 |
+| Tag | Size | Vulns | Efficiency | Architectures |
+|-----|------|-------|------------|---------------|
+| `python:3.9-slim` | ![Size](https://img.shields.io/static/v1?label=Size&message=144.71+MB&color=blue) | ![Vulns](https://img.shields.io/static/v1?label=Security&message=77+Vulns+%283+Crit%29&color=red) | 97.3% | `linux/386, linux/amd64, linux/arm, linux/arm64, linux/ppc64le, linux/riscv64, linux/s390x, unknown/unknown` |
+| `python:3.10-slim` | ![Size](https://img.shields.io/static/v1?label=Size&message=144.62+MB&color=blue) | ![Vulns](https://img.shields.io/static/v1?label=Security&message=41+Vulns+%280+Crit%29&color=orange) | 97.3% | `linux/386, linux/amd64, linux/arm, linux/arm64, linux/ppc64le, linux/riscv64, linux/s390x, unknown/unknown` |
+| `python:3.11-slim` | ![Size](https://img.shields.io/static/v1?label=Size&message=147.15+MB&color=blue) | ![Vulns](https://img.shields.io/static/v1?label=Security&message=39+Vulns+%280+Crit%29&color=orange) | 97.4% | `linux/386, linux/amd64, linux/arm, linux/arm64, linux/ppc64le, linux/riscv64, linux/s390x, unknown/unknown` |
 
 <details>
 <summary><strong>🔍 Full Report: python:3.9-slim</strong></summary>
@@ -292,6 +293,7 @@
 ## 🛡️ Security & Efficiency
 
 **Base Image:** `linux (arm64)`
+**Supported Architectures:** `linux/386, linux/amd64, linux/arm, linux/arm64, linux/ppc64le, linux/riscv64, linux/s390x, unknown/unknown`
 **Efficiency Score:** 97.3%
 
 ### Vulnerabilities
@@ -553,6 +555,7 @@
 ## 🛡️ Security & Efficiency
 
 **Base Image:** `linux (arm64)`
+**Supported Architectures:** `linux/386, linux/amd64, linux/arm, linux/arm64, linux/ppc64le, linux/riscv64, linux/s390x, unknown/unknown`
 **Efficiency Score:** 97.3%
 
 ### Vulnerabilities
@@ -778,6 +781,7 @@
 ## 🛡️ Security & Efficiency
 
 **Base Image:** `linux (arm64)`
+**Supported Architectures:** `linux/386, linux/amd64, linux/arm, linux/arm64, linux/ppc64le, linux/riscv64, linux/s390x, unknown/unknown`
 **Efficiency Score:** 97.4%
 
 ### Vulnerabilities

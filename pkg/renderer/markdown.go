@@ -2,6 +2,7 @@ package renderer
 
 import (
 	"bytes"
+	"strings"
 	"text/template"
 
 	"github.com/northcutted/docker-docs/pkg/analysis"
@@ -66,6 +67,9 @@ const defaultTemplate = `
 ## 🛡️ Security & Efficiency
 
 **Base Image:** ` + "`{{ .Stats.OS }} ({{ .Stats.Architecture }})`" + `
+{{- if .Stats.SupportedArchitectures }}
+**Supported Architectures:** ` + "`{{ join .Stats.SupportedArchitectures \", \" }}`" + `
+{{- end }}
 **Efficiency Score:** {{ printf "%.1f" .Stats.Efficiency }}%
 
 ### Vulnerabilities
@@ -104,6 +108,7 @@ func Render(doc *parser.Documentation, stats *analysis.ImageStats) (string, erro
 			}
 			return 0
 		},
+		"join": strings.Join,
 	}).Parse(defaultTemplate)
 
 	if err != nil {
@@ -138,10 +143,10 @@ type MatrixContext struct {
 const matrixTemplate = `
 ### 🏷️ Supported Tags
 
-| Tag | Size | Vulns | Efficiency | OS/Arch |
-|-----|------|-------|------------|---------|
+| Tag | Size | Vulns | Efficiency | Architectures |
+|-----|------|-------|------------|---------------|
 {{- range .Matrix }}
-| ` + "`{{ .ImageTag }}`" + ` | ![Size]({{ .SizeBadge }}) | ![Vulns]({{ .VulnBadge }}) | {{ printf "%.1f" .Efficiency }}% | {{ .OS }}/{{ .Architecture }} |
+| ` + "`{{ .ImageTag }}`" + ` | ![Size]({{ .SizeBadge }}) | ![Vulns]({{ .VulnBadge }}) | {{ printf "%.1f" .Efficiency }}% | {{ if .SupportedArchitectures }}` + "`{{ join .SupportedArchitectures \", \" }}`" + `{{ else }}` + "`{{ .OS }}/{{ .Architecture }}`" + `{{ end }} |
 {{- end }}
 
 {{- range .Matrix }}
@@ -152,6 +157,9 @@ const matrixTemplate = `
 ## 🛡️ Security & Efficiency
 
 **Base Image:** ` + "`{{ .OS }} ({{ .Architecture }})`" + `
+{{- if .SupportedArchitectures }}
+**Supported Architectures:** ` + "`{{ join .SupportedArchitectures \", \" }}`" + `
+{{- end }}
 **Efficiency Score:** {{ printf "%.1f" .Efficiency }}%
 
 ### Vulnerabilities
@@ -192,6 +200,7 @@ func RenderMatrix(stats []*analysis.ImageStats) (string, error) {
 			}
 			return 0
 		},
+		"join": strings.Join,
 	}).Parse(matrixTemplate)
 	if err != nil {
 		return "", err

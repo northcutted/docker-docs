@@ -62,6 +62,7 @@ func runConfigMode(path string) error {
 	// Process Sections
 	runners := []analysis.Runner{
 		&runner.RuntimeRunner{},
+		&runner.ManifestRunner{},
 		&runner.SyftRunner{},
 		&runner.GrypeRunner{},
 		&runner.DiveRunner{},
@@ -154,6 +155,7 @@ func runLegacyMode() error {
 		fmt.Printf("Analyzing image: %s ...\n", imageTag)
 		runners := []analysis.Runner{
 			&runner.RuntimeRunner{},
+			&runner.ManifestRunner{},
 			&runner.SyftRunner{},
 			&runner.GrypeRunner{},
 			&runner.DiveRunner{},

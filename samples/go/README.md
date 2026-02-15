@@ -19,6 +19,7 @@
 ## 🛡️ Security & Efficiency
 
 **Base Image:** `linux (arm64)`
+**Supported Architectures:** `linux/386, linux/amd64, linux/arm, linux/arm64, linux/ppc64le, linux/riscv64, linux/s390x, unknown/unknown`
 **Efficiency Score:** 99.9%
 
 ### Vulnerabilities
@@ -90,11 +91,11 @@
 
 ### 🏷️ Supported Tags
 
-| Tag | Size | Vulns | Efficiency | OS/Arch |
-|-----|------|-------|------------|---------|
-| `golang:1.22-alpine` | ![Size](https://img.shields.io/static/v1?label=Size&message=229.07+MB&color=blue) | ![Vulns](https://img.shields.io/static/v1?label=Security&message=521+Vulns+%2842+Crit%29&color=red) | 99.9% | linux/arm64 |
-| `golang:1.23-alpine` | ![Size](https://img.shields.io/static/v1?label=Size&message=243.88+MB&color=blue) | ![Vulns](https://img.shields.io/static/v1?label=Security&message=417+Vulns+%2823+Crit%29&color=red) | 99.9% | linux/arm64 |
-| `golang:1.24-alpine` | ![Size](https://img.shields.io/static/v1?label=Size&message=258.71+MB&color=blue) | ![Vulns](https://img.shields.io/static/v1?label=Security&message=3+Vulns+%280+Crit%29&color=green) | 99.9% | linux/arm64 |
+| Tag | Size | Vulns | Efficiency | Architectures |
+|-----|------|-------|------------|---------------|
+| `golang:1.22-alpine` | ![Size](https://img.shields.io/static/v1?label=Size&message=229.07+MB&color=blue) | ![Vulns](https://img.shields.io/static/v1?label=Security&message=521+Vulns+%2842+Crit%29&color=red) | 99.9% | `linux/386, linux/amd64, linux/arm, linux/arm64, linux/ppc64le, linux/riscv64, linux/s390x, unknown/unknown` |
+| `golang:1.23-alpine` | ![Size](https://img.shields.io/static/v1?label=Size&message=243.88+MB&color=blue) | ![Vulns](https://img.shields.io/static/v1?label=Security&message=417+Vulns+%2823+Crit%29&color=red) | 99.9% | `linux/386, linux/amd64, linux/arm, linux/arm64, linux/ppc64le, linux/riscv64, linux/s390x, unknown/unknown` |
+| `golang:1.24-alpine` | ![Size](https://img.shields.io/static/v1?label=Size&message=258.71+MB&color=blue) | ![Vulns](https://img.shields.io/static/v1?label=Security&message=3+Vulns+%280+Crit%29&color=green) | 99.9% | `linux/386, linux/amd64, linux/arm, linux/arm64, linux/ppc64le, linux/riscv64, linux/s390x, unknown/unknown` |
 
 <details>
 <summary><strong>🔍 Full Report: golang:1.22-alpine</strong></summary>
@@ -102,6 +103,7 @@
 ## 🛡️ Security & Efficiency
 
 **Base Image:** `linux (arm64)`
+**Supported Architectures:** `linux/386, linux/amd64, linux/arm, linux/arm64, linux/ppc64le, linux/riscv64, linux/s390x, unknown/unknown`
 **Efficiency Score:** 99.9%
 
 ### Vulnerabilities
@@ -690,6 +692,7 @@
 ## 🛡️ Security & Efficiency
 
 **Base Image:** `linux (arm64)`
+**Supported Architectures:** `linux/386, linux/amd64, linux/arm, linux/arm64, linux/ppc64le, linux/riscv64, linux/s390x, unknown/unknown`
 **Efficiency Score:** 99.9%
 
 ### Vulnerabilities
@@ -1175,6 +1178,7 @@
 ## 🛡️ Security & Efficiency
 
 **Base Image:** `linux (arm64)`
+**Supported Architectures:** `linux/386, linux/amd64, linux/arm, linux/arm64, linux/ppc64le, linux/riscv64, linux/s390x, unknown/unknown`
 **Efficiency Score:** 99.9%
 
 ### Vulnerabilities

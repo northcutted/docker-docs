@@ -21,17 +21,18 @@ type Vulnerability struct {
 
 // ImageStats holds the dynamic analysis results
 type ImageStats struct {
-	ImageTag        string
-	Architecture    string
-	OS              string
-	SizeMB          string
-	TotalLayers     int
-	Efficiency      float64 // from Dive (0-100)
-	WastedBytes     string  // from Dive
-	TotalPackages   int
-	Packages        []PackageSummary // from Syft (Key Frameworks only)
-	Vulnerabilities []Vulnerability  // from Grype (Sorted by severity)
-	VulnSummary     map[string]int   // from Grype (Severity -> Count)
+	ImageTag               string
+	Architecture           string
+	SupportedArchitectures []string // from Manifest Inspect
+	OS                     string
+	SizeMB                 string
+	TotalLayers            int
+	Efficiency             float64 // from Dive (0-100)
+	WastedBytes            string  // from Dive
+	TotalPackages          int
+	Packages               []PackageSummary // from Syft (Key Frameworks only)
+	Vulnerabilities        []Vulnerability  // from Grype (Sorted by severity)
+	VulnSummary            map[string]int   // from Grype (Severity -> Count)
 }
 
 // Badge Helpers

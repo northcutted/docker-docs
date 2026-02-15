@@ -19,6 +19,7 @@
 ## 🛡️ Security & Efficiency
 
 **Base Image:** `linux (arm64)`
+**Supported Architectures:** `linux/amd64, linux/arm, linux/arm64, linux/ppc64le, linux/s390x, unknown/unknown`
 **Efficiency Score:** 100.0%
 
 ### Vulnerabilities
@@ -308,11 +309,11 @@
 
 ### 🏷️ Supported Tags
 
-| Tag | Size | Vulns | Efficiency | OS/Arch |
-|-----|------|-------|------------|---------|
-| `node:16-alpine` | ![Size](https://img.shields.io/static/v1?label=Size&message=113.67+MB&color=blue) | ![Vulns](https://img.shields.io/static/v1?label=Security&message=76+Vulns+%282+Crit%29&color=red) | 99.6% | linux/arm64 |
-| `node:18-alpine` | ![Size](https://img.shields.io/static/v1?label=Size&message=122.10+MB&color=blue) | ![Vulns](https://img.shields.io/static/v1?label=Security&message=49+Vulns+%282+Crit%29&color=red) | 100.0% | linux/arm64 |
-| `node:20-alpine` | ![Size](https://img.shields.io/static/v1?label=Size&message=130.66+MB&color=blue) | ![Vulns](https://img.shields.io/static/v1?label=Security&message=10+Vulns+%280+Crit%29&color=orange) | 100.0% | linux/arm64 |
+| Tag | Size | Vulns | Efficiency | Architectures |
+|-----|------|-------|------------|---------------|
+| `node:16-alpine` | ![Size](https://img.shields.io/static/v1?label=Size&message=113.67+MB&color=blue) | ![Vulns](https://img.shields.io/static/v1?label=Security&message=76+Vulns+%282+Crit%29&color=red) | 99.6% | `linux/amd64, linux/arm, linux/arm64, linux/ppc64le, linux/s390x` |
+| `node:18-alpine` | ![Size](https://img.shields.io/static/v1?label=Size&message=122.10+MB&color=blue) | ![Vulns](https://img.shields.io/static/v1?label=Security&message=49+Vulns+%282+Crit%29&color=red) | 100.0% | `linux/amd64, linux/arm, linux/arm64, linux/ppc64le, linux/s390x, unknown/unknown` |
+| `node:20-alpine` | ![Size](https://img.shields.io/static/v1?label=Size&message=130.66+MB&color=blue) | ![Vulns](https://img.shields.io/static/v1?label=Security&message=10+Vulns+%280+Crit%29&color=orange) | 100.0% | `linux/amd64, linux/arm, linux/arm64, linux/ppc64le, linux/s390x, unknown/unknown` |
 
 <details>
 <summary><strong>🔍 Full Report: node:16-alpine</strong></summary>
@@ -320,6 +321,7 @@
 ## 🛡️ Security & Efficiency
 
 **Base Image:** `linux (arm64)`
+**Supported Architectures:** `linux/amd64, linux/arm, linux/arm64, linux/ppc64le, linux/s390x`
 **Efficiency Score:** 99.6%
 
 ### Vulnerabilities
@@ -650,6 +652,7 @@
 ## 🛡️ Security & Efficiency
 
 **Base Image:** `linux (arm64)`
+**Supported Architectures:** `linux/amd64, linux/arm, linux/arm64, linux/ppc64le, linux/s390x, unknown/unknown`
 **Efficiency Score:** 100.0%
 
 ### Vulnerabilities
@@ -939,6 +942,7 @@
 ## 🛡️ Security & Efficiency
 
 **Base Image:** `linux (arm64)`
+**Supported Architectures:** `linux/amd64, linux/arm, linux/arm64, linux/ppc64le, linux/s390x, unknown/unknown`
 **Efficiency Score:** 100.0%
 
 ### Vulnerabilities
