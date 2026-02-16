@@ -1,0 +1,52 @@
+name: Dogfooding
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  generate-samples:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Generate Go Sample Docs
+        uses: ./
+        with:
+          config: samples/go/docker-docs.yaml
+          output: samples/go/README.md
+
+      - name: Generate Node Sample Docs
+        uses: ./
+        with:
+          config: samples/node/docker-docs.yaml
+          output: samples/node/README.md
+
+      - name: Generate Python Sample Docs
+        uses: ./
+        with:
+          config: samples/python/docker-docs.yaml
+          output: samples/python/README.md
+
+      - name: Check for changes
+        run: |
+          git diff
+          git status
+
+      - name: Commit changes
+        if: github.event_name == 'push'
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add samples/*/README.md
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "docs: regenerate sample documentation [skip ci]"
+            git push
+          fi

@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"os"
 	"os/exec"
+	"path/filepath"
 	"strings"
 
 	"github.com/spf13/cobra"
@@ -74,6 +75,16 @@ func runConfigMode(path string) error {
 	cfg, err := config.Load(path)
 	if err != nil {
 		return err
+	}
+
+	// Change working directory to config file location
+	// This ensures relative paths in config (like output, source) are resolved correctly
+	configDir := filepath.Dir(path)
+	if configDir != "." {
+		if err := os.Chdir(configDir); err != nil {
+			return fmt.Errorf("failed to change directory to %s: %w", configDir, err)
+		}
+		fmt.Printf("Changed working directory to: %s\n", configDir)
 	}
 
 	// Read Output File
