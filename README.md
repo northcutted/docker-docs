@@ -68,7 +68,22 @@ Run the tool in your project directory:
 docker-docs
 ```
 
-This will look for a `docker-docs.yaml` configuration file by default.
+This will look for a `docker-docs.yaml` configuration file by default. If no `docker-docs.yaml` is found, the tool runs in **Simple Mode**.
+
+
+#### Simple Mode
+
+If no `docker-docs.yaml` is found, the tool runs in **Simple Mode**. This mode is useful for documentation generation without creating a configuration file, but it offers less customization.
+
+1. Parses `./Dockerfile` (or file specified by `-f`).
+2. (Optional) Analyzes the image specified by `--image`.
+3. Injects the output into `README.md` using the **default markers**:
+
+```markdown
+<!-- BEGIN: docker-docs -->
+
+<!-- END: docker-docs -->
+```
 
 ### CLI Arguments
 
@@ -78,10 +93,10 @@ docker-docs --config my-config.yaml --output README.md
 
 - `--config`, `-c`: Path to configuration file (default: `docker-docs.yaml`). If found, this enables **Config Mode**.
 - `--output`, `-o`: Output file path (default: `README.md`).
-- `--file`, `-f`: Path to Dockerfile (Simple Mode only).
-- `--image`: Docker image tag to analyze (Simple Mode only).
 - `--dry-run`: Print output to stdout instead of modifying files.
 - `--nomoji`: Disable emojis in the output.
+- `--file`, `-f`: Path to Dockerfile (Simple Mode only).
+- `--image`: Docker image tag to analyze (Simple Mode only).
 
 ## Configuration Reference (`docker-docs.yaml`)
 
@@ -112,7 +127,7 @@ sections:
 
 To tell `docker-docs` where to insert the generated content, you must add **HTML comments** (markers) to your target file (e.g., `README.md`).
 
-For a section with `marker: "main"`, add this to your README:
+For a section with `marker: "main"`, add this to your `README`:
 
 ```markdown
 <!-- BEGIN: docker-docs:main -->
@@ -167,19 +182,21 @@ jobs:
           file_pattern: README.md
 ```
 
-## Simple Mode
+## Samples
 
-If no `docker-docs.yaml` is found, the tool runs in **Simple Mode**. This mode is useful for quick analysis without creating a configuration file, but it offers less customization.
+Check out the sample projects to see `docker-docs` in action:
 
-1. Parses `./Dockerfile` (or file specified by `-f`).
-2. (Optional) Analyzes the image specified by `--image`.
-3. Injects the output into `README.md` using the **default markers**:
+- [Go Sample](samples/go)
+- [Node.js Sample](samples/node)
+- [Python Sample](samples/python)
 
-```markdown
-<!-- BEGIN: docker-docs -->
+## Credits
 
-<!-- END: docker-docs -->
-```
+This tool relies on the following amazing open-source projects for deep analysis:
+
+- [Syft](https://github.com/anchore/syft) by Anchore (SBOM generation)
+- [Grype](https://github.com/anchore/grype) by Anchore (Vulnerability scanning)
+- [Dive](https://github.com/wagoodman/dive) by Alex Goodman (Layer efficiency analysis)
 
 ## License
 
