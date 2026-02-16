@@ -48,8 +48,18 @@ func runCommand(cmd *exec.Cmd, verbose bool) ([]byte, error) {
 
 // EnsureImage checks if an image exists locally, and pulls it if not.
 func EnsureImage(image string, verbose bool) error {
+	// Detect which container runtime is available
+	binary := ""
+	if _, err := exec.LookPath("docker"); err == nil {
+		binary = "docker"
+	} else if _, err := exec.LookPath("podman"); err == nil {
+		binary = "podman"
+	} else {
+		return fmt.Errorf("no container runtime found (docker or podman)")
+	}
+
 	// Check if image exists
-	checkCmd := exec.Command("docker", "inspect", "--type=image", image)
+	checkCmd := exec.Command(binary, "inspect", "--type=image", image)
 	if err := checkCmd.Run(); err == nil {
 		if verbose {
 			fmt.Printf("[DEBUG] Image %s found locally\n", image)
@@ -59,7 +69,7 @@ func EnsureImage(image string, verbose bool) error {
 
 	// Image not found, pull it
 	fmt.Printf("Pulling image: %s ...\n", image)
-	pullCmd := exec.Command("docker", "pull", image)
+	pullCmd := exec.Command(binary, "pull", image)
 	if _, err := runCommand(pullCmd, verbose); err != nil {
 		return fmt.Errorf("failed to pull image %s: %w", image, err)
 	}
