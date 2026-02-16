@@ -5,12 +5,13 @@ import (
 	"strings"
 	"text/template"
 
-	"github.com/northcutted/dock-docs/pkg/types"
 	"github.com/northcutted/dock-docs/pkg/parser"
+	"github.com/northcutted/dock-docs/pkg/types"
 )
 
 type RenderOptions struct {
-	NoMoji bool
+	NoMoji       bool
+	BadgeBaseURL string
 }
 
 // ReportContext holds all data passed to the template
@@ -85,7 +86,7 @@ const defaultTemplate = `
 # {{ .Emoji "whale" }}Docker Image Analysis: {{ .ImageTag }}
 
 {{- if .Stats }}
-![Size]({{ .Stats.SizeBadge }}) ![Layers]({{ .Stats.LayersBadge }}) ![Vulns]({{ .Stats.VulnBadge }}) ![Efficiency]({{ .Stats.EfficiencyBadge }})
+![Size]({{ .Stats.SizeBadge $.Options.BadgeBaseURL }}) ![Layers]({{ .Stats.LayersBadge $.Options.BadgeBaseURL }}) ![Vulns]({{ .Stats.VulnBadge $.Options.BadgeBaseURL }}) ![Efficiency]({{ .Stats.EfficiencyBadge $.Options.BadgeBaseURL }})
 {{- end }}
 
 ## {{ .Emoji "gear" }}Configuration
@@ -217,7 +218,7 @@ const matrixTemplate = `
 | Tag | Size | Vulns | Efficiency | Architectures |
 |-----|------|-------|------------|---------------|
 {{- range .Matrix }}
-| ` + "`{{ .ImageTag }}`" + ` | ![Size]({{ .SizeBadge }}) | ![Vulns]({{ .VulnBadge }}) | {{ printf "%.1f" .Efficiency }}% | {{ if .SupportedArchitectures }}` + "`{{ join .SupportedArchitectures \", \" }}`" + `{{ else }}` + "`{{ .OS }}/{{ .Architecture }}`" + `{{ end }} |
+| ` + "`{{ .ImageTag }}`" + ` | ![Size]({{ .SizeBadge $.Options.BadgeBaseURL }}) | ![Vulns]({{ .VulnBadge $.Options.BadgeBaseURL }}) | {{ printf "%.1f" .Efficiency }}% | {{ if .SupportedArchitectures }}` + "`{{ join .SupportedArchitectures \", \" }}`" + `{{ else }}` + "`{{ .OS }}/{{ .Architecture }}`" + `{{ end }} |
 {{- end }}
 
 {{- range .Matrix }}

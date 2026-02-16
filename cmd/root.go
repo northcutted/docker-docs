@@ -10,12 +10,12 @@ import (
 	"github.com/spf13/cobra"
 
 	"github.com/northcutted/dock-docs/pkg/analysis"
-	"github.com/northcutted/dock-docs/pkg/types"
 	"github.com/northcutted/dock-docs/pkg/config"
 	"github.com/northcutted/dock-docs/pkg/injector"
 	"github.com/northcutted/dock-docs/pkg/parser"
 	"github.com/northcutted/dock-docs/pkg/renderer"
 	"github.com/northcutted/dock-docs/pkg/runner"
+	"github.com/northcutted/dock-docs/pkg/types"
 )
 
 var (
@@ -27,6 +27,7 @@ var (
 	noMoji       bool
 	ignoreErrors bool
 	verbose      bool
+	badgeBaseURL string
 )
 
 var rootCmd = &cobra.Command{
@@ -110,7 +111,8 @@ func runConfigMode(path string) error {
 	}
 
 	renderOpts := renderer.RenderOptions{
-		NoMoji: noMoji,
+		NoMoji:       noMoji,
+		BadgeBaseURL: cfg.BadgeBaseURL,
 	}
 
 	for _, section := range cfg.Sections {
@@ -227,7 +229,8 @@ func runSimpleMode() error {
 
 	// 3. Render
 	renderOpts := renderer.RenderOptions{
-		NoMoji: noMoji,
+		NoMoji:       noMoji,
+		BadgeBaseURL: badgeBaseURL,
 	}
 	renderedContent, err := renderer.Render(doc, stats, renderOpts)
 	if err != nil {
@@ -316,4 +319,5 @@ func init() {
 	rootCmd.Flags().BoolVar(&noMoji, "nomoji", false, "Disable emojis in the output")
 	rootCmd.Flags().BoolVar(&ignoreErrors, "ignore-errors", false, "Ignore analysis errors and continue (default false)")
 	rootCmd.Flags().BoolVar(&verbose, "verbose", false, "Enable verbose logging")
+	rootCmd.Flags().StringVar(&badgeBaseURL, "badge-base-url", "https://img.shields.io/static/v1", "Base URL for badge generation (e.g. for self-hosted shields.io)")
 }

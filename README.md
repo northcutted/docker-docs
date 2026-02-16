@@ -14,6 +14,7 @@ A powerful CLI tool that automatically generates comprehensive Markdown document
   - **Dive**: Analyzes layer efficiency and wasted space.
 - 🏗️ **Build & Inspect**: Automatically builds the container image to perform dynamic analysis.
 - 🧩 **Matrix Support**: Scan multiple Dockerfiles in a single run (e.g., `dev.Dockerfile`, `prod.Dockerfile`).
+- 🏢 **Enterprise Ready**: Support for private badge servers (e.g., self-hosted Shields.io).
 - 🎨 **Customizable Templates**: Uses Go templates for flexible output formatting.
 
 ## Magic Comments
@@ -115,6 +116,7 @@ dock-docs --config my-config.yaml --output README.md
 - `--nomoji`: Disable emojis in the output.
 - `--ignore-errors`: Ignore analysis errors and continue generation.
 - `--verbose`: Enable verbose logging for debugging.
+- `--badge-base-url`: Base URL for badge generation (default: `https://img.shields.io/static/v1`).
 - `--file`, `-f`: Path to Dockerfile (Simple Mode only).
 - `--image`: Docker image tag to analyze (Simple Mode only).
 
@@ -127,6 +129,9 @@ The `dock-docs.yaml` file is the heart of the tool. It allows you to define mult
 ```yaml
 # The file where documentation will be injected (default: README.md)
 output: "README.md"
+
+# Base URL for badges (optional, defaults to https://img.shields.io/static/v1)
+badgeBaseURL: "https://my-private-badges.com/static/v1"
 
 # A list of documentation sections to generate
 sections:
@@ -221,3 +226,7 @@ This tool relies on the following amazing open-source projects for deep analysis
 ## License
 
 MIT
+
+## AI Generated Content Disclaimer
+
+Much of the code in this repository was generated using OpenCode `1.2.1` using the Github Copilot provider using `gemini-3-pro-preview` as a way to experiment with these tools and to attempt to solve a problem that I had. While the use of this tool requires no AI services to function, it was built using them so if tools heavily developed by AI agents is something you would like to avoid, then this tool is not for you.

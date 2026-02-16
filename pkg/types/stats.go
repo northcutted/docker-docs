@@ -38,22 +38,22 @@ type ImageStats struct {
 
 // Badge Helpers
 
-func (s *ImageStats) SizeBadge() string {
+func (s *ImageStats) SizeBadge(baseURL string) string {
 	if s.SizeMB == "" {
 		return ""
 	}
 	// https://img.shields.io/static/v1?label=Size&message=7.6MB&color=blue
-	return fmt.Sprintf("https://img.shields.io/static/v1?label=Size&message=%s&color=blue", url.QueryEscape(s.SizeMB))
+	return fmt.Sprintf("%s?label=Size&message=%s&color=blue", baseURL, url.QueryEscape(s.SizeMB))
 }
 
-func (s *ImageStats) LayersBadge() string {
+func (s *ImageStats) LayersBadge(baseURL string) string {
 	if s.TotalLayers == 0 {
 		return ""
 	}
-	return fmt.Sprintf("https://img.shields.io/static/v1?label=Layers&message=%d&color=blue", s.TotalLayers)
+	return fmt.Sprintf("%s?label=Layers&message=%d&color=blue", baseURL, s.TotalLayers)
 }
 
-func (s *ImageStats) EfficiencyBadge() string {
+func (s *ImageStats) EfficiencyBadge(baseURL string) string {
 	if s.Efficiency == 0 {
 		return ""
 	}
@@ -64,10 +64,10 @@ func (s *ImageStats) EfficiencyBadge() string {
 	if s.Efficiency < 80 {
 		color = "red"
 	}
-	return fmt.Sprintf("https://img.shields.io/static/v1?label=Efficiency&message=%.1f%%&color=%s", s.Efficiency, color)
+	return fmt.Sprintf("%s?label=Efficiency&message=%.1f%%&color=%s", baseURL, s.Efficiency, color)
 }
 
-func (s *ImageStats) VulnBadge() string {
+func (s *ImageStats) VulnBadge(baseURL string) string {
 	critical := s.VulnSummary["Critical"]
 	high := s.VulnSummary["High"]
 	total := critical + high + s.VulnSummary["Medium"] + s.VulnSummary["Low"]
@@ -80,7 +80,7 @@ func (s *ImageStats) VulnBadge() string {
 	}
 
 	msg := fmt.Sprintf("%d Vulns (%d Crit)", total, critical)
-	return fmt.Sprintf("https://img.shields.io/static/v1?label=Security&message=%s&color=%s", url.QueryEscape(msg), color)
+	return fmt.Sprintf("%s?label=Security&message=%s&color=%s", baseURL, url.QueryEscape(msg), color)
 }
 
 func (s *ImageStats) TotalVulns() int {

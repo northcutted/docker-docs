@@ -4,8 +4,8 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/northcutted/dock-docs/pkg/types"
 	"github.com/northcutted/dock-docs/pkg/parser"
+	"github.com/northcutted/dock-docs/pkg/types"
 )
 
 func TestRender(t *testing.T) {
@@ -54,7 +54,11 @@ func TestRender(t *testing.T) {
 		},
 	}
 
-	output, err = Render(doc, stats, RenderOptions{})
+	opts := RenderOptions{
+		BadgeBaseURL: "https://img.shields.io/static/v1",
+	}
+
+	output, err = Render(doc, stats, opts)
 	if err != nil {
 		t.Fatalf("Render(stats) error = %v", err)
 	}

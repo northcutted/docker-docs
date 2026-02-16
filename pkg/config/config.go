@@ -25,8 +25,9 @@ type Section struct {
 }
 
 type Config struct {
-	Output   string    `yaml:"output"`
-	Sections []Section `yaml:"sections"`
+	Output       string    `yaml:"output"`
+	BadgeBaseURL string    `yaml:"badgeBaseURL,omitempty"`
+	Sections     []Section `yaml:"sections"`
 }
 
 func Load(path string) (*Config, error) {
@@ -43,6 +44,9 @@ func Load(path string) (*Config, error) {
 	// Defaults
 	if cfg.Output == "" {
 		cfg.Output = "README.md"
+	}
+	if cfg.BadgeBaseURL == "" {
+		cfg.BadgeBaseURL = "https://img.shields.io/static/v1"
 	}
 
 	return &cfg, nil
