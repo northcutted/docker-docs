@@ -3,6 +3,7 @@ package analysis
 import (
 	"fmt"
 	"sort"
+	"strings"
 	"sync"
 
 	"golang.org/x/sync/errgroup"
@@ -18,9 +19,7 @@ type Runner interface {
 func AnalyzeMatrix(images []string, runners []Runner, verbose bool) ([]*ImageStats, error) {
 	var g errgroup.Group
 
-	// Create a slice to hold results, mutex for safe append?
-	// Or just assign by index if we want order?
-	// Assigning by index is better for stability.
+	// Create a slice to hold results
 	results := make([]*ImageStats, len(images))
 
 	for i, img := range images {
@@ -28,19 +27,13 @@ func AnalyzeMatrix(images []string, runners []Runner, verbose bool) ([]*ImageSta
 		i, img := i, img
 		g.Go(func() error {
 			// Run analysis for this image
-			// Note: AnalyzeImage uses the runners. Since runners are stateless (mostly), this is fine.
 			stats, err := AnalyzeImage(img, runners, verbose)
 			if err != nil {
-				// If one fails, we probably shouldn't fail the whole batch, just log error?
-				// But errgroup cancels on first error.
-				// Spec says "log warning but do not fail" for individual tools.
-				// For the whole image?
-				// Let's return a partial stat object with error info if possible, or just log and return nil stats.
 				fmt.Printf("Matrix Analysis Failed for %s: %v\n", img, err)
 				if stats != nil {
 					results[i] = stats
 				}
-				return nil // Don't fail the group, partial success allowed in matrix unless strictly enforced elsewhere
+				return nil // Don't fail the group, partial success allowed
 			}
 			results[i] = stats
 			return nil
@@ -107,7 +100,6 @@ func AnalyzeImage(image string, runners []Runner, verbose bool) (*ImageStats, er
 	close(errChan)
 
 	// Collect errors if any (logging or returning partial success?)
-	// Spec implies "log a warning but do not fail".
 	var errs []error
 	for err := range errChan {
 		fmt.Printf("Analysis Warning: %v\n", err)
@@ -132,7 +124,12 @@ func AnalyzeImage(image string, runners []Runner, verbose bool) (*ImageStats, er
 	})
 
 	if len(errs) > 0 {
-		return finalStats, fmt.Errorf("%d runners failed", len(errs))
+		// Build a detailed error message listing failing runners
+		var errMsgs []string
+		for _, e := range errs {
+			errMsgs = append(errMsgs, e.Error())
+		}
+		return finalStats, fmt.Errorf("analysis failed for %d runners: %s", len(errs), strings.Join(errMsgs, "; "))
 	}
 
 	return finalStats, nil
