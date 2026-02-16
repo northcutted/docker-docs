@@ -477,7 +477,9 @@ func TestTempFileCleanup(t *testing.T) {
 	}
 
 	tmpPath := tmpFile.Name()
-	tmpFile.Close()
+	if err := tmpFile.Close(); err != nil {
+		t.Fatalf("failed to close temp file: %v", err)
+	}
 
 	// Verify file exists
 	if _, err := os.Stat(tmpPath); os.IsNotExist(err) {
