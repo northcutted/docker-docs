@@ -166,7 +166,7 @@ const defaultTemplate = `
 
 // Render generates the Markdown table from documentation items.
 func Render(doc *parser.Documentation, stats *analysis.ImageStats, opts RenderOptions) (string, error) {
-	tmpl, err := template.New("docker-docs").Funcs(template.FuncMap{
+	tmpl, err := template.New("dock-docs").Funcs(template.FuncMap{
 		"index": func(m map[string]int, k string) int {
 			if v, ok := m[k]; ok {
 				return v
@@ -264,7 +264,7 @@ const matrixTemplate = `
 
 // RenderMatrix generates the comparison table for multiple images.
 func RenderMatrix(stats []*analysis.ImageStats, opts RenderOptions) (string, error) {
-	tmpl, err := template.New("docker-docs-matrix").Funcs(template.FuncMap{
+	tmpl, err := template.New("dock-docs-matrix").Funcs(template.FuncMap{
 		"index": func(m map[string]int, k string) int {
 			if v, ok := m[k]; ok {
 				return v

@@ -70,7 +70,7 @@ func TestExecute_Injection(t *testing.T) {
 	}
 
 	// README content with markers
-	readmeContent := "# Title\n\n<!-- BEGIN: docker-docs -->\nOLD CONTENT\n<!-- END: docker-docs -->\n\nFooter"
+	readmeContent := "# Title\n\n<!-- BEGIN: dock-docs -->\nOLD CONTENT\n<!-- END: dock-docs -->\n\nFooter"
 	if err := os.WriteFile(readme, []byte(readmeContent), 0644); err != nil {
 		t.Fatalf("failed to write README: %v", err)
 	}
@@ -99,7 +99,7 @@ func TestExecute_Injection(t *testing.T) {
 	if !strings.Contains(sContent, "`FOO`") {
 		t.Error("expected new table content in README")
 	}
-	if !strings.Contains(sContent, "<!-- BEGIN: docker-docs -->") {
+	if !strings.Contains(sContent, "<!-- BEGIN: dock-docs -->") {
 		t.Error("expected markers to be preserved")
 	}
 }
