@@ -22,6 +22,11 @@ builds:
         goarch: arm64
     main: .
     binary: dock-docs
+    ldflags:
+      - -s -w
+      - -X github.com/northcutted/dock-docs/cmd.Version={{.Version}}
+      - -X github.com/northcutted/dock-docs/cmd.Commit={{.Commit}}
+      - -X github.com/northcutted/dock-docs/cmd.Date={{.Date}}
 
 archives:
   - formats: ["tar.gz"]

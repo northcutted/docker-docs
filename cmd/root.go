@@ -320,4 +320,8 @@ func init() {
 	rootCmd.Flags().BoolVar(&ignoreErrors, "ignore-errors", false, "Ignore analysis errors and continue (default false)")
 	rootCmd.Flags().BoolVar(&verbose, "verbose", false, "Enable verbose logging")
 	rootCmd.Flags().StringVar(&badgeBaseURL, "badge-base-url", "https://img.shields.io/static/v1", "Base URL for badge generation (e.g. for self-hosted shields.io)")
+
+	// Add version flag as shortcut for "version" command
+	rootCmd.Version = Version
+	rootCmd.SetVersionTemplate("dock-docs {{.Version}}\n")
 }

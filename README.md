@@ -1,6 +1,15 @@
-# Dock-Docks - A powerful automated documentaion generator for docker images.
+# Dock-Docs - A powerful automated documentation generator for Docker images
+
 <p align="center">
-  <img src="./assets/dock-docs-logo.png" alt="Logo Alt Text" >
+  <img src="./assets/dock-docs-logo.png" alt="Dock-Docs Logo" width="400">
+</p>
+
+<p align="center">
+  <a href="https://github.com/northcutted/dock-docs/actions/workflows/test.yml"><img src="https://github.com/northcutted/dock-docs/actions/workflows/test.yml/badge.svg" alt="Tests"></a>
+  <a href="https://github.com/northcutted/dock-docs/releases/latest"><img src="https://img.shields.io/github/v/release/northcutted/dock-docs?sort=semver" alt="Latest Release"></a>
+  <a href="https://github.com/northcutted/dock-docs/blob/main/LICENSE"><img src="https://img.shields.io/github/license/northcutted/dock-docs" alt="License"></a>
+  <a href="https://goreportcard.com/report/github.com/northcutted/dock-docs"><img src="https://goreportcard.com/badge/github.com/northcutted/dock-docs" alt="Go Report Card"></a>
+  <a href="https://github.com/northcutted/dock-docs/stargazers"><img src="https://img.shields.io/github/stars/northcutted/dock-docs?style=social" alt="GitHub Stars"></a>
 </p>
 
 A powerful CLI tool that automatically generates comprehensive Markdown documentation from your Dockerfiles. It goes beyond static analysis by building your image and running deep inspections using industry-standard tools like `syft`, `grype`, and `dive`.
