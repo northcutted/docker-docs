@@ -23,6 +23,8 @@
 **Efficiency Score:** 99.4%
 
 ### Vulnerabilities
+**Last scanned:** 2026-02-17T03:19:46Z
+
 | Critical | High | Medium | Low |
 |:---:|:---:|:---:|:---:|
 | 🛑 6 | 🟠 66 | 🟡 161 | 🔵 57 |
@@ -1660,6 +1662,8 @@
 **Efficiency Score:** 100.0%
 
 ### Vulnerabilities
+**Last scanned:** 2026-02-17T03:20:10Z
+
 | Critical | High | Medium | Low |
 |:---:|:---:|:---:|:---:|
 | 🟢 0 | 🟠 10 | 🟡 3 | 🔵 1 |
@@ -1919,6 +1923,8 @@
 **Efficiency Score:** 100.0%
 
 ### Vulnerabilities
+**Last scanned:** 2026-02-17T03:20:10Z
+
 | Critical | High | Medium | Low |
 |:---:|:---:|:---:|:---:|
 | 🟢 0 | 🟠 2 | 🟡 3 | 🟢 0 |
