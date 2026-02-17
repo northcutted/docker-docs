@@ -7,6 +7,7 @@ import (
 	"os/exec"
 	"sort"
 	"strings"
+	"time"
 
 	"github.com/northcutted/dock-docs/pkg/types"
 )
@@ -323,6 +324,9 @@ func (r *GrypeRunner) Run(image string, verbose bool) (*types.ImageStats, error)
 	}
 
 	var grypeOutput struct {
+		Descriptor struct {
+			Timestamp string `json:"timestamp"`
+		} `json:"descriptor"`
 		Matches []struct {
 			Vulnerability struct {
 				ID       string `json:"id"`
@@ -339,9 +343,20 @@ func (r *GrypeRunner) Run(image string, verbose bool) (*types.ImageStats, error)
 		return nil, fmt.Errorf("failed to unmarshal grype output: %w", err)
 	}
 
+	// Parse timestamp from Grype output
+	scanTime := time.Now() // Default to now
+	if grypeOutput.Descriptor.Timestamp != "" {
+		if parsedTime, err := time.Parse(time.RFC3339, grypeOutput.Descriptor.Timestamp); err == nil {
+			scanTime = parsedTime
+		} else if verbose {
+			fmt.Fprintf(os.Stderr, "[DEBUG] Failed to parse grype timestamp: %v\n", err)
+		}
+	}
+
 	stats := &types.ImageStats{
 		VulnSummary:     make(map[string]int),
 		Vulnerabilities: make([]types.Vulnerability, 0),
+		VulnScanTime:    scanTime,
 	}
 
 	for _, match := range grypeOutput.Matches {

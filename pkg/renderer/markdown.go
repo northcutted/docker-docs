@@ -139,6 +139,10 @@ const defaultTemplate = `
 **Efficiency Score:** {{ printf "%.1f" .Stats.Efficiency }}%
 
 ### Vulnerabilities
+{{- if not .Stats.VulnScanTime.IsZero }}
+**Last scanned:** {{ .Stats.VulnScanTime.Format "2006-01-02T15:04:05Z07:00" }}
+{{- end }}
+
 | Critical | High | Medium | Low |
 |:---:|:---:|:---:|:---:|
 | {{ if gt (index .Stats.VulnSummary "Critical") 0 }}{{ .Emoji "critical" }} {{ else }}{{ .Emoji "clean" }} {{ end }}{{ index .Stats.VulnSummary "Critical" }} | {{ if gt (index .Stats.VulnSummary "High") 0 }}{{ .Emoji "high" }} {{ else }}{{ .Emoji "clean" }} {{ end }}{{ index .Stats.VulnSummary "High" }} | {{ if gt (index .Stats.VulnSummary "Medium") 0 }}{{ .Emoji "medium" }} {{ else }}{{ .Emoji "clean" }} {{ end }}{{ index .Stats.VulnSummary "Medium" }} | {{ if gt (index .Stats.VulnSummary "Low") 0 }}{{ .Emoji "low" }} {{ else }}{{ .Emoji "clean" }} {{ end }}{{ index .Stats.VulnSummary "Low" }} |
@@ -235,6 +239,10 @@ const matrixTemplate = `
 **Efficiency Score:** {{ printf "%.1f" .Efficiency }}%
 
 ### Vulnerabilities
+{{- if not .VulnScanTime.IsZero }}
+**Last scanned:** {{ .VulnScanTime.Format "2006-01-02T15:04:05Z07:00" }}
+{{- end }}
+
 | Critical | High | Medium | Low |
 |:---:|:---:|:---:|:---:|
 | {{ if gt (index .VulnSummary "Critical") 0 }}{{ $.Emoji "critical" }} {{ else }}{{ $.Emoji "clean" }} {{ end }}{{ index .VulnSummary "Critical" }} | {{ if gt (index .VulnSummary "High") 0 }}{{ $.Emoji "high" }} {{ else }}{{ $.Emoji "clean" }} {{ end }}{{ index .VulnSummary "High" }} | {{ if gt (index .VulnSummary "Medium") 0 }}{{ $.Emoji "medium" }} {{ else }}{{ $.Emoji "clean" }} {{ end }}{{ index .VulnSummary "Medium" }} | {{ if gt (index .VulnSummary "Low") 0 }}{{ $.Emoji "low" }} {{ else }}{{ $.Emoji "clean" }} {{ end }}{{ index .VulnSummary "Low" }} |

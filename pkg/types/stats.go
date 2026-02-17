@@ -3,6 +3,7 @@ package types
 import (
 	"fmt"
 	"net/url"
+	"time"
 )
 
 // PackageSummary represents a simplified view of a package
@@ -34,6 +35,7 @@ type ImageStats struct {
 	Packages               []PackageSummary // from Syft (Key Frameworks only)
 	Vulnerabilities        []Vulnerability  // from Grype (Sorted by severity)
 	VulnSummary            map[string]int   // from Grype (Severity -> Count)
+	VulnScanTime           time.Time        // from Grype (When vulnerability scan was performed)
 }
 
 // Badge Helpers

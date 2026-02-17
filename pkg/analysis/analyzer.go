@@ -187,4 +187,7 @@ func mergeStats(dest, src *types.ImageStats) {
 			dest.VulnSummary[k] += v
 		}
 	}
+	if !src.VulnScanTime.IsZero() {
+		dest.VulnScanTime = src.VulnScanTime
+	}
 }

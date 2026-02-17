@@ -259,6 +259,9 @@ func TestGrypeRunner_Name(t *testing.T) {
 
 func TestGrypeRunner_ParseOutput(t *testing.T) {
 	grypeJSON := `{
+		"descriptor": {
+			"timestamp": "2024-02-15T14:30:00Z"
+		},
 		"matches": [
 			{
 				"vulnerability": {"id": "CVE-2023-0001", "severity": "Critical"},
@@ -280,6 +283,9 @@ func TestGrypeRunner_ParseOutput(t *testing.T) {
 	}`
 
 	var grypeOutput struct {
+		Descriptor struct {
+			Timestamp string `json:"timestamp"`
+		} `json:"descriptor"`
 		Matches []struct {
 			Vulnerability struct {
 				ID       string `json:"id"`
@@ -299,6 +305,11 @@ func TestGrypeRunner_ParseOutput(t *testing.T) {
 
 	if len(grypeOutput.Matches) != 4 {
 		t.Errorf("expected 4 matches, got %d", len(grypeOutput.Matches))
+	}
+
+	// Test timestamp parsing
+	if grypeOutput.Descriptor.Timestamp != "2024-02-15T14:30:00Z" {
+		t.Errorf("expected timestamp to be parsed, got %s", grypeOutput.Descriptor.Timestamp)
 	}
 
 	// Test severity counting

@@ -3,6 +3,7 @@ package renderer
 import (
 	"strings"
 	"testing"
+	"time"
 
 	"github.com/northcutted/dock-docs/pkg/parser"
 	"github.com/northcutted/dock-docs/pkg/types"
@@ -35,6 +36,7 @@ func TestRender(t *testing.T) {
 	}
 
 	// Test Case 2: With Stats
+	scanTime, _ := time.Parse(time.RFC3339, "2024-02-15T14:30:00Z")
 	stats := &types.ImageStats{
 		ImageTag:     "test:latest",
 		SizeMB:       "50 MB",
@@ -44,6 +46,7 @@ func TestRender(t *testing.T) {
 		WastedBytes:  "2 MB",
 		TotalLayers:  10,
 		VulnSummary:  map[string]int{"Critical": 1, "High": 2},
+		VulnScanTime: scanTime,
 		Vulnerabilities: []types.Vulnerability{
 			{ID: "CVE-2023-1234", Severity: "Critical", Package: "openssl", Version: "1.1.1"},
 			{ID: "CVE-2023-5678", Severity: "High", Package: "curl", Version: "7.68"},
