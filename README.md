@@ -255,6 +255,20 @@ Check out the sample projects to see `dock-docs` in action:
 
 ![dock-docs demo](./assets/dock-docs-demo.gif)
 
+*See dock-docs in action - analyzing a Dockerfile and generating comprehensive documentation automatically.*
+
+### What You Get
+
+Simply run `dock-docs -f Dockerfile` and get:
+
+- ✅ **Automated tables** for environment variables, ports, and arguments
+- ✅ **Professional formatting** with clear sections and emojis
+- ✅ **Zero configuration** for basic usage
+- ✅ **Multi-stage build detection** (automatic)
+- ✅ **Markdown output** ready for your README
+
+**No more manually maintaining documentation tables!** dock-docs keeps your docs in sync with your Dockerfile automatically.
+
 ## Credits
 
 This tool relies on the following amazing open-source projects for deep analysis:
