@@ -11,7 +11,7 @@ Each template is shown for both **image** (single image analysis) and **comparis
 <!-- BEGIN: dock-docs:default-image -->
 
 # 🐳 Docker Image Analysis: python:3.14-slim
-![Size](https://img.shields.io/static/v1?label=Size&message=41.32+MB&color=blue) ![Layers](https://img.shields.io/static/v1?label=Layers&message=4&color=blue) ![Vulns](https://img.shields.io/static/v1?label=Security&message=31+Vulns+%280+Crit%29&color=orange) ![Efficiency](https://img.shields.io/static/v1?label=Efficiency&message=96.7%&color=green)
+![Size](https://img.shields.io/static/v1?label=Size&message=41.32+MB&color=blue) ![Layers](https://img.shields.io/static/v1?label=Layers&message=4&color=blue) ![Vulns](https://img.shields.io/static/v1?label=Security&message=71+Vulns+%280+Crit%29&color=orange) ![Efficiency](https://img.shields.io/static/v1?label=Efficiency&message=96.7%&color=green)
 
 ## ⚙️ Configuration
 ### Environment Variables
@@ -31,7 +31,7 @@ Each template is shown for both **image** (single image analysis) and **comparis
 **Efficiency Score:** 96.7%
 
 ### Vulnerabilities
-**Last scanned:** 2026-02-18T05:35:23Z
+**Last scanned:** 2026-02-18T21:46:14Z
 
 | Critical | High | Medium | Low |
 |:---:|:---:|:---:|:---:|
@@ -44,28 +44,28 @@ Each template is shown for both **image** (single image analysis) and **comparis
 |----|----------|---------|---------|
 | [CVE-2025-15281](https://nvd.nist.gov/vuln/detail/CVE-2025-15281) | High | `libc-bin` | `2.41-12+deb13u1` |
 | [CVE-2025-15281](https://nvd.nist.gov/vuln/detail/CVE-2025-15281) | High | `libc6` | `2.41-12+deb13u1` |
-| [CVE-2026-0861](https://nvd.nist.gov/vuln/detail/CVE-2026-0861) | High | `libc6` | `2.41-12+deb13u1` |
 | [CVE-2026-0861](https://nvd.nist.gov/vuln/detail/CVE-2026-0861) | High | `libc-bin` | `2.41-12+deb13u1` |
+| [CVE-2026-0861](https://nvd.nist.gov/vuln/detail/CVE-2026-0861) | High | `libc6` | `2.41-12+deb13u1` |
 | [CVE-2026-0915](https://nvd.nist.gov/vuln/detail/CVE-2026-0915) | High | `libc6` | `2.41-12+deb13u1` |
 | [CVE-2026-0915](https://nvd.nist.gov/vuln/detail/CVE-2026-0915) | High | `libc-bin` | `2.41-12+deb13u1` |
 | [CVE-2025-11468](https://nvd.nist.gov/vuln/detail/CVE-2025-11468) | Medium | `python` | `3.14.3` |
 | [CVE-2025-12781](https://nvd.nist.gov/vuln/detail/CVE-2025-12781) | Medium | `python` | `3.14.3` |
-| [CVE-2025-14104](https://nvd.nist.gov/vuln/detail/CVE-2025-14104) | Medium | `libblkid1` | `2.41-5` |
-| [CVE-2025-14104](https://nvd.nist.gov/vuln/detail/CVE-2025-14104) | Medium | `libmount1` | `2.41-5` |
+| [CVE-2025-14104](https://nvd.nist.gov/vuln/detail/CVE-2025-14104) | Medium | `libuuid1` | `2.41-5` |
 | [CVE-2025-14104](https://nvd.nist.gov/vuln/detail/CVE-2025-14104) | Medium | `bsdutils` | `1:2.41-5` |
-| [CVE-2025-14104](https://nvd.nist.gov/vuln/detail/CVE-2025-14104) | Medium | `liblastlog2-2` | `2.41-5` |
+| [CVE-2025-14104](https://nvd.nist.gov/vuln/detail/CVE-2025-14104) | Medium | `libblkid1` | `2.41-5` |
 | [CVE-2025-14104](https://nvd.nist.gov/vuln/detail/CVE-2025-14104) | Medium | `util-linux` | `2.41-5` |
 | [CVE-2025-14104](https://nvd.nist.gov/vuln/detail/CVE-2025-14104) | Medium | `mount` | `2.41-5` |
 | [CVE-2025-14104](https://nvd.nist.gov/vuln/detail/CVE-2025-14104) | Medium | `login` | `1:4.16.0-2+really2.41-5` |
-| [CVE-2025-14104](https://nvd.nist.gov/vuln/detail/CVE-2025-14104) | Medium | `libuuid1` | `2.41-5` |
+| [CVE-2025-14104](https://nvd.nist.gov/vuln/detail/CVE-2025-14104) | Medium | `liblastlog2-2` | `2.41-5` |
+| [CVE-2025-14104](https://nvd.nist.gov/vuln/detail/CVE-2025-14104) | Medium | `libmount1` | `2.41-5` |
 | [CVE-2025-14104](https://nvd.nist.gov/vuln/detail/CVE-2025-14104) | Medium | `libsmartcols1` | `2.41-5` |
 | [CVE-2025-15282](https://nvd.nist.gov/vuln/detail/CVE-2025-15282) | Medium | `python` | `3.14.3` |
 | [CVE-2025-15366](https://nvd.nist.gov/vuln/detail/CVE-2025-15366) | Medium | `python` | `3.14.3` |
 | [CVE-2025-15367](https://nvd.nist.gov/vuln/detail/CVE-2025-15367) | Medium | `python` | `3.14.3` |
 | [CVE-2025-6141](https://nvd.nist.gov/vuln/detail/CVE-2025-6141) | Medium | `libncursesw6` | `6.5+20250216-2` |
-| [CVE-2025-6141](https://nvd.nist.gov/vuln/detail/CVE-2025-6141) | Medium | `libtinfo6` | `6.5+20250216-2` |
 | [CVE-2025-6141](https://nvd.nist.gov/vuln/detail/CVE-2025-6141) | Medium | `ncurses-base` | `6.5+20250216-2` |
 | [CVE-2025-6141](https://nvd.nist.gov/vuln/detail/CVE-2025-6141) | Medium | `ncurses-bin` | `6.5+20250216-2` |
+| [CVE-2025-6141](https://nvd.nist.gov/vuln/detail/CVE-2025-6141) | Medium | `libtinfo6` | `6.5+20250216-2` |
 | [CVE-2025-7709](https://nvd.nist.gov/vuln/detail/CVE-2025-7709) | Medium | `libsqlite3-0` | `3.46.1-7` |
 | [CVE-2026-0672](https://nvd.nist.gov/vuln/detail/CVE-2026-0672) | Medium | `python` | `3.14.3` |
 | [CVE-2026-0865](https://nvd.nist.gov/vuln/detail/CVE-2026-0865) | Medium | `python` | `3.14.3` |
@@ -74,8 +74,8 @@ Each template is shown for both **image** (single image analysis) and **comparis
 | [CVE-2024-56433](https://nvd.nist.gov/vuln/detail/CVE-2024-56433) | Low | `passwd` | `1:4.17.4-2` |
 | [GHSA-6vgw-5pg2-w6jp](https://nvd.nist.gov/vuln/detail/GHSA-6vgw-5pg2-w6jp) | Low | `pip` | `25.3` |
 | [CVE-2005-2541](https://nvd.nist.gov/vuln/detail/CVE-2005-2541) | Negligible | `tar` | `1.35+dfsg-3.1` |
-| [CVE-2007-5686](https://nvd.nist.gov/vuln/detail/CVE-2007-5686) | Negligible | `passwd` | `1:4.17.4-2` |
 | [CVE-2007-5686](https://nvd.nist.gov/vuln/detail/CVE-2007-5686) | Negligible | `login.defs` | `1:4.17.4-2` |
+| [CVE-2007-5686](https://nvd.nist.gov/vuln/detail/CVE-2007-5686) | Negligible | `passwd` | `1:4.17.4-2` |
 | [CVE-2010-4756](https://nvd.nist.gov/vuln/detail/CVE-2010-4756) | Negligible | `libc6` | `2.41-12+deb13u1` |
 | [CVE-2010-4756](https://nvd.nist.gov/vuln/detail/CVE-2010-4756) | Negligible | `libc-bin` | `2.41-12+deb13u1` |
 | [CVE-2011-3374](https://nvd.nist.gov/vuln/detail/CVE-2011-3374) | Negligible | `apt` | `3.0.3` |
@@ -88,8 +88,8 @@ Each template is shown for both **image** (single image analysis) and **comparis
 | [CVE-2018-20796](https://nvd.nist.gov/vuln/detail/CVE-2018-20796) | Negligible | `libc6` | `2.41-12+deb13u1` |
 | [CVE-2019-1010022](https://nvd.nist.gov/vuln/detail/CVE-2019-1010022) | Negligible | `libc-bin` | `2.41-12+deb13u1` |
 | [CVE-2019-1010022](https://nvd.nist.gov/vuln/detail/CVE-2019-1010022) | Negligible | `libc6` | `2.41-12+deb13u1` |
-| [CVE-2019-1010023](https://nvd.nist.gov/vuln/detail/CVE-2019-1010023) | Negligible | `libc-bin` | `2.41-12+deb13u1` |
 | [CVE-2019-1010023](https://nvd.nist.gov/vuln/detail/CVE-2019-1010023) | Negligible | `libc6` | `2.41-12+deb13u1` |
+| [CVE-2019-1010023](https://nvd.nist.gov/vuln/detail/CVE-2019-1010023) | Negligible | `libc-bin` | `2.41-12+deb13u1` |
 | [CVE-2019-1010024](https://nvd.nist.gov/vuln/detail/CVE-2019-1010024) | Negligible | `libc-bin` | `2.41-12+deb13u1` |
 | [CVE-2019-1010024](https://nvd.nist.gov/vuln/detail/CVE-2019-1010024) | Negligible | `libc6` | `2.41-12+deb13u1` |
 | [CVE-2019-1010025](https://nvd.nist.gov/vuln/detail/CVE-2019-1010025) | Negligible | `libc6` | `2.41-12+deb13u1` |
@@ -97,19 +97,19 @@ Each template is shown for both **image** (single image analysis) and **comparis
 | [CVE-2019-9192](https://nvd.nist.gov/vuln/detail/CVE-2019-9192) | Negligible | `libc-bin` | `2.41-12+deb13u1` |
 | [CVE-2019-9192](https://nvd.nist.gov/vuln/detail/CVE-2019-9192) | Negligible | `libc6` | `2.41-12+deb13u1` |
 | [CVE-2021-45346](https://nvd.nist.gov/vuln/detail/CVE-2021-45346) | Negligible | `libsqlite3-0` | `3.46.1-7` |
-| [CVE-2022-0563](https://nvd.nist.gov/vuln/detail/CVE-2022-0563) | Negligible | `mount` | `2.41-5` |
 | [CVE-2022-0563](https://nvd.nist.gov/vuln/detail/CVE-2022-0563) | Negligible | `util-linux` | `2.41-5` |
 | [CVE-2022-0563](https://nvd.nist.gov/vuln/detail/CVE-2022-0563) | Negligible | `login` | `1:4.16.0-2+really2.41-5` |
-| [CVE-2022-0563](https://nvd.nist.gov/vuln/detail/CVE-2022-0563) | Negligible | `libsmartcols1` | `2.41-5` |
-| [CVE-2022-0563](https://nvd.nist.gov/vuln/detail/CVE-2022-0563) | Negligible | `libuuid1` | `2.41-5` |
+| [CVE-2022-0563](https://nvd.nist.gov/vuln/detail/CVE-2022-0563) | Negligible | `mount` | `2.41-5` |
 | [CVE-2022-0563](https://nvd.nist.gov/vuln/detail/CVE-2022-0563) | Negligible | `bsdutils` | `1:2.41-5` |
 | [CVE-2022-0563](https://nvd.nist.gov/vuln/detail/CVE-2022-0563) | Negligible | `libblkid1` | `2.41-5` |
 | [CVE-2022-0563](https://nvd.nist.gov/vuln/detail/CVE-2022-0563) | Negligible | `liblastlog2-2` | `2.41-5` |
 | [CVE-2022-0563](https://nvd.nist.gov/vuln/detail/CVE-2022-0563) | Negligible | `libmount1` | `2.41-5` |
+| [CVE-2022-0563](https://nvd.nist.gov/vuln/detail/CVE-2022-0563) | Negligible | `libsmartcols1` | `2.41-5` |
+| [CVE-2022-0563](https://nvd.nist.gov/vuln/detail/CVE-2022-0563) | Negligible | `libuuid1` | `2.41-5` |
 | [CVE-2023-31437](https://nvd.nist.gov/vuln/detail/CVE-2023-31437) | Negligible | `libsystemd0` | `257.9-1~deb13u1` |
 | [CVE-2023-31437](https://nvd.nist.gov/vuln/detail/CVE-2023-31437) | Negligible | `libudev1` | `257.9-1~deb13u1` |
-| [CVE-2023-31438](https://nvd.nist.gov/vuln/detail/CVE-2023-31438) | Negligible | `libudev1` | `257.9-1~deb13u1` |
 | [CVE-2023-31438](https://nvd.nist.gov/vuln/detail/CVE-2023-31438) | Negligible | `libsystemd0` | `257.9-1~deb13u1` |
+| [CVE-2023-31438](https://nvd.nist.gov/vuln/detail/CVE-2023-31438) | Negligible | `libudev1` | `257.9-1~deb13u1` |
 | [CVE-2023-31439](https://nvd.nist.gov/vuln/detail/CVE-2023-31439) | Negligible | `libudev1` | `257.9-1~deb13u1` |
 | [CVE-2023-31439](https://nvd.nist.gov/vuln/detail/CVE-2023-31439) | Negligible | `libsystemd0` | `257.9-1~deb13u1` |
 | [CVE-2025-5278](https://nvd.nist.gov/vuln/detail/CVE-2025-5278) | Negligible | `coreutils` | `9.7-3` |
@@ -221,9 +221,9 @@ Each template is shown for both **image** (single image analysis) and **comparis
 
 | Tag | Size | Vulns | Efficiency | Architectures |
 |-----|------|-------|------------|---------------|
-| `python:3.12-slim` | ![Size](https://img.shields.io/static/v1?label=Size&message=41.20+MB&color=blue) | ![Vulns](https://img.shields.io/static/v1?label=Security&message=36+Vulns+%280+Crit%29&color=orange) | 96.7% | `linux/386, linux/amd64, linux/arm, linux/arm64, linux/ppc64le, linux/riscv64, linux/s390x, unknown/unknown` |
-| `python:3.13-slim` | ![Size](https://img.shields.io/static/v1?label=Size&message=40.90+MB&color=blue) | ![Vulns](https://img.shields.io/static/v1?label=Security&message=31+Vulns+%280+Crit%29&color=orange) | 96.7% | `linux/386, linux/amd64, linux/arm, linux/arm64, linux/ppc64le, linux/riscv64, linux/s390x, unknown/unknown` |
-| `python:3.14-slim` | ![Size](https://img.shields.io/static/v1?label=Size&message=41.32+MB&color=blue) | ![Vulns](https://img.shields.io/static/v1?label=Security&message=31+Vulns+%280+Crit%29&color=orange) | 96.7% | `linux/386, linux/amd64, linux/arm, linux/arm64, linux/ppc64le, linux/riscv64, linux/s390x, unknown/unknown` |
+| `python:3.12-slim` | ![Size](https://img.shields.io/static/v1?label=Size&message=41.20+MB&color=blue) | ![Vulns](https://img.shields.io/static/v1?label=Security&message=76+Vulns+%280+Crit%29&color=orange) | 96.7% | `linux/amd64` |
+| `python:3.13-slim` | ![Size](https://img.shields.io/static/v1?label=Size&message=40.90+MB&color=blue) | ![Vulns](https://img.shields.io/static/v1?label=Security&message=71+Vulns+%280+Crit%29&color=orange) | 96.7% | `linux/386, linux/amd64, linux/arm, linux/arm64, linux/ppc64le, linux/riscv64, linux/s390x, unknown/unknown` |
+| `python:3.14-slim` | ![Size](https://img.shields.io/static/v1?label=Size&message=41.32+MB&color=blue) | ![Vulns](https://img.shields.io/static/v1?label=Security&message=71+Vulns+%280+Crit%29&color=orange) | 96.7% | `linux/386, linux/amd64, linux/arm, linux/arm64, linux/ppc64le, linux/riscv64, linux/s390x, unknown/unknown` |
 
 <details>
 <summary><strong>🔍 Full Report: python:3.12-slim</strong></summary>
@@ -231,11 +231,10 @@ Each template is shown for both **image** (single image analysis) and **comparis
 ## 🛡️ Security & Efficiency
 
 **Base Image:** `Debian GNU/Linux 13 (trixie) (linux/amd64)`
-**Supported Architectures:** `linux/386, linux/amd64, linux/arm, linux/arm64, linux/ppc64le, linux/riscv64, linux/s390x, unknown/unknown`
 **Efficiency Score:** 96.7%
 
 ### Vulnerabilities
-**Last scanned:** 2026-02-18T05:35:58Z
+**Last scanned:** 2026-02-18T21:46:58Z
 
 | Critical | High | Medium | Low |
 |:---:|:---:|:---:|:---:|
@@ -257,23 +256,23 @@ Each template is shown for both **image** (single image analysis) and **comparis
 | [CVE-2025-12084](https://nvd.nist.gov/vuln/detail/CVE-2025-12084) | Medium | `python` | `3.12.12` |
 | [CVE-2025-12781](https://nvd.nist.gov/vuln/detail/CVE-2025-12781) | Medium | `python` | `3.12.12` |
 | [CVE-2025-13837](https://nvd.nist.gov/vuln/detail/CVE-2025-13837) | Medium | `python` | `3.12.12` |
-| [CVE-2025-14104](https://nvd.nist.gov/vuln/detail/CVE-2025-14104) | Medium | `libblkid1` | `2.41-5` |
-| [CVE-2025-14104](https://nvd.nist.gov/vuln/detail/CVE-2025-14104) | Medium | `libsmartcols1` | `2.41-5` |
+| [CVE-2025-14104](https://nvd.nist.gov/vuln/detail/CVE-2025-14104) | Medium | `libmount1` | `2.41-5` |
 | [CVE-2025-14104](https://nvd.nist.gov/vuln/detail/CVE-2025-14104) | Medium | `bsdutils` | `1:2.41-5` |
+| [CVE-2025-14104](https://nvd.nist.gov/vuln/detail/CVE-2025-14104) | Medium | `util-linux` | `2.41-5` |
+| [CVE-2025-14104](https://nvd.nist.gov/vuln/detail/CVE-2025-14104) | Medium | `mount` | `2.41-5` |
+| [CVE-2025-14104](https://nvd.nist.gov/vuln/detail/CVE-2025-14104) | Medium | `login` | `1:4.16.0-2+really2.41-5` |
+| [CVE-2025-14104](https://nvd.nist.gov/vuln/detail/CVE-2025-14104) | Medium | `libblkid1` | `2.41-5` |
 | [CVE-2025-14104](https://nvd.nist.gov/vuln/detail/CVE-2025-14104) | Medium | `liblastlog2-2` | `2.41-5` |
 | [CVE-2025-14104](https://nvd.nist.gov/vuln/detail/CVE-2025-14104) | Medium | `libuuid1` | `2.41-5` |
-| [CVE-2025-14104](https://nvd.nist.gov/vuln/detail/CVE-2025-14104) | Medium | `login` | `1:4.16.0-2+really2.41-5` |
-| [CVE-2025-14104](https://nvd.nist.gov/vuln/detail/CVE-2025-14104) | Medium | `mount` | `2.41-5` |
-| [CVE-2025-14104](https://nvd.nist.gov/vuln/detail/CVE-2025-14104) | Medium | `libmount1` | `2.41-5` |
-| [CVE-2025-14104](https://nvd.nist.gov/vuln/detail/CVE-2025-14104) | Medium | `util-linux` | `2.41-5` |
+| [CVE-2025-14104](https://nvd.nist.gov/vuln/detail/CVE-2025-14104) | Medium | `libsmartcols1` | `2.41-5` |
 | [CVE-2025-15282](https://nvd.nist.gov/vuln/detail/CVE-2025-15282) | Medium | `python` | `3.12.12` |
 | [CVE-2025-15366](https://nvd.nist.gov/vuln/detail/CVE-2025-15366) | Medium | `python` | `3.12.12` |
 | [CVE-2025-15367](https://nvd.nist.gov/vuln/detail/CVE-2025-15367) | Medium | `python` | `3.12.12` |
 | [CVE-2025-6075](https://nvd.nist.gov/vuln/detail/CVE-2025-6075) | Medium | `python` | `3.12.12` |
-| [CVE-2025-6141](https://nvd.nist.gov/vuln/detail/CVE-2025-6141) | Medium | `libncursesw6` | `6.5+20250216-2` |
-| [CVE-2025-6141](https://nvd.nist.gov/vuln/detail/CVE-2025-6141) | Medium | `libtinfo6` | `6.5+20250216-2` |
 | [CVE-2025-6141](https://nvd.nist.gov/vuln/detail/CVE-2025-6141) | Medium | `ncurses-base` | `6.5+20250216-2` |
 | [CVE-2025-6141](https://nvd.nist.gov/vuln/detail/CVE-2025-6141) | Medium | `ncurses-bin` | `6.5+20250216-2` |
+| [CVE-2025-6141](https://nvd.nist.gov/vuln/detail/CVE-2025-6141) | Medium | `libtinfo6` | `6.5+20250216-2` |
+| [CVE-2025-6141](https://nvd.nist.gov/vuln/detail/CVE-2025-6141) | Medium | `libncursesw6` | `6.5+20250216-2` |
 | [CVE-2025-7709](https://nvd.nist.gov/vuln/detail/CVE-2025-7709) | Medium | `libsqlite3-0` | `3.46.1-7` |
 | [CVE-2026-0672](https://nvd.nist.gov/vuln/detail/CVE-2026-0672) | Medium | `python` | `3.12.12` |
 | [CVE-2026-0865](https://nvd.nist.gov/vuln/detail/CVE-2026-0865) | Medium | `python` | `3.12.12` |
@@ -293,34 +292,34 @@ Each template is shown for both **image** (single image analysis) and **comparis
 | [CVE-2013-4392](https://nvd.nist.gov/vuln/detail/CVE-2013-4392) | Negligible | `libsystemd0` | `257.9-1~deb13u1` |
 | [CVE-2013-4392](https://nvd.nist.gov/vuln/detail/CVE-2013-4392) | Negligible | `libudev1` | `257.9-1~deb13u1` |
 | [CVE-2017-18018](https://nvd.nist.gov/vuln/detail/CVE-2017-18018) | Negligible | `coreutils` | `9.7-3` |
-| [CVE-2018-20796](https://nvd.nist.gov/vuln/detail/CVE-2018-20796) | Negligible | `libc6` | `2.41-12+deb13u1` |
 | [CVE-2018-20796](https://nvd.nist.gov/vuln/detail/CVE-2018-20796) | Negligible | `libc-bin` | `2.41-12+deb13u1` |
-| [CVE-2019-1010022](https://nvd.nist.gov/vuln/detail/CVE-2019-1010022) | Negligible | `libc6` | `2.41-12+deb13u1` |
+| [CVE-2018-20796](https://nvd.nist.gov/vuln/detail/CVE-2018-20796) | Negligible | `libc6` | `2.41-12+deb13u1` |
 | [CVE-2019-1010022](https://nvd.nist.gov/vuln/detail/CVE-2019-1010022) | Negligible | `libc-bin` | `2.41-12+deb13u1` |
-| [CVE-2019-1010023](https://nvd.nist.gov/vuln/detail/CVE-2019-1010023) | Negligible | `libc6` | `2.41-12+deb13u1` |
+| [CVE-2019-1010022](https://nvd.nist.gov/vuln/detail/CVE-2019-1010022) | Negligible | `libc6` | `2.41-12+deb13u1` |
 | [CVE-2019-1010023](https://nvd.nist.gov/vuln/detail/CVE-2019-1010023) | Negligible | `libc-bin` | `2.41-12+deb13u1` |
+| [CVE-2019-1010023](https://nvd.nist.gov/vuln/detail/CVE-2019-1010023) | Negligible | `libc6` | `2.41-12+deb13u1` |
 | [CVE-2019-1010024](https://nvd.nist.gov/vuln/detail/CVE-2019-1010024) | Negligible | `libc-bin` | `2.41-12+deb13u1` |
 | [CVE-2019-1010024](https://nvd.nist.gov/vuln/detail/CVE-2019-1010024) | Negligible | `libc6` | `2.41-12+deb13u1` |
 | [CVE-2019-1010025](https://nvd.nist.gov/vuln/detail/CVE-2019-1010025) | Negligible | `libc6` | `2.41-12+deb13u1` |
 | [CVE-2019-1010025](https://nvd.nist.gov/vuln/detail/CVE-2019-1010025) | Negligible | `libc-bin` | `2.41-12+deb13u1` |
-| [CVE-2019-9192](https://nvd.nist.gov/vuln/detail/CVE-2019-9192) | Negligible | `libc6` | `2.41-12+deb13u1` |
 | [CVE-2019-9192](https://nvd.nist.gov/vuln/detail/CVE-2019-9192) | Negligible | `libc-bin` | `2.41-12+deb13u1` |
+| [CVE-2019-9192](https://nvd.nist.gov/vuln/detail/CVE-2019-9192) | Negligible | `libc6` | `2.41-12+deb13u1` |
 | [CVE-2021-45346](https://nvd.nist.gov/vuln/detail/CVE-2021-45346) | Negligible | `libsqlite3-0` | `3.46.1-7` |
-| [CVE-2022-0563](https://nvd.nist.gov/vuln/detail/CVE-2022-0563) | Negligible | `bsdutils` | `1:2.41-5` |
-| [CVE-2022-0563](https://nvd.nist.gov/vuln/detail/CVE-2022-0563) | Negligible | `liblastlog2-2` | `2.41-5` |
 | [CVE-2022-0563](https://nvd.nist.gov/vuln/detail/CVE-2022-0563) | Negligible | `util-linux` | `2.41-5` |
-| [CVE-2022-0563](https://nvd.nist.gov/vuln/detail/CVE-2022-0563) | Negligible | `mount` | `2.41-5` |
 | [CVE-2022-0563](https://nvd.nist.gov/vuln/detail/CVE-2022-0563) | Negligible | `login` | `1:4.16.0-2+really2.41-5` |
-| [CVE-2022-0563](https://nvd.nist.gov/vuln/detail/CVE-2022-0563) | Negligible | `libuuid1` | `2.41-5` |
-| [CVE-2022-0563](https://nvd.nist.gov/vuln/detail/CVE-2022-0563) | Negligible | `libsmartcols1` | `2.41-5` |
-| [CVE-2022-0563](https://nvd.nist.gov/vuln/detail/CVE-2022-0563) | Negligible | `libmount1` | `2.41-5` |
+| [CVE-2022-0563](https://nvd.nist.gov/vuln/detail/CVE-2022-0563) | Negligible | `mount` | `2.41-5` |
+| [CVE-2022-0563](https://nvd.nist.gov/vuln/detail/CVE-2022-0563) | Negligible | `bsdutils` | `1:2.41-5` |
 | [CVE-2022-0563](https://nvd.nist.gov/vuln/detail/CVE-2022-0563) | Negligible | `libblkid1` | `2.41-5` |
+| [CVE-2022-0563](https://nvd.nist.gov/vuln/detail/CVE-2022-0563) | Negligible | `liblastlog2-2` | `2.41-5` |
+| [CVE-2022-0563](https://nvd.nist.gov/vuln/detail/CVE-2022-0563) | Negligible | `libmount1` | `2.41-5` |
+| [CVE-2022-0563](https://nvd.nist.gov/vuln/detail/CVE-2022-0563) | Negligible | `libsmartcols1` | `2.41-5` |
+| [CVE-2022-0563](https://nvd.nist.gov/vuln/detail/CVE-2022-0563) | Negligible | `libuuid1` | `2.41-5` |
 | [CVE-2023-31437](https://nvd.nist.gov/vuln/detail/CVE-2023-31437) | Negligible | `libsystemd0` | `257.9-1~deb13u1` |
 | [CVE-2023-31437](https://nvd.nist.gov/vuln/detail/CVE-2023-31437) | Negligible | `libudev1` | `257.9-1~deb13u1` |
 | [CVE-2023-31438](https://nvd.nist.gov/vuln/detail/CVE-2023-31438) | Negligible | `libsystemd0` | `257.9-1~deb13u1` |
 | [CVE-2023-31438](https://nvd.nist.gov/vuln/detail/CVE-2023-31438) | Negligible | `libudev1` | `257.9-1~deb13u1` |
-| [CVE-2023-31439](https://nvd.nist.gov/vuln/detail/CVE-2023-31439) | Negligible | `libsystemd0` | `257.9-1~deb13u1` |
 | [CVE-2023-31439](https://nvd.nist.gov/vuln/detail/CVE-2023-31439) | Negligible | `libudev1` | `257.9-1~deb13u1` |
+| [CVE-2023-31439](https://nvd.nist.gov/vuln/detail/CVE-2023-31439) | Negligible | `libsystemd0` | `257.9-1~deb13u1` |
 | [CVE-2025-5278](https://nvd.nist.gov/vuln/detail/CVE-2025-5278) | Negligible | `coreutils` | `9.7-3` |
 </details>
 
@@ -433,7 +432,7 @@ Each template is shown for both **image** (single image analysis) and **comparis
 **Efficiency Score:** 96.7%
 
 ### Vulnerabilities
-**Last scanned:** 2026-02-18T05:35:57Z
+**Last scanned:** 2026-02-18T21:46:59Z
 
 | Critical | High | Medium | Low |
 |:---:|:---:|:---:|:---:|
@@ -446,28 +445,28 @@ Each template is shown for both **image** (single image analysis) and **comparis
 |----|----------|---------|---------|
 | [CVE-2025-15281](https://nvd.nist.gov/vuln/detail/CVE-2025-15281) | High | `libc-bin` | `2.41-12+deb13u1` |
 | [CVE-2025-15281](https://nvd.nist.gov/vuln/detail/CVE-2025-15281) | High | `libc6` | `2.41-12+deb13u1` |
-| [CVE-2026-0861](https://nvd.nist.gov/vuln/detail/CVE-2026-0861) | High | `libc6` | `2.41-12+deb13u1` |
 | [CVE-2026-0861](https://nvd.nist.gov/vuln/detail/CVE-2026-0861) | High | `libc-bin` | `2.41-12+deb13u1` |
+| [CVE-2026-0861](https://nvd.nist.gov/vuln/detail/CVE-2026-0861) | High | `libc6` | `2.41-12+deb13u1` |
 | [CVE-2026-0915](https://nvd.nist.gov/vuln/detail/CVE-2026-0915) | High | `libc6` | `2.41-12+deb13u1` |
 | [CVE-2026-0915](https://nvd.nist.gov/vuln/detail/CVE-2026-0915) | High | `libc-bin` | `2.41-12+deb13u1` |
 | [CVE-2025-11468](https://nvd.nist.gov/vuln/detail/CVE-2025-11468) | Medium | `python` | `3.13.12` |
 | [CVE-2025-12781](https://nvd.nist.gov/vuln/detail/CVE-2025-12781) | Medium | `python` | `3.13.12` |
-| [CVE-2025-14104](https://nvd.nist.gov/vuln/detail/CVE-2025-14104) | Medium | `libblkid1` | `2.41-5` |
-| [CVE-2025-14104](https://nvd.nist.gov/vuln/detail/CVE-2025-14104) | Medium | `libmount1` | `2.41-5` |
+| [CVE-2025-14104](https://nvd.nist.gov/vuln/detail/CVE-2025-14104) | Medium | `libuuid1` | `2.41-5` |
 | [CVE-2025-14104](https://nvd.nist.gov/vuln/detail/CVE-2025-14104) | Medium | `bsdutils` | `1:2.41-5` |
-| [CVE-2025-14104](https://nvd.nist.gov/vuln/detail/CVE-2025-14104) | Medium | `liblastlog2-2` | `2.41-5` |
+| [CVE-2025-14104](https://nvd.nist.gov/vuln/detail/CVE-2025-14104) | Medium | `libblkid1` | `2.41-5` |
 | [CVE-2025-14104](https://nvd.nist.gov/vuln/detail/CVE-2025-14104) | Medium | `util-linux` | `2.41-5` |
 | [CVE-2025-14104](https://nvd.nist.gov/vuln/detail/CVE-2025-14104) | Medium | `mount` | `2.41-5` |
 | [CVE-2025-14104](https://nvd.nist.gov/vuln/detail/CVE-2025-14104) | Medium | `login` | `1:4.16.0-2+really2.41-5` |
-| [CVE-2025-14104](https://nvd.nist.gov/vuln/detail/CVE-2025-14104) | Medium | `libuuid1` | `2.41-5` |
+| [CVE-2025-14104](https://nvd.nist.gov/vuln/detail/CVE-2025-14104) | Medium | `liblastlog2-2` | `2.41-5` |
+| [CVE-2025-14104](https://nvd.nist.gov/vuln/detail/CVE-2025-14104) | Medium | `libmount1` | `2.41-5` |
 | [CVE-2025-14104](https://nvd.nist.gov/vuln/detail/CVE-2025-14104) | Medium | `libsmartcols1` | `2.41-5` |
 | [CVE-2025-15282](https://nvd.nist.gov/vuln/detail/CVE-2025-15282) | Medium | `python` | `3.13.12` |
 | [CVE-2025-15366](https://nvd.nist.gov/vuln/detail/CVE-2025-15366) | Medium | `python` | `3.13.12` |
 | [CVE-2025-15367](https://nvd.nist.gov/vuln/detail/CVE-2025-15367) | Medium | `python` | `3.13.12` |
 | [CVE-2025-6141](https://nvd.nist.gov/vuln/detail/CVE-2025-6141) | Medium | `libncursesw6` | `6.5+20250216-2` |
-| [CVE-2025-6141](https://nvd.nist.gov/vuln/detail/CVE-2025-6141) | Medium | `libtinfo6` | `6.5+20250216-2` |
 | [CVE-2025-6141](https://nvd.nist.gov/vuln/detail/CVE-2025-6141) | Medium | `ncurses-base` | `6.5+20250216-2` |
 | [CVE-2025-6141](https://nvd.nist.gov/vuln/detail/CVE-2025-6141) | Medium | `ncurses-bin` | `6.5+20250216-2` |
+| [CVE-2025-6141](https://nvd.nist.gov/vuln/detail/CVE-2025-6141) | Medium | `libtinfo6` | `6.5+20250216-2` |
 | [CVE-2025-7709](https://nvd.nist.gov/vuln/detail/CVE-2025-7709) | Medium | `libsqlite3-0` | `3.46.1-7` |
 | [CVE-2026-0672](https://nvd.nist.gov/vuln/detail/CVE-2026-0672) | Medium | `python` | `3.13.12` |
 | [CVE-2026-0865](https://nvd.nist.gov/vuln/detail/CVE-2026-0865) | Medium | `python` | `3.13.12` |
@@ -476,8 +475,8 @@ Each template is shown for both **image** (single image analysis) and **comparis
 | [CVE-2024-56433](https://nvd.nist.gov/vuln/detail/CVE-2024-56433) | Low | `passwd` | `1:4.17.4-2` |
 | [GHSA-6vgw-5pg2-w6jp](https://nvd.nist.gov/vuln/detail/GHSA-6vgw-5pg2-w6jp) | Low | `pip` | `25.3` |
 | [CVE-2005-2541](https://nvd.nist.gov/vuln/detail/CVE-2005-2541) | Negligible | `tar` | `1.35+dfsg-3.1` |
-| [CVE-2007-5686](https://nvd.nist.gov/vuln/detail/CVE-2007-5686) | Negligible | `passwd` | `1:4.17.4-2` |
 | [CVE-2007-5686](https://nvd.nist.gov/vuln/detail/CVE-2007-5686) | Negligible | `login.defs` | `1:4.17.4-2` |
+| [CVE-2007-5686](https://nvd.nist.gov/vuln/detail/CVE-2007-5686) | Negligible | `passwd` | `1:4.17.4-2` |
 | [CVE-2010-4756](https://nvd.nist.gov/vuln/detail/CVE-2010-4756) | Negligible | `libc6` | `2.41-12+deb13u1` |
 | [CVE-2010-4756](https://nvd.nist.gov/vuln/detail/CVE-2010-4756) | Negligible | `libc-bin` | `2.41-12+deb13u1` |
 | [CVE-2011-3374](https://nvd.nist.gov/vuln/detail/CVE-2011-3374) | Negligible | `apt` | `3.0.3` |
@@ -490,8 +489,8 @@ Each template is shown for both **image** (single image analysis) and **comparis
 | [CVE-2018-20796](https://nvd.nist.gov/vuln/detail/CVE-2018-20796) | Negligible | `libc6` | `2.41-12+deb13u1` |
 | [CVE-2019-1010022](https://nvd.nist.gov/vuln/detail/CVE-2019-1010022) | Negligible | `libc-bin` | `2.41-12+deb13u1` |
 | [CVE-2019-1010022](https://nvd.nist.gov/vuln/detail/CVE-2019-1010022) | Negligible | `libc6` | `2.41-12+deb13u1` |
-| [CVE-2019-1010023](https://nvd.nist.gov/vuln/detail/CVE-2019-1010023) | Negligible | `libc-bin` | `2.41-12+deb13u1` |
 | [CVE-2019-1010023](https://nvd.nist.gov/vuln/detail/CVE-2019-1010023) | Negligible | `libc6` | `2.41-12+deb13u1` |
+| [CVE-2019-1010023](https://nvd.nist.gov/vuln/detail/CVE-2019-1010023) | Negligible | `libc-bin` | `2.41-12+deb13u1` |
 | [CVE-2019-1010024](https://nvd.nist.gov/vuln/detail/CVE-2019-1010024) | Negligible | `libc-bin` | `2.41-12+deb13u1` |
 | [CVE-2019-1010024](https://nvd.nist.gov/vuln/detail/CVE-2019-1010024) | Negligible | `libc6` | `2.41-12+deb13u1` |
 | [CVE-2019-1010025](https://nvd.nist.gov/vuln/detail/CVE-2019-1010025) | Negligible | `libc6` | `2.41-12+deb13u1` |
@@ -499,19 +498,19 @@ Each template is shown for both **image** (single image analysis) and **comparis
 | [CVE-2019-9192](https://nvd.nist.gov/vuln/detail/CVE-2019-9192) | Negligible | `libc-bin` | `2.41-12+deb13u1` |
 | [CVE-2019-9192](https://nvd.nist.gov/vuln/detail/CVE-2019-9192) | Negligible | `libc6` | `2.41-12+deb13u1` |
 | [CVE-2021-45346](https://nvd.nist.gov/vuln/detail/CVE-2021-45346) | Negligible | `libsqlite3-0` | `3.46.1-7` |
-| [CVE-2022-0563](https://nvd.nist.gov/vuln/detail/CVE-2022-0563) | Negligible | `mount` | `2.41-5` |
 | [CVE-2022-0563](https://nvd.nist.gov/vuln/detail/CVE-2022-0563) | Negligible | `util-linux` | `2.41-5` |
 | [CVE-2022-0563](https://nvd.nist.gov/vuln/detail/CVE-2022-0563) | Negligible | `login` | `1:4.16.0-2+really2.41-5` |
-| [CVE-2022-0563](https://nvd.nist.gov/vuln/detail/CVE-2022-0563) | Negligible | `libsmartcols1` | `2.41-5` |
-| [CVE-2022-0563](https://nvd.nist.gov/vuln/detail/CVE-2022-0563) | Negligible | `libuuid1` | `2.41-5` |
+| [CVE-2022-0563](https://nvd.nist.gov/vuln/detail/CVE-2022-0563) | Negligible | `mount` | `2.41-5` |
 | [CVE-2022-0563](https://nvd.nist.gov/vuln/detail/CVE-2022-0563) | Negligible | `bsdutils` | `1:2.41-5` |
 | [CVE-2022-0563](https://nvd.nist.gov/vuln/detail/CVE-2022-0563) | Negligible | `libblkid1` | `2.41-5` |
 | [CVE-2022-0563](https://nvd.nist.gov/vuln/detail/CVE-2022-0563) | Negligible | `liblastlog2-2` | `2.41-5` |
 | [CVE-2022-0563](https://nvd.nist.gov/vuln/detail/CVE-2022-0563) | Negligible | `libmount1` | `2.41-5` |
+| [CVE-2022-0563](https://nvd.nist.gov/vuln/detail/CVE-2022-0563) | Negligible | `libsmartcols1` | `2.41-5` |
+| [CVE-2022-0563](https://nvd.nist.gov/vuln/detail/CVE-2022-0563) | Negligible | `libuuid1` | `2.41-5` |
 | [CVE-2023-31437](https://nvd.nist.gov/vuln/detail/CVE-2023-31437) | Negligible | `libsystemd0` | `257.9-1~deb13u1` |
 | [CVE-2023-31437](https://nvd.nist.gov/vuln/detail/CVE-2023-31437) | Negligible | `libudev1` | `257.9-1~deb13u1` |
-| [CVE-2023-31438](https://nvd.nist.gov/vuln/detail/CVE-2023-31438) | Negligible | `libudev1` | `257.9-1~deb13u1` |
 | [CVE-2023-31438](https://nvd.nist.gov/vuln/detail/CVE-2023-31438) | Negligible | `libsystemd0` | `257.9-1~deb13u1` |
+| [CVE-2023-31438](https://nvd.nist.gov/vuln/detail/CVE-2023-31438) | Negligible | `libudev1` | `257.9-1~deb13u1` |
 | [CVE-2023-31439](https://nvd.nist.gov/vuln/detail/CVE-2023-31439) | Negligible | `libudev1` | `257.9-1~deb13u1` |
 | [CVE-2023-31439](https://nvd.nist.gov/vuln/detail/CVE-2023-31439) | Negligible | `libsystemd0` | `257.9-1~deb13u1` |
 | [CVE-2025-5278](https://nvd.nist.gov/vuln/detail/CVE-2025-5278) | Negligible | `coreutils` | `9.7-3` |
@@ -626,7 +625,7 @@ Each template is shown for both **image** (single image analysis) and **comparis
 **Efficiency Score:** 96.7%
 
 ### Vulnerabilities
-**Last scanned:** 2026-02-18T05:35:56Z
+**Last scanned:** 2026-02-18T21:46:58Z
 
 | Critical | High | Medium | Low |
 |:---:|:---:|:---:|:---:|
@@ -639,28 +638,28 @@ Each template is shown for both **image** (single image analysis) and **comparis
 |----|----------|---------|---------|
 | [CVE-2025-15281](https://nvd.nist.gov/vuln/detail/CVE-2025-15281) | High | `libc-bin` | `2.41-12+deb13u1` |
 | [CVE-2025-15281](https://nvd.nist.gov/vuln/detail/CVE-2025-15281) | High | `libc6` | `2.41-12+deb13u1` |
-| [CVE-2026-0861](https://nvd.nist.gov/vuln/detail/CVE-2026-0861) | High | `libc6` | `2.41-12+deb13u1` |
 | [CVE-2026-0861](https://nvd.nist.gov/vuln/detail/CVE-2026-0861) | High | `libc-bin` | `2.41-12+deb13u1` |
+| [CVE-2026-0861](https://nvd.nist.gov/vuln/detail/CVE-2026-0861) | High | `libc6` | `2.41-12+deb13u1` |
 | [CVE-2026-0915](https://nvd.nist.gov/vuln/detail/CVE-2026-0915) | High | `libc6` | `2.41-12+deb13u1` |
 | [CVE-2026-0915](https://nvd.nist.gov/vuln/detail/CVE-2026-0915) | High | `libc-bin` | `2.41-12+deb13u1` |
 | [CVE-2025-11468](https://nvd.nist.gov/vuln/detail/CVE-2025-11468) | Medium | `python` | `3.14.3` |
 | [CVE-2025-12781](https://nvd.nist.gov/vuln/detail/CVE-2025-12781) | Medium | `python` | `3.14.3` |
-| [CVE-2025-14104](https://nvd.nist.gov/vuln/detail/CVE-2025-14104) | Medium | `libblkid1` | `2.41-5` |
-| [CVE-2025-14104](https://nvd.nist.gov/vuln/detail/CVE-2025-14104) | Medium | `libmount1` | `2.41-5` |
+| [CVE-2025-14104](https://nvd.nist.gov/vuln/detail/CVE-2025-14104) | Medium | `libuuid1` | `2.41-5` |
 | [CVE-2025-14104](https://nvd.nist.gov/vuln/detail/CVE-2025-14104) | Medium | `bsdutils` | `1:2.41-5` |
-| [CVE-2025-14104](https://nvd.nist.gov/vuln/detail/CVE-2025-14104) | Medium | `liblastlog2-2` | `2.41-5` |
+| [CVE-2025-14104](https://nvd.nist.gov/vuln/detail/CVE-2025-14104) | Medium | `libblkid1` | `2.41-5` |
 | [CVE-2025-14104](https://nvd.nist.gov/vuln/detail/CVE-2025-14104) | Medium | `util-linux` | `2.41-5` |
 | [CVE-2025-14104](https://nvd.nist.gov/vuln/detail/CVE-2025-14104) | Medium | `mount` | `2.41-5` |
 | [CVE-2025-14104](https://nvd.nist.gov/vuln/detail/CVE-2025-14104) | Medium | `login` | `1:4.16.0-2+really2.41-5` |
-| [CVE-2025-14104](https://nvd.nist.gov/vuln/detail/CVE-2025-14104) | Medium | `libuuid1` | `2.41-5` |
+| [CVE-2025-14104](https://nvd.nist.gov/vuln/detail/CVE-2025-14104) | Medium | `liblastlog2-2` | `2.41-5` |
+| [CVE-2025-14104](https://nvd.nist.gov/vuln/detail/CVE-2025-14104) | Medium | `libmount1` | `2.41-5` |
 | [CVE-2025-14104](https://nvd.nist.gov/vuln/detail/CVE-2025-14104) | Medium | `libsmartcols1` | `2.41-5` |
 | [CVE-2025-15282](https://nvd.nist.gov/vuln/detail/CVE-2025-15282) | Medium | `python` | `3.14.3` |
 | [CVE-2025-15366](https://nvd.nist.gov/vuln/detail/CVE-2025-15366) | Medium | `python` | `3.14.3` |
 | [CVE-2025-15367](https://nvd.nist.gov/vuln/detail/CVE-2025-15367) | Medium | `python` | `3.14.3` |
 | [CVE-2025-6141](https://nvd.nist.gov/vuln/detail/CVE-2025-6141) | Medium | `libncursesw6` | `6.5+20250216-2` |
-| [CVE-2025-6141](https://nvd.nist.gov/vuln/detail/CVE-2025-6141) | Medium | `libtinfo6` | `6.5+20250216-2` |
 | [CVE-2025-6141](https://nvd.nist.gov/vuln/detail/CVE-2025-6141) | Medium | `ncurses-base` | `6.5+20250216-2` |
 | [CVE-2025-6141](https://nvd.nist.gov/vuln/detail/CVE-2025-6141) | Medium | `ncurses-bin` | `6.5+20250216-2` |
+| [CVE-2025-6141](https://nvd.nist.gov/vuln/detail/CVE-2025-6141) | Medium | `libtinfo6` | `6.5+20250216-2` |
 | [CVE-2025-7709](https://nvd.nist.gov/vuln/detail/CVE-2025-7709) | Medium | `libsqlite3-0` | `3.46.1-7` |
 | [CVE-2026-0672](https://nvd.nist.gov/vuln/detail/CVE-2026-0672) | Medium | `python` | `3.14.3` |
 | [CVE-2026-0865](https://nvd.nist.gov/vuln/detail/CVE-2026-0865) | Medium | `python` | `3.14.3` |
@@ -669,8 +668,8 @@ Each template is shown for both **image** (single image analysis) and **comparis
 | [CVE-2024-56433](https://nvd.nist.gov/vuln/detail/CVE-2024-56433) | Low | `passwd` | `1:4.17.4-2` |
 | [GHSA-6vgw-5pg2-w6jp](https://nvd.nist.gov/vuln/detail/GHSA-6vgw-5pg2-w6jp) | Low | `pip` | `25.3` |
 | [CVE-2005-2541](https://nvd.nist.gov/vuln/detail/CVE-2005-2541) | Negligible | `tar` | `1.35+dfsg-3.1` |
-| [CVE-2007-5686](https://nvd.nist.gov/vuln/detail/CVE-2007-5686) | Negligible | `passwd` | `1:4.17.4-2` |
 | [CVE-2007-5686](https://nvd.nist.gov/vuln/detail/CVE-2007-5686) | Negligible | `login.defs` | `1:4.17.4-2` |
+| [CVE-2007-5686](https://nvd.nist.gov/vuln/detail/CVE-2007-5686) | Negligible | `passwd` | `1:4.17.4-2` |
 | [CVE-2010-4756](https://nvd.nist.gov/vuln/detail/CVE-2010-4756) | Negligible | `libc6` | `2.41-12+deb13u1` |
 | [CVE-2010-4756](https://nvd.nist.gov/vuln/detail/CVE-2010-4756) | Negligible | `libc-bin` | `2.41-12+deb13u1` |
 | [CVE-2011-3374](https://nvd.nist.gov/vuln/detail/CVE-2011-3374) | Negligible | `apt` | `3.0.3` |
@@ -683,8 +682,8 @@ Each template is shown for both **image** (single image analysis) and **comparis
 | [CVE-2018-20796](https://nvd.nist.gov/vuln/detail/CVE-2018-20796) | Negligible | `libc6` | `2.41-12+deb13u1` |
 | [CVE-2019-1010022](https://nvd.nist.gov/vuln/detail/CVE-2019-1010022) | Negligible | `libc-bin` | `2.41-12+deb13u1` |
 | [CVE-2019-1010022](https://nvd.nist.gov/vuln/detail/CVE-2019-1010022) | Negligible | `libc6` | `2.41-12+deb13u1` |
-| [CVE-2019-1010023](https://nvd.nist.gov/vuln/detail/CVE-2019-1010023) | Negligible | `libc-bin` | `2.41-12+deb13u1` |
 | [CVE-2019-1010023](https://nvd.nist.gov/vuln/detail/CVE-2019-1010023) | Negligible | `libc6` | `2.41-12+deb13u1` |
+| [CVE-2019-1010023](https://nvd.nist.gov/vuln/detail/CVE-2019-1010023) | Negligible | `libc-bin` | `2.41-12+deb13u1` |
 | [CVE-2019-1010024](https://nvd.nist.gov/vuln/detail/CVE-2019-1010024) | Negligible | `libc-bin` | `2.41-12+deb13u1` |
 | [CVE-2019-1010024](https://nvd.nist.gov/vuln/detail/CVE-2019-1010024) | Negligible | `libc6` | `2.41-12+deb13u1` |
 | [CVE-2019-1010025](https://nvd.nist.gov/vuln/detail/CVE-2019-1010025) | Negligible | `libc6` | `2.41-12+deb13u1` |
@@ -692,19 +691,19 @@ Each template is shown for both **image** (single image analysis) and **comparis
 | [CVE-2019-9192](https://nvd.nist.gov/vuln/detail/CVE-2019-9192) | Negligible | `libc-bin` | `2.41-12+deb13u1` |
 | [CVE-2019-9192](https://nvd.nist.gov/vuln/detail/CVE-2019-9192) | Negligible | `libc6` | `2.41-12+deb13u1` |
 | [CVE-2021-45346](https://nvd.nist.gov/vuln/detail/CVE-2021-45346) | Negligible | `libsqlite3-0` | `3.46.1-7` |
-| [CVE-2022-0563](https://nvd.nist.gov/vuln/detail/CVE-2022-0563) | Negligible | `mount` | `2.41-5` |
 | [CVE-2022-0563](https://nvd.nist.gov/vuln/detail/CVE-2022-0563) | Negligible | `util-linux` | `2.41-5` |
 | [CVE-2022-0563](https://nvd.nist.gov/vuln/detail/CVE-2022-0563) | Negligible | `login` | `1:4.16.0-2+really2.41-5` |
-| [CVE-2022-0563](https://nvd.nist.gov/vuln/detail/CVE-2022-0563) | Negligible | `libsmartcols1` | `2.41-5` |
-| [CVE-2022-0563](https://nvd.nist.gov/vuln/detail/CVE-2022-0563) | Negligible | `libuuid1` | `2.41-5` |
+| [CVE-2022-0563](https://nvd.nist.gov/vuln/detail/CVE-2022-0563) | Negligible | `mount` | `2.41-5` |
 | [CVE-2022-0563](https://nvd.nist.gov/vuln/detail/CVE-2022-0563) | Negligible | `bsdutils` | `1:2.41-5` |
 | [CVE-2022-0563](https://nvd.nist.gov/vuln/detail/CVE-2022-0563) | Negligible | `libblkid1` | `2.41-5` |
 | [CVE-2022-0563](https://nvd.nist.gov/vuln/detail/CVE-2022-0563) | Negligible | `liblastlog2-2` | `2.41-5` |
 | [CVE-2022-0563](https://nvd.nist.gov/vuln/detail/CVE-2022-0563) | Negligible | `libmount1` | `2.41-5` |
+| [CVE-2022-0563](https://nvd.nist.gov/vuln/detail/CVE-2022-0563) | Negligible | `libsmartcols1` | `2.41-5` |
+| [CVE-2022-0563](https://nvd.nist.gov/vuln/detail/CVE-2022-0563) | Negligible | `libuuid1` | `2.41-5` |
 | [CVE-2023-31437](https://nvd.nist.gov/vuln/detail/CVE-2023-31437) | Negligible | `libsystemd0` | `257.9-1~deb13u1` |
 | [CVE-2023-31437](https://nvd.nist.gov/vuln/detail/CVE-2023-31437) | Negligible | `libudev1` | `257.9-1~deb13u1` |
-| [CVE-2023-31438](https://nvd.nist.gov/vuln/detail/CVE-2023-31438) | Negligible | `libudev1` | `257.9-1~deb13u1` |
 | [CVE-2023-31438](https://nvd.nist.gov/vuln/detail/CVE-2023-31438) | Negligible | `libsystemd0` | `257.9-1~deb13u1` |
+| [CVE-2023-31438](https://nvd.nist.gov/vuln/detail/CVE-2023-31438) | Negligible | `libudev1` | `257.9-1~deb13u1` |
 | [CVE-2023-31439](https://nvd.nist.gov/vuln/detail/CVE-2023-31439) | Negligible | `libudev1` | `257.9-1~deb13u1` |
 | [CVE-2023-31439](https://nvd.nist.gov/vuln/detail/CVE-2023-31439) | Negligible | `libsystemd0` | `257.9-1~deb13u1` |
 | [CVE-2025-5278](https://nvd.nist.gov/vuln/detail/CVE-2025-5278) | Negligible | `coreutils` | `9.7-3` |
@@ -853,7 +852,7 @@ Each template is shown for both **image** (single image analysis) and **comparis
 <!-- BEGIN: dock-docs:detailed-image -->
 
 # 🐳 Docker Image Analysis: python:3.14-slim
-![Size](https://img.shields.io/static/v1?label=Size&message=41.32+MB&color=blue) ![Layers](https://img.shields.io/static/v1?label=Layers&message=4&color=blue) ![Vulns](https://img.shields.io/static/v1?label=Security&message=31+Vulns+%280+Crit%29&color=orange) ![Efficiency](https://img.shields.io/static/v1?label=Efficiency&message=96.7%&color=green)
+![Size](https://img.shields.io/static/v1?label=Size&message=41.32+MB&color=blue) ![Layers](https://img.shields.io/static/v1?label=Layers&message=4&color=blue) ![Vulns](https://img.shields.io/static/v1?label=Security&message=71+Vulns+%280+Crit%29&color=orange) ![Efficiency](https://img.shields.io/static/v1?label=Efficiency&message=96.7%&color=green)
 
 ## ⚙️ Configuration
 
@@ -889,7 +888,7 @@ Each template is shown for both **image** (single image analysis) and **comparis
 
 ### Vulnerability Summary
 
-**Last scanned:** 2026-02-18T05:35:35Z
+**Last scanned:** 2026-02-18T21:46:33Z
 
 | Critical | High | Medium | Low | Total |
 |:---:|:---:|:---:|:---:|:---:|
@@ -901,28 +900,28 @@ Each template is shown for both **image** (single image analysis) and **comparis
 |----|----------|---------|---------|
 | [CVE-2025-15281](https://nvd.nist.gov/vuln/detail/CVE-2025-15281) | High | `libc-bin` | `2.41-12+deb13u1` |
 | [CVE-2025-15281](https://nvd.nist.gov/vuln/detail/CVE-2025-15281) | High | `libc6` | `2.41-12+deb13u1` |
-| [CVE-2026-0861](https://nvd.nist.gov/vuln/detail/CVE-2026-0861) | High | `libc6` | `2.41-12+deb13u1` |
 | [CVE-2026-0861](https://nvd.nist.gov/vuln/detail/CVE-2026-0861) | High | `libc-bin` | `2.41-12+deb13u1` |
+| [CVE-2026-0861](https://nvd.nist.gov/vuln/detail/CVE-2026-0861) | High | `libc6` | `2.41-12+deb13u1` |
 | [CVE-2026-0915](https://nvd.nist.gov/vuln/detail/CVE-2026-0915) | High | `libc6` | `2.41-12+deb13u1` |
 | [CVE-2026-0915](https://nvd.nist.gov/vuln/detail/CVE-2026-0915) | High | `libc-bin` | `2.41-12+deb13u1` |
 | [CVE-2025-11468](https://nvd.nist.gov/vuln/detail/CVE-2025-11468) | Medium | `python` | `3.14.3` |
 | [CVE-2025-12781](https://nvd.nist.gov/vuln/detail/CVE-2025-12781) | Medium | `python` | `3.14.3` |
-| [CVE-2025-14104](https://nvd.nist.gov/vuln/detail/CVE-2025-14104) | Medium | `libblkid1` | `2.41-5` |
-| [CVE-2025-14104](https://nvd.nist.gov/vuln/detail/CVE-2025-14104) | Medium | `libmount1` | `2.41-5` |
+| [CVE-2025-14104](https://nvd.nist.gov/vuln/detail/CVE-2025-14104) | Medium | `libuuid1` | `2.41-5` |
 | [CVE-2025-14104](https://nvd.nist.gov/vuln/detail/CVE-2025-14104) | Medium | `bsdutils` | `1:2.41-5` |
-| [CVE-2025-14104](https://nvd.nist.gov/vuln/detail/CVE-2025-14104) | Medium | `liblastlog2-2` | `2.41-5` |
+| [CVE-2025-14104](https://nvd.nist.gov/vuln/detail/CVE-2025-14104) | Medium | `libblkid1` | `2.41-5` |
 | [CVE-2025-14104](https://nvd.nist.gov/vuln/detail/CVE-2025-14104) | Medium | `util-linux` | `2.41-5` |
 | [CVE-2025-14104](https://nvd.nist.gov/vuln/detail/CVE-2025-14104) | Medium | `mount` | `2.41-5` |
 | [CVE-2025-14104](https://nvd.nist.gov/vuln/detail/CVE-2025-14104) | Medium | `login` | `1:4.16.0-2+really2.41-5` |
-| [CVE-2025-14104](https://nvd.nist.gov/vuln/detail/CVE-2025-14104) | Medium | `libuuid1` | `2.41-5` |
+| [CVE-2025-14104](https://nvd.nist.gov/vuln/detail/CVE-2025-14104) | Medium | `liblastlog2-2` | `2.41-5` |
+| [CVE-2025-14104](https://nvd.nist.gov/vuln/detail/CVE-2025-14104) | Medium | `libmount1` | `2.41-5` |
 | [CVE-2025-14104](https://nvd.nist.gov/vuln/detail/CVE-2025-14104) | Medium | `libsmartcols1` | `2.41-5` |
 | [CVE-2025-15282](https://nvd.nist.gov/vuln/detail/CVE-2025-15282) | Medium | `python` | `3.14.3` |
 | [CVE-2025-15366](https://nvd.nist.gov/vuln/detail/CVE-2025-15366) | Medium | `python` | `3.14.3` |
 | [CVE-2025-15367](https://nvd.nist.gov/vuln/detail/CVE-2025-15367) | Medium | `python` | `3.14.3` |
 | [CVE-2025-6141](https://nvd.nist.gov/vuln/detail/CVE-2025-6141) | Medium | `libncursesw6` | `6.5+20250216-2` |
-| [CVE-2025-6141](https://nvd.nist.gov/vuln/detail/CVE-2025-6141) | Medium | `libtinfo6` | `6.5+20250216-2` |
 | [CVE-2025-6141](https://nvd.nist.gov/vuln/detail/CVE-2025-6141) | Medium | `ncurses-base` | `6.5+20250216-2` |
 | [CVE-2025-6141](https://nvd.nist.gov/vuln/detail/CVE-2025-6141) | Medium | `ncurses-bin` | `6.5+20250216-2` |
+| [CVE-2025-6141](https://nvd.nist.gov/vuln/detail/CVE-2025-6141) | Medium | `libtinfo6` | `6.5+20250216-2` |
 | [CVE-2025-7709](https://nvd.nist.gov/vuln/detail/CVE-2025-7709) | Medium | `libsqlite3-0` | `3.46.1-7` |
 | [CVE-2026-0672](https://nvd.nist.gov/vuln/detail/CVE-2026-0672) | Medium | `python` | `3.14.3` |
 | [CVE-2026-0865](https://nvd.nist.gov/vuln/detail/CVE-2026-0865) | Medium | `python` | `3.14.3` |
@@ -931,8 +930,8 @@ Each template is shown for both **image** (single image analysis) and **comparis
 | [CVE-2024-56433](https://nvd.nist.gov/vuln/detail/CVE-2024-56433) | Low | `passwd` | `1:4.17.4-2` |
 | [GHSA-6vgw-5pg2-w6jp](https://nvd.nist.gov/vuln/detail/GHSA-6vgw-5pg2-w6jp) | Low | `pip` | `25.3` |
 | [CVE-2005-2541](https://nvd.nist.gov/vuln/detail/CVE-2005-2541) | Negligible | `tar` | `1.35+dfsg-3.1` |
-| [CVE-2007-5686](https://nvd.nist.gov/vuln/detail/CVE-2007-5686) | Negligible | `passwd` | `1:4.17.4-2` |
 | [CVE-2007-5686](https://nvd.nist.gov/vuln/detail/CVE-2007-5686) | Negligible | `login.defs` | `1:4.17.4-2` |
+| [CVE-2007-5686](https://nvd.nist.gov/vuln/detail/CVE-2007-5686) | Negligible | `passwd` | `1:4.17.4-2` |
 | [CVE-2010-4756](https://nvd.nist.gov/vuln/detail/CVE-2010-4756) | Negligible | `libc6` | `2.41-12+deb13u1` |
 | [CVE-2010-4756](https://nvd.nist.gov/vuln/detail/CVE-2010-4756) | Negligible | `libc-bin` | `2.41-12+deb13u1` |
 | [CVE-2011-3374](https://nvd.nist.gov/vuln/detail/CVE-2011-3374) | Negligible | `apt` | `3.0.3` |
@@ -945,8 +944,8 @@ Each template is shown for both **image** (single image analysis) and **comparis
 | [CVE-2018-20796](https://nvd.nist.gov/vuln/detail/CVE-2018-20796) | Negligible | `libc6` | `2.41-12+deb13u1` |
 | [CVE-2019-1010022](https://nvd.nist.gov/vuln/detail/CVE-2019-1010022) | Negligible | `libc-bin` | `2.41-12+deb13u1` |
 | [CVE-2019-1010022](https://nvd.nist.gov/vuln/detail/CVE-2019-1010022) | Negligible | `libc6` | `2.41-12+deb13u1` |
-| [CVE-2019-1010023](https://nvd.nist.gov/vuln/detail/CVE-2019-1010023) | Negligible | `libc-bin` | `2.41-12+deb13u1` |
 | [CVE-2019-1010023](https://nvd.nist.gov/vuln/detail/CVE-2019-1010023) | Negligible | `libc6` | `2.41-12+deb13u1` |
+| [CVE-2019-1010023](https://nvd.nist.gov/vuln/detail/CVE-2019-1010023) | Negligible | `libc-bin` | `2.41-12+deb13u1` |
 | [CVE-2019-1010024](https://nvd.nist.gov/vuln/detail/CVE-2019-1010024) | Negligible | `libc-bin` | `2.41-12+deb13u1` |
 | [CVE-2019-1010024](https://nvd.nist.gov/vuln/detail/CVE-2019-1010024) | Negligible | `libc6` | `2.41-12+deb13u1` |
 | [CVE-2019-1010025](https://nvd.nist.gov/vuln/detail/CVE-2019-1010025) | Negligible | `libc6` | `2.41-12+deb13u1` |
@@ -954,19 +953,19 @@ Each template is shown for both **image** (single image analysis) and **comparis
 | [CVE-2019-9192](https://nvd.nist.gov/vuln/detail/CVE-2019-9192) | Negligible | `libc-bin` | `2.41-12+deb13u1` |
 | [CVE-2019-9192](https://nvd.nist.gov/vuln/detail/CVE-2019-9192) | Negligible | `libc6` | `2.41-12+deb13u1` |
 | [CVE-2021-45346](https://nvd.nist.gov/vuln/detail/CVE-2021-45346) | Negligible | `libsqlite3-0` | `3.46.1-7` |
-| [CVE-2022-0563](https://nvd.nist.gov/vuln/detail/CVE-2022-0563) | Negligible | `mount` | `2.41-5` |
 | [CVE-2022-0563](https://nvd.nist.gov/vuln/detail/CVE-2022-0563) | Negligible | `util-linux` | `2.41-5` |
 | [CVE-2022-0563](https://nvd.nist.gov/vuln/detail/CVE-2022-0563) | Negligible | `login` | `1:4.16.0-2+really2.41-5` |
-| [CVE-2022-0563](https://nvd.nist.gov/vuln/detail/CVE-2022-0563) | Negligible | `libsmartcols1` | `2.41-5` |
-| [CVE-2022-0563](https://nvd.nist.gov/vuln/detail/CVE-2022-0563) | Negligible | `libuuid1` | `2.41-5` |
+| [CVE-2022-0563](https://nvd.nist.gov/vuln/detail/CVE-2022-0563) | Negligible | `mount` | `2.41-5` |
 | [CVE-2022-0563](https://nvd.nist.gov/vuln/detail/CVE-2022-0563) | Negligible | `bsdutils` | `1:2.41-5` |
 | [CVE-2022-0563](https://nvd.nist.gov/vuln/detail/CVE-2022-0563) | Negligible | `libblkid1` | `2.41-5` |
 | [CVE-2022-0563](https://nvd.nist.gov/vuln/detail/CVE-2022-0563) | Negligible | `liblastlog2-2` | `2.41-5` |
 | [CVE-2022-0563](https://nvd.nist.gov/vuln/detail/CVE-2022-0563) | Negligible | `libmount1` | `2.41-5` |
+| [CVE-2022-0563](https://nvd.nist.gov/vuln/detail/CVE-2022-0563) | Negligible | `libsmartcols1` | `2.41-5` |
+| [CVE-2022-0563](https://nvd.nist.gov/vuln/detail/CVE-2022-0563) | Negligible | `libuuid1` | `2.41-5` |
 | [CVE-2023-31437](https://nvd.nist.gov/vuln/detail/CVE-2023-31437) | Negligible | `libsystemd0` | `257.9-1~deb13u1` |
 | [CVE-2023-31437](https://nvd.nist.gov/vuln/detail/CVE-2023-31437) | Negligible | `libudev1` | `257.9-1~deb13u1` |
-| [CVE-2023-31438](https://nvd.nist.gov/vuln/detail/CVE-2023-31438) | Negligible | `libudev1` | `257.9-1~deb13u1` |
 | [CVE-2023-31438](https://nvd.nist.gov/vuln/detail/CVE-2023-31438) | Negligible | `libsystemd0` | `257.9-1~deb13u1` |
+| [CVE-2023-31438](https://nvd.nist.gov/vuln/detail/CVE-2023-31438) | Negligible | `libudev1` | `257.9-1~deb13u1` |
 | [CVE-2023-31439](https://nvd.nist.gov/vuln/detail/CVE-2023-31439) | Negligible | `libudev1` | `257.9-1~deb13u1` |
 | [CVE-2023-31439](https://nvd.nist.gov/vuln/detail/CVE-2023-31439) | Negligible | `libsystemd0` | `257.9-1~deb13u1` |
 | [CVE-2025-5278](https://nvd.nist.gov/vuln/detail/CVE-2025-5278) | Negligible | `coreutils` | `9.7-3` |
@@ -1074,9 +1073,9 @@ Each template is shown for both **image** (single image analysis) and **comparis
 
 | Tag | Size | Vulns | Efficiency | Architectures |
 |-----|------|-------|------------|---------------|
-| `python:3.12-slim` | ![Size](https://img.shields.io/static/v1?label=Size&message=41.20+MB&color=blue) | ![Vulns](https://img.shields.io/static/v1?label=Security&message=36+Vulns+%280+Crit%29&color=orange) | 96.7% | `linux/386, linux/amd64, linux/arm, linux/arm64, linux/ppc64le, linux/riscv64, linux/s390x, unknown/unknown` |
-| `python:3.13-slim` | ![Size](https://img.shields.io/static/v1?label=Size&message=40.90+MB&color=blue) | ![Vulns](https://img.shields.io/static/v1?label=Security&message=31+Vulns+%280+Crit%29&color=orange) | 96.7% | `linux/386, linux/amd64, linux/arm, linux/arm64, linux/ppc64le, linux/riscv64, linux/s390x, unknown/unknown` |
-| `python:3.14-slim` | ![Size](https://img.shields.io/static/v1?label=Size&message=41.32+MB&color=blue) | ![Vulns](https://img.shields.io/static/v1?label=Security&message=31+Vulns+%280+Crit%29&color=orange) | 96.7% | `linux/386, linux/amd64, linux/arm, linux/arm64, linux/ppc64le, linux/riscv64, linux/s390x, unknown/unknown` |
+| `python:3.12-slim` | ![Size](https://img.shields.io/static/v1?label=Size&message=41.20+MB&color=blue) | ![Vulns](https://img.shields.io/static/v1?label=Security&message=76+Vulns+%280+Crit%29&color=orange) | 96.7% | `linux/386, linux/amd64, linux/arm, linux/arm64, linux/ppc64le, linux/riscv64, linux/s390x, unknown/unknown` |
+| `python:3.13-slim` | ![Size](https://img.shields.io/static/v1?label=Size&message=40.90+MB&color=blue) | ![Vulns](https://img.shields.io/static/v1?label=Security&message=71+Vulns+%280+Crit%29&color=orange) | 96.7% | `linux/386, linux/amd64, linux/arm, linux/arm64, linux/ppc64le, linux/riscv64, linux/s390x, unknown/unknown` |
+| `python:3.14-slim` | ![Size](https://img.shields.io/static/v1?label=Size&message=41.32+MB&color=blue) | ![Vulns](https://img.shields.io/static/v1?label=Security&message=71+Vulns+%280+Crit%29&color=orange) | 96.7% | `linux/386, linux/amd64, linux/arm, linux/arm64, linux/ppc64le, linux/riscv64, linux/s390x, unknown/unknown` |
 
 ---
 
@@ -1098,7 +1097,7 @@ Each template is shown for both **image** (single image analysis) and **comparis
 
 ### Vulnerability Summary
 
-**Last scanned:** 2026-02-18T05:36:29Z
+**Last scanned:** 2026-02-18T21:47:31Z
 
 | Critical | High | Medium | Low | Total |
 |:---:|:---:|:---:|:---:|:---:|
@@ -1119,23 +1118,23 @@ Each template is shown for both **image** (single image analysis) and **comparis
 | [CVE-2025-12084](https://nvd.nist.gov/vuln/detail/CVE-2025-12084) | Medium | `python` | `3.12.12` |
 | [CVE-2025-12781](https://nvd.nist.gov/vuln/detail/CVE-2025-12781) | Medium | `python` | `3.12.12` |
 | [CVE-2025-13837](https://nvd.nist.gov/vuln/detail/CVE-2025-13837) | Medium | `python` | `3.12.12` |
-| [CVE-2025-14104](https://nvd.nist.gov/vuln/detail/CVE-2025-14104) | Medium | `libblkid1` | `2.41-5` |
-| [CVE-2025-14104](https://nvd.nist.gov/vuln/detail/CVE-2025-14104) | Medium | `libsmartcols1` | `2.41-5` |
+| [CVE-2025-14104](https://nvd.nist.gov/vuln/detail/CVE-2025-14104) | Medium | `libmount1` | `2.41-5` |
 | [CVE-2025-14104](https://nvd.nist.gov/vuln/detail/CVE-2025-14104) | Medium | `bsdutils` | `1:2.41-5` |
+| [CVE-2025-14104](https://nvd.nist.gov/vuln/detail/CVE-2025-14104) | Medium | `util-linux` | `2.41-5` |
+| [CVE-2025-14104](https://nvd.nist.gov/vuln/detail/CVE-2025-14104) | Medium | `mount` | `2.41-5` |
+| [CVE-2025-14104](https://nvd.nist.gov/vuln/detail/CVE-2025-14104) | Medium | `login` | `1:4.16.0-2+really2.41-5` |
+| [CVE-2025-14104](https://nvd.nist.gov/vuln/detail/CVE-2025-14104) | Medium | `libblkid1` | `2.41-5` |
 | [CVE-2025-14104](https://nvd.nist.gov/vuln/detail/CVE-2025-14104) | Medium | `liblastlog2-2` | `2.41-5` |
 | [CVE-2025-14104](https://nvd.nist.gov/vuln/detail/CVE-2025-14104) | Medium | `libuuid1` | `2.41-5` |
-| [CVE-2025-14104](https://nvd.nist.gov/vuln/detail/CVE-2025-14104) | Medium | `login` | `1:4.16.0-2+really2.41-5` |
-| [CVE-2025-14104](https://nvd.nist.gov/vuln/detail/CVE-2025-14104) | Medium | `mount` | `2.41-5` |
-| [CVE-2025-14104](https://nvd.nist.gov/vuln/detail/CVE-2025-14104) | Medium | `libmount1` | `2.41-5` |
-| [CVE-2025-14104](https://nvd.nist.gov/vuln/detail/CVE-2025-14104) | Medium | `util-linux` | `2.41-5` |
+| [CVE-2025-14104](https://nvd.nist.gov/vuln/detail/CVE-2025-14104) | Medium | `libsmartcols1` | `2.41-5` |
 | [CVE-2025-15282](https://nvd.nist.gov/vuln/detail/CVE-2025-15282) | Medium | `python` | `3.12.12` |
 | [CVE-2025-15366](https://nvd.nist.gov/vuln/detail/CVE-2025-15366) | Medium | `python` | `3.12.12` |
 | [CVE-2025-15367](https://nvd.nist.gov/vuln/detail/CVE-2025-15367) | Medium | `python` | `3.12.12` |
 | [CVE-2025-6075](https://nvd.nist.gov/vuln/detail/CVE-2025-6075) | Medium | `python` | `3.12.12` |
-| [CVE-2025-6141](https://nvd.nist.gov/vuln/detail/CVE-2025-6141) | Medium | `libncursesw6` | `6.5+20250216-2` |
-| [CVE-2025-6141](https://nvd.nist.gov/vuln/detail/CVE-2025-6141) | Medium | `libtinfo6` | `6.5+20250216-2` |
 | [CVE-2025-6141](https://nvd.nist.gov/vuln/detail/CVE-2025-6141) | Medium | `ncurses-base` | `6.5+20250216-2` |
 | [CVE-2025-6141](https://nvd.nist.gov/vuln/detail/CVE-2025-6141) | Medium | `ncurses-bin` | `6.5+20250216-2` |
+| [CVE-2025-6141](https://nvd.nist.gov/vuln/detail/CVE-2025-6141) | Medium | `libtinfo6` | `6.5+20250216-2` |
+| [CVE-2025-6141](https://nvd.nist.gov/vuln/detail/CVE-2025-6141) | Medium | `libncursesw6` | `6.5+20250216-2` |
 | [CVE-2025-7709](https://nvd.nist.gov/vuln/detail/CVE-2025-7709) | Medium | `libsqlite3-0` | `3.46.1-7` |
 | [CVE-2026-0672](https://nvd.nist.gov/vuln/detail/CVE-2026-0672) | Medium | `python` | `3.12.12` |
 | [CVE-2026-0865](https://nvd.nist.gov/vuln/detail/CVE-2026-0865) | Medium | `python` | `3.12.12` |
@@ -1155,34 +1154,34 @@ Each template is shown for both **image** (single image analysis) and **comparis
 | [CVE-2013-4392](https://nvd.nist.gov/vuln/detail/CVE-2013-4392) | Negligible | `libsystemd0` | `257.9-1~deb13u1` |
 | [CVE-2013-4392](https://nvd.nist.gov/vuln/detail/CVE-2013-4392) | Negligible | `libudev1` | `257.9-1~deb13u1` |
 | [CVE-2017-18018](https://nvd.nist.gov/vuln/detail/CVE-2017-18018) | Negligible | `coreutils` | `9.7-3` |
-| [CVE-2018-20796](https://nvd.nist.gov/vuln/detail/CVE-2018-20796) | Negligible | `libc6` | `2.41-12+deb13u1` |
 | [CVE-2018-20796](https://nvd.nist.gov/vuln/detail/CVE-2018-20796) | Negligible | `libc-bin` | `2.41-12+deb13u1` |
-| [CVE-2019-1010022](https://nvd.nist.gov/vuln/detail/CVE-2019-1010022) | Negligible | `libc6` | `2.41-12+deb13u1` |
+| [CVE-2018-20796](https://nvd.nist.gov/vuln/detail/CVE-2018-20796) | Negligible | `libc6` | `2.41-12+deb13u1` |
 | [CVE-2019-1010022](https://nvd.nist.gov/vuln/detail/CVE-2019-1010022) | Negligible | `libc-bin` | `2.41-12+deb13u1` |
-| [CVE-2019-1010023](https://nvd.nist.gov/vuln/detail/CVE-2019-1010023) | Negligible | `libc6` | `2.41-12+deb13u1` |
+| [CVE-2019-1010022](https://nvd.nist.gov/vuln/detail/CVE-2019-1010022) | Negligible | `libc6` | `2.41-12+deb13u1` |
 | [CVE-2019-1010023](https://nvd.nist.gov/vuln/detail/CVE-2019-1010023) | Negligible | `libc-bin` | `2.41-12+deb13u1` |
+| [CVE-2019-1010023](https://nvd.nist.gov/vuln/detail/CVE-2019-1010023) | Negligible | `libc6` | `2.41-12+deb13u1` |
 | [CVE-2019-1010024](https://nvd.nist.gov/vuln/detail/CVE-2019-1010024) | Negligible | `libc-bin` | `2.41-12+deb13u1` |
 | [CVE-2019-1010024](https://nvd.nist.gov/vuln/detail/CVE-2019-1010024) | Negligible | `libc6` | `2.41-12+deb13u1` |
 | [CVE-2019-1010025](https://nvd.nist.gov/vuln/detail/CVE-2019-1010025) | Negligible | `libc6` | `2.41-12+deb13u1` |
 | [CVE-2019-1010025](https://nvd.nist.gov/vuln/detail/CVE-2019-1010025) | Negligible | `libc-bin` | `2.41-12+deb13u1` |
-| [CVE-2019-9192](https://nvd.nist.gov/vuln/detail/CVE-2019-9192) | Negligible | `libc6` | `2.41-12+deb13u1` |
 | [CVE-2019-9192](https://nvd.nist.gov/vuln/detail/CVE-2019-9192) | Negligible | `libc-bin` | `2.41-12+deb13u1` |
+| [CVE-2019-9192](https://nvd.nist.gov/vuln/detail/CVE-2019-9192) | Negligible | `libc6` | `2.41-12+deb13u1` |
 | [CVE-2021-45346](https://nvd.nist.gov/vuln/detail/CVE-2021-45346) | Negligible | `libsqlite3-0` | `3.46.1-7` |
-| [CVE-2022-0563](https://nvd.nist.gov/vuln/detail/CVE-2022-0563) | Negligible | `bsdutils` | `1:2.41-5` |
-| [CVE-2022-0563](https://nvd.nist.gov/vuln/detail/CVE-2022-0563) | Negligible | `liblastlog2-2` | `2.41-5` |
 | [CVE-2022-0563](https://nvd.nist.gov/vuln/detail/CVE-2022-0563) | Negligible | `util-linux` | `2.41-5` |
-| [CVE-2022-0563](https://nvd.nist.gov/vuln/detail/CVE-2022-0563) | Negligible | `mount` | `2.41-5` |
 | [CVE-2022-0563](https://nvd.nist.gov/vuln/detail/CVE-2022-0563) | Negligible | `login` | `1:4.16.0-2+really2.41-5` |
-| [CVE-2022-0563](https://nvd.nist.gov/vuln/detail/CVE-2022-0563) | Negligible | `libuuid1` | `2.41-5` |
-| [CVE-2022-0563](https://nvd.nist.gov/vuln/detail/CVE-2022-0563) | Negligible | `libsmartcols1` | `2.41-5` |
-| [CVE-2022-0563](https://nvd.nist.gov/vuln/detail/CVE-2022-0563) | Negligible | `libmount1` | `2.41-5` |
+| [CVE-2022-0563](https://nvd.nist.gov/vuln/detail/CVE-2022-0563) | Negligible | `mount` | `2.41-5` |
+| [CVE-2022-0563](https://nvd.nist.gov/vuln/detail/CVE-2022-0563) | Negligible | `bsdutils` | `1:2.41-5` |
 | [CVE-2022-0563](https://nvd.nist.gov/vuln/detail/CVE-2022-0563) | Negligible | `libblkid1` | `2.41-5` |
+| [CVE-2022-0563](https://nvd.nist.gov/vuln/detail/CVE-2022-0563) | Negligible | `liblastlog2-2` | `2.41-5` |
+| [CVE-2022-0563](https://nvd.nist.gov/vuln/detail/CVE-2022-0563) | Negligible | `libmount1` | `2.41-5` |
+| [CVE-2022-0563](https://nvd.nist.gov/vuln/detail/CVE-2022-0563) | Negligible | `libsmartcols1` | `2.41-5` |
+| [CVE-2022-0563](https://nvd.nist.gov/vuln/detail/CVE-2022-0563) | Negligible | `libuuid1` | `2.41-5` |
 | [CVE-2023-31437](https://nvd.nist.gov/vuln/detail/CVE-2023-31437) | Negligible | `libsystemd0` | `257.9-1~deb13u1` |
 | [CVE-2023-31437](https://nvd.nist.gov/vuln/detail/CVE-2023-31437) | Negligible | `libudev1` | `257.9-1~deb13u1` |
 | [CVE-2023-31438](https://nvd.nist.gov/vuln/detail/CVE-2023-31438) | Negligible | `libsystemd0` | `257.9-1~deb13u1` |
 | [CVE-2023-31438](https://nvd.nist.gov/vuln/detail/CVE-2023-31438) | Negligible | `libudev1` | `257.9-1~deb13u1` |
-| [CVE-2023-31439](https://nvd.nist.gov/vuln/detail/CVE-2023-31439) | Negligible | `libsystemd0` | `257.9-1~deb13u1` |
 | [CVE-2023-31439](https://nvd.nist.gov/vuln/detail/CVE-2023-31439) | Negligible | `libudev1` | `257.9-1~deb13u1` |
+| [CVE-2023-31439](https://nvd.nist.gov/vuln/detail/CVE-2023-31439) | Negligible | `libsystemd0` | `257.9-1~deb13u1` |
 | [CVE-2025-5278](https://nvd.nist.gov/vuln/detail/CVE-2025-5278) | Negligible | `coreutils` | `9.7-3` |
 
 ### Installed Packages (90 total)
@@ -1300,7 +1299,7 @@ Each template is shown for both **image** (single image analysis) and **comparis
 
 ### Vulnerability Summary
 
-**Last scanned:** 2026-02-18T05:36:28Z
+**Last scanned:** 2026-02-18T21:47:30Z
 
 | Critical | High | Medium | Low | Total |
 |:---:|:---:|:---:|:---:|:---:|
@@ -1312,28 +1311,28 @@ Each template is shown for both **image** (single image analysis) and **comparis
 |----|----------|---------|---------|
 | [CVE-2025-15281](https://nvd.nist.gov/vuln/detail/CVE-2025-15281) | High | `libc-bin` | `2.41-12+deb13u1` |
 | [CVE-2025-15281](https://nvd.nist.gov/vuln/detail/CVE-2025-15281) | High | `libc6` | `2.41-12+deb13u1` |
-| [CVE-2026-0861](https://nvd.nist.gov/vuln/detail/CVE-2026-0861) | High | `libc6` | `2.41-12+deb13u1` |
 | [CVE-2026-0861](https://nvd.nist.gov/vuln/detail/CVE-2026-0861) | High | `libc-bin` | `2.41-12+deb13u1` |
+| [CVE-2026-0861](https://nvd.nist.gov/vuln/detail/CVE-2026-0861) | High | `libc6` | `2.41-12+deb13u1` |
 | [CVE-2026-0915](https://nvd.nist.gov/vuln/detail/CVE-2026-0915) | High | `libc6` | `2.41-12+deb13u1` |
 | [CVE-2026-0915](https://nvd.nist.gov/vuln/detail/CVE-2026-0915) | High | `libc-bin` | `2.41-12+deb13u1` |
 | [CVE-2025-11468](https://nvd.nist.gov/vuln/detail/CVE-2025-11468) | Medium | `python` | `3.13.12` |
 | [CVE-2025-12781](https://nvd.nist.gov/vuln/detail/CVE-2025-12781) | Medium | `python` | `3.13.12` |
-| [CVE-2025-14104](https://nvd.nist.gov/vuln/detail/CVE-2025-14104) | Medium | `libblkid1` | `2.41-5` |
-| [CVE-2025-14104](https://nvd.nist.gov/vuln/detail/CVE-2025-14104) | Medium | `libmount1` | `2.41-5` |
+| [CVE-2025-14104](https://nvd.nist.gov/vuln/detail/CVE-2025-14104) | Medium | `libuuid1` | `2.41-5` |
 | [CVE-2025-14104](https://nvd.nist.gov/vuln/detail/CVE-2025-14104) | Medium | `bsdutils` | `1:2.41-5` |
-| [CVE-2025-14104](https://nvd.nist.gov/vuln/detail/CVE-2025-14104) | Medium | `liblastlog2-2` | `2.41-5` |
+| [CVE-2025-14104](https://nvd.nist.gov/vuln/detail/CVE-2025-14104) | Medium | `libblkid1` | `2.41-5` |
 | [CVE-2025-14104](https://nvd.nist.gov/vuln/detail/CVE-2025-14104) | Medium | `util-linux` | `2.41-5` |
 | [CVE-2025-14104](https://nvd.nist.gov/vuln/detail/CVE-2025-14104) | Medium | `mount` | `2.41-5` |
 | [CVE-2025-14104](https://nvd.nist.gov/vuln/detail/CVE-2025-14104) | Medium | `login` | `1:4.16.0-2+really2.41-5` |
-| [CVE-2025-14104](https://nvd.nist.gov/vuln/detail/CVE-2025-14104) | Medium | `libuuid1` | `2.41-5` |
+| [CVE-2025-14104](https://nvd.nist.gov/vuln/detail/CVE-2025-14104) | Medium | `liblastlog2-2` | `2.41-5` |
+| [CVE-2025-14104](https://nvd.nist.gov/vuln/detail/CVE-2025-14104) | Medium | `libmount1` | `2.41-5` |
 | [CVE-2025-14104](https://nvd.nist.gov/vuln/detail/CVE-2025-14104) | Medium | `libsmartcols1` | `2.41-5` |
 | [CVE-2025-15282](https://nvd.nist.gov/vuln/detail/CVE-2025-15282) | Medium | `python` | `3.13.12` |
 | [CVE-2025-15366](https://nvd.nist.gov/vuln/detail/CVE-2025-15366) | Medium | `python` | `3.13.12` |
 | [CVE-2025-15367](https://nvd.nist.gov/vuln/detail/CVE-2025-15367) | Medium | `python` | `3.13.12` |
 | [CVE-2025-6141](https://nvd.nist.gov/vuln/detail/CVE-2025-6141) | Medium | `libncursesw6` | `6.5+20250216-2` |
-| [CVE-2025-6141](https://nvd.nist.gov/vuln/detail/CVE-2025-6141) | Medium | `libtinfo6` | `6.5+20250216-2` |
 | [CVE-2025-6141](https://nvd.nist.gov/vuln/detail/CVE-2025-6141) | Medium | `ncurses-base` | `6.5+20250216-2` |
 | [CVE-2025-6141](https://nvd.nist.gov/vuln/detail/CVE-2025-6141) | Medium | `ncurses-bin` | `6.5+20250216-2` |
+| [CVE-2025-6141](https://nvd.nist.gov/vuln/detail/CVE-2025-6141) | Medium | `libtinfo6` | `6.5+20250216-2` |
 | [CVE-2025-7709](https://nvd.nist.gov/vuln/detail/CVE-2025-7709) | Medium | `libsqlite3-0` | `3.46.1-7` |
 | [CVE-2026-0672](https://nvd.nist.gov/vuln/detail/CVE-2026-0672) | Medium | `python` | `3.13.12` |
 | [CVE-2026-0865](https://nvd.nist.gov/vuln/detail/CVE-2026-0865) | Medium | `python` | `3.13.12` |
@@ -1342,8 +1341,8 @@ Each template is shown for both **image** (single image analysis) and **comparis
 | [CVE-2024-56433](https://nvd.nist.gov/vuln/detail/CVE-2024-56433) | Low | `passwd` | `1:4.17.4-2` |
 | [GHSA-6vgw-5pg2-w6jp](https://nvd.nist.gov/vuln/detail/GHSA-6vgw-5pg2-w6jp) | Low | `pip` | `25.3` |
 | [CVE-2005-2541](https://nvd.nist.gov/vuln/detail/CVE-2005-2541) | Negligible | `tar` | `1.35+dfsg-3.1` |
-| [CVE-2007-5686](https://nvd.nist.gov/vuln/detail/CVE-2007-5686) | Negligible | `passwd` | `1:4.17.4-2` |
 | [CVE-2007-5686](https://nvd.nist.gov/vuln/detail/CVE-2007-5686) | Negligible | `login.defs` | `1:4.17.4-2` |
+| [CVE-2007-5686](https://nvd.nist.gov/vuln/detail/CVE-2007-5686) | Negligible | `passwd` | `1:4.17.4-2` |
 | [CVE-2010-4756](https://nvd.nist.gov/vuln/detail/CVE-2010-4756) | Negligible | `libc6` | `2.41-12+deb13u1` |
 | [CVE-2010-4756](https://nvd.nist.gov/vuln/detail/CVE-2010-4756) | Negligible | `libc-bin` | `2.41-12+deb13u1` |
 | [CVE-2011-3374](https://nvd.nist.gov/vuln/detail/CVE-2011-3374) | Negligible | `apt` | `3.0.3` |
@@ -1356,8 +1355,8 @@ Each template is shown for both **image** (single image analysis) and **comparis
 | [CVE-2018-20796](https://nvd.nist.gov/vuln/detail/CVE-2018-20796) | Negligible | `libc6` | `2.41-12+deb13u1` |
 | [CVE-2019-1010022](https://nvd.nist.gov/vuln/detail/CVE-2019-1010022) | Negligible | `libc-bin` | `2.41-12+deb13u1` |
 | [CVE-2019-1010022](https://nvd.nist.gov/vuln/detail/CVE-2019-1010022) | Negligible | `libc6` | `2.41-12+deb13u1` |
-| [CVE-2019-1010023](https://nvd.nist.gov/vuln/detail/CVE-2019-1010023) | Negligible | `libc-bin` | `2.41-12+deb13u1` |
 | [CVE-2019-1010023](https://nvd.nist.gov/vuln/detail/CVE-2019-1010023) | Negligible | `libc6` | `2.41-12+deb13u1` |
+| [CVE-2019-1010023](https://nvd.nist.gov/vuln/detail/CVE-2019-1010023) | Negligible | `libc-bin` | `2.41-12+deb13u1` |
 | [CVE-2019-1010024](https://nvd.nist.gov/vuln/detail/CVE-2019-1010024) | Negligible | `libc-bin` | `2.41-12+deb13u1` |
 | [CVE-2019-1010024](https://nvd.nist.gov/vuln/detail/CVE-2019-1010024) | Negligible | `libc6` | `2.41-12+deb13u1` |
 | [CVE-2019-1010025](https://nvd.nist.gov/vuln/detail/CVE-2019-1010025) | Negligible | `libc6` | `2.41-12+deb13u1` |
@@ -1365,19 +1364,19 @@ Each template is shown for both **image** (single image analysis) and **comparis
 | [CVE-2019-9192](https://nvd.nist.gov/vuln/detail/CVE-2019-9192) | Negligible | `libc-bin` | `2.41-12+deb13u1` |
 | [CVE-2019-9192](https://nvd.nist.gov/vuln/detail/CVE-2019-9192) | Negligible | `libc6` | `2.41-12+deb13u1` |
 | [CVE-2021-45346](https://nvd.nist.gov/vuln/detail/CVE-2021-45346) | Negligible | `libsqlite3-0` | `3.46.1-7` |
-| [CVE-2022-0563](https://nvd.nist.gov/vuln/detail/CVE-2022-0563) | Negligible | `mount` | `2.41-5` |
 | [CVE-2022-0563](https://nvd.nist.gov/vuln/detail/CVE-2022-0563) | Negligible | `util-linux` | `2.41-5` |
 | [CVE-2022-0563](https://nvd.nist.gov/vuln/detail/CVE-2022-0563) | Negligible | `login` | `1:4.16.0-2+really2.41-5` |
-| [CVE-2022-0563](https://nvd.nist.gov/vuln/detail/CVE-2022-0563) | Negligible | `libsmartcols1` | `2.41-5` |
-| [CVE-2022-0563](https://nvd.nist.gov/vuln/detail/CVE-2022-0563) | Negligible | `libuuid1` | `2.41-5` |
+| [CVE-2022-0563](https://nvd.nist.gov/vuln/detail/CVE-2022-0563) | Negligible | `mount` | `2.41-5` |
 | [CVE-2022-0563](https://nvd.nist.gov/vuln/detail/CVE-2022-0563) | Negligible | `bsdutils` | `1:2.41-5` |
 | [CVE-2022-0563](https://nvd.nist.gov/vuln/detail/CVE-2022-0563) | Negligible | `libblkid1` | `2.41-5` |
 | [CVE-2022-0563](https://nvd.nist.gov/vuln/detail/CVE-2022-0563) | Negligible | `liblastlog2-2` | `2.41-5` |
 | [CVE-2022-0563](https://nvd.nist.gov/vuln/detail/CVE-2022-0563) | Negligible | `libmount1` | `2.41-5` |
+| [CVE-2022-0563](https://nvd.nist.gov/vuln/detail/CVE-2022-0563) | Negligible | `libsmartcols1` | `2.41-5` |
+| [CVE-2022-0563](https://nvd.nist.gov/vuln/detail/CVE-2022-0563) | Negligible | `libuuid1` | `2.41-5` |
 | [CVE-2023-31437](https://nvd.nist.gov/vuln/detail/CVE-2023-31437) | Negligible | `libsystemd0` | `257.9-1~deb13u1` |
 | [CVE-2023-31437](https://nvd.nist.gov/vuln/detail/CVE-2023-31437) | Negligible | `libudev1` | `257.9-1~deb13u1` |
-| [CVE-2023-31438](https://nvd.nist.gov/vuln/detail/CVE-2023-31438) | Negligible | `libudev1` | `257.9-1~deb13u1` |
 | [CVE-2023-31438](https://nvd.nist.gov/vuln/detail/CVE-2023-31438) | Negligible | `libsystemd0` | `257.9-1~deb13u1` |
+| [CVE-2023-31438](https://nvd.nist.gov/vuln/detail/CVE-2023-31438) | Negligible | `libudev1` | `257.9-1~deb13u1` |
 | [CVE-2023-31439](https://nvd.nist.gov/vuln/detail/CVE-2023-31439) | Negligible | `libudev1` | `257.9-1~deb13u1` |
 | [CVE-2023-31439](https://nvd.nist.gov/vuln/detail/CVE-2023-31439) | Negligible | `libsystemd0` | `257.9-1~deb13u1` |
 | [CVE-2025-5278](https://nvd.nist.gov/vuln/detail/CVE-2025-5278) | Negligible | `coreutils` | `9.7-3` |
@@ -1497,7 +1496,7 @@ Each template is shown for both **image** (single image analysis) and **comparis
 
 ### Vulnerability Summary
 
-**Last scanned:** 2026-02-18T05:36:28Z
+**Last scanned:** 2026-02-18T21:47:30Z
 
 | Critical | High | Medium | Low | Total |
 |:---:|:---:|:---:|:---:|:---:|
@@ -1509,28 +1508,28 @@ Each template is shown for both **image** (single image analysis) and **comparis
 |----|----------|---------|---------|
 | [CVE-2025-15281](https://nvd.nist.gov/vuln/detail/CVE-2025-15281) | High | `libc-bin` | `2.41-12+deb13u1` |
 | [CVE-2025-15281](https://nvd.nist.gov/vuln/detail/CVE-2025-15281) | High | `libc6` | `2.41-12+deb13u1` |
-| [CVE-2026-0861](https://nvd.nist.gov/vuln/detail/CVE-2026-0861) | High | `libc6` | `2.41-12+deb13u1` |
 | [CVE-2026-0861](https://nvd.nist.gov/vuln/detail/CVE-2026-0861) | High | `libc-bin` | `2.41-12+deb13u1` |
+| [CVE-2026-0861](https://nvd.nist.gov/vuln/detail/CVE-2026-0861) | High | `libc6` | `2.41-12+deb13u1` |
 | [CVE-2026-0915](https://nvd.nist.gov/vuln/detail/CVE-2026-0915) | High | `libc6` | `2.41-12+deb13u1` |
 | [CVE-2026-0915](https://nvd.nist.gov/vuln/detail/CVE-2026-0915) | High | `libc-bin` | `2.41-12+deb13u1` |
 | [CVE-2025-11468](https://nvd.nist.gov/vuln/detail/CVE-2025-11468) | Medium | `python` | `3.14.3` |
 | [CVE-2025-12781](https://nvd.nist.gov/vuln/detail/CVE-2025-12781) | Medium | `python` | `3.14.3` |
-| [CVE-2025-14104](https://nvd.nist.gov/vuln/detail/CVE-2025-14104) | Medium | `libblkid1` | `2.41-5` |
-| [CVE-2025-14104](https://nvd.nist.gov/vuln/detail/CVE-2025-14104) | Medium | `libmount1` | `2.41-5` |
+| [CVE-2025-14104](https://nvd.nist.gov/vuln/detail/CVE-2025-14104) | Medium | `libuuid1` | `2.41-5` |
 | [CVE-2025-14104](https://nvd.nist.gov/vuln/detail/CVE-2025-14104) | Medium | `bsdutils` | `1:2.41-5` |
-| [CVE-2025-14104](https://nvd.nist.gov/vuln/detail/CVE-2025-14104) | Medium | `liblastlog2-2` | `2.41-5` |
+| [CVE-2025-14104](https://nvd.nist.gov/vuln/detail/CVE-2025-14104) | Medium | `libblkid1` | `2.41-5` |
 | [CVE-2025-14104](https://nvd.nist.gov/vuln/detail/CVE-2025-14104) | Medium | `util-linux` | `2.41-5` |
 | [CVE-2025-14104](https://nvd.nist.gov/vuln/detail/CVE-2025-14104) | Medium | `mount` | `2.41-5` |
 | [CVE-2025-14104](https://nvd.nist.gov/vuln/detail/CVE-2025-14104) | Medium | `login` | `1:4.16.0-2+really2.41-5` |
-| [CVE-2025-14104](https://nvd.nist.gov/vuln/detail/CVE-2025-14104) | Medium | `libuuid1` | `2.41-5` |
+| [CVE-2025-14104](https://nvd.nist.gov/vuln/detail/CVE-2025-14104) | Medium | `liblastlog2-2` | `2.41-5` |
+| [CVE-2025-14104](https://nvd.nist.gov/vuln/detail/CVE-2025-14104) | Medium | `libmount1` | `2.41-5` |
 | [CVE-2025-14104](https://nvd.nist.gov/vuln/detail/CVE-2025-14104) | Medium | `libsmartcols1` | `2.41-5` |
 | [CVE-2025-15282](https://nvd.nist.gov/vuln/detail/CVE-2025-15282) | Medium | `python` | `3.14.3` |
 | [CVE-2025-15366](https://nvd.nist.gov/vuln/detail/CVE-2025-15366) | Medium | `python` | `3.14.3` |
 | [CVE-2025-15367](https://nvd.nist.gov/vuln/detail/CVE-2025-15367) | Medium | `python` | `3.14.3` |
 | [CVE-2025-6141](https://nvd.nist.gov/vuln/detail/CVE-2025-6141) | Medium | `libncursesw6` | `6.5+20250216-2` |
-| [CVE-2025-6141](https://nvd.nist.gov/vuln/detail/CVE-2025-6141) | Medium | `libtinfo6` | `6.5+20250216-2` |
 | [CVE-2025-6141](https://nvd.nist.gov/vuln/detail/CVE-2025-6141) | Medium | `ncurses-base` | `6.5+20250216-2` |
 | [CVE-2025-6141](https://nvd.nist.gov/vuln/detail/CVE-2025-6141) | Medium | `ncurses-bin` | `6.5+20250216-2` |
+| [CVE-2025-6141](https://nvd.nist.gov/vuln/detail/CVE-2025-6141) | Medium | `libtinfo6` | `6.5+20250216-2` |
 | [CVE-2025-7709](https://nvd.nist.gov/vuln/detail/CVE-2025-7709) | Medium | `libsqlite3-0` | `3.46.1-7` |
 | [CVE-2026-0672](https://nvd.nist.gov/vuln/detail/CVE-2026-0672) | Medium | `python` | `3.14.3` |
 | [CVE-2026-0865](https://nvd.nist.gov/vuln/detail/CVE-2026-0865) | Medium | `python` | `3.14.3` |
@@ -1539,8 +1538,8 @@ Each template is shown for both **image** (single image analysis) and **comparis
 | [CVE-2024-56433](https://nvd.nist.gov/vuln/detail/CVE-2024-56433) | Low | `passwd` | `1:4.17.4-2` |
 | [GHSA-6vgw-5pg2-w6jp](https://nvd.nist.gov/vuln/detail/GHSA-6vgw-5pg2-w6jp) | Low | `pip` | `25.3` |
 | [CVE-2005-2541](https://nvd.nist.gov/vuln/detail/CVE-2005-2541) | Negligible | `tar` | `1.35+dfsg-3.1` |
-| [CVE-2007-5686](https://nvd.nist.gov/vuln/detail/CVE-2007-5686) | Negligible | `passwd` | `1:4.17.4-2` |
 | [CVE-2007-5686](https://nvd.nist.gov/vuln/detail/CVE-2007-5686) | Negligible | `login.defs` | `1:4.17.4-2` |
+| [CVE-2007-5686](https://nvd.nist.gov/vuln/detail/CVE-2007-5686) | Negligible | `passwd` | `1:4.17.4-2` |
 | [CVE-2010-4756](https://nvd.nist.gov/vuln/detail/CVE-2010-4756) | Negligible | `libc6` | `2.41-12+deb13u1` |
 | [CVE-2010-4756](https://nvd.nist.gov/vuln/detail/CVE-2010-4756) | Negligible | `libc-bin` | `2.41-12+deb13u1` |
 | [CVE-2011-3374](https://nvd.nist.gov/vuln/detail/CVE-2011-3374) | Negligible | `apt` | `3.0.3` |
@@ -1553,8 +1552,8 @@ Each template is shown for both **image** (single image analysis) and **comparis
 | [CVE-2018-20796](https://nvd.nist.gov/vuln/detail/CVE-2018-20796) | Negligible | `libc6` | `2.41-12+deb13u1` |
 | [CVE-2019-1010022](https://nvd.nist.gov/vuln/detail/CVE-2019-1010022) | Negligible | `libc-bin` | `2.41-12+deb13u1` |
 | [CVE-2019-1010022](https://nvd.nist.gov/vuln/detail/CVE-2019-1010022) | Negligible | `libc6` | `2.41-12+deb13u1` |
-| [CVE-2019-1010023](https://nvd.nist.gov/vuln/detail/CVE-2019-1010023) | Negligible | `libc-bin` | `2.41-12+deb13u1` |
 | [CVE-2019-1010023](https://nvd.nist.gov/vuln/detail/CVE-2019-1010023) | Negligible | `libc6` | `2.41-12+deb13u1` |
+| [CVE-2019-1010023](https://nvd.nist.gov/vuln/detail/CVE-2019-1010023) | Negligible | `libc-bin` | `2.41-12+deb13u1` |
 | [CVE-2019-1010024](https://nvd.nist.gov/vuln/detail/CVE-2019-1010024) | Negligible | `libc-bin` | `2.41-12+deb13u1` |
 | [CVE-2019-1010024](https://nvd.nist.gov/vuln/detail/CVE-2019-1010024) | Negligible | `libc6` | `2.41-12+deb13u1` |
 | [CVE-2019-1010025](https://nvd.nist.gov/vuln/detail/CVE-2019-1010025) | Negligible | `libc6` | `2.41-12+deb13u1` |
@@ -1562,19 +1561,19 @@ Each template is shown for both **image** (single image analysis) and **comparis
 | [CVE-2019-9192](https://nvd.nist.gov/vuln/detail/CVE-2019-9192) | Negligible | `libc-bin` | `2.41-12+deb13u1` |
 | [CVE-2019-9192](https://nvd.nist.gov/vuln/detail/CVE-2019-9192) | Negligible | `libc6` | `2.41-12+deb13u1` |
 | [CVE-2021-45346](https://nvd.nist.gov/vuln/detail/CVE-2021-45346) | Negligible | `libsqlite3-0` | `3.46.1-7` |
-| [CVE-2022-0563](https://nvd.nist.gov/vuln/detail/CVE-2022-0563) | Negligible | `mount` | `2.41-5` |
 | [CVE-2022-0563](https://nvd.nist.gov/vuln/detail/CVE-2022-0563) | Negligible | `util-linux` | `2.41-5` |
 | [CVE-2022-0563](https://nvd.nist.gov/vuln/detail/CVE-2022-0563) | Negligible | `login` | `1:4.16.0-2+really2.41-5` |
-| [CVE-2022-0563](https://nvd.nist.gov/vuln/detail/CVE-2022-0563) | Negligible | `libsmartcols1` | `2.41-5` |
-| [CVE-2022-0563](https://nvd.nist.gov/vuln/detail/CVE-2022-0563) | Negligible | `libuuid1` | `2.41-5` |
+| [CVE-2022-0563](https://nvd.nist.gov/vuln/detail/CVE-2022-0563) | Negligible | `mount` | `2.41-5` |
 | [CVE-2022-0563](https://nvd.nist.gov/vuln/detail/CVE-2022-0563) | Negligible | `bsdutils` | `1:2.41-5` |
 | [CVE-2022-0563](https://nvd.nist.gov/vuln/detail/CVE-2022-0563) | Negligible | `libblkid1` | `2.41-5` |
 | [CVE-2022-0563](https://nvd.nist.gov/vuln/detail/CVE-2022-0563) | Negligible | `liblastlog2-2` | `2.41-5` |
 | [CVE-2022-0563](https://nvd.nist.gov/vuln/detail/CVE-2022-0563) | Negligible | `libmount1` | `2.41-5` |
+| [CVE-2022-0563](https://nvd.nist.gov/vuln/detail/CVE-2022-0563) | Negligible | `libsmartcols1` | `2.41-5` |
+| [CVE-2022-0563](https://nvd.nist.gov/vuln/detail/CVE-2022-0563) | Negligible | `libuuid1` | `2.41-5` |
 | [CVE-2023-31437](https://nvd.nist.gov/vuln/detail/CVE-2023-31437) | Negligible | `libsystemd0` | `257.9-1~deb13u1` |
 | [CVE-2023-31437](https://nvd.nist.gov/vuln/detail/CVE-2023-31437) | Negligible | `libudev1` | `257.9-1~deb13u1` |
-| [CVE-2023-31438](https://nvd.nist.gov/vuln/detail/CVE-2023-31438) | Negligible | `libudev1` | `257.9-1~deb13u1` |
 | [CVE-2023-31438](https://nvd.nist.gov/vuln/detail/CVE-2023-31438) | Negligible | `libsystemd0` | `257.9-1~deb13u1` |
+| [CVE-2023-31438](https://nvd.nist.gov/vuln/detail/CVE-2023-31438) | Negligible | `libudev1` | `257.9-1~deb13u1` |
 | [CVE-2023-31439](https://nvd.nist.gov/vuln/detail/CVE-2023-31439) | Negligible | `libudev1` | `257.9-1~deb13u1` |
 | [CVE-2023-31439](https://nvd.nist.gov/vuln/detail/CVE-2023-31439) | Negligible | `libsystemd0` | `257.9-1~deb13u1` |
 | [CVE-2025-5278](https://nvd.nist.gov/vuln/detail/CVE-2025-5278) | Negligible | `coreutils` | `9.7-3` |

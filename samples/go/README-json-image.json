@@ -35,12 +35,13 @@
       ,"unknown/unknown"
     ],
     "size_mb": "68.04 MB",
+    "size_bytes": 71349130,
     "total_layers": 5,
     "efficiency": 99.90,
     "wasted_bytes": "0.47 MB",
     "total_packages": 29,
     "security": {
-      "scan_time": "2026-02-18T05:28:25Z",
+      "scan_time": "2026-02-18T21:37:03Z",
       "summary": {
         "critical": 0,
         "high": 0,

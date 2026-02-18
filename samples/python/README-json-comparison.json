@@ -18,12 +18,13 @@
           ,"unknown/unknown"
         ],
         "size_mb": "41.20 MB",
+        "size_bytes": 43201952,
         "total_layers": 4,
         "efficiency": 96.72,
         "wasted_bytes": "5.38 MB",
         "total_packages": 90,
         "security": {
-          "scan_time": "2026-02-18T05:37:28Z",
+          "scan_time": "2026-02-18T21:46:07Z",
           "summary": {
             "critical": 0,
             "high": 7,
@@ -101,13 +102,7 @@
             ,{
               "id": "CVE-2025-14104",
               "severity": "Medium",
-              "package": "libblkid1",
-              "version": "2.41-5"
-            }
-            ,{
-              "id": "CVE-2025-14104",
-              "severity": "Medium",
-              "package": "libsmartcols1",
+              "package": "libmount1",
               "version": "2.41-5"
             }
             ,{
@@ -115,6 +110,30 @@
               "severity": "Medium",
               "package": "bsdutils",
               "version": "1:2.41-5"
+            }
+            ,{
+              "id": "CVE-2025-14104",
+              "severity": "Medium",
+              "package": "util-linux",
+              "version": "2.41-5"
+            }
+            ,{
+              "id": "CVE-2025-14104",
+              "severity": "Medium",
+              "package": "mount",
+              "version": "2.41-5"
+            }
+            ,{
+              "id": "CVE-2025-14104",
+              "severity": "Medium",
+              "package": "login",
+              "version": "1:4.16.0-2+really2.41-5"
+            }
+            ,{
+              "id": "CVE-2025-14104",
+              "severity": "Medium",
+              "package": "libblkid1",
+              "version": "2.41-5"
             }
             ,{
               "id": "CVE-2025-14104",
@@ -131,25 +150,7 @@
             ,{
               "id": "CVE-2025-14104",
               "severity": "Medium",
-              "package": "login",
-              "version": "1:4.16.0-2+really2.41-5"
-            }
-            ,{
-              "id": "CVE-2025-14104",
-              "severity": "Medium",
-              "package": "mount",
-              "version": "2.41-5"
-            }
-            ,{
-              "id": "CVE-2025-14104",
-              "severity": "Medium",
-              "package": "libmount1",
-              "version": "2.41-5"
-            }
-            ,{
-              "id": "CVE-2025-14104",
-              "severity": "Medium",
-              "package": "util-linux",
+              "package": "libsmartcols1",
               "version": "2.41-5"
             }
             ,{
@@ -179,7 +180,13 @@
             ,{
               "id": "CVE-2025-6141",
               "severity": "Medium",
-              "package": "libncursesw6",
+              "package": "ncurses-base",
+              "version": "6.5+20250216-2"
+            }
+            ,{
+              "id": "CVE-2025-6141",
+              "severity": "Medium",
+              "package": "ncurses-bin",
               "version": "6.5+20250216-2"
             }
             ,{
@@ -191,13 +198,7 @@
             ,{
               "id": "CVE-2025-6141",
               "severity": "Medium",
-              "package": "ncurses-base",
-              "version": "6.5+20250216-2"
-            }
-            ,{
-              "id": "CVE-2025-6141",
-              "severity": "Medium",
-              "package": "ncurses-bin",
+              "package": "libncursesw6",
               "version": "6.5+20250216-2"
             }
             ,{
@@ -317,18 +318,12 @@
             ,{
               "id": "CVE-2018-20796",
               "severity": "Negligible",
-              "package": "libc6",
+              "package": "libc-bin",
               "version": "2.41-12+deb13u1"
             }
             ,{
               "id": "CVE-2018-20796",
               "severity": "Negligible",
-              "package": "libc-bin",
-              "version": "2.41-12+deb13u1"
-            }
-            ,{
-              "id": "CVE-2019-1010022",
-              "severity": "Negligible",
               "package": "libc6",
               "version": "2.41-12+deb13u1"
             }
@@ -339,7 +334,7 @@
               "version": "2.41-12+deb13u1"
             }
             ,{
-              "id": "CVE-2019-1010023",
+              "id": "CVE-2019-1010022",
               "severity": "Negligible",
               "package": "libc6",
               "version": "2.41-12+deb13u1"
@@ -348,6 +343,12 @@
               "id": "CVE-2019-1010023",
               "severity": "Negligible",
               "package": "libc-bin",
+              "version": "2.41-12+deb13u1"
+            }
+            ,{
+              "id": "CVE-2019-1010023",
+              "severity": "Negligible",
+              "package": "libc6",
               "version": "2.41-12+deb13u1"
             }
             ,{
@@ -377,13 +378,13 @@
             ,{
               "id": "CVE-2019-9192",
               "severity": "Negligible",
-              "package": "libc6",
+              "package": "libc-bin",
               "version": "2.41-12+deb13u1"
             }
             ,{
               "id": "CVE-2019-9192",
               "severity": "Negligible",
-              "package": "libc-bin",
+              "package": "libc6",
               "version": "2.41-12+deb13u1"
             }
             ,{
@@ -395,25 +396,7 @@
             ,{
               "id": "CVE-2022-0563",
               "severity": "Negligible",
-              "package": "bsdutils",
-              "version": "1:2.41-5"
-            }
-            ,{
-              "id": "CVE-2022-0563",
-              "severity": "Negligible",
-              "package": "liblastlog2-2",
-              "version": "2.41-5"
-            }
-            ,{
-              "id": "CVE-2022-0563",
-              "severity": "Negligible",
               "package": "util-linux",
-              "version": "2.41-5"
-            }
-            ,{
-              "id": "CVE-2022-0563",
-              "severity": "Negligible",
-              "package": "mount",
               "version": "2.41-5"
             }
             ,{
@@ -425,13 +408,25 @@
             ,{
               "id": "CVE-2022-0563",
               "severity": "Negligible",
-              "package": "libuuid1",
+              "package": "mount",
               "version": "2.41-5"
             }
             ,{
               "id": "CVE-2022-0563",
               "severity": "Negligible",
-              "package": "libsmartcols1",
+              "package": "bsdutils",
+              "version": "1:2.41-5"
+            }
+            ,{
+              "id": "CVE-2022-0563",
+              "severity": "Negligible",
+              "package": "libblkid1",
+              "version": "2.41-5"
+            }
+            ,{
+              "id": "CVE-2022-0563",
+              "severity": "Negligible",
+              "package": "liblastlog2-2",
               "version": "2.41-5"
             }
             ,{
@@ -443,7 +438,13 @@
             ,{
               "id": "CVE-2022-0563",
               "severity": "Negligible",
-              "package": "libblkid1",
+              "package": "libsmartcols1",
+              "version": "2.41-5"
+            }
+            ,{
+              "id": "CVE-2022-0563",
+              "severity": "Negligible",
+              "package": "libuuid1",
               "version": "2.41-5"
             }
             ,{
@@ -473,13 +474,13 @@
             ,{
               "id": "CVE-2023-31439",
               "severity": "Negligible",
-              "package": "libsystemd0",
+              "package": "libudev1",
               "version": "257.9-1~deb13u1"
             }
             ,{
               "id": "CVE-2023-31439",
               "severity": "Negligible",
-              "package": "libudev1",
+              "package": "libsystemd0",
               "version": "257.9-1~deb13u1"
             }
             ,{
@@ -869,12 +870,13 @@
           ,"unknown/unknown"
         ],
         "size_mb": "40.90 MB",
+        "size_bytes": 42886167,
         "total_layers": 4,
         "efficiency": 96.67,
         "wasted_bytes": "5.38 MB",
         "total_packages": 90,
         "security": {
-          "scan_time": "2026-02-18T05:37:28Z",
+          "scan_time": "2026-02-18T21:45:57Z",
           "summary": {
             "critical": 0,
             "high": 6,
@@ -898,13 +900,13 @@
             ,{
               "id": "CVE-2026-0861",
               "severity": "High",
-              "package": "libc6",
+              "package": "libc-bin",
               "version": "2.41-12+deb13u1"
             }
             ,{
               "id": "CVE-2026-0861",
               "severity": "High",
-              "package": "libc-bin",
+              "package": "libc6",
               "version": "2.41-12+deb13u1"
             }
             ,{
@@ -934,13 +936,7 @@
             ,{
               "id": "CVE-2025-14104",
               "severity": "Medium",
-              "package": "libblkid1",
-              "version": "2.41-5"
-            }
-            ,{
-              "id": "CVE-2025-14104",
-              "severity": "Medium",
-              "package": "libmount1",
+              "package": "libuuid1",
               "version": "2.41-5"
             }
             ,{
@@ -952,7 +948,7 @@
             ,{
               "id": "CVE-2025-14104",
               "severity": "Medium",
-              "package": "liblastlog2-2",
+              "package": "libblkid1",
               "version": "2.41-5"
             }
             ,{
@@ -976,7 +972,13 @@
             ,{
               "id": "CVE-2025-14104",
               "severity": "Medium",
-              "package": "libuuid1",
+              "package": "liblastlog2-2",
+              "version": "2.41-5"
+            }
+            ,{
+              "id": "CVE-2025-14104",
+              "severity": "Medium",
+              "package": "libmount1",
               "version": "2.41-5"
             }
             ,{
@@ -1012,12 +1014,6 @@
             ,{
               "id": "CVE-2025-6141",
               "severity": "Medium",
-              "package": "libtinfo6",
-              "version": "6.5+20250216-2"
-            }
-            ,{
-              "id": "CVE-2025-6141",
-              "severity": "Medium",
               "package": "ncurses-base",
               "version": "6.5+20250216-2"
             }
@@ -1025,6 +1021,12 @@
               "id": "CVE-2025-6141",
               "severity": "Medium",
               "package": "ncurses-bin",
+              "version": "6.5+20250216-2"
+            }
+            ,{
+              "id": "CVE-2025-6141",
+              "severity": "Medium",
+              "package": "libtinfo6",
               "version": "6.5+20250216-2"
             }
             ,{
@@ -1078,13 +1080,13 @@
             ,{
               "id": "CVE-2007-5686",
               "severity": "Negligible",
-              "package": "passwd",
+              "package": "login.defs",
               "version": "1:4.17.4-2"
             }
             ,{
               "id": "CVE-2007-5686",
               "severity": "Negligible",
-              "package": "login.defs",
+              "package": "passwd",
               "version": "1:4.17.4-2"
             }
             ,{
@@ -1162,13 +1164,13 @@
             ,{
               "id": "CVE-2019-1010023",
               "severity": "Negligible",
-              "package": "libc-bin",
+              "package": "libc6",
               "version": "2.41-12+deb13u1"
             }
             ,{
               "id": "CVE-2019-1010023",
               "severity": "Negligible",
-              "package": "libc6",
+              "package": "libc-bin",
               "version": "2.41-12+deb13u1"
             }
             ,{
@@ -1216,12 +1218,6 @@
             ,{
               "id": "CVE-2022-0563",
               "severity": "Negligible",
-              "package": "mount",
-              "version": "2.41-5"
-            }
-            ,{
-              "id": "CVE-2022-0563",
-              "severity": "Negligible",
               "package": "util-linux",
               "version": "2.41-5"
             }
@@ -1234,13 +1230,7 @@
             ,{
               "id": "CVE-2022-0563",
               "severity": "Negligible",
-              "package": "libsmartcols1",
-              "version": "2.41-5"
-            }
-            ,{
-              "id": "CVE-2022-0563",
-              "severity": "Negligible",
-              "package": "libuuid1",
+              "package": "mount",
               "version": "2.41-5"
             }
             ,{
@@ -1268,6 +1258,18 @@
               "version": "2.41-5"
             }
             ,{
+              "id": "CVE-2022-0563",
+              "severity": "Negligible",
+              "package": "libsmartcols1",
+              "version": "2.41-5"
+            }
+            ,{
+              "id": "CVE-2022-0563",
+              "severity": "Negligible",
+              "package": "libuuid1",
+              "version": "2.41-5"
+            }
+            ,{
               "id": "CVE-2023-31437",
               "severity": "Negligible",
               "package": "libsystemd0",
@@ -1282,13 +1284,13 @@
             ,{
               "id": "CVE-2023-31438",
               "severity": "Negligible",
-              "package": "libudev1",
+              "package": "libsystemd0",
               "version": "257.9-1~deb13u1"
             }
             ,{
               "id": "CVE-2023-31438",
               "severity": "Negligible",
-              "package": "libsystemd0",
+              "package": "libudev1",
               "version": "257.9-1~deb13u1"
             }
             ,{
@@ -1690,12 +1692,13 @@
           ,"unknown/unknown"
         ],
         "size_mb": "41.32 MB",
+        "size_bytes": 43328690,
         "total_layers": 4,
         "efficiency": 96.71,
         "wasted_bytes": "5.38 MB",
         "total_packages": 90,
         "security": {
-          "scan_time": "2026-02-18T05:37:28Z",
+          "scan_time": "2026-02-18T21:46:06Z",
           "summary": {
             "critical": 0,
             "high": 6,
@@ -1719,13 +1722,13 @@
             ,{
               "id": "CVE-2026-0861",
               "severity": "High",
-              "package": "libc6",
+              "package": "libc-bin",
               "version": "2.41-12+deb13u1"
             }
             ,{
               "id": "CVE-2026-0861",
               "severity": "High",
-              "package": "libc-bin",
+              "package": "libc6",
               "version": "2.41-12+deb13u1"
             }
             ,{
@@ -1755,13 +1758,7 @@
             ,{
               "id": "CVE-2025-14104",
               "severity": "Medium",
-              "package": "libblkid1",
-              "version": "2.41-5"
-            }
-            ,{
-              "id": "CVE-2025-14104",
-              "severity": "Medium",
-              "package": "libmount1",
+              "package": "libuuid1",
               "version": "2.41-5"
             }
             ,{
@@ -1773,7 +1770,7 @@
             ,{
               "id": "CVE-2025-14104",
               "severity": "Medium",
-              "package": "liblastlog2-2",
+              "package": "libblkid1",
               "version": "2.41-5"
             }
             ,{
@@ -1797,7 +1794,13 @@
             ,{
               "id": "CVE-2025-14104",
               "severity": "Medium",
-              "package": "libuuid1",
+              "package": "liblastlog2-2",
+              "version": "2.41-5"
+            }
+            ,{
+              "id": "CVE-2025-14104",
+              "severity": "Medium",
+              "package": "libmount1",
               "version": "2.41-5"
             }
             ,{
@@ -1833,12 +1836,6 @@
             ,{
               "id": "CVE-2025-6141",
               "severity": "Medium",
-              "package": "libtinfo6",
-              "version": "6.5+20250216-2"
-            }
-            ,{
-              "id": "CVE-2025-6141",
-              "severity": "Medium",
               "package": "ncurses-base",
               "version": "6.5+20250216-2"
             }
@@ -1846,6 +1843,12 @@
               "id": "CVE-2025-6141",
               "severity": "Medium",
               "package": "ncurses-bin",
+              "version": "6.5+20250216-2"
+            }
+            ,{
+              "id": "CVE-2025-6141",
+              "severity": "Medium",
+              "package": "libtinfo6",
               "version": "6.5+20250216-2"
             }
             ,{
@@ -1899,13 +1902,13 @@
             ,{
               "id": "CVE-2007-5686",
               "severity": "Negligible",
-              "package": "passwd",
+              "package": "login.defs",
               "version": "1:4.17.4-2"
             }
             ,{
               "id": "CVE-2007-5686",
               "severity": "Negligible",
-              "package": "login.defs",
+              "package": "passwd",
               "version": "1:4.17.4-2"
             }
             ,{
@@ -1983,13 +1986,13 @@
             ,{
               "id": "CVE-2019-1010023",
               "severity": "Negligible",
-              "package": "libc-bin",
+              "package": "libc6",
               "version": "2.41-12+deb13u1"
             }
             ,{
               "id": "CVE-2019-1010023",
               "severity": "Negligible",
-              "package": "libc6",
+              "package": "libc-bin",
               "version": "2.41-12+deb13u1"
             }
             ,{
@@ -2037,12 +2040,6 @@
             ,{
               "id": "CVE-2022-0563",
               "severity": "Negligible",
-              "package": "mount",
-              "version": "2.41-5"
-            }
-            ,{
-              "id": "CVE-2022-0563",
-              "severity": "Negligible",
               "package": "util-linux",
               "version": "2.41-5"
             }
@@ -2055,13 +2052,7 @@
             ,{
               "id": "CVE-2022-0563",
               "severity": "Negligible",
-              "package": "libsmartcols1",
-              "version": "2.41-5"
-            }
-            ,{
-              "id": "CVE-2022-0563",
-              "severity": "Negligible",
-              "package": "libuuid1",
+              "package": "mount",
               "version": "2.41-5"
             }
             ,{
@@ -2089,6 +2080,18 @@
               "version": "2.41-5"
             }
             ,{
+              "id": "CVE-2022-0563",
+              "severity": "Negligible",
+              "package": "libsmartcols1",
+              "version": "2.41-5"
+            }
+            ,{
+              "id": "CVE-2022-0563",
+              "severity": "Negligible",
+              "package": "libuuid1",
+              "version": "2.41-5"
+            }
+            ,{
               "id": "CVE-2023-31437",
               "severity": "Negligible",
               "package": "libsystemd0",
@@ -2103,13 +2106,13 @@
             ,{
               "id": "CVE-2023-31438",
               "severity": "Negligible",
-              "package": "libudev1",
+              "package": "libsystemd0",
               "version": "257.9-1~deb13u1"
             }
             ,{
               "id": "CVE-2023-31438",
               "severity": "Negligible",
-              "package": "libsystemd0",
+              "package": "libudev1",
               "version": "257.9-1~deb13u1"
             }
             ,{

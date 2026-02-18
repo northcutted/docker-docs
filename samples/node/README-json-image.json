@@ -32,18 +32,19 @@
       ,"unknown/unknown"
     ],
     "size_mb": "388.59 MB",
+    "size_bytes": 407471103,
     "total_layers": 8,
     "efficiency": 99.41,
     "wasted_bytes": "7.99 MB",
     "total_packages": 576,
     "security": {
-      "scan_time": "2026-02-18T05:34:45Z",
+      "scan_time": "2026-02-18T21:40:59Z",
       "summary": {
         "critical": 6,
-        "high": 66,
+        "high": 67,
         "medium": 161,
         "low": 57,
-        "total": 1020
+        "total": 1021
       },
       "vulnerabilities": [
         {
@@ -313,20 +314,14 @@
         ,{
           "id": "CVE-2025-7425",
           "severity": "High",
-          "package": "libxslt1-dev",
+          "package": "libxslt1.1",
           "version": "1.1.35-1+deb12u3"
         }
         ,{
           "id": "CVE-2025-7425",
           "severity": "High",
-          "package": "libxslt1.1",
+          "package": "libxslt1-dev",
           "version": "1.1.35-1+deb12u3"
-        }
-        ,{
-          "id": "CVE-2025-8194",
-          "severity": "High",
-          "package": "python3.11-minimal",
-          "version": "3.11.2-6+deb12u6"
         }
         ,{
           "id": "CVE-2025-8194",
@@ -347,16 +342,10 @@
           "version": "3.11.2-6+deb12u6"
         }
         ,{
-          "id": "CVE-2026-0861",
+          "id": "CVE-2025-8194",
           "severity": "High",
-          "package": "libc-dev-bin",
-          "version": "2.36-9+deb12u13"
-        }
-        ,{
-          "id": "CVE-2026-0861",
-          "severity": "High",
-          "package": "libc6-dev",
-          "version": "2.36-9+deb12u13"
+          "package": "python3.11-minimal",
+          "version": "3.11.2-6+deb12u6"
         }
         ,{
           "id": "CVE-2026-0861",
@@ -367,7 +356,19 @@
         ,{
           "id": "CVE-2026-0861",
           "severity": "High",
+          "package": "libc-dev-bin",
+          "version": "2.36-9+deb12u13"
+        }
+        ,{
+          "id": "CVE-2026-0861",
+          "severity": "High",
           "package": "libc6",
+          "version": "2.36-9+deb12u13"
+        }
+        ,{
+          "id": "CVE-2026-0861",
+          "severity": "High",
+          "package": "libc6-dev",
           "version": "2.36-9+deb12u13"
         }
         ,{
@@ -421,13 +422,13 @@
         ,{
           "id": "CVE-2026-2006",
           "severity": "High",
-          "package": "libpq5",
+          "package": "libpq-dev",
           "version": "15.15-0+deb12u1"
         }
         ,{
           "id": "CVE-2026-2006",
           "severity": "High",
-          "package": "libpq-dev",
+          "package": "libpq5",
           "version": "15.15-0+deb12u1"
         }
         ,{
@@ -445,18 +446,12 @@
         ,{
           "id": "CVE-2026-22801",
           "severity": "High",
-          "package": "libpng-dev",
+          "package": "libpng16-16",
           "version": "1.6.39-2+deb12u1"
         }
         ,{
           "id": "CVE-2026-22801",
           "severity": "High",
-          "package": "libpng16-16",
-          "version": "1.6.39-2+deb12u1"
-        }
-        ,{
-          "id": "CVE-2026-25646",
-          "severity": "High",
           "package": "libpng-dev",
           "version": "1.6.39-2+deb12u1"
         }
@@ -464,6 +459,12 @@
           "id": "CVE-2026-25646",
           "severity": "High",
           "package": "libpng16-16",
+          "version": "1.6.39-2+deb12u1"
+        }
+        ,{
+          "id": "CVE-2026-25646",
+          "severity": "High",
+          "package": "libpng-dev",
           "version": "1.6.39-2+deb12u1"
         }
         ,{
@@ -479,6 +480,18 @@
           "version": "5.0.0"
         }
         ,{
+          "id": "GHSA-83g3-92jg-28cx",
+          "severity": "High",
+          "package": "tar",
+          "version": "7.5.4"
+        }
+        ,{
+          "id": "CVE-2007-3996",
+          "severity": "Medium",
+          "package": "libwmflite-0.2-7",
+          "version": "0.2.12-5.1"
+        }
+        ,{
           "id": "CVE-2007-3996",
           "severity": "Medium",
           "package": "libwmf-0.2-7",
@@ -491,18 +504,6 @@
           "version": "0.2.12-5.1"
         }
         ,{
-          "id": "CVE-2007-3996",
-          "severity": "Medium",
-          "package": "libwmflite-0.2-7",
-          "version": "0.2.12-5.1"
-        }
-        ,{
-          "id": "CVE-2009-3546",
-          "severity": "Medium",
-          "package": "libwmf-0.2-7",
-          "version": "0.2.12-5.1"
-        }
-        ,{
           "id": "CVE-2009-3546",
           "severity": "Medium",
           "package": "libwmflite-0.2-7",
@@ -512,6 +513,12 @@
           "id": "CVE-2009-3546",
           "severity": "Medium",
           "package": "libwmf-dev",
+          "version": "0.2.12-5.1"
+        }
+        ,{
+          "id": "CVE-2009-3546",
+          "severity": "Medium",
+          "package": "libwmf-0.2-7",
           "version": "0.2.12-5.1"
         }
         ,{
@@ -553,31 +560,25 @@
         ,{
           "id": "CVE-2023-39329",
           "severity": "Medium",
-          "package": "libopenjp2-7",
+          "package": "libopenjp2-7-dev",
           "version": "2.5.0-2+deb12u2"
         }
         ,{
           "id": "CVE-2023-39329",
           "severity": "Medium",
-          "package": "libopenjp2-7-dev",
+          "package": "libopenjp2-7",
           "version": "2.5.0-2+deb12u2"
         }
         ,{
           "id": "CVE-2023-50495",
           "severity": "Medium",
-          "package": "ncurses-base",
+          "package": "libncursesw5-dev",
           "version": "6.4-4"
         }
         ,{
           "id": "CVE-2023-50495",
           "severity": "Medium",
-          "package": "libncurses-dev",
-          "version": "6.4-4"
-        }
-        ,{
-          "id": "CVE-2023-50495",
-          "severity": "Medium",
-          "package": "libncurses6",
+          "package": "libncurses5-dev",
           "version": "6.4-4"
         }
         ,{
@@ -589,7 +590,7 @@
         ,{
           "id": "CVE-2023-50495",
           "severity": "Medium",
-          "package": "libncursesw5-dev",
+          "package": "ncurses-base",
           "version": "6.4-4"
         }
         ,{
@@ -607,13 +608,19 @@
         ,{
           "id": "CVE-2023-50495",
           "severity": "Medium",
-          "package": "libncurses5-dev",
+          "package": "libncurses6",
+          "version": "6.4-4"
+        }
+        ,{
+          "id": "CVE-2023-50495",
+          "severity": "Medium",
+          "package": "libncurses-dev",
           "version": "6.4-4"
         }
         ,{
           "id": "CVE-2023-6277",
           "severity": "Medium",
-          "package": "libtiff6",
+          "package": "libtiffxx6",
           "version": "4.5.0-6+deb12u3"
         }
         ,{
@@ -625,19 +632,13 @@
         ,{
           "id": "CVE-2023-6277",
           "severity": "Medium",
-          "package": "libtiffxx6",
+          "package": "libtiff6",
           "version": "4.5.0-6+deb12u3"
         }
         ,{
           "id": "CVE-2024-10041",
           "severity": "Medium",
-          "package": "libpam-runtime",
-          "version": "1.5.2-6+deb12u2"
-        }
-        ,{
-          "id": "CVE-2024-10041",
-          "severity": "Medium",
-          "package": "libpam0g",
+          "package": "libpam-modules",
           "version": "1.5.2-6+deb12u2"
         }
         ,{
@@ -649,7 +650,13 @@
         ,{
           "id": "CVE-2024-10041",
           "severity": "Medium",
-          "package": "libpam-modules",
+          "package": "libpam-runtime",
+          "version": "1.5.2-6+deb12u2"
+        }
+        ,{
+          "id": "CVE-2024-10041",
+          "severity": "Medium",
+          "package": "libpam0g",
           "version": "1.5.2-6+deb12u2"
         }
         ,{
@@ -673,13 +680,7 @@
         ,{
           "id": "CVE-2025-10148",
           "severity": "Medium",
-          "package": "libcurl4-openssl-dev",
-          "version": "7.88.1-10+deb12u14"
-        }
-        ,{
-          "id": "CVE-2025-10148",
-          "severity": "Medium",
-          "package": "libcurl4",
+          "package": "curl",
           "version": "7.88.1-10+deb12u14"
         }
         ,{
@@ -691,19 +692,25 @@
         ,{
           "id": "CVE-2025-10148",
           "severity": "Medium",
-          "package": "curl",
+          "package": "libcurl4",
+          "version": "7.88.1-10+deb12u14"
+        }
+        ,{
+          "id": "CVE-2025-10148",
+          "severity": "Medium",
+          "package": "libcurl4-openssl-dev",
           "version": "7.88.1-10+deb12u14"
         }
         ,{
           "id": "CVE-2025-10911",
           "severity": "Medium",
-          "package": "libxslt1.1",
+          "package": "libxslt1-dev",
           "version": "1.1.35-1+deb12u3"
         }
         ,{
           "id": "CVE-2025-10911",
           "severity": "Medium",
-          "package": "libxslt1-dev",
+          "package": "libxslt1.1",
           "version": "1.1.35-1+deb12u3"
         }
         ,{
@@ -715,7 +722,7 @@
         ,{
           "id": "CVE-2025-12084",
           "severity": "Medium",
-          "package": "python3.11-minimal",
+          "package": "libpython3.11-stdlib",
           "version": "3.11.2-6+deb12u6"
         }
         ,{
@@ -727,12 +734,6 @@
         ,{
           "id": "CVE-2025-12084",
           "severity": "Medium",
-          "package": "libpython3.11-stdlib",
-          "version": "3.11.2-6+deb12u6"
-        }
-        ,{
-          "id": "CVE-2025-12781",
-          "severity": "Medium",
           "package": "python3.11-minimal",
           "version": "3.11.2-6+deb12u6"
         }
@@ -740,6 +741,12 @@
           "id": "CVE-2025-12781",
           "severity": "Medium",
           "package": "libpython3.11-minimal",
+          "version": "3.11.2-6+deb12u6"
+        }
+        ,{
+          "id": "CVE-2025-12781",
+          "severity": "Medium",
+          "package": "python3.11-minimal",
           "version": "3.11.2-6+deb12u6"
         }
         ,{
@@ -793,14 +800,14 @@
         ,{
           "id": "CVE-2025-14104",
           "severity": "Medium",
-          "package": "libblkid1",
-          "version": "2.38.1-5+deb12u3"
+          "package": "bsdutils",
+          "version": "1:2.38.1-5+deb12u3"
         }
         ,{
           "id": "CVE-2025-14104",
           "severity": "Medium",
-          "package": "bsdutils",
-          "version": "1:2.38.1-5+deb12u3"
+          "package": "util-linux",
+          "version": "2.38.1-5+deb12u3"
         }
         ,{
           "id": "CVE-2025-14104",
@@ -823,19 +830,13 @@
         ,{
           "id": "CVE-2025-14104",
           "severity": "Medium",
-          "package": "mount",
-          "version": "2.38.1-5+deb12u3"
-        }
-        ,{
-          "id": "CVE-2025-14104",
-          "severity": "Medium",
-          "package": "util-linux",
-          "version": "2.38.1-5+deb12u3"
-        }
-        ,{
-          "id": "CVE-2025-14104",
-          "severity": "Medium",
           "package": "util-linux-extra",
+          "version": "2.38.1-5+deb12u3"
+        }
+        ,{
+          "id": "CVE-2025-14104",
+          "severity": "Medium",
+          "package": "mount",
           "version": "2.38.1-5+deb12u3"
         }
         ,{
@@ -845,15 +846,21 @@
           "version": "2.38.1-5+deb12u3"
         }
         ,{
+          "id": "CVE-2025-14104",
+          "severity": "Medium",
+          "package": "libblkid1",
+          "version": "2.38.1-5+deb12u3"
+        }
+        ,{
           "id": "CVE-2025-14524",
           "severity": "Medium",
-          "package": "curl",
+          "package": "libcurl3-gnutls",
           "version": "7.88.1-10+deb12u14"
         }
         ,{
           "id": "CVE-2025-14524",
           "severity": "Medium",
-          "package": "libcurl4-openssl-dev",
+          "package": "curl",
           "version": "7.88.1-10+deb12u14"
         }
         ,{
@@ -865,7 +872,13 @@
         ,{
           "id": "CVE-2025-14524",
           "severity": "Medium",
-          "package": "libcurl3-gnutls",
+          "package": "libcurl4-openssl-dev",
+          "version": "7.88.1-10+deb12u14"
+        }
+        ,{
+          "id": "CVE-2025-14819",
+          "severity": "Medium",
+          "package": "libcurl4",
           "version": "7.88.1-10+deb12u14"
         }
         ,{
@@ -884,12 +897,6 @@
           "id": "CVE-2025-14819",
           "severity": "Medium",
           "package": "libcurl3-gnutls",
-          "version": "7.88.1-10+deb12u14"
-        }
-        ,{
-          "id": "CVE-2025-14819",
-          "severity": "Medium",
-          "package": "libcurl4",
           "version": "7.88.1-10+deb12u14"
         }
         ,{
@@ -901,13 +908,13 @@
         ,{
           "id": "CVE-2025-15282",
           "severity": "Medium",
-          "package": "python3.11-minimal",
+          "package": "python3.11",
           "version": "3.11.2-6+deb12u6"
         }
         ,{
           "id": "CVE-2025-15282",
           "severity": "Medium",
-          "package": "python3.11",
+          "package": "python3.11-minimal",
           "version": "3.11.2-6+deb12u6"
         }
         ,{
@@ -931,13 +938,13 @@
         ,{
           "id": "CVE-2025-15366",
           "severity": "Medium",
-          "package": "libpython3.11-minimal",
+          "package": "libpython3.11-stdlib",
           "version": "3.11.2-6+deb12u6"
         }
         ,{
           "id": "CVE-2025-15366",
           "severity": "Medium",
-          "package": "libpython3.11-stdlib",
+          "package": "libpython3.11-minimal",
           "version": "3.11.2-6+deb12u6"
         }
         ,{
@@ -955,7 +962,7 @@
         ,{
           "id": "CVE-2025-15367",
           "severity": "Medium",
-          "package": "python3.11",
+          "package": "libpython3.11-stdlib",
           "version": "3.11.2-6+deb12u6"
         }
         ,{
@@ -967,32 +974,8 @@
         ,{
           "id": "CVE-2025-15367",
           "severity": "Medium",
-          "package": "libpython3.11-stdlib",
+          "package": "python3.11",
           "version": "3.11.2-6+deb12u6"
-        }
-        ,{
-          "id": "CVE-2025-30258",
-          "severity": "Medium",
-          "package": "gnupg-l10n",
-          "version": "2.2.40-1.1+deb12u2"
-        }
-        ,{
-          "id": "CVE-2025-30258",
-          "severity": "Medium",
-          "package": "gpg",
-          "version": "2.2.40-1.1+deb12u2"
-        }
-        ,{
-          "id": "CVE-2025-30258",
-          "severity": "Medium",
-          "package": "gpgv",
-          "version": "2.2.40-1.1+deb12u2"
-        }
-        ,{
-          "id": "CVE-2025-30258",
-          "severity": "Medium",
-          "package": "gnupg-utils",
-          "version": "2.2.40-1.1+deb12u2"
         }
         ,{
           "id": "CVE-2025-30258",
@@ -1003,13 +986,7 @@
         ,{
           "id": "CVE-2025-30258",
           "severity": "Medium",
-          "package": "gpgconf",
-          "version": "2.2.40-1.1+deb12u2"
-        }
-        ,{
-          "id": "CVE-2025-30258",
-          "severity": "Medium",
-          "package": "gpg-wks-server",
+          "package": "gpg-agent",
           "version": "2.2.40-1.1+deb12u2"
         }
         ,{
@@ -1021,7 +998,37 @@
         ,{
           "id": "CVE-2025-30258",
           "severity": "Medium",
-          "package": "gpg-agent",
+          "package": "gpg-wks-server",
+          "version": "2.2.40-1.1+deb12u2"
+        }
+        ,{
+          "id": "CVE-2025-30258",
+          "severity": "Medium",
+          "package": "gpgconf",
+          "version": "2.2.40-1.1+deb12u2"
+        }
+        ,{
+          "id": "CVE-2025-30258",
+          "severity": "Medium",
+          "package": "gpg",
+          "version": "2.2.40-1.1+deb12u2"
+        }
+        ,{
+          "id": "CVE-2025-30258",
+          "severity": "Medium",
+          "package": "gnupg-utils",
+          "version": "2.2.40-1.1+deb12u2"
+        }
+        ,{
+          "id": "CVE-2025-30258",
+          "severity": "Medium",
+          "package": "gpgv",
+          "version": "2.2.40-1.1+deb12u2"
+        }
+        ,{
+          "id": "CVE-2025-30258",
+          "severity": "Medium",
+          "package": "gnupg-l10n",
           "version": "2.2.40-1.1+deb12u2"
         }
         ,{
@@ -1051,19 +1058,13 @@
         ,{
           "id": "CVE-2025-6069",
           "severity": "Medium",
-          "package": "libpython3.11-minimal",
-          "version": "3.11.2-6+deb12u6"
-        }
-        ,{
-          "id": "CVE-2025-6069",
-          "severity": "Medium",
           "package": "libpython3.11-stdlib",
           "version": "3.11.2-6+deb12u6"
         }
         ,{
           "id": "CVE-2025-6069",
           "severity": "Medium",
-          "package": "python3.11-minimal",
+          "package": "libpython3.11-minimal",
           "version": "3.11.2-6+deb12u6"
         }
         ,{
@@ -1073,9 +1074,21 @@
           "version": "3.11.2-6+deb12u6"
         }
         ,{
+          "id": "CVE-2025-6069",
+          "severity": "Medium",
+          "package": "python3.11-minimal",
+          "version": "3.11.2-6+deb12u6"
+        }
+        ,{
           "id": "CVE-2025-6075",
           "severity": "Medium",
           "package": "python3.11",
+          "version": "3.11.2-6+deb12u6"
+        }
+        ,{
+          "id": "CVE-2025-6075",
+          "severity": "Medium",
+          "package": "libpython3.11-minimal",
           "version": "3.11.2-6+deb12u6"
         }
         ,{
@@ -1088,12 +1101,6 @@
           "id": "CVE-2025-6075",
           "severity": "Medium",
           "package": "python3.11-minimal",
-          "version": "3.11.2-6+deb12u6"
-        }
-        ,{
-          "id": "CVE-2025-6075",
-          "severity": "Medium",
-          "package": "libpython3.11-minimal",
           "version": "3.11.2-6+deb12u6"
         }
         ,{
@@ -1105,13 +1112,13 @@
         ,{
           "id": "CVE-2025-6141",
           "severity": "Medium",
-          "package": "ncurses-base",
+          "package": "libncursesw5-dev",
           "version": "6.4-4"
         }
         ,{
           "id": "CVE-2025-6141",
           "severity": "Medium",
-          "package": "libncursesw5-dev",
+          "package": "libncurses6",
           "version": "6.4-4"
         }
         ,{
@@ -1129,31 +1136,31 @@
         ,{
           "id": "CVE-2025-6141",
           "severity": "Medium",
-          "package": "libtinfo6",
-          "version": "6.4-4"
-        }
-        ,{
-          "id": "CVE-2025-6141",
-          "severity": "Medium",
-          "package": "libncurses6",
-          "version": "6.4-4"
-        }
-        ,{
-          "id": "CVE-2025-6141",
-          "severity": "Medium",
           "package": "libncurses-dev",
           "version": "6.4-4"
         }
         ,{
-          "id": "CVE-2025-66382",
+          "id": "CVE-2025-6141",
           "severity": "Medium",
-          "package": "libexpat1-dev",
-          "version": "2.5.0-1+deb12u2"
+          "package": "ncurses-base",
+          "version": "6.4-4"
+        }
+        ,{
+          "id": "CVE-2025-6141",
+          "severity": "Medium",
+          "package": "libtinfo6",
+          "version": "6.4-4"
         }
         ,{
           "id": "CVE-2025-66382",
           "severity": "Medium",
           "package": "libexpat1",
+          "version": "2.5.0-1+deb12u2"
+        }
+        ,{
+          "id": "CVE-2025-66382",
+          "severity": "Medium",
+          "package": "libexpat1-dev",
           "version": "2.5.0-1+deb12u2"
         }
         ,{
@@ -1165,7 +1172,7 @@
         ,{
           "id": "CVE-2025-68972",
           "severity": "Medium",
-          "package": "dirmngr",
+          "package": "gpgconf",
           "version": "2.2.40-1.1+deb12u2"
         }
         ,{
@@ -1177,31 +1184,7 @@
         ,{
           "id": "CVE-2025-68972",
           "severity": "Medium",
-          "package": "gpgv",
-          "version": "2.2.40-1.1+deb12u2"
-        }
-        ,{
-          "id": "CVE-2025-68972",
-          "severity": "Medium",
-          "package": "gpgconf",
-          "version": "2.2.40-1.1+deb12u2"
-        }
-        ,{
-          "id": "CVE-2025-68972",
-          "severity": "Medium",
-          "package": "gpg-wks-client",
-          "version": "2.2.40-1.1+deb12u2"
-        }
-        ,{
-          "id": "CVE-2025-68972",
-          "severity": "Medium",
-          "package": "gpg-agent",
-          "version": "2.2.40-1.1+deb12u2"
-        }
-        ,{
-          "id": "CVE-2025-68972",
-          "severity": "Medium",
-          "package": "gpg",
+          "package": "gnupg-l10n",
           "version": "2.2.40-1.1+deb12u2"
         }
         ,{
@@ -1213,19 +1196,43 @@
         ,{
           "id": "CVE-2025-68972",
           "severity": "Medium",
+          "package": "dirmngr",
+          "version": "2.2.40-1.1+deb12u2"
+        }
+        ,{
+          "id": "CVE-2025-68972",
+          "severity": "Medium",
+          "package": "gpg",
+          "version": "2.2.40-1.1+deb12u2"
+        }
+        ,{
+          "id": "CVE-2025-68972",
+          "severity": "Medium",
+          "package": "gpg-agent",
+          "version": "2.2.40-1.1+deb12u2"
+        }
+        ,{
+          "id": "CVE-2025-68972",
+          "severity": "Medium",
+          "package": "gpg-wks-client",
+          "version": "2.2.40-1.1+deb12u2"
+        }
+        ,{
+          "id": "CVE-2025-68972",
+          "severity": "Medium",
           "package": "gpg-wks-server",
           "version": "2.2.40-1.1+deb12u2"
         }
         ,{
           "id": "CVE-2025-68972",
           "severity": "Medium",
-          "package": "gnupg-l10n",
+          "package": "gpgsm",
           "version": "2.2.40-1.1+deb12u2"
         }
         ,{
           "id": "CVE-2025-68972",
           "severity": "Medium",
-          "package": "gpgsm",
+          "package": "gpgv",
           "version": "2.2.40-1.1+deb12u2"
         }
         ,{
@@ -1243,25 +1250,25 @@
         ,{
           "id": "CVE-2025-8291",
           "severity": "Medium",
-          "package": "libpython3.11-minimal",
-          "version": "3.11.2-6+deb12u6"
-        }
-        ,{
-          "id": "CVE-2025-8291",
-          "severity": "Medium",
-          "package": "libpython3.11-stdlib",
-          "version": "3.11.2-6+deb12u6"
-        }
-        ,{
-          "id": "CVE-2025-8291",
-          "severity": "Medium",
           "package": "python3.11",
           "version": "3.11.2-6+deb12u6"
         }
         ,{
           "id": "CVE-2025-8291",
           "severity": "Medium",
+          "package": "libpython3.11-minimal",
+          "version": "3.11.2-6+deb12u6"
+        }
+        ,{
+          "id": "CVE-2025-8291",
+          "severity": "Medium",
           "package": "python3.11-minimal",
+          "version": "3.11.2-6+deb12u6"
+        }
+        ,{
+          "id": "CVE-2025-8291",
+          "severity": "Medium",
+          "package": "libpython3.11-stdlib",
           "version": "3.11.2-6+deb12u6"
         }
         ,{
@@ -1273,13 +1280,13 @@
         ,{
           "id": "CVE-2026-0672",
           "severity": "Medium",
-          "package": "libpython3.11-stdlib",
+          "package": "python3.11",
           "version": "3.11.2-6+deb12u6"
         }
         ,{
           "id": "CVE-2026-0672",
           "severity": "Medium",
-          "package": "python3.11",
+          "package": "libpython3.11-stdlib",
           "version": "3.11.2-6+deb12u6"
         }
         ,{
@@ -1297,18 +1304,6 @@
         ,{
           "id": "CVE-2026-0865",
           "severity": "Medium",
-          "package": "libpython3.11-stdlib",
-          "version": "3.11.2-6+deb12u6"
-        }
-        ,{
-          "id": "CVE-2026-0865",
-          "severity": "Medium",
-          "package": "libpython3.11-minimal",
-          "version": "3.11.2-6+deb12u6"
-        }
-        ,{
-          "id": "CVE-2026-0865",
-          "severity": "Medium",
           "package": "python3.11",
           "version": "3.11.2-6+deb12u6"
         }
@@ -1316,6 +1311,18 @@
           "id": "CVE-2026-0865",
           "severity": "Medium",
           "package": "python3.11-minimal",
+          "version": "3.11.2-6+deb12u6"
+        }
+        ,{
+          "id": "CVE-2026-0865",
+          "severity": "Medium",
+          "package": "libpython3.11-stdlib",
+          "version": "3.11.2-6+deb12u6"
+        }
+        ,{
+          "id": "CVE-2026-0865",
+          "severity": "Medium",
+          "package": "libpython3.11-minimal",
           "version": "3.11.2-6+deb12u6"
         }
         ,{
@@ -1333,6 +1340,12 @@
         ,{
           "id": "CVE-2026-1299",
           "severity": "Medium",
+          "package": "python3.11-minimal",
+          "version": "3.11.2-6+deb12u6"
+        }
+        ,{
+          "id": "CVE-2026-1299",
+          "severity": "Medium",
           "package": "libpython3.11-stdlib",
           "version": "3.11.2-6+deb12u6"
         }
@@ -1345,25 +1358,19 @@
         ,{
           "id": "CVE-2026-1299",
           "severity": "Medium",
-          "package": "python3.11-minimal",
-          "version": "3.11.2-6+deb12u6"
-        }
-        ,{
-          "id": "CVE-2026-1299",
-          "severity": "Medium",
           "package": "python3.11",
           "version": "3.11.2-6+deb12u6"
         }
         ,{
           "id": "CVE-2026-1484",
           "severity": "Medium",
-          "package": "libglib2.0-0",
+          "package": "libglib2.0-dev",
           "version": "2.74.6-2+deb12u8"
         }
         ,{
           "id": "CVE-2026-1484",
           "severity": "Medium",
-          "package": "libglib2.0-dev",
+          "package": "libglib2.0-dev-bin",
           "version": "2.74.6-2+deb12u8"
         }
         ,{
@@ -1381,25 +1388,13 @@
         ,{
           "id": "CVE-2026-1484",
           "severity": "Medium",
-          "package": "libglib2.0-dev-bin",
+          "package": "libglib2.0-0",
           "version": "2.74.6-2+deb12u8"
         }
         ,{
           "id": "CVE-2026-1489",
           "severity": "Medium",
-          "package": "libglib2.0-bin",
-          "version": "2.74.6-2+deb12u8"
-        }
-        ,{
-          "id": "CVE-2026-1489",
-          "severity": "Medium",
-          "package": "libglib2.0-dev-bin",
-          "version": "2.74.6-2+deb12u8"
-        }
-        ,{
-          "id": "CVE-2026-1489",
-          "severity": "Medium",
-          "package": "libglib2.0-dev",
+          "package": "libglib2.0-0",
           "version": "2.74.6-2+deb12u8"
         }
         ,{
@@ -1411,19 +1406,31 @@
         ,{
           "id": "CVE-2026-1489",
           "severity": "Medium",
-          "package": "libglib2.0-0",
+          "package": "libglib2.0-bin",
           "version": "2.74.6-2+deb12u8"
         }
         ,{
-          "id": "CVE-2026-2003",
+          "id": "CVE-2026-1489",
           "severity": "Medium",
-          "package": "libpq-dev",
-          "version": "15.15-0+deb12u1"
+          "package": "libglib2.0-dev",
+          "version": "2.74.6-2+deb12u8"
+        }
+        ,{
+          "id": "CVE-2026-1489",
+          "severity": "Medium",
+          "package": "libglib2.0-dev-bin",
+          "version": "2.74.6-2+deb12u8"
         }
         ,{
           "id": "CVE-2026-2003",
           "severity": "Medium",
           "package": "libpq5",
+          "version": "15.15-0+deb12u1"
+        }
+        ,{
+          "id": "CVE-2026-2003",
+          "severity": "Medium",
+          "package": "libpq-dev",
           "version": "15.15-0+deb12u1"
         }
         ,{
@@ -1435,18 +1442,24 @@
         ,{
           "id": "CVE-2026-25210",
           "severity": "Medium",
-          "package": "libexpat1",
+          "package": "libexpat1-dev",
           "version": "2.5.0-1+deb12u2"
         }
         ,{
           "id": "CVE-2026-25210",
           "severity": "Medium",
-          "package": "libexpat1-dev",
+          "package": "libexpat1",
           "version": "2.5.0-1+deb12u2"
         }
         ,{
           "id": "CVE-2007-3476",
           "severity": "Low",
+          "package": "libwmf-0.2-7",
+          "version": "0.2.12-5.1"
+        }
+        ,{
+          "id": "CVE-2007-3476",
+          "severity": "Low",
           "package": "libwmflite-0.2-7",
           "version": "0.2.12-5.1"
         }
@@ -1457,12 +1470,6 @@
           "version": "0.2.12-5.1"
         }
         ,{
-          "id": "CVE-2007-3476",
-          "severity": "Low",
-          "package": "libwmf-0.2-7",
-          "version": "0.2.12-5.1"
-        }
-        ,{
           "id": "CVE-2007-3477",
           "severity": "Low",
           "package": "libwmf-dev",
@@ -1471,13 +1478,13 @@
         ,{
           "id": "CVE-2007-3477",
           "severity": "Low",
-          "package": "libwmf-0.2-7",
+          "package": "libwmflite-0.2-7",
           "version": "0.2.12-5.1"
         }
         ,{
           "id": "CVE-2007-3477",
           "severity": "Low",
-          "package": "libwmflite-0.2-7",
+          "package": "libwmf-0.2-7",
           "version": "0.2.12-5.1"
         }
         ,{
@@ -1489,13 +1496,7 @@
         ,{
           "id": "CVE-2017-7475",
           "severity": "Low",
-          "package": "libcairo-gobject2",
-          "version": "1.16.0-7"
-        }
-        ,{
-          "id": "CVE-2017-7475",
-          "severity": "Low",
-          "package": "libcairo-script-interpreter2",
+          "package": "libcairo2-dev",
           "version": "1.16.0-7"
         }
         ,{
@@ -1507,19 +1508,25 @@
         ,{
           "id": "CVE-2017-7475",
           "severity": "Low",
-          "package": "libcairo2-dev",
+          "package": "libcairo-gobject2",
           "version": "1.16.0-7"
         }
         ,{
-          "id": "CVE-2019-6461",
+          "id": "CVE-2017-7475",
           "severity": "Low",
-          "package": "libcairo2",
+          "package": "libcairo-script-interpreter2",
           "version": "1.16.0-7"
         }
         ,{
           "id": "CVE-2019-6461",
           "severity": "Low",
           "package": "libcairo-gobject2",
+          "version": "1.16.0-7"
+        }
+        ,{
+          "id": "CVE-2019-6461",
+          "severity": "Low",
+          "package": "libcairo2",
           "version": "1.16.0-7"
         }
         ,{
@@ -1537,13 +1544,13 @@
         ,{
           "id": "CVE-2019-6462",
           "severity": "Low",
-          "package": "libcairo-gobject2",
+          "package": "libcairo2-dev",
           "version": "1.16.0-7"
         }
         ,{
           "id": "CVE-2019-6462",
           "severity": "Low",
-          "package": "libcairo2-dev",
+          "package": "libcairo-script-interpreter2",
           "version": "1.16.0-7"
         }
         ,{
@@ -1555,14 +1562,8 @@
         ,{
           "id": "CVE-2019-6462",
           "severity": "Low",
-          "package": "libcairo-script-interpreter2",
+          "package": "libcairo-gobject2",
           "version": "1.16.0-7"
-        }
-        ,{
-          "id": "CVE-2019-6988",
-          "severity": "Low",
-          "package": "libopenjp2-7",
-          "version": "2.5.0-2+deb12u2"
         }
         ,{
           "id": "CVE-2019-6988",
@@ -1571,15 +1572,21 @@
           "version": "2.5.0-2+deb12u2"
         }
         ,{
-          "id": "CVE-2023-4016",
+          "id": "CVE-2019-6988",
           "severity": "Low",
-          "package": "libproc2-0",
-          "version": "2:4.0.2-3"
+          "package": "libopenjp2-7",
+          "version": "2.5.0-2+deb12u2"
         }
         ,{
           "id": "CVE-2023-4016",
           "severity": "Low",
           "package": "procps",
+          "version": "2:4.0.2-3"
+        }
+        ,{
+          "id": "CVE-2023-4016",
+          "severity": "Low",
+          "package": "libproc2-0",
           "version": "2:4.0.2-3"
         }
         ,{
@@ -1591,7 +1598,7 @@
         ,{
           "id": "CVE-2024-13978",
           "severity": "Low",
-          "package": "libtiff6",
+          "package": "libtiff-dev",
           "version": "4.5.0-6+deb12u3"
         }
         ,{
@@ -1603,14 +1610,8 @@
         ,{
           "id": "CVE-2024-13978",
           "severity": "Low",
-          "package": "libtiff-dev",
+          "package": "libtiff6",
           "version": "4.5.0-6+deb12u3"
-        }
-        ,{
-          "id": "CVE-2024-31047",
-          "severity": "Low",
-          "package": "libopenexr-3-1-30",
-          "version": "3.1.5-5"
         }
         ,{
           "id": "CVE-2024-31047",
@@ -1619,15 +1620,21 @@
           "version": "3.1.5-5"
         }
         ,{
-          "id": "CVE-2024-56433",
+          "id": "CVE-2024-31047",
           "severity": "Low",
-          "package": "passwd",
-          "version": "1:4.13+dfsg1-1+deb12u2"
+          "package": "libopenexr-3-1-30",
+          "version": "3.1.5-5"
         }
         ,{
           "id": "CVE-2024-56433",
           "severity": "Low",
           "package": "login",
+          "version": "1:4.13+dfsg1-1+deb12u2"
+        }
+        ,{
+          "id": "CVE-2024-56433",
+          "severity": "Low",
+          "package": "passwd",
           "version": "1:4.13+dfsg1-1+deb12u2"
         }
         ,{
@@ -1645,20 +1652,14 @@
         ,{
           "id": "CVE-2025-27613",
           "severity": "Low",
-          "package": "git-man",
+          "package": "git",
           "version": "1:2.39.5-0+deb12u3"
         }
         ,{
           "id": "CVE-2025-27613",
           "severity": "Low",
-          "package": "git",
+          "package": "git-man",
           "version": "1:2.39.5-0+deb12u3"
-        }
-        ,{
-          "id": "CVE-2025-50422",
-          "severity": "Low",
-          "package": "libcairo-gobject2",
-          "version": "1.16.0-7"
         }
         ,{
           "id": "CVE-2025-50422",
@@ -1676,6 +1677,12 @@
           "id": "CVE-2025-50422",
           "severity": "Low",
           "package": "libcairo-script-interpreter2",
+          "version": "1.16.0-7"
+        }
+        ,{
+          "id": "CVE-2025-50422",
+          "severity": "Low",
+          "package": "libcairo-gobject2",
           "version": "1.16.0-7"
         }
         ,{
@@ -1699,19 +1706,7 @@
         ,{
           "id": "CVE-2026-0988",
           "severity": "Low",
-          "package": "libglib2.0-bin",
-          "version": "2.74.6-2+deb12u8"
-        }
-        ,{
-          "id": "CVE-2026-0988",
-          "severity": "Low",
           "package": "libglib2.0-0",
-          "version": "2.74.6-2+deb12u8"
-        }
-        ,{
-          "id": "CVE-2026-0988",
-          "severity": "Low",
-          "package": "libglib2.0-dev-bin",
           "version": "2.74.6-2+deb12u8"
         }
         ,{
@@ -1721,15 +1716,27 @@
           "version": "2.74.6-2+deb12u8"
         }
         ,{
-          "id": "CVE-2026-0989",
+          "id": "CVE-2026-0988",
           "severity": "Low",
-          "package": "libxml2-dev",
-          "version": "2.9.14+dfsg-1.3~deb12u5"
+          "package": "libglib2.0-bin",
+          "version": "2.74.6-2+deb12u8"
+        }
+        ,{
+          "id": "CVE-2026-0988",
+          "severity": "Low",
+          "package": "libglib2.0-dev-bin",
+          "version": "2.74.6-2+deb12u8"
         }
         ,{
           "id": "CVE-2026-0989",
           "severity": "Low",
           "package": "libxml2",
+          "version": "2.9.14+dfsg-1.3~deb12u5"
+        }
+        ,{
+          "id": "CVE-2026-0989",
+          "severity": "Low",
+          "package": "libxml2-dev",
           "version": "2.9.14+dfsg-1.3~deb12u5"
         }
         ,{
@@ -1747,7 +1754,7 @@
         ,{
           "id": "CVE-2026-1485",
           "severity": "Low",
-          "package": "libglib2.0-dev-bin",
+          "package": "libglib2.0-bin",
           "version": "2.74.6-2+deb12u8"
         }
         ,{
@@ -1759,7 +1766,7 @@
         ,{
           "id": "CVE-2026-1485",
           "severity": "Low",
-          "package": "libglib2.0-bin",
+          "package": "libglib2.0-dev-bin",
           "version": "2.74.6-2+deb12u8"
         }
         ,{
@@ -1789,19 +1796,7 @@
         ,{
           "id": "CVE-2005-0406",
           "severity": "Negligible",
-          "package": "libmagickwand-6-headers",
-          "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
-        }
-        ,{
-          "id": "CVE-2005-0406",
-          "severity": "Negligible",
-          "package": "libmagickcore-6.q16-dev",
-          "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
-        }
-        ,{
-          "id": "CVE-2005-0406",
-          "severity": "Negligible",
-          "package": "imagemagick-6.q16",
+          "package": "libmagickwand-6.q16-dev",
           "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
         }
         ,{
@@ -1813,19 +1808,7 @@
         ,{
           "id": "CVE-2005-0406",
           "severity": "Negligible",
-          "package": "libmagickcore-6-arch-config",
-          "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
-        }
-        ,{
-          "id": "CVE-2005-0406",
-          "severity": "Negligible",
           "package": "libmagickcore-6-headers",
-          "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
-        }
-        ,{
-          "id": "CVE-2005-0406",
-          "severity": "Negligible",
-          "package": "libmagickwand-dev",
           "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
         }
         ,{
@@ -1837,13 +1820,31 @@
         ,{
           "id": "CVE-2005-0406",
           "severity": "Negligible",
-          "package": "imagemagick",
+          "package": "libmagickcore-6.q16-6-extra",
           "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
         }
         ,{
           "id": "CVE-2005-0406",
           "severity": "Negligible",
-          "package": "libmagickwand-6.q16-dev",
+          "package": "libmagickcore-6.q16-dev",
+          "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
+        }
+        ,{
+          "id": "CVE-2005-0406",
+          "severity": "Negligible",
+          "package": "libmagickcore-dev",
+          "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
+        }
+        ,{
+          "id": "CVE-2005-0406",
+          "severity": "Negligible",
+          "package": "libmagickwand-6-headers",
+          "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
+        }
+        ,{
+          "id": "CVE-2005-0406",
+          "severity": "Negligible",
+          "package": "libmagickcore-6-arch-config",
           "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
         }
         ,{
@@ -1855,13 +1856,19 @@
         ,{
           "id": "CVE-2005-0406",
           "severity": "Negligible",
-          "package": "libmagickcore-6.q16-6-extra",
+          "package": "imagemagick",
           "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
         }
         ,{
           "id": "CVE-2005-0406",
           "severity": "Negligible",
-          "package": "libmagickcore-dev",
+          "package": "imagemagick-6.q16",
+          "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
+        }
+        ,{
+          "id": "CVE-2005-0406",
+          "severity": "Negligible",
+          "package": "libmagickwand-dev",
           "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
         }
         ,{
@@ -1885,13 +1892,13 @@
         ,{
           "id": "CVE-2007-5686",
           "severity": "Negligible",
-          "package": "passwd",
+          "package": "login",
           "version": "1:4.13+dfsg1-1+deb12u2"
         }
         ,{
           "id": "CVE-2007-5686",
           "severity": "Negligible",
-          "package": "login",
+          "package": "passwd",
           "version": "1:4.13+dfsg1-1+deb12u2"
         }
         ,{
@@ -1909,13 +1916,49 @@
         ,{
           "id": "CVE-2008-3134",
           "severity": "Negligible",
-          "package": "libmagickcore-dev",
+          "package": "libmagickwand-6.q16-dev",
+          "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
+        }
+        ,{
+          "id": "CVE-2008-3134",
+          "severity": "Negligible",
+          "package": "libmagickcore-6-headers",
+          "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
+        }
+        ,{
+          "id": "CVE-2008-3134",
+          "severity": "Negligible",
+          "package": "imagemagick",
           "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
         }
         ,{
           "id": "CVE-2008-3134",
           "severity": "Negligible",
           "package": "imagemagick-6-common",
+          "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
+        }
+        ,{
+          "id": "CVE-2008-3134",
+          "severity": "Negligible",
+          "package": "libmagickwand-dev",
+          "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
+        }
+        ,{
+          "id": "CVE-2008-3134",
+          "severity": "Negligible",
+          "package": "libmagickwand-6.q16-6",
+          "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
+        }
+        ,{
+          "id": "CVE-2008-3134",
+          "severity": "Negligible",
+          "package": "libmagickwand-6-headers",
+          "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
+        }
+        ,{
+          "id": "CVE-2008-3134",
+          "severity": "Negligible",
+          "package": "libmagickcore-dev",
           "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
         }
         ,{
@@ -1933,43 +1976,7 @@
         ,{
           "id": "CVE-2008-3134",
           "severity": "Negligible",
-          "package": "libmagickwand-6-headers",
-          "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
-        }
-        ,{
-          "id": "CVE-2008-3134",
-          "severity": "Negligible",
-          "package": "libmagickwand-6.q16-6",
-          "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
-        }
-        ,{
-          "id": "CVE-2008-3134",
-          "severity": "Negligible",
-          "package": "libmagickwand-6.q16-dev",
-          "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
-        }
-        ,{
-          "id": "CVE-2008-3134",
-          "severity": "Negligible",
-          "package": "libmagickwand-dev",
-          "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
-        }
-        ,{
-          "id": "CVE-2008-3134",
-          "severity": "Negligible",
-          "package": "libmagickcore-6-headers",
-          "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
-        }
-        ,{
-          "id": "CVE-2008-3134",
-          "severity": "Negligible",
-          "package": "libmagickcore-6-arch-config",
-          "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
-        }
-        ,{
-          "id": "CVE-2008-3134",
-          "severity": "Negligible",
-          "package": "imagemagick",
+          "package": "libmagickcore-6.q16-6",
           "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
         }
         ,{
@@ -1981,7 +1988,7 @@
         ,{
           "id": "CVE-2008-3134",
           "severity": "Negligible",
-          "package": "libmagickcore-6.q16-6",
+          "package": "libmagickcore-6-arch-config",
           "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
         }
         ,{
@@ -1995,12 +2002,6 @@
           "severity": "Negligible",
           "package": "patch",
           "version": "2.7.6-7"
-        }
-        ,{
-          "id": "CVE-2010-4756",
-          "severity": "Negligible",
-          "package": "libc6-dev",
-          "version": "2.36-9+deb12u13"
         }
         ,{
           "id": "CVE-2010-4756",
@@ -2021,15 +2022,21 @@
           "version": "2.36-9+deb12u13"
         }
         ,{
-          "id": "CVE-2011-3374",
+          "id": "CVE-2010-4756",
           "severity": "Negligible",
-          "package": "libapt-pkg6.0",
-          "version": "2.6.1"
+          "package": "libc6-dev",
+          "version": "2.36-9+deb12u13"
         }
         ,{
           "id": "CVE-2011-3374",
           "severity": "Negligible",
           "package": "apt",
+          "version": "2.6.1"
+        }
+        ,{
+          "id": "CVE-2011-3374",
+          "severity": "Negligible",
+          "package": "libapt-pkg6.0",
           "version": "2.6.1"
         }
         ,{
@@ -2041,13 +2048,7 @@
         ,{
           "id": "CVE-2011-4116",
           "severity": "Negligible",
-          "package": "perl-modules-5.36",
-          "version": "5.36.0-7+deb12u3"
-        }
-        ,{
-          "id": "CVE-2011-4116",
-          "severity": "Negligible",
-          "package": "perl",
+          "package": "libperl5.36",
           "version": "5.36.0-7+deb12u3"
         }
         ,{
@@ -2059,19 +2060,25 @@
         ,{
           "id": "CVE-2011-4116",
           "severity": "Negligible",
-          "package": "libperl5.36",
+          "package": "perl",
+          "version": "5.36.0-7+deb12u3"
+        }
+        ,{
+          "id": "CVE-2011-4116",
+          "severity": "Negligible",
+          "package": "perl-modules-5.36",
           "version": "5.36.0-7+deb12u3"
         }
         ,{
           "id": "CVE-2012-0039",
           "severity": "Negligible",
-          "package": "libglib2.0-0",
+          "package": "libglib2.0-bin",
           "version": "2.74.6-2+deb12u8"
         }
         ,{
           "id": "CVE-2012-0039",
           "severity": "Negligible",
-          "package": "libglib2.0-dev-bin",
+          "package": "libglib2.0-0",
           "version": "2.74.6-2+deb12u8"
         }
         ,{
@@ -2089,7 +2096,7 @@
         ,{
           "id": "CVE-2012-0039",
           "severity": "Negligible",
-          "package": "libglib2.0-bin",
+          "package": "libglib2.0-dev-bin",
           "version": "2.74.6-2+deb12u8"
         }
         ,{
@@ -2113,25 +2120,25 @@
         ,{
           "id": "CVE-2015-9019",
           "severity": "Negligible",
-          "package": "libxslt1.1",
+          "package": "libxslt1-dev",
           "version": "1.1.35-1+deb12u3"
         }
         ,{
           "id": "CVE-2015-9019",
           "severity": "Negligible",
-          "package": "libxslt1-dev",
+          "package": "libxslt1.1",
           "version": "1.1.35-1+deb12u3"
         }
         ,{
           "id": "CVE-2016-10505",
           "severity": "Negligible",
-          "package": "libopenjp2-7-dev",
+          "package": "libopenjp2-7",
           "version": "2.5.0-2+deb12u2"
         }
         ,{
           "id": "CVE-2016-10505",
           "severity": "Negligible",
-          "package": "libopenjp2-7",
+          "package": "libopenjp2-7-dev",
           "version": "2.5.0-2+deb12u2"
         }
         ,{
@@ -2143,25 +2150,13 @@
         ,{
           "id": "CVE-2016-8678",
           "severity": "Negligible",
-          "package": "libmagickwand-6-headers",
-          "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
-        }
-        ,{
-          "id": "CVE-2016-8678",
-          "severity": "Negligible",
-          "package": "libmagickwand-6.q16-6",
-          "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
-        }
-        ,{
-          "id": "CVE-2016-8678",
-          "severity": "Negligible",
           "package": "libmagickcore-6-headers",
           "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
         }
         ,{
           "id": "CVE-2016-8678",
           "severity": "Negligible",
-          "package": "libmagickcore-6.q16-6",
+          "package": "libmagickwand-6.q16-dev",
           "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
         }
         ,{
@@ -2173,7 +2168,25 @@
         ,{
           "id": "CVE-2016-8678",
           "severity": "Negligible",
-          "package": "libmagickcore-6.q16-dev",
+          "package": "libmagickcore-6.q16-6",
+          "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
+        }
+        ,{
+          "id": "CVE-2016-8678",
+          "severity": "Negligible",
+          "package": "libmagickcore-dev",
+          "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
+        }
+        ,{
+          "id": "CVE-2016-8678",
+          "severity": "Negligible",
+          "package": "libmagickwand-6-headers",
+          "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
+        }
+        ,{
+          "id": "CVE-2016-8678",
+          "severity": "Negligible",
+          "package": "libmagickwand-6.q16-6",
           "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
         }
         ,{
@@ -2209,25 +2222,19 @@
         ,{
           "id": "CVE-2016-8678",
           "severity": "Negligible",
-          "package": "libmagickcore-dev",
+          "package": "libmagickcore-6.q16-dev",
           "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
-        }
-        ,{
-          "id": "CVE-2016-8678",
-          "severity": "Negligible",
-          "package": "libmagickwand-6.q16-dev",
-          "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
-        }
-        ,{
-          "id": "CVE-2016-9113",
-          "severity": "Negligible",
-          "package": "libopenjp2-7",
-          "version": "2.5.0-2+deb12u2"
         }
         ,{
           "id": "CVE-2016-9113",
           "severity": "Negligible",
           "package": "libopenjp2-7-dev",
+          "version": "2.5.0-2+deb12u2"
+        }
+        ,{
+          "id": "CVE-2016-9113",
+          "severity": "Negligible",
+          "package": "libopenjp2-7",
           "version": "2.5.0-2+deb12u2"
         }
         ,{
@@ -2245,13 +2252,13 @@
         ,{
           "id": "CVE-2016-9115",
           "severity": "Negligible",
-          "package": "libopenjp2-7",
+          "package": "libopenjp2-7-dev",
           "version": "2.5.0-2+deb12u2"
         }
         ,{
           "id": "CVE-2016-9115",
           "severity": "Negligible",
-          "package": "libopenjp2-7-dev",
+          "package": "libopenjp2-7",
           "version": "2.5.0-2+deb12u2"
         }
         ,{
@@ -2281,13 +2288,13 @@
         ,{
           "id": "CVE-2016-9580",
           "severity": "Negligible",
-          "package": "libopenjp2-7-dev",
+          "package": "libopenjp2-7",
           "version": "2.5.0-2+deb12u2"
         }
         ,{
           "id": "CVE-2016-9580",
           "severity": "Negligible",
-          "package": "libopenjp2-7",
+          "package": "libopenjp2-7-dev",
           "version": "2.5.0-2+deb12u2"
         }
         ,{
@@ -2311,12 +2318,6 @@
         ,{
           "id": "CVE-2017-11754",
           "severity": "Negligible",
-          "package": "libmagickcore-6.q16-6-extra",
-          "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
-        }
-        ,{
-          "id": "CVE-2017-11754",
-          "severity": "Negligible",
           "package": "libmagickcore-dev",
           "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
         }
@@ -2329,19 +2330,7 @@
         ,{
           "id": "CVE-2017-11754",
           "severity": "Negligible",
-          "package": "libmagickwand-6-headers",
-          "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
-        }
-        ,{
-          "id": "CVE-2017-11754",
-          "severity": "Negligible",
-          "package": "imagemagick-6-common",
-          "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
-        }
-        ,{
-          "id": "CVE-2017-11754",
-          "severity": "Negligible",
-          "package": "libmagickwand-6.q16-6",
+          "package": "libmagickcore-6.q16-6-extra",
           "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
         }
         ,{
@@ -2353,13 +2342,7 @@
         ,{
           "id": "CVE-2017-11754",
           "severity": "Negligible",
-          "package": "libmagickwand-dev",
-          "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
-        }
-        ,{
-          "id": "CVE-2017-11754",
-          "severity": "Negligible",
-          "package": "libmagickcore-6-arch-config",
+          "package": "libmagickwand-6-headers",
           "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
         }
         ,{
@@ -2371,13 +2354,37 @@
         ,{
           "id": "CVE-2017-11754",
           "severity": "Negligible",
+          "package": "libmagickcore-6-arch-config",
+          "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
+        }
+        ,{
+          "id": "CVE-2017-11754",
+          "severity": "Negligible",
           "package": "libmagickcore-6.q16-6",
           "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
         }
         ,{
           "id": "CVE-2017-11754",
           "severity": "Negligible",
+          "package": "libmagickwand-6.q16-6",
+          "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
+        }
+        ,{
+          "id": "CVE-2017-11754",
+          "severity": "Negligible",
           "package": "libmagickcore-6.q16-dev",
+          "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
+        }
+        ,{
+          "id": "CVE-2017-11754",
+          "severity": "Negligible",
+          "package": "imagemagick-6-common",
+          "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
+        }
+        ,{
+          "id": "CVE-2017-11754",
+          "severity": "Negligible",
+          "package": "libmagickwand-dev",
           "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
         }
         ,{
@@ -2396,36 +2403,6 @@
           "id": "CVE-2017-11755",
           "severity": "Negligible",
           "package": "libmagickcore-dev",
-          "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
-        }
-        ,{
-          "id": "CVE-2017-11755",
-          "severity": "Negligible",
-          "package": "libmagickcore-6.q16-6-extra",
-          "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
-        }
-        ,{
-          "id": "CVE-2017-11755",
-          "severity": "Negligible",
-          "package": "imagemagick",
-          "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
-        }
-        ,{
-          "id": "CVE-2017-11755",
-          "severity": "Negligible",
-          "package": "libmagickwand-6-headers",
-          "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
-        }
-        ,{
-          "id": "CVE-2017-11755",
-          "severity": "Negligible",
-          "package": "imagemagick-6-common",
-          "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
-        }
-        ,{
-          "id": "CVE-2017-11755",
-          "severity": "Negligible",
-          "package": "libmagickwand-6.q16-6",
           "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
         }
         ,{
@@ -2449,20 +2426,44 @@
         ,{
           "id": "CVE-2017-11755",
           "severity": "Negligible",
+          "package": "libmagickcore-6.q16-dev",
+          "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
+        }
+        ,{
+          "id": "CVE-2017-11755",
+          "severity": "Negligible",
+          "package": "libmagickwand-6.q16-6",
+          "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
+        }
+        ,{
+          "id": "CVE-2017-11755",
+          "severity": "Negligible",
           "package": "imagemagick-6.q16",
           "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
         }
         ,{
           "id": "CVE-2017-11755",
           "severity": "Negligible",
-          "package": "libmagickcore-6.q16-dev",
+          "package": "imagemagick-6-common",
           "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
         }
         ,{
-          "id": "CVE-2017-13716",
+          "id": "CVE-2017-11755",
           "severity": "Negligible",
-          "package": "binutils-x86-64-linux-gnu",
-          "version": "2.40-2"
+          "package": "libmagickwand-6-headers",
+          "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
+        }
+        ,{
+          "id": "CVE-2017-11755",
+          "severity": "Negligible",
+          "package": "libmagickcore-6.q16-6-extra",
+          "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
+        }
+        ,{
+          "id": "CVE-2017-11755",
+          "severity": "Negligible",
+          "package": "imagemagick",
+          "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
         }
         ,{
           "id": "CVE-2017-13716",
@@ -2473,13 +2474,19 @@
         ,{
           "id": "CVE-2017-13716",
           "severity": "Negligible",
-          "package": "libctf0",
+          "package": "libbinutils",
           "version": "2.40-2"
         }
         ,{
           "id": "CVE-2017-13716",
           "severity": "Negligible",
           "package": "libgprofng0",
+          "version": "2.40-2"
+        }
+        ,{
+          "id": "CVE-2017-13716",
+          "severity": "Negligible",
+          "package": "libctf0",
           "version": "2.40-2"
         }
         ,{
@@ -2497,7 +2504,7 @@
         ,{
           "id": "CVE-2017-13716",
           "severity": "Negligible",
-          "package": "libbinutils",
+          "package": "binutils-x86-64-linux-gnu",
           "version": "2.40-2"
         }
         ,{
@@ -2509,20 +2516,14 @@
         ,{
           "id": "CVE-2017-14988",
           "severity": "Negligible",
-          "package": "libopenexr-dev",
+          "package": "libopenexr-3-1-30",
           "version": "3.1.5-5"
         }
         ,{
           "id": "CVE-2017-14988",
           "severity": "Negligible",
-          "package": "libopenexr-3-1-30",
+          "package": "libopenexr-dev",
           "version": "3.1.5-5"
-        }
-        ,{
-          "id": "CVE-2017-16232",
-          "severity": "Negligible",
-          "package": "libtiff-dev",
-          "version": "4.5.0-6+deb12u3"
         }
         ,{
           "id": "CVE-2017-16232",
@@ -2534,6 +2535,12 @@
           "id": "CVE-2017-16232",
           "severity": "Negligible",
           "package": "libtiff6",
+          "version": "4.5.0-6+deb12u3"
+        }
+        ,{
+          "id": "CVE-2017-16232",
+          "severity": "Negligible",
+          "package": "libtiff-dev",
           "version": "4.5.0-6+deb12u3"
         }
         ,{
@@ -2551,19 +2558,25 @@
         ,{
           "id": "CVE-2017-7275",
           "severity": "Negligible",
+          "package": "libmagickwand-6-headers",
+          "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
+        }
+        ,{
+          "id": "CVE-2017-7275",
+          "severity": "Negligible",
+          "package": "libmagickcore-6-headers",
+          "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
+        }
+        ,{
+          "id": "CVE-2017-7275",
+          "severity": "Negligible",
+          "package": "libmagickwand-6.q16-6",
+          "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
+        }
+        ,{
+          "id": "CVE-2017-7275",
+          "severity": "Negligible",
           "package": "libmagickcore-6.q16-dev",
-          "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
-        }
-        ,{
-          "id": "CVE-2017-7275",
-          "severity": "Negligible",
-          "package": "imagemagick",
-          "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
-        }
-        ,{
-          "id": "CVE-2017-7275",
-          "severity": "Negligible",
-          "package": "libmagickwand-dev",
           "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
         }
         ,{
@@ -2575,7 +2588,7 @@
         ,{
           "id": "CVE-2017-7275",
           "severity": "Negligible",
-          "package": "libmagickwand-6.q16-6",
+          "package": "imagemagick",
           "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
         }
         ,{
@@ -2599,31 +2612,25 @@
         ,{
           "id": "CVE-2017-7275",
           "severity": "Negligible",
-          "package": "libmagickwand-6-headers",
-          "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
-        }
-        ,{
-          "id": "CVE-2017-7275",
-          "severity": "Negligible",
           "package": "libmagickcore-dev",
           "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
         }
         ,{
           "id": "CVE-2017-7275",
           "severity": "Negligible",
-          "package": "libmagickcore-6.q16-6-extra",
-          "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
-        }
-        ,{
-          "id": "CVE-2017-7275",
-          "severity": "Negligible",
-          "package": "libmagickcore-6-headers",
+          "package": "libmagickwand-dev",
           "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
         }
         ,{
           "id": "CVE-2017-7275",
           "severity": "Negligible",
           "package": "libmagickcore-6.q16-6",
+          "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
+        }
+        ,{
+          "id": "CVE-2017-7275",
+          "severity": "Negligible",
+          "package": "libmagickcore-6.q16-6-extra",
           "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
         }
         ,{
@@ -2641,25 +2648,25 @@
         ,{
           "id": "CVE-2018-1000021",
           "severity": "Negligible",
-          "package": "git-man",
+          "package": "git",
           "version": "1:2.39.5-0+deb12u3"
         }
         ,{
           "id": "CVE-2018-1000021",
           "severity": "Negligible",
-          "package": "git",
+          "package": "git-man",
           "version": "1:2.39.5-0+deb12u3"
         }
         ,{
           "id": "CVE-2018-10126",
           "severity": "Negligible",
-          "package": "libtiff-dev",
+          "package": "libtiff6",
           "version": "4.5.0-6+deb12u3"
         }
         ,{
           "id": "CVE-2018-10126",
           "severity": "Negligible",
-          "package": "libtiff6",
+          "package": "libtiff-dev",
           "version": "4.5.0-6+deb12u3"
         }
         ,{
@@ -2671,43 +2678,7 @@
         ,{
           "id": "CVE-2018-15607",
           "severity": "Negligible",
-          "package": "libmagickwand-dev",
-          "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
-        }
-        ,{
-          "id": "CVE-2018-15607",
-          "severity": "Negligible",
-          "package": "libmagickcore-6.q16-6",
-          "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
-        }
-        ,{
-          "id": "CVE-2018-15607",
-          "severity": "Negligible",
-          "package": "libmagickwand-6-headers",
-          "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
-        }
-        ,{
-          "id": "CVE-2018-15607",
-          "severity": "Negligible",
-          "package": "libmagickwand-6.q16-dev",
-          "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
-        }
-        ,{
-          "id": "CVE-2018-15607",
-          "severity": "Negligible",
-          "package": "imagemagick-6.q16",
-          "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
-        }
-        ,{
-          "id": "CVE-2018-15607",
-          "severity": "Negligible",
-          "package": "libmagickcore-6-arch-config",
-          "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
-        }
-        ,{
-          "id": "CVE-2018-15607",
-          "severity": "Negligible",
-          "package": "imagemagick",
+          "package": "libmagickcore-6.q16-dev",
           "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
         }
         ,{
@@ -2719,19 +2690,37 @@
         ,{
           "id": "CVE-2018-15607",
           "severity": "Negligible",
-          "package": "libmagickcore-6.q16-dev",
+          "package": "libmagickwand-6.q16-dev",
           "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
         }
         ,{
           "id": "CVE-2018-15607",
           "severity": "Negligible",
-          "package": "libmagickcore-6.q16-6-extra",
+          "package": "libmagickcore-6-headers",
           "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
         }
         ,{
           "id": "CVE-2018-15607",
           "severity": "Negligible",
-          "package": "imagemagick-6-common",
+          "package": "libmagickwand-dev",
+          "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
+        }
+        ,{
+          "id": "CVE-2018-15607",
+          "severity": "Negligible",
+          "package": "libmagickcore-6-arch-config",
+          "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
+        }
+        ,{
+          "id": "CVE-2018-15607",
+          "severity": "Negligible",
+          "package": "libmagickwand-6-headers",
+          "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
+        }
+        ,{
+          "id": "CVE-2018-15607",
+          "severity": "Negligible",
+          "package": "libmagickcore-6.q16-6",
           "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
         }
         ,{
@@ -2743,7 +2732,25 @@
         ,{
           "id": "CVE-2018-15607",
           "severity": "Negligible",
-          "package": "libmagickcore-6-headers",
+          "package": "libmagickcore-6.q16-6-extra",
+          "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
+        }
+        ,{
+          "id": "CVE-2018-15607",
+          "severity": "Negligible",
+          "package": "imagemagick",
+          "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
+        }
+        ,{
+          "id": "CVE-2018-15607",
+          "severity": "Negligible",
+          "package": "imagemagick-6-common",
+          "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
+        }
+        ,{
+          "id": "CVE-2018-15607",
+          "severity": "Negligible",
+          "package": "imagemagick-6.q16",
           "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
         }
         ,{
@@ -2755,20 +2762,14 @@
         ,{
           "id": "CVE-2018-16376",
           "severity": "Negligible",
-          "package": "libopenjp2-7",
+          "package": "libopenjp2-7-dev",
           "version": "2.5.0-2+deb12u2"
         }
         ,{
           "id": "CVE-2018-16376",
           "severity": "Negligible",
-          "package": "libopenjp2-7-dev",
+          "package": "libopenjp2-7",
           "version": "2.5.0-2+deb12u2"
-        }
-        ,{
-          "id": "CVE-2018-18064",
-          "severity": "Negligible",
-          "package": "libcairo2-dev",
-          "version": "1.16.0-7"
         }
         ,{
           "id": "CVE-2018-18064",
@@ -2779,19 +2780,25 @@
         ,{
           "id": "CVE-2018-18064",
           "severity": "Negligible",
-          "package": "libcairo-script-interpreter2",
+          "package": "libcairo-gobject2",
           "version": "1.16.0-7"
         }
         ,{
           "id": "CVE-2018-18064",
           "severity": "Negligible",
-          "package": "libcairo-gobject2",
+          "package": "libcairo2-dev",
+          "version": "1.16.0-7"
+        }
+        ,{
+          "id": "CVE-2018-18064",
+          "severity": "Negligible",
+          "package": "libcairo-script-interpreter2",
           "version": "1.16.0-7"
         }
         ,{
           "id": "CVE-2018-20673",
           "severity": "Negligible",
-          "package": "binutils-common",
+          "package": "libctf-nobfd0",
           "version": "2.40-2"
         }
         ,{
@@ -2803,7 +2810,7 @@
         ,{
           "id": "CVE-2018-20673",
           "severity": "Negligible",
-          "package": "libbinutils",
+          "package": "libctf0",
           "version": "2.40-2"
         }
         ,{
@@ -2815,19 +2822,19 @@
         ,{
           "id": "CVE-2018-20673",
           "severity": "Negligible",
-          "package": "libctf0",
-          "version": "2.40-2"
-        }
-        ,{
-          "id": "CVE-2018-20673",
-          "severity": "Negligible",
-          "package": "libctf-nobfd0",
+          "package": "binutils-common",
           "version": "2.40-2"
         }
         ,{
           "id": "CVE-2018-20673",
           "severity": "Negligible",
           "package": "binutils",
+          "version": "2.40-2"
+        }
+        ,{
+          "id": "CVE-2018-20673",
+          "severity": "Negligible",
+          "package": "libbinutils",
           "version": "2.40-2"
         }
         ,{
@@ -2845,6 +2852,12 @@
         ,{
           "id": "CVE-2018-20712",
           "severity": "Negligible",
+          "package": "binutils-x86-64-linux-gnu",
+          "version": "2.40-2"
+        }
+        ,{
+          "id": "CVE-2018-20712",
+          "severity": "Negligible",
           "package": "libgprofng0",
           "version": "2.40-2"
         }
@@ -2863,14 +2876,14 @@
         ,{
           "id": "CVE-2018-20712",
           "severity": "Negligible",
-          "package": "binutils-x86-64-linux-gnu",
+          "package": "binutils",
           "version": "2.40-2"
         }
         ,{
-          "id": "CVE-2018-20712",
+          "id": "CVE-2018-20796",
           "severity": "Negligible",
-          "package": "binutils",
-          "version": "2.40-2"
+          "package": "libc-bin",
+          "version": "2.36-9+deb12u13"
         }
         ,{
           "id": "CVE-2018-20796",
@@ -2891,21 +2904,9 @@
           "version": "2.36-9+deb12u13"
         }
         ,{
-          "id": "CVE-2018-20796",
-          "severity": "Negligible",
-          "package": "libc-bin",
-          "version": "2.36-9+deb12u13"
-        }
-        ,{
           "id": "CVE-2018-5709",
           "severity": "Negligible",
-          "package": "libkdb5-10",
-          "version": "1.20.1-2+deb12u4"
-        }
-        ,{
-          "id": "CVE-2018-5709",
-          "severity": "Negligible",
-          "package": "libkrb5-dev",
+          "package": "libk5crypto3",
           "version": "1.20.1-2+deb12u4"
         }
         ,{
@@ -2923,6 +2924,12 @@
         ,{
           "id": "CVE-2018-5709",
           "severity": "Negligible",
+          "package": "libkdb5-10",
+          "version": "1.20.1-2+deb12u4"
+        }
+        ,{
+          "id": "CVE-2018-5709",
+          "severity": "Negligible",
           "package": "libkadm5srv-mit12",
           "version": "1.20.1-2+deb12u4"
         }
@@ -2930,12 +2937,6 @@
           "id": "CVE-2018-5709",
           "severity": "Negligible",
           "package": "libkadm5clnt-mit12",
-          "version": "1.20.1-2+deb12u4"
-        }
-        ,{
-          "id": "CVE-2018-5709",
-          "severity": "Negligible",
-          "package": "libk5crypto3",
           "version": "1.20.1-2+deb12u4"
         }
         ,{
@@ -2954,6 +2955,12 @@
           "id": "CVE-2018-5709",
           "severity": "Negligible",
           "package": "krb5-multidev",
+          "version": "1.20.1-2+deb12u4"
+        }
+        ,{
+          "id": "CVE-2018-5709",
+          "severity": "Negligible",
+          "package": "libkrb5-dev",
           "version": "1.20.1-2+deb12u4"
         }
         ,{
@@ -2977,7 +2984,7 @@
         ,{
           "id": "CVE-2018-9996",
           "severity": "Negligible",
-          "package": "libctf0",
+          "package": "binutils-common",
           "version": "2.40-2"
         }
         ,{
@@ -2989,7 +2996,7 @@
         ,{
           "id": "CVE-2018-9996",
           "severity": "Negligible",
-          "package": "libbinutils",
+          "package": "libgprofng0",
           "version": "2.40-2"
         }
         ,{
@@ -3001,7 +3008,13 @@
         ,{
           "id": "CVE-2018-9996",
           "severity": "Negligible",
-          "package": "binutils-common",
+          "package": "libbinutils",
+          "version": "2.40-2"
+        }
+        ,{
+          "id": "CVE-2018-9996",
+          "severity": "Negligible",
+          "package": "libctf0",
           "version": "2.40-2"
         }
         ,{
@@ -3011,18 +3024,6 @@
           "version": "2.40-2"
         }
         ,{
-          "id": "CVE-2018-9996",
-          "severity": "Negligible",
-          "package": "libgprofng0",
-          "version": "2.40-2"
-        }
-        ,{
-          "id": "CVE-2019-1010022",
-          "severity": "Negligible",
-          "package": "libc-dev-bin",
-          "version": "2.36-9+deb12u13"
-        }
-        ,{
           "id": "CVE-2019-1010022",
           "severity": "Negligible",
           "package": "libc6-dev",
@@ -3032,6 +3033,12 @@
           "id": "CVE-2019-1010022",
           "severity": "Negligible",
           "package": "libc-bin",
+          "version": "2.36-9+deb12u13"
+        }
+        ,{
+          "id": "CVE-2019-1010022",
+          "severity": "Negligible",
+          "package": "libc-dev-bin",
           "version": "2.36-9+deb12u13"
         }
         ,{
@@ -3049,13 +3056,13 @@
         ,{
           "id": "CVE-2019-1010023",
           "severity": "Negligible",
-          "package": "libc6",
+          "package": "libc-dev-bin",
           "version": "2.36-9+deb12u13"
         }
         ,{
           "id": "CVE-2019-1010023",
           "severity": "Negligible",
-          "package": "libc-dev-bin",
+          "package": "libc6",
           "version": "2.36-9+deb12u13"
         }
         ,{
@@ -3067,19 +3074,7 @@
         ,{
           "id": "CVE-2019-1010024",
           "severity": "Negligible",
-          "package": "libc6-dev",
-          "version": "2.36-9+deb12u13"
-        }
-        ,{
-          "id": "CVE-2019-1010024",
-          "severity": "Negligible",
           "package": "libc6",
-          "version": "2.36-9+deb12u13"
-        }
-        ,{
-          "id": "CVE-2019-1010024",
-          "severity": "Negligible",
-          "package": "libc-dev-bin",
           "version": "2.36-9+deb12u13"
         }
         ,{
@@ -3089,15 +3084,27 @@
           "version": "2.36-9+deb12u13"
         }
         ,{
-          "id": "CVE-2019-1010025",
+          "id": "CVE-2019-1010024",
           "severity": "Negligible",
-          "package": "libc6",
+          "package": "libc6-dev",
+          "version": "2.36-9+deb12u13"
+        }
+        ,{
+          "id": "CVE-2019-1010024",
+          "severity": "Negligible",
+          "package": "libc-dev-bin",
           "version": "2.36-9+deb12u13"
         }
         ,{
           "id": "CVE-2019-1010025",
           "severity": "Negligible",
           "package": "libc6-dev",
+          "version": "2.36-9+deb12u13"
+        }
+        ,{
+          "id": "CVE-2019-1010025",
+          "severity": "Negligible",
+          "package": "libc6",
           "version": "2.36-9+deb12u13"
         }
         ,{
@@ -3121,6 +3128,12 @@
         ,{
           "id": "CVE-2019-9192",
           "severity": "Negligible",
+          "package": "libc-dev-bin",
+          "version": "2.36-9+deb12u13"
+        }
+        ,{
+          "id": "CVE-2019-9192",
+          "severity": "Negligible",
           "package": "libc6-dev",
           "version": "2.36-9+deb12u13"
         }
@@ -3128,12 +3141,6 @@
           "id": "CVE-2019-9192",
           "severity": "Negligible",
           "package": "libc-bin",
-          "version": "2.36-9+deb12u13"
-        }
-        ,{
-          "id": "CVE-2019-9192",
-          "severity": "Negligible",
-          "package": "libc-dev-bin",
           "version": "2.36-9+deb12u13"
         }
         ,{
@@ -3169,49 +3176,13 @@
         ,{
           "id": "CVE-2021-20311",
           "severity": "Negligible",
-          "package": "libmagickcore-6.q16-6-extra",
-          "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
-        }
-        ,{
-          "id": "CVE-2021-20311",
-          "severity": "Negligible",
           "package": "libmagickwand-6-headers",
           "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
         }
         ,{
           "id": "CVE-2021-20311",
           "severity": "Negligible",
-          "package": "libmagickcore-6-arch-config",
-          "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
-        }
-        ,{
-          "id": "CVE-2021-20311",
-          "severity": "Negligible",
-          "package": "libmagickcore-6-headers",
-          "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
-        }
-        ,{
-          "id": "CVE-2021-20311",
-          "severity": "Negligible",
-          "package": "libmagickcore-6.q16-6",
-          "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
-        }
-        ,{
-          "id": "CVE-2021-20311",
-          "severity": "Negligible",
-          "package": "libmagickwand-dev",
-          "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
-        }
-        ,{
-          "id": "CVE-2021-20311",
-          "severity": "Negligible",
-          "package": "libmagickcore-6.q16-dev",
-          "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
-        }
-        ,{
-          "id": "CVE-2021-20311",
-          "severity": "Negligible",
-          "package": "imagemagick-6-common",
+          "package": "libmagickcore-6.q16-6-extra",
           "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
         }
         ,{
@@ -3223,7 +3194,31 @@
         ,{
           "id": "CVE-2021-20311",
           "severity": "Negligible",
+          "package": "imagemagick-6-common",
+          "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
+        }
+        ,{
+          "id": "CVE-2021-20311",
+          "severity": "Negligible",
           "package": "imagemagick",
+          "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
+        }
+        ,{
+          "id": "CVE-2021-20311",
+          "severity": "Negligible",
+          "package": "libmagickcore-6.q16-dev",
+          "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
+        }
+        ,{
+          "id": "CVE-2021-20311",
+          "severity": "Negligible",
+          "package": "libmagickcore-6.q16-6",
+          "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
+        }
+        ,{
+          "id": "CVE-2021-20311",
+          "severity": "Negligible",
+          "package": "libmagickwand-6.q16-6",
           "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
         }
         ,{
@@ -3235,13 +3230,25 @@
         ,{
           "id": "CVE-2021-20311",
           "severity": "Negligible",
+          "package": "libmagickwand-dev",
+          "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
+        }
+        ,{
+          "id": "CVE-2021-20311",
+          "severity": "Negligible",
           "package": "imagemagick-6.q16",
           "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
         }
         ,{
           "id": "CVE-2021-20311",
           "severity": "Negligible",
-          "package": "libmagickwand-6.q16-6",
+          "package": "libmagickcore-6-headers",
+          "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
+        }
+        ,{
+          "id": "CVE-2021-20311",
+          "severity": "Negligible",
+          "package": "libmagickcore-6-arch-config",
           "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
         }
         ,{
@@ -3253,19 +3260,7 @@
         ,{
           "id": "CVE-2021-32256",
           "severity": "Negligible",
-          "package": "binutils-common",
-          "version": "2.40-2"
-        }
-        ,{
-          "id": "CVE-2021-32256",
-          "severity": "Negligible",
-          "package": "binutils",
-          "version": "2.40-2"
-        }
-        ,{
-          "id": "CVE-2021-32256",
-          "severity": "Negligible",
-          "package": "binutils-x86-64-linux-gnu",
+          "package": "libctf-nobfd0",
           "version": "2.40-2"
         }
         ,{
@@ -3277,7 +3272,19 @@
         ,{
           "id": "CVE-2021-32256",
           "severity": "Negligible",
-          "package": "libctf-nobfd0",
+          "package": "binutils-common",
+          "version": "2.40-2"
+        }
+        ,{
+          "id": "CVE-2021-32256",
+          "severity": "Negligible",
+          "package": "binutils-x86-64-linux-gnu",
+          "version": "2.40-2"
+        }
+        ,{
+          "id": "CVE-2021-32256",
+          "severity": "Negligible",
+          "package": "binutils",
           "version": "2.40-2"
         }
         ,{
@@ -3289,13 +3296,13 @@
         ,{
           "id": "CVE-2021-4214",
           "severity": "Negligible",
-          "package": "libpng16-16",
+          "package": "libpng-dev",
           "version": "1.6.39-2+deb12u1"
         }
         ,{
           "id": "CVE-2021-4214",
           "severity": "Negligible",
-          "package": "libpng-dev",
+          "package": "libpng16-16",
           "version": "1.6.39-2+deb12u1"
         }
         ,{
@@ -3325,25 +3332,7 @@
         ,{
           "id": "CVE-2022-0563",
           "severity": "Negligible",
-          "package": "libblkid-dev",
-          "version": "2.38.1-5+deb12u3"
-        }
-        ,{
-          "id": "CVE-2022-0563",
-          "severity": "Negligible",
-          "package": "util-linux-extra",
-          "version": "2.38.1-5+deb12u3"
-        }
-        ,{
-          "id": "CVE-2022-0563",
-          "severity": "Negligible",
           "package": "libmount1",
-          "version": "2.38.1-5+deb12u3"
-        }
-        ,{
-          "id": "CVE-2022-0563",
-          "severity": "Negligible",
-          "package": "libsmartcols1",
           "version": "2.38.1-5+deb12u3"
         }
         ,{
@@ -3355,13 +3344,13 @@
         ,{
           "id": "CVE-2022-0563",
           "severity": "Negligible",
-          "package": "mount",
+          "package": "libblkid-dev",
           "version": "2.38.1-5+deb12u3"
         }
         ,{
           "id": "CVE-2022-0563",
           "severity": "Negligible",
-          "package": "util-linux",
+          "package": "libblkid1",
           "version": "2.38.1-5+deb12u3"
         }
         ,{
@@ -3379,7 +3368,7 @@
         ,{
           "id": "CVE-2022-0563",
           "severity": "Negligible",
-          "package": "libblkid1",
+          "package": "libsmartcols1",
           "version": "2.38.1-5+deb12u3"
         }
         ,{
@@ -3389,10 +3378,22 @@
           "version": "1:2.38.1-5+deb12u3"
         }
         ,{
-          "id": "CVE-2022-1210",
+          "id": "CVE-2022-0563",
           "severity": "Negligible",
-          "package": "libtiffxx6",
-          "version": "4.5.0-6+deb12u3"
+          "package": "mount",
+          "version": "2.38.1-5+deb12u3"
+        }
+        ,{
+          "id": "CVE-2022-0563",
+          "severity": "Negligible",
+          "package": "util-linux",
+          "version": "2.38.1-5+deb12u3"
+        }
+        ,{
+          "id": "CVE-2022-0563",
+          "severity": "Negligible",
+          "package": "util-linux-extra",
+          "version": "2.38.1-5+deb12u3"
         }
         ,{
           "id": "CVE-2022-1210",
@@ -3407,15 +3408,21 @@
           "version": "4.5.0-6+deb12u3"
         }
         ,{
-          "id": "CVE-2022-24975",
+          "id": "CVE-2022-1210",
           "severity": "Negligible",
-          "package": "git",
-          "version": "1:2.39.5-0+deb12u3"
+          "package": "libtiffxx6",
+          "version": "4.5.0-6+deb12u3"
         }
         ,{
           "id": "CVE-2022-24975",
           "severity": "Negligible",
           "package": "git-man",
+          "version": "1:2.39.5-0+deb12u3"
+        }
+        ,{
+          "id": "CVE-2022-24975",
+          "severity": "Negligible",
+          "package": "git",
           "version": "1:2.39.5-0+deb12u3"
         }
         ,{
@@ -3427,19 +3434,49 @@
         ,{
           "id": "CVE-2022-27943",
           "severity": "Negligible",
+          "package": "gcc-12",
+          "version": "12.2.0-14+deb12u1"
+        }
+        ,{
+          "id": "CVE-2022-27943",
+          "severity": "Negligible",
+          "package": "libasan8",
+          "version": "12.2.0-14+deb12u1"
+        }
+        ,{
+          "id": "CVE-2022-27943",
+          "severity": "Negligible",
+          "package": "gcc-12-base",
+          "version": "12.2.0-14+deb12u1"
+        }
+        ,{
+          "id": "CVE-2022-27943",
+          "severity": "Negligible",
           "package": "libatomic1",
           "version": "12.2.0-14+deb12u1"
         }
         ,{
           "id": "CVE-2022-27943",
           "severity": "Negligible",
-          "package": "libgomp1",
+          "package": "libcc1-0",
           "version": "12.2.0-14+deb12u1"
         }
         ,{
           "id": "CVE-2022-27943",
           "severity": "Negligible",
           "package": "libgcc-12-dev",
+          "version": "12.2.0-14+deb12u1"
+        }
+        ,{
+          "id": "CVE-2022-27943",
+          "severity": "Negligible",
+          "package": "libgcc-s1",
+          "version": "12.2.0-14+deb12u1"
+        }
+        ,{
+          "id": "CVE-2022-27943",
+          "severity": "Negligible",
+          "package": "libgomp1",
           "version": "12.2.0-14+deb12u1"
         }
         ,{
@@ -3469,18 +3506,6 @@
         ,{
           "id": "CVE-2022-27943",
           "severity": "Negligible",
-          "package": "gcc-12",
-          "version": "12.2.0-14+deb12u1"
-        }
-        ,{
-          "id": "CVE-2022-27943",
-          "severity": "Negligible",
-          "package": "libgcc-s1",
-          "version": "12.2.0-14+deb12u1"
-        }
-        ,{
-          "id": "CVE-2022-27943",
-          "severity": "Negligible",
           "package": "libtsan2",
           "version": "12.2.0-14+deb12u1"
         }
@@ -3488,12 +3513,6 @@
           "id": "CVE-2022-27943",
           "severity": "Negligible",
           "package": "libubsan1",
-          "version": "12.2.0-14+deb12u1"
-        }
-        ,{
-          "id": "CVE-2022-27943",
-          "severity": "Negligible",
-          "package": "libasan8",
           "version": "12.2.0-14+deb12u1"
         }
         ,{
@@ -3509,16 +3528,10 @@
           "version": "12.2.0-14+deb12u1"
         }
         ,{
-          "id": "CVE-2022-27943",
+          "id": "CVE-2022-3219",
           "severity": "Negligible",
-          "package": "libcc1-0",
-          "version": "12.2.0-14+deb12u1"
-        }
-        ,{
-          "id": "CVE-2022-27943",
-          "severity": "Negligible",
-          "package": "gcc-12-base",
-          "version": "12.2.0-14+deb12u1"
+          "package": "gpg-wks-server",
+          "version": "2.2.40-1.1+deb12u2"
         }
         ,{
           "id": "CVE-2022-3219",
@@ -3529,7 +3542,25 @@
         ,{
           "id": "CVE-2022-3219",
           "severity": "Negligible",
-          "package": "gpg",
+          "package": "dirmngr",
+          "version": "2.2.40-1.1+deb12u2"
+        }
+        ,{
+          "id": "CVE-2022-3219",
+          "severity": "Negligible",
+          "package": "gpgv",
+          "version": "2.2.40-1.1+deb12u2"
+        }
+        ,{
+          "id": "CVE-2022-3219",
+          "severity": "Negligible",
+          "package": "gpgsm",
+          "version": "2.2.40-1.1+deb12u2"
+        }
+        ,{
+          "id": "CVE-2022-3219",
+          "severity": "Negligible",
+          "package": "gpgconf",
           "version": "2.2.40-1.1+deb12u2"
         }
         ,{
@@ -3547,25 +3578,13 @@
         ,{
           "id": "CVE-2022-3219",
           "severity": "Negligible",
-          "package": "gpg-wks-server",
+          "package": "gnupg-l10n",
           "version": "2.2.40-1.1+deb12u2"
         }
         ,{
           "id": "CVE-2022-3219",
           "severity": "Negligible",
-          "package": "gpgconf",
-          "version": "2.2.40-1.1+deb12u2"
-        }
-        ,{
-          "id": "CVE-2022-3219",
-          "severity": "Negligible",
-          "package": "gpgsm",
-          "version": "2.2.40-1.1+deb12u2"
-        }
-        ,{
-          "id": "CVE-2022-3219",
-          "severity": "Negligible",
-          "package": "gpgv",
+          "package": "gpg",
           "version": "2.2.40-1.1+deb12u2"
         }
         ,{
@@ -3575,27 +3594,15 @@
           "version": "2.2.40-1.1+deb12u2"
         }
         ,{
-          "id": "CVE-2022-3219",
-          "severity": "Negligible",
-          "package": "gnupg-l10n",
-          "version": "2.2.40-1.1+deb12u2"
-        }
-        ,{
-          "id": "CVE-2022-3219",
-          "severity": "Negligible",
-          "package": "dirmngr",
-          "version": "2.2.40-1.1+deb12u2"
-        }
-        ,{
           "id": "CVE-2023-1916",
           "severity": "Negligible",
-          "package": "libtiffxx6",
+          "package": "libtiff6",
           "version": "4.5.0-6+deb12u3"
         }
         ,{
           "id": "CVE-2023-1916",
           "severity": "Negligible",
-          "package": "libtiff6",
+          "package": "libtiffxx6",
           "version": "4.5.0-6+deb12u3"
         }
         ,{
@@ -3607,19 +3614,19 @@
         ,{
           "id": "CVE-2023-1972",
           "severity": "Negligible",
+          "package": "libctf0",
+          "version": "2.40-2"
+        }
+        ,{
+          "id": "CVE-2023-1972",
+          "severity": "Negligible",
           "package": "libctf-nobfd0",
           "version": "2.40-2"
         }
         ,{
           "id": "CVE-2023-1972",
           "severity": "Negligible",
-          "package": "binutils",
-          "version": "2.40-2"
-        }
-        ,{
-          "id": "CVE-2023-1972",
-          "severity": "Negligible",
-          "package": "binutils-x86-64-linux-gnu",
+          "package": "libgprofng0",
           "version": "2.40-2"
         }
         ,{
@@ -3631,19 +3638,19 @@
         ,{
           "id": "CVE-2023-1972",
           "severity": "Negligible",
+          "package": "binutils",
+          "version": "2.40-2"
+        }
+        ,{
+          "id": "CVE-2023-1972",
+          "severity": "Negligible",
           "package": "binutils-common",
           "version": "2.40-2"
         }
         ,{
           "id": "CVE-2023-1972",
           "severity": "Negligible",
-          "package": "libctf0",
-          "version": "2.40-2"
-        }
-        ,{
-          "id": "CVE-2023-1972",
-          "severity": "Negligible",
-          "package": "libgprofng0",
+          "package": "binutils-x86-64-linux-gnu",
           "version": "2.40-2"
         }
         ,{
@@ -3681,6 +3688,18 @@
           "severity": "Negligible",
           "package": "libsystemd0",
           "version": "252.39-1~deb12u1"
+        }
+        ,{
+          "id": "CVE-2023-31486",
+          "severity": "Negligible",
+          "package": "perl-modules-5.36",
+          "version": "5.36.0-7+deb12u3"
+        }
+        ,{
+          "id": "CVE-2023-31486",
+          "severity": "Negligible",
+          "package": "libperl5.36",
+          "version": "5.36.0-7+deb12u3"
         }
         ,{
           "id": "CVE-2023-31486",
@@ -3695,16 +3714,10 @@
           "version": "5.36.0-7+deb12u3"
         }
         ,{
-          "id": "CVE-2023-31486",
+          "id": "CVE-2023-3164",
           "severity": "Negligible",
-          "package": "libperl5.36",
-          "version": "5.36.0-7+deb12u3"
-        }
-        ,{
-          "id": "CVE-2023-31486",
-          "severity": "Negligible",
-          "package": "perl-modules-5.36",
-          "version": "5.36.0-7+deb12u3"
+          "package": "libtiffxx6",
+          "version": "4.5.0-6+deb12u3"
         }
         ,{
           "id": "CVE-2023-3164",
@@ -3719,33 +3732,9 @@
           "version": "4.5.0-6+deb12u3"
         }
         ,{
-          "id": "CVE-2023-3164",
-          "severity": "Negligible",
-          "package": "libtiffxx6",
-          "version": "4.5.0-6+deb12u3"
-        }
-        ,{
-          "id": "CVE-2023-34152",
-          "severity": "Negligible",
-          "package": "libmagickwand-6.q16-6",
-          "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
-        }
-        ,{
           "id": "CVE-2023-34152",
           "severity": "Negligible",
           "package": "imagemagick",
-          "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
-        }
-        ,{
-          "id": "CVE-2023-34152",
-          "severity": "Negligible",
-          "package": "imagemagick-6.q16",
-          "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
-        }
-        ,{
-          "id": "CVE-2023-34152",
-          "severity": "Negligible",
-          "package": "libmagickwand-dev",
           "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
         }
         ,{
@@ -3757,25 +3746,13 @@
         ,{
           "id": "CVE-2023-34152",
           "severity": "Negligible",
+          "package": "imagemagick-6.q16",
+          "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
+        }
+        ,{
+          "id": "CVE-2023-34152",
+          "severity": "Negligible",
           "package": "libmagickcore-6-arch-config",
-          "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
-        }
-        ,{
-          "id": "CVE-2023-34152",
-          "severity": "Negligible",
-          "package": "imagemagick-6-common",
-          "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
-        }
-        ,{
-          "id": "CVE-2023-34152",
-          "severity": "Negligible",
-          "package": "libmagickwand-6-headers",
-          "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
-        }
-        ,{
-          "id": "CVE-2023-34152",
-          "severity": "Negligible",
-          "package": "libmagickcore-dev",
           "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
         }
         ,{
@@ -3787,7 +3764,13 @@
         ,{
           "id": "CVE-2023-34152",
           "severity": "Negligible",
-          "package": "libmagickcore-6.q16-6-extra",
+          "package": "libmagickwand-dev",
+          "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
+        }
+        ,{
+          "id": "CVE-2023-34152",
+          "severity": "Negligible",
+          "package": "libmagickcore-6-headers",
           "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
         }
         ,{
@@ -3799,19 +3782,43 @@
         ,{
           "id": "CVE-2023-34152",
           "severity": "Negligible",
-          "package": "libmagickcore-6-headers",
+          "package": "libmagickcore-dev",
+          "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
+        }
+        ,{
+          "id": "CVE-2023-34152",
+          "severity": "Negligible",
+          "package": "libmagickwand-6-headers",
+          "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
+        }
+        ,{
+          "id": "CVE-2023-34152",
+          "severity": "Negligible",
+          "package": "libmagickcore-6.q16-6-extra",
+          "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
+        }
+        ,{
+          "id": "CVE-2023-34152",
+          "severity": "Negligible",
+          "package": "libmagickwand-6.q16-6",
+          "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
+        }
+        ,{
+          "id": "CVE-2023-34152",
+          "severity": "Negligible",
+          "package": "imagemagick-6-common",
           "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
         }
         ,{
           "id": "CVE-2023-37769",
           "severity": "Negligible",
-          "package": "libpixman-1-dev",
+          "package": "libpixman-1-0",
           "version": "0.42.2-1"
         }
         ,{
           "id": "CVE-2023-37769",
           "severity": "Negligible",
-          "package": "libpixman-1-0",
+          "package": "libpixman-1-dev",
           "version": "0.42.2-1"
         }
         ,{
@@ -3823,13 +3830,13 @@
         ,{
           "id": "CVE-2023-52426",
           "severity": "Negligible",
-          "package": "libexpat1",
+          "package": "libexpat1-dev",
           "version": "2.5.0-1+deb12u2"
         }
         ,{
           "id": "CVE-2023-52426",
           "severity": "Negligible",
-          "package": "libexpat1-dev",
+          "package": "libexpat1",
           "version": "2.5.0-1+deb12u2"
         }
         ,{
@@ -3859,13 +3866,7 @@
         ,{
           "id": "CVE-2024-2379",
           "severity": "Negligible",
-          "package": "libcurl4-openssl-dev",
-          "version": "7.88.1-10+deb12u14"
-        }
-        ,{
-          "id": "CVE-2024-2379",
-          "severity": "Negligible",
-          "package": "libcurl4",
+          "package": "curl",
           "version": "7.88.1-10+deb12u14"
         }
         ,{
@@ -3877,7 +3878,13 @@
         ,{
           "id": "CVE-2024-2379",
           "severity": "Negligible",
-          "package": "curl",
+          "package": "libcurl4",
+          "version": "7.88.1-10+deb12u14"
+        }
+        ,{
+          "id": "CVE-2024-2379",
+          "severity": "Negligible",
+          "package": "libcurl4-openssl-dev",
           "version": "7.88.1-10+deb12u14"
         }
         ,{
@@ -3895,25 +3902,7 @@
         ,{
           "id": "CVE-2024-26458",
           "severity": "Negligible",
-          "package": "libkrb5-3",
-          "version": "1.20.1-2+deb12u4"
-        }
-        ,{
-          "id": "CVE-2024-26458",
-          "severity": "Negligible",
-          "package": "libgssapi-krb5-2",
-          "version": "1.20.1-2+deb12u4"
-        }
-        ,{
-          "id": "CVE-2024-26458",
-          "severity": "Negligible",
-          "package": "krb5-multidev",
-          "version": "1.20.1-2+deb12u4"
-        }
-        ,{
-          "id": "CVE-2024-26458",
-          "severity": "Negligible",
-          "package": "libgssrpc4",
+          "package": "libkadm5srv-mit12",
           "version": "1.20.1-2+deb12u4"
         }
         ,{
@@ -3925,7 +3914,13 @@
         ,{
           "id": "CVE-2024-26458",
           "severity": "Negligible",
-          "package": "libkadm5srv-mit12",
+          "package": "libkrb5support0",
+          "version": "1.20.1-2+deb12u4"
+        }
+        ,{
+          "id": "CVE-2024-26458",
+          "severity": "Negligible",
+          "package": "libk5crypto3",
           "version": "1.20.1-2+deb12u4"
         }
         ,{
@@ -3937,7 +3932,7 @@
         ,{
           "id": "CVE-2024-26458",
           "severity": "Negligible",
-          "package": "libkrb5support0",
+          "package": "libgssrpc4",
           "version": "1.20.1-2+deb12u4"
         }
         ,{
@@ -3949,31 +3944,31 @@
         ,{
           "id": "CVE-2024-26458",
           "severity": "Negligible",
+          "package": "libkrb5-3",
+          "version": "1.20.1-2+deb12u4"
+        }
+        ,{
+          "id": "CVE-2024-26458",
+          "severity": "Negligible",
+          "package": "krb5-multidev",
+          "version": "1.20.1-2+deb12u4"
+        }
+        ,{
+          "id": "CVE-2024-26458",
+          "severity": "Negligible",
+          "package": "libgssapi-krb5-2",
+          "version": "1.20.1-2+deb12u4"
+        }
+        ,{
+          "id": "CVE-2024-26461",
+          "severity": "Negligible",
           "package": "libk5crypto3",
           "version": "1.20.1-2+deb12u4"
         }
         ,{
           "id": "CVE-2024-26461",
           "severity": "Negligible",
-          "package": "krb5-multidev",
-          "version": "1.20.1-2+deb12u4"
-        }
-        ,{
-          "id": "CVE-2024-26461",
-          "severity": "Negligible",
-          "package": "libkrb5support0",
-          "version": "1.20.1-2+deb12u4"
-        }
-        ,{
-          "id": "CVE-2024-26461",
-          "severity": "Negligible",
-          "package": "libkrb5-dev",
-          "version": "1.20.1-2+deb12u4"
-        }
-        ,{
-          "id": "CVE-2024-26461",
-          "severity": "Negligible",
-          "package": "libkrb5-3",
+          "package": "libkadm5srv-mit12",
           "version": "1.20.1-2+deb12u4"
         }
         ,{
@@ -3985,7 +3980,25 @@
         ,{
           "id": "CVE-2024-26461",
           "severity": "Negligible",
-          "package": "libkadm5srv-mit12",
+          "package": "libkrb5-3",
+          "version": "1.20.1-2+deb12u4"
+        }
+        ,{
+          "id": "CVE-2024-26461",
+          "severity": "Negligible",
+          "package": "krb5-multidev",
+          "version": "1.20.1-2+deb12u4"
+        }
+        ,{
+          "id": "CVE-2024-26461",
+          "severity": "Negligible",
+          "package": "libgssapi-krb5-2",
+          "version": "1.20.1-2+deb12u4"
+        }
+        ,{
+          "id": "CVE-2024-26461",
+          "severity": "Negligible",
+          "package": "libkrb5-dev",
           "version": "1.20.1-2+deb12u4"
         }
         ,{
@@ -3997,19 +4010,13 @@
         ,{
           "id": "CVE-2024-26461",
           "severity": "Negligible",
-          "package": "libk5crypto3",
+          "package": "libkrb5support0",
           "version": "1.20.1-2+deb12u4"
         }
         ,{
           "id": "CVE-2024-26461",
           "severity": "Negligible",
           "package": "libgssrpc4",
-          "version": "1.20.1-2+deb12u4"
-        }
-        ,{
-          "id": "CVE-2024-26461",
-          "severity": "Negligible",
-          "package": "libgssapi-krb5-2",
           "version": "1.20.1-2+deb12u4"
         }
         ,{
@@ -4027,25 +4034,25 @@
         ,{
           "id": "CVE-2024-52005",
           "severity": "Negligible",
-          "package": "git",
+          "package": "git-man",
           "version": "1:2.39.5-0+deb12u3"
         }
         ,{
           "id": "CVE-2024-52005",
           "severity": "Negligible",
-          "package": "git-man",
+          "package": "git",
           "version": "1:2.39.5-0+deb12u3"
         }
         ,{
           "id": "CVE-2024-53589",
           "severity": "Negligible",
-          "package": "binutils-x86-64-linux-gnu",
+          "package": "libgprofng0",
           "version": "2.40-2"
         }
         ,{
           "id": "CVE-2024-53589",
           "severity": "Negligible",
-          "package": "libgprofng0",
+          "package": "binutils-x86-64-linux-gnu",
           "version": "2.40-2"
         }
         ,{
@@ -4081,13 +4088,7 @@
         ,{
           "id": "CVE-2024-57360",
           "severity": "Negligible",
-          "package": "libctf0",
-          "version": "2.40-2"
-        }
-        ,{
-          "id": "CVE-2024-57360",
-          "severity": "Negligible",
-          "package": "libctf-nobfd0",
+          "package": "binutils",
           "version": "2.40-2"
         }
         ,{
@@ -4099,7 +4100,7 @@
         ,{
           "id": "CVE-2024-57360",
           "severity": "Negligible",
-          "package": "binutils",
+          "package": "binutils-x86-64-linux-gnu",
           "version": "2.40-2"
         }
         ,{
@@ -4111,13 +4112,19 @@
         ,{
           "id": "CVE-2024-57360",
           "severity": "Negligible",
-          "package": "binutils-x86-64-linux-gnu",
+          "package": "libbinutils",
           "version": "2.40-2"
         }
         ,{
           "id": "CVE-2024-57360",
           "severity": "Negligible",
-          "package": "libbinutils",
+          "package": "libctf-nobfd0",
+          "version": "2.40-2"
+        }
+        ,{
+          "id": "CVE-2024-57360",
+          "severity": "Negligible",
+          "package": "libctf0",
           "version": "2.40-2"
         }
         ,{
@@ -4129,7 +4136,7 @@
         ,{
           "id": "CVE-2025-0725",
           "severity": "Negligible",
-          "package": "libcurl3-gnutls",
+          "package": "libcurl4",
           "version": "7.88.1-10+deb12u14"
         }
         ,{
@@ -4141,13 +4148,31 @@
         ,{
           "id": "CVE-2025-0725",
           "severity": "Negligible",
-          "package": "libcurl4",
+          "package": "libcurl3-gnutls",
           "version": "7.88.1-10+deb12u14"
         }
         ,{
           "id": "CVE-2025-0840",
           "severity": "Negligible",
+          "package": "libgprofng0",
+          "version": "2.40-2"
+        }
+        ,{
+          "id": "CVE-2025-0840",
+          "severity": "Negligible",
+          "package": "libbinutils",
+          "version": "2.40-2"
+        }
+        ,{
+          "id": "CVE-2025-0840",
+          "severity": "Negligible",
           "package": "libctf-nobfd0",
+          "version": "2.40-2"
+        }
+        ,{
+          "id": "CVE-2025-0840",
+          "severity": "Negligible",
+          "package": "libctf0",
           "version": "2.40-2"
         }
         ,{
@@ -4165,32 +4190,8 @@
         ,{
           "id": "CVE-2025-0840",
           "severity": "Negligible",
-          "package": "libbinutils",
-          "version": "2.40-2"
-        }
-        ,{
-          "id": "CVE-2025-0840",
-          "severity": "Negligible",
-          "package": "libctf0",
-          "version": "2.40-2"
-        }
-        ,{
-          "id": "CVE-2025-0840",
-          "severity": "Negligible",
-          "package": "libgprofng0",
-          "version": "2.40-2"
-        }
-        ,{
-          "id": "CVE-2025-0840",
-          "severity": "Negligible",
           "package": "binutils",
           "version": "2.40-2"
-        }
-        ,{
-          "id": "CVE-2025-10966",
-          "severity": "Negligible",
-          "package": "libcurl3-gnutls",
-          "version": "7.88.1-10+deb12u14"
         }
         ,{
           "id": "CVE-2025-10966",
@@ -4201,6 +4202,12 @@
         ,{
           "id": "CVE-2025-10966",
           "severity": "Negligible",
+          "package": "libcurl3-gnutls",
+          "version": "7.88.1-10+deb12u14"
+        }
+        ,{
+          "id": "CVE-2025-10966",
+          "severity": "Negligible",
           "package": "libcurl4",
           "version": "7.88.1-10+deb12u14"
         }
@@ -4213,13 +4220,7 @@
         ,{
           "id": "CVE-2025-11081",
           "severity": "Negligible",
-          "package": "libbinutils",
-          "version": "2.40-2"
-        }
-        ,{
-          "id": "CVE-2025-11081",
-          "severity": "Negligible",
-          "package": "binutils-x86-64-linux-gnu",
+          "package": "binutils",
           "version": "2.40-2"
         }
         ,{
@@ -4231,13 +4232,7 @@
         ,{
           "id": "CVE-2025-11081",
           "severity": "Negligible",
-          "package": "binutils",
-          "version": "2.40-2"
-        }
-        ,{
-          "id": "CVE-2025-11081",
-          "severity": "Negligible",
-          "package": "libctf-nobfd0",
+          "package": "binutils-x86-64-linux-gnu",
           "version": "2.40-2"
         }
         ,{
@@ -4249,7 +4244,25 @@
         ,{
           "id": "CVE-2025-11081",
           "severity": "Negligible",
+          "package": "libbinutils",
+          "version": "2.40-2"
+        }
+        ,{
+          "id": "CVE-2025-11081",
+          "severity": "Negligible",
+          "package": "libctf-nobfd0",
+          "version": "2.40-2"
+        }
+        ,{
+          "id": "CVE-2025-11081",
+          "severity": "Negligible",
           "package": "libgprofng0",
+          "version": "2.40-2"
+        }
+        ,{
+          "id": "CVE-2025-11082",
+          "severity": "Negligible",
+          "package": "libctf-nobfd0",
           "version": "2.40-2"
         }
         ,{
@@ -4261,25 +4274,7 @@
         ,{
           "id": "CVE-2025-11082",
           "severity": "Negligible",
-          "package": "libgprofng0",
-          "version": "2.40-2"
-        }
-        ,{
-          "id": "CVE-2025-11082",
-          "severity": "Negligible",
-          "package": "libbinutils",
-          "version": "2.40-2"
-        }
-        ,{
-          "id": "CVE-2025-11082",
-          "severity": "Negligible",
-          "package": "libctf-nobfd0",
-          "version": "2.40-2"
-        }
-        ,{
-          "id": "CVE-2025-11082",
-          "severity": "Negligible",
-          "package": "libctf0",
+          "package": "binutils-x86-64-linux-gnu",
           "version": "2.40-2"
         }
         ,{
@@ -4291,19 +4286,19 @@
         ,{
           "id": "CVE-2025-11082",
           "severity": "Negligible",
-          "package": "binutils-x86-64-linux-gnu",
+          "package": "libbinutils",
           "version": "2.40-2"
         }
         ,{
-          "id": "CVE-2025-11083",
-          "severity": "Negligible",
-          "package": "libgprofng0",
-          "version": "2.40-2"
-        }
-        ,{
-          "id": "CVE-2025-11083",
+          "id": "CVE-2025-11082",
           "severity": "Negligible",
           "package": "libctf0",
+          "version": "2.40-2"
+        }
+        ,{
+          "id": "CVE-2025-11082",
+          "severity": "Negligible",
+          "package": "libgprofng0",
           "version": "2.40-2"
         }
         ,{
@@ -4315,13 +4310,13 @@
         ,{
           "id": "CVE-2025-11083",
           "severity": "Negligible",
-          "package": "libbinutils",
+          "package": "binutils-x86-64-linux-gnu",
           "version": "2.40-2"
         }
         ,{
           "id": "CVE-2025-11083",
           "severity": "Negligible",
-          "package": "binutils-x86-64-linux-gnu",
+          "package": "libbinutils",
           "version": "2.40-2"
         }
         ,{
@@ -4337,15 +4332,33 @@
           "version": "2.40-2"
         }
         ,{
+          "id": "CVE-2025-11083",
+          "severity": "Negligible",
+          "package": "libctf0",
+          "version": "2.40-2"
+        }
+        ,{
+          "id": "CVE-2025-11083",
+          "severity": "Negligible",
+          "package": "libgprofng0",
+          "version": "2.40-2"
+        }
+        ,{
           "id": "CVE-2025-11412",
           "severity": "Negligible",
-          "package": "binutils",
+          "package": "libgprofng0",
           "version": "2.40-2"
         }
         ,{
           "id": "CVE-2025-11412",
           "severity": "Negligible",
           "package": "libctf0",
+          "version": "2.40-2"
+        }
+        ,{
+          "id": "CVE-2025-11412",
+          "severity": "Negligible",
+          "package": "libctf-nobfd0",
           "version": "2.40-2"
         }
         ,{
@@ -4363,49 +4376,19 @@
         ,{
           "id": "CVE-2025-11412",
           "severity": "Negligible",
-          "package": "libgprofng0",
-          "version": "2.40-2"
-        }
-        ,{
-          "id": "CVE-2025-11412",
-          "severity": "Negligible",
           "package": "binutils-common",
           "version": "2.40-2"
         }
         ,{
           "id": "CVE-2025-11412",
           "severity": "Negligible",
-          "package": "libctf-nobfd0",
+          "package": "binutils",
           "version": "2.40-2"
         }
         ,{
           "id": "CVE-2025-11413",
           "severity": "Negligible",
-          "package": "binutils-x86-64-linux-gnu",
-          "version": "2.40-2"
-        }
-        ,{
-          "id": "CVE-2025-11413",
-          "severity": "Negligible",
-          "package": "binutils-common",
-          "version": "2.40-2"
-        }
-        ,{
-          "id": "CVE-2025-11413",
-          "severity": "Negligible",
-          "package": "libctf-nobfd0",
-          "version": "2.40-2"
-        }
-        ,{
-          "id": "CVE-2025-11413",
-          "severity": "Negligible",
-          "package": "libctf0",
-          "version": "2.40-2"
-        }
-        ,{
-          "id": "CVE-2025-11413",
-          "severity": "Negligible",
-          "package": "libgprofng0",
+          "package": "binutils",
           "version": "2.40-2"
         }
         ,{
@@ -4417,19 +4400,43 @@
         ,{
           "id": "CVE-2025-11413",
           "severity": "Negligible",
-          "package": "binutils",
+          "package": "binutils-x86-64-linux-gnu",
           "version": "2.40-2"
         }
         ,{
-          "id": "CVE-2025-11414",
+          "id": "CVE-2025-11413",
+          "severity": "Negligible",
+          "package": "libctf0",
+          "version": "2.40-2"
+        }
+        ,{
+          "id": "CVE-2025-11413",
           "severity": "Negligible",
           "package": "libctf-nobfd0",
+          "version": "2.40-2"
+        }
+        ,{
+          "id": "CVE-2025-11413",
+          "severity": "Negligible",
+          "package": "libgprofng0",
+          "version": "2.40-2"
+        }
+        ,{
+          "id": "CVE-2025-11413",
+          "severity": "Negligible",
+          "package": "binutils-common",
           "version": "2.40-2"
         }
         ,{
           "id": "CVE-2025-11414",
           "severity": "Negligible",
           "package": "libgprofng0",
+          "version": "2.40-2"
+        }
+        ,{
+          "id": "CVE-2025-11414",
+          "severity": "Negligible",
+          "package": "libctf0",
           "version": "2.40-2"
         }
         ,{
@@ -4447,31 +4454,31 @@
         ,{
           "id": "CVE-2025-11414",
           "severity": "Negligible",
-          "package": "binutils-x86-64-linux-gnu",
-          "version": "2.40-2"
-        }
-        ,{
-          "id": "CVE-2025-11414",
-          "severity": "Negligible",
-          "package": "libctf0",
-          "version": "2.40-2"
-        }
-        ,{
-          "id": "CVE-2025-11414",
-          "severity": "Negligible",
           "package": "binutils",
           "version": "2.40-2"
         }
         ,{
-          "id": "CVE-2025-11468",
+          "id": "CVE-2025-11414",
           "severity": "Negligible",
-          "package": "libpython3.11-stdlib",
-          "version": "3.11.2-6+deb12u6"
+          "package": "libctf-nobfd0",
+          "version": "2.40-2"
+        }
+        ,{
+          "id": "CVE-2025-11414",
+          "severity": "Negligible",
+          "package": "binutils-x86-64-linux-gnu",
+          "version": "2.40-2"
         }
         ,{
           "id": "CVE-2025-11468",
           "severity": "Negligible",
           "package": "libpython3.11-minimal",
+          "version": "3.11.2-6+deb12u6"
+        }
+        ,{
+          "id": "CVE-2025-11468",
+          "severity": "Negligible",
+          "package": "python3.11-minimal",
           "version": "3.11.2-6+deb12u6"
         }
         ,{
@@ -4483,12 +4490,24 @@
         ,{
           "id": "CVE-2025-11468",
           "severity": "Negligible",
-          "package": "python3.11-minimal",
+          "package": "libpython3.11-stdlib",
           "version": "3.11.2-6+deb12u6"
         }
         ,{
           "id": "CVE-2025-1147",
           "severity": "Negligible",
+          "package": "binutils-common",
+          "version": "2.40-2"
+        }
+        ,{
+          "id": "CVE-2025-1147",
+          "severity": "Negligible",
+          "package": "libctf-nobfd0",
+          "version": "2.40-2"
+        }
+        ,{
+          "id": "CVE-2025-1147",
+          "severity": "Negligible",
           "package": "libgprofng0",
           "version": "2.40-2"
         }
@@ -4501,18 +4520,6 @@
         ,{
           "id": "CVE-2025-1147",
           "severity": "Negligible",
-          "package": "libctf-nobfd0",
-          "version": "2.40-2"
-        }
-        ,{
-          "id": "CVE-2025-1147",
-          "severity": "Negligible",
-          "package": "libbinutils",
-          "version": "2.40-2"
-        }
-        ,{
-          "id": "CVE-2025-1147",
-          "severity": "Negligible",
           "package": "binutils",
           "version": "2.40-2"
         }
@@ -4525,42 +4532,6 @@
         ,{
           "id": "CVE-2025-1147",
           "severity": "Negligible",
-          "package": "binutils-common",
-          "version": "2.40-2"
-        }
-        ,{
-          "id": "CVE-2025-1148",
-          "severity": "Negligible",
-          "package": "binutils-common",
-          "version": "2.40-2"
-        }
-        ,{
-          "id": "CVE-2025-1148",
-          "severity": "Negligible",
-          "package": "binutils",
-          "version": "2.40-2"
-        }
-        ,{
-          "id": "CVE-2025-1148",
-          "severity": "Negligible",
-          "package": "libgprofng0",
-          "version": "2.40-2"
-        }
-        ,{
-          "id": "CVE-2025-1148",
-          "severity": "Negligible",
-          "package": "libctf0",
-          "version": "2.40-2"
-        }
-        ,{
-          "id": "CVE-2025-1148",
-          "severity": "Negligible",
-          "package": "libctf-nobfd0",
-          "version": "2.40-2"
-        }
-        ,{
-          "id": "CVE-2025-1148",
-          "severity": "Negligible",
           "package": "libbinutils",
           "version": "2.40-2"
         }
@@ -4571,9 +4542,39 @@
           "version": "2.40-2"
         }
         ,{
-          "id": "CVE-2025-1149",
+          "id": "CVE-2025-1148",
           "severity": "Negligible",
-          "package": "binutils-x86-64-linux-gnu",
+          "package": "binutils-common",
+          "version": "2.40-2"
+        }
+        ,{
+          "id": "CVE-2025-1148",
+          "severity": "Negligible",
+          "package": "libctf-nobfd0",
+          "version": "2.40-2"
+        }
+        ,{
+          "id": "CVE-2025-1148",
+          "severity": "Negligible",
+          "package": "libctf0",
+          "version": "2.40-2"
+        }
+        ,{
+          "id": "CVE-2025-1148",
+          "severity": "Negligible",
+          "package": "libgprofng0",
+          "version": "2.40-2"
+        }
+        ,{
+          "id": "CVE-2025-1148",
+          "severity": "Negligible",
+          "package": "binutils",
+          "version": "2.40-2"
+        }
+        ,{
+          "id": "CVE-2025-1148",
+          "severity": "Negligible",
+          "package": "libbinutils",
           "version": "2.40-2"
         }
         ,{
@@ -4585,7 +4586,31 @@
         ,{
           "id": "CVE-2025-1149",
           "severity": "Negligible",
+          "package": "binutils",
+          "version": "2.40-2"
+        }
+        ,{
+          "id": "CVE-2025-1149",
+          "severity": "Negligible",
+          "package": "libctf0",
+          "version": "2.40-2"
+        }
+        ,{
+          "id": "CVE-2025-1149",
+          "severity": "Negligible",
+          "package": "libctf-nobfd0",
+          "version": "2.40-2"
+        }
+        ,{
+          "id": "CVE-2025-1149",
+          "severity": "Negligible",
           "package": "libbinutils",
+          "version": "2.40-2"
+        }
+        ,{
+          "id": "CVE-2025-1149",
+          "severity": "Negligible",
+          "package": "binutils-x86-64-linux-gnu",
           "version": "2.40-2"
         }
         ,{
@@ -4595,24 +4620,6 @@
           "version": "2.40-2"
         }
         ,{
-          "id": "CVE-2025-1149",
-          "severity": "Negligible",
-          "package": "libctf0",
-          "version": "2.40-2"
-        }
-        ,{
-          "id": "CVE-2025-1149",
-          "severity": "Negligible",
-          "package": "binutils",
-          "version": "2.40-2"
-        }
-        ,{
-          "id": "CVE-2025-1149",
-          "severity": "Negligible",
-          "package": "libctf-nobfd0",
-          "version": "2.40-2"
-        }
-        ,{
           "id": "CVE-2025-11494",
           "severity": "Negligible",
           "package": "libctf-nobfd0",
@@ -4621,25 +4628,7 @@
         ,{
           "id": "CVE-2025-11494",
           "severity": "Negligible",
-          "package": "libgprofng0",
-          "version": "2.40-2"
-        }
-        ,{
-          "id": "CVE-2025-11494",
-          "severity": "Negligible",
-          "package": "libbinutils",
-          "version": "2.40-2"
-        }
-        ,{
-          "id": "CVE-2025-11494",
-          "severity": "Negligible",
           "package": "libctf0",
-          "version": "2.40-2"
-        }
-        ,{
-          "id": "CVE-2025-11494",
-          "severity": "Negligible",
-          "package": "binutils",
           "version": "2.40-2"
         }
         ,{
@@ -4655,9 +4644,21 @@
           "version": "2.40-2"
         }
         ,{
-          "id": "CVE-2025-11495",
+          "id": "CVE-2025-11494",
           "severity": "Negligible",
-          "package": "libctf0",
+          "package": "binutils",
+          "version": "2.40-2"
+        }
+        ,{
+          "id": "CVE-2025-11494",
+          "severity": "Negligible",
+          "package": "libbinutils",
+          "version": "2.40-2"
+        }
+        ,{
+          "id": "CVE-2025-11494",
+          "severity": "Negligible",
+          "package": "libgprofng0",
           "version": "2.40-2"
         }
         ,{
@@ -4675,13 +4676,7 @@
         ,{
           "id": "CVE-2025-11495",
           "severity": "Negligible",
-          "package": "libgprofng0",
-          "version": "2.40-2"
-        }
-        ,{
-          "id": "CVE-2025-11495",
-          "severity": "Negligible",
-          "package": "binutils-x86-64-linux-gnu",
+          "package": "libctf0",
           "version": "2.40-2"
         }
         ,{
@@ -4697,9 +4692,21 @@
           "version": "2.40-2"
         }
         ,{
+          "id": "CVE-2025-11495",
+          "severity": "Negligible",
+          "package": "libgprofng0",
+          "version": "2.40-2"
+        }
+        ,{
+          "id": "CVE-2025-11495",
+          "severity": "Negligible",
+          "package": "binutils-x86-64-linux-gnu",
+          "version": "2.40-2"
+        }
+        ,{
           "id": "CVE-2025-1150",
           "severity": "Negligible",
-          "package": "libbinutils",
+          "package": "binutils",
           "version": "2.40-2"
         }
         ,{
@@ -4717,13 +4724,19 @@
         ,{
           "id": "CVE-2025-1150",
           "severity": "Negligible",
-          "package": "binutils-x86-64-linux-gnu",
+          "package": "libctf-nobfd0",
           "version": "2.40-2"
         }
         ,{
           "id": "CVE-2025-1150",
           "severity": "Negligible",
-          "package": "binutils",
+          "package": "libbinutils",
+          "version": "2.40-2"
+        }
+        ,{
+          "id": "CVE-2025-1150",
+          "severity": "Negligible",
+          "package": "binutils-x86-64-linux-gnu",
           "version": "2.40-2"
         }
         ,{
@@ -4733,9 +4746,33 @@
           "version": "2.40-2"
         }
         ,{
-          "id": "CVE-2025-1150",
+          "id": "CVE-2025-1151",
+          "severity": "Negligible",
+          "package": "binutils-x86-64-linux-gnu",
+          "version": "2.40-2"
+        }
+        ,{
+          "id": "CVE-2025-1151",
           "severity": "Negligible",
           "package": "libctf-nobfd0",
+          "version": "2.40-2"
+        }
+        ,{
+          "id": "CVE-2025-1151",
+          "severity": "Negligible",
+          "package": "binutils",
+          "version": "2.40-2"
+        }
+        ,{
+          "id": "CVE-2025-1151",
+          "severity": "Negligible",
+          "package": "binutils-common",
+          "version": "2.40-2"
+        }
+        ,{
+          "id": "CVE-2025-1151",
+          "severity": "Negligible",
+          "package": "libbinutils",
           "version": "2.40-2"
         }
         ,{
@@ -4748,48 +4785,6 @@
           "id": "CVE-2025-1151",
           "severity": "Negligible",
           "package": "libctf0",
-          "version": "2.40-2"
-        }
-        ,{
-          "id": "CVE-2025-1151",
-          "severity": "Negligible",
-          "package": "binutils-common",
-          "version": "2.40-2"
-        }
-        ,{
-          "id": "CVE-2025-1151",
-          "severity": "Negligible",
-          "package": "binutils",
-          "version": "2.40-2"
-        }
-        ,{
-          "id": "CVE-2025-1151",
-          "severity": "Negligible",
-          "package": "binutils-x86-64-linux-gnu",
-          "version": "2.40-2"
-        }
-        ,{
-          "id": "CVE-2025-1151",
-          "severity": "Negligible",
-          "package": "libctf-nobfd0",
-          "version": "2.40-2"
-        }
-        ,{
-          "id": "CVE-2025-1151",
-          "severity": "Negligible",
-          "package": "libbinutils",
-          "version": "2.40-2"
-        }
-        ,{
-          "id": "CVE-2025-1152",
-          "severity": "Negligible",
-          "package": "binutils",
-          "version": "2.40-2"
-        }
-        ,{
-          "id": "CVE-2025-1152",
-          "severity": "Negligible",
-          "package": "binutils-common",
           "version": "2.40-2"
         }
         ,{
@@ -4801,7 +4796,7 @@
         ,{
           "id": "CVE-2025-1152",
           "severity": "Negligible",
-          "package": "binutils-x86-64-linux-gnu",
+          "package": "binutils",
           "version": "2.40-2"
         }
         ,{
@@ -4823,33 +4818,21 @@
           "version": "2.40-2"
         }
         ,{
-          "id": "CVE-2025-1153",
-          "severity": "Negligible",
-          "package": "libgprofng0",
-          "version": "2.40-2"
-        }
-        ,{
-          "id": "CVE-2025-1153",
+          "id": "CVE-2025-1152",
           "severity": "Negligible",
           "package": "binutils-x86-64-linux-gnu",
           "version": "2.40-2"
         }
         ,{
-          "id": "CVE-2025-1153",
+          "id": "CVE-2025-1152",
           "severity": "Negligible",
-          "package": "binutils",
+          "package": "binutils-common",
           "version": "2.40-2"
         }
         ,{
           "id": "CVE-2025-1153",
           "severity": "Negligible",
           "package": "libbinutils",
-          "version": "2.40-2"
-        }
-        ,{
-          "id": "CVE-2025-1153",
-          "severity": "Negligible",
-          "package": "libctf0",
           "version": "2.40-2"
         }
         ,{
@@ -4861,25 +4844,31 @@
         ,{
           "id": "CVE-2025-1153",
           "severity": "Negligible",
-          "package": "binutils-common",
+          "package": "binutils-x86-64-linux-gnu",
           "version": "2.40-2"
         }
         ,{
-          "id": "CVE-2025-1176",
+          "id": "CVE-2025-1153",
           "severity": "Negligible",
-          "package": "binutils",
+          "package": "libctf0",
           "version": "2.40-2"
         }
         ,{
-          "id": "CVE-2025-1176",
+          "id": "CVE-2025-1153",
           "severity": "Negligible",
           "package": "libgprofng0",
           "version": "2.40-2"
         }
         ,{
-          "id": "CVE-2025-1176",
+          "id": "CVE-2025-1153",
           "severity": "Negligible",
-          "package": "libbinutils",
+          "package": "binutils-common",
+          "version": "2.40-2"
+        }
+        ,{
+          "id": "CVE-2025-1153",
+          "severity": "Negligible",
+          "package": "binutils",
           "version": "2.40-2"
         }
         ,{
@@ -4891,7 +4880,13 @@
         ,{
           "id": "CVE-2025-1176",
           "severity": "Negligible",
-          "package": "libctf0",
+          "package": "libgprofng0",
+          "version": "2.40-2"
+        }
+        ,{
+          "id": "CVE-2025-1176",
+          "severity": "Negligible",
+          "package": "binutils",
           "version": "2.40-2"
         }
         ,{
@@ -4903,13 +4898,25 @@
         ,{
           "id": "CVE-2025-1176",
           "severity": "Negligible",
+          "package": "libbinutils",
+          "version": "2.40-2"
+        }
+        ,{
+          "id": "CVE-2025-1176",
+          "severity": "Negligible",
           "package": "libctf-nobfd0",
+          "version": "2.40-2"
+        }
+        ,{
+          "id": "CVE-2025-1176",
+          "severity": "Negligible",
+          "package": "libctf0",
           "version": "2.40-2"
         }
         ,{
           "id": "CVE-2025-1178",
           "severity": "Negligible",
-          "package": "libbinutils",
+          "package": "libctf0",
           "version": "2.40-2"
         }
         ,{
@@ -4921,13 +4928,7 @@
         ,{
           "id": "CVE-2025-1178",
           "severity": "Negligible",
-          "package": "binutils",
-          "version": "2.40-2"
-        }
-        ,{
-          "id": "CVE-2025-1178",
-          "severity": "Negligible",
-          "package": "binutils-common",
+          "package": "libbinutils",
           "version": "2.40-2"
         }
         ,{
@@ -4939,19 +4940,25 @@
         ,{
           "id": "CVE-2025-1178",
           "severity": "Negligible",
-          "package": "libctf-nobfd0",
+          "package": "binutils-common",
           "version": "2.40-2"
         }
         ,{
           "id": "CVE-2025-1178",
           "severity": "Negligible",
-          "package": "libctf0",
+          "package": "binutils",
+          "version": "2.40-2"
+        }
+        ,{
+          "id": "CVE-2025-1178",
+          "severity": "Negligible",
+          "package": "libctf-nobfd0",
           "version": "2.40-2"
         }
         ,{
           "id": "CVE-2025-1179",
           "severity": "Negligible",
-          "package": "libbinutils",
+          "package": "libctf-nobfd0",
           "version": "2.40-2"
         }
         ,{
@@ -4963,7 +4970,19 @@
         ,{
           "id": "CVE-2025-1179",
           "severity": "Negligible",
-          "package": "binutils-common",
+          "package": "libctf0",
+          "version": "2.40-2"
+        }
+        ,{
+          "id": "CVE-2025-1179",
+          "severity": "Negligible",
+          "package": "libbinutils",
+          "version": "2.40-2"
+        }
+        ,{
+          "id": "CVE-2025-1179",
+          "severity": "Negligible",
+          "package": "libgprofng0",
           "version": "2.40-2"
         }
         ,{
@@ -4975,43 +4994,7 @@
         ,{
           "id": "CVE-2025-1179",
           "severity": "Negligible",
-          "package": "libgprofng0",
-          "version": "2.40-2"
-        }
-        ,{
-          "id": "CVE-2025-1179",
-          "severity": "Negligible",
-          "package": "libctf-nobfd0",
-          "version": "2.40-2"
-        }
-        ,{
-          "id": "CVE-2025-1179",
-          "severity": "Negligible",
-          "package": "libctf0",
-          "version": "2.40-2"
-        }
-        ,{
-          "id": "CVE-2025-1180",
-          "severity": "Negligible",
-          "package": "libgprofng0",
-          "version": "2.40-2"
-        }
-        ,{
-          "id": "CVE-2025-1180",
-          "severity": "Negligible",
-          "package": "libctf0",
-          "version": "2.40-2"
-        }
-        ,{
-          "id": "CVE-2025-1180",
-          "severity": "Negligible",
           "package": "binutils-common",
-          "version": "2.40-2"
-        }
-        ,{
-          "id": "CVE-2025-1180",
-          "severity": "Negligible",
-          "package": "libbinutils",
           "version": "2.40-2"
         }
         ,{
@@ -5029,25 +5012,31 @@
         ,{
           "id": "CVE-2025-1180",
           "severity": "Negligible",
+          "package": "libgprofng0",
+          "version": "2.40-2"
+        }
+        ,{
+          "id": "CVE-2025-1180",
+          "severity": "Negligible",
           "package": "binutils-x86-64-linux-gnu",
           "version": "2.40-2"
         }
         ,{
-          "id": "CVE-2025-1181",
+          "id": "CVE-2025-1180",
           "severity": "Negligible",
           "package": "libbinutils",
           "version": "2.40-2"
         }
         ,{
-          "id": "CVE-2025-1181",
+          "id": "CVE-2025-1180",
           "severity": "Negligible",
-          "package": "libctf0",
+          "package": "binutils-common",
           "version": "2.40-2"
         }
         ,{
-          "id": "CVE-2025-1181",
+          "id": "CVE-2025-1180",
           "severity": "Negligible",
-          "package": "libctf-nobfd0",
+          "package": "libctf0",
           "version": "2.40-2"
         }
         ,{
@@ -5059,7 +5048,7 @@
         ,{
           "id": "CVE-2025-1181",
           "severity": "Negligible",
-          "package": "binutils-x86-64-linux-gnu",
+          "package": "libctf0",
           "version": "2.40-2"
         }
         ,{
@@ -5071,13 +5060,31 @@
         ,{
           "id": "CVE-2025-1181",
           "severity": "Negligible",
+          "package": "libbinutils",
+          "version": "2.40-2"
+        }
+        ,{
+          "id": "CVE-2025-1181",
+          "severity": "Negligible",
           "package": "binutils-common",
+          "version": "2.40-2"
+        }
+        ,{
+          "id": "CVE-2025-1181",
+          "severity": "Negligible",
+          "package": "binutils-x86-64-linux-gnu",
+          "version": "2.40-2"
+        }
+        ,{
+          "id": "CVE-2025-1181",
+          "severity": "Negligible",
+          "package": "libctf-nobfd0",
           "version": "2.40-2"
         }
         ,{
           "id": "CVE-2025-1182",
           "severity": "Negligible",
-          "package": "libbinutils",
+          "package": "libctf-nobfd0",
           "version": "2.40-2"
         }
         ,{
@@ -5095,7 +5102,7 @@
         ,{
           "id": "CVE-2025-1182",
           "severity": "Negligible",
-          "package": "libctf-nobfd0",
+          "package": "libbinutils",
           "version": "2.40-2"
         }
         ,{
@@ -5107,30 +5114,12 @@
         ,{
           "id": "CVE-2025-1182",
           "severity": "Negligible",
-          "package": "binutils",
+          "package": "binutils-common",
           "version": "2.40-2"
         }
         ,{
           "id": "CVE-2025-1182",
           "severity": "Negligible",
-          "package": "binutils-common",
-          "version": "2.40-2"
-        }
-        ,{
-          "id": "CVE-2025-11839",
-          "severity": "Negligible",
-          "package": "libctf-nobfd0",
-          "version": "2.40-2"
-        }
-        ,{
-          "id": "CVE-2025-11839",
-          "severity": "Negligible",
-          "package": "libctf0",
-          "version": "2.40-2"
-        }
-        ,{
-          "id": "CVE-2025-11839",
-          "severity": "Negligible",
           "package": "binutils",
           "version": "2.40-2"
         }
@@ -5138,6 +5127,12 @@
           "id": "CVE-2025-11839",
           "severity": "Negligible",
           "package": "binutils-common",
+          "version": "2.40-2"
+        }
+        ,{
+          "id": "CVE-2025-11839",
+          "severity": "Negligible",
+          "package": "libbinutils",
           "version": "2.40-2"
         }
         ,{
@@ -5149,37 +5144,37 @@
         ,{
           "id": "CVE-2025-11839",
           "severity": "Negligible",
+          "package": "binutils",
+          "version": "2.40-2"
+        }
+        ,{
+          "id": "CVE-2025-11839",
+          "severity": "Negligible",
           "package": "binutils-x86-64-linux-gnu",
           "version": "2.40-2"
         }
         ,{
           "id": "CVE-2025-11839",
           "severity": "Negligible",
-          "package": "libbinutils",
+          "package": "libctf0",
+          "version": "2.40-2"
+        }
+        ,{
+          "id": "CVE-2025-11839",
+          "severity": "Negligible",
+          "package": "libctf-nobfd0",
           "version": "2.40-2"
         }
         ,{
           "id": "CVE-2025-11840",
           "severity": "Negligible",
-          "package": "libgprofng0",
-          "version": "2.40-2"
-        }
-        ,{
-          "id": "CVE-2025-11840",
-          "severity": "Negligible",
-          "package": "libbinutils",
+          "package": "binutils-common",
           "version": "2.40-2"
         }
         ,{
           "id": "CVE-2025-11840",
           "severity": "Negligible",
           "package": "libctf0",
-          "version": "2.40-2"
-        }
-        ,{
-          "id": "CVE-2025-11840",
-          "severity": "Negligible",
-          "package": "libctf-nobfd0",
           "version": "2.40-2"
         }
         ,{
@@ -5197,7 +5192,19 @@
         ,{
           "id": "CVE-2025-11840",
           "severity": "Negligible",
-          "package": "binutils-common",
+          "package": "libgprofng0",
+          "version": "2.40-2"
+        }
+        ,{
+          "id": "CVE-2025-11840",
+          "severity": "Negligible",
+          "package": "libctf-nobfd0",
+          "version": "2.40-2"
+        }
+        ,{
+          "id": "CVE-2025-11840",
+          "severity": "Negligible",
+          "package": "libbinutils",
           "version": "2.40-2"
         }
         ,{
@@ -5251,13 +5258,13 @@
         ,{
           "id": "CVE-2025-14017",
           "severity": "Negligible",
-          "package": "libcurl3-gnutls",
+          "package": "curl",
           "version": "7.88.1-10+deb12u14"
         }
         ,{
           "id": "CVE-2025-14017",
           "severity": "Negligible",
-          "package": "curl",
+          "package": "libcurl3-gnutls",
           "version": "7.88.1-10+deb12u14"
         }
         ,{
@@ -5269,7 +5276,7 @@
         ,{
           "id": "CVE-2025-15079",
           "severity": "Negligible",
-          "package": "libcurl4-openssl-dev",
+          "package": "libcurl3-gnutls",
           "version": "7.88.1-10+deb12u14"
         }
         ,{
@@ -5280,18 +5287,6 @@
         }
         ,{
           "id": "CVE-2025-15079",
-          "severity": "Negligible",
-          "package": "libcurl3-gnutls",
-          "version": "7.88.1-10+deb12u14"
-        }
-        ,{
-          "id": "CVE-2025-15224",
-          "severity": "Negligible",
-          "package": "libcurl3-gnutls",
-          "version": "7.88.1-10+deb12u14"
-        }
-        ,{
-          "id": "CVE-2025-15224",
           "severity": "Negligible",
           "package": "libcurl4-openssl-dev",
           "version": "7.88.1-10+deb12u14"
@@ -5305,19 +5300,31 @@
         ,{
           "id": "CVE-2025-15224",
           "severity": "Negligible",
+          "package": "libcurl3-gnutls",
+          "version": "7.88.1-10+deb12u14"
+        }
+        ,{
+          "id": "CVE-2025-15224",
+          "severity": "Negligible",
           "package": "libcurl4",
           "version": "7.88.1-10+deb12u14"
         }
         ,{
-          "id": "CVE-2025-27587",
+          "id": "CVE-2025-15224",
           "severity": "Negligible",
-          "package": "libssl-dev",
-          "version": "3.0.18-1~deb12u2"
+          "package": "libcurl4-openssl-dev",
+          "version": "7.88.1-10+deb12u14"
         }
         ,{
           "id": "CVE-2025-27587",
           "severity": "Negligible",
           "package": "libssl3",
+          "version": "3.0.18-1~deb12u2"
+        }
+        ,{
+          "id": "CVE-2025-27587",
+          "severity": "Negligible",
+          "package": "libssl-dev",
           "version": "3.0.18-1~deb12u2"
         }
         ,{
@@ -5353,20 +5360,14 @@
         ,{
           "id": "CVE-2025-29070",
           "severity": "Negligible",
-          "package": "liblcms2-2",
+          "package": "liblcms2-dev",
           "version": "2.14-2"
         }
         ,{
           "id": "CVE-2025-29070",
           "severity": "Negligible",
-          "package": "liblcms2-dev",
+          "package": "liblcms2-2",
           "version": "2.14-2"
-        }
-        ,{
-          "id": "CVE-2025-29088",
-          "severity": "Negligible",
-          "package": "libsqlite3-0",
-          "version": "3.40.1-2+deb12u2"
         }
         ,{
           "id": "CVE-2025-29088",
@@ -5375,16 +5376,10 @@
           "version": "3.40.1-2+deb12u2"
         }
         ,{
-          "id": "CVE-2025-3198",
+          "id": "CVE-2025-29088",
           "severity": "Negligible",
-          "package": "binutils",
-          "version": "2.40-2"
-        }
-        ,{
-          "id": "CVE-2025-3198",
-          "severity": "Negligible",
-          "package": "libbinutils",
-          "version": "2.40-2"
+          "package": "libsqlite3-0",
+          "version": "3.40.1-2+deb12u2"
         }
         ,{
           "id": "CVE-2025-3198",
@@ -5401,13 +5396,19 @@
         ,{
           "id": "CVE-2025-3198",
           "severity": "Negligible",
+          "package": "binutils",
+          "version": "2.40-2"
+        }
+        ,{
+          "id": "CVE-2025-3198",
+          "severity": "Negligible",
           "package": "libctf-nobfd0",
           "version": "2.40-2"
         }
         ,{
           "id": "CVE-2025-3198",
           "severity": "Negligible",
-          "package": "binutils-common",
+          "package": "libbinutils",
           "version": "2.40-2"
         }
         ,{
@@ -5417,10 +5418,10 @@
           "version": "2.40-2"
         }
         ,{
-          "id": "CVE-2025-4516",
+          "id": "CVE-2025-3198",
           "severity": "Negligible",
-          "package": "python3.11-minimal",
-          "version": "3.11.2-6+deb12u6"
+          "package": "binutils-common",
+          "version": "2.40-2"
         }
         ,{
           "id": "CVE-2025-4516",
@@ -5441,10 +5442,10 @@
           "version": "3.11.2-6+deb12u6"
         }
         ,{
-          "id": "CVE-2025-5244",
+          "id": "CVE-2025-4516",
           "severity": "Negligible",
-          "package": "binutils-x86-64-linux-gnu",
-          "version": "2.40-2"
+          "package": "python3.11-minimal",
+          "version": "3.11.2-6+deb12u6"
         }
         ,{
           "id": "CVE-2025-5244",
@@ -5455,13 +5456,13 @@
         ,{
           "id": "CVE-2025-5244",
           "severity": "Negligible",
-          "package": "libgprofng0",
+          "package": "libctf-nobfd0",
           "version": "2.40-2"
         }
         ,{
           "id": "CVE-2025-5244",
           "severity": "Negligible",
-          "package": "libctf0",
+          "package": "libgprofng0",
           "version": "2.40-2"
         }
         ,{
@@ -5479,19 +5480,19 @@
         ,{
           "id": "CVE-2025-5244",
           "severity": "Negligible",
-          "package": "libctf-nobfd0",
+          "package": "binutils-x86-64-linux-gnu",
+          "version": "2.40-2"
+        }
+        ,{
+          "id": "CVE-2025-5244",
+          "severity": "Negligible",
+          "package": "libctf0",
           "version": "2.40-2"
         }
         ,{
           "id": "CVE-2025-5245",
           "severity": "Negligible",
           "package": "libgprofng0",
-          "version": "2.40-2"
-        }
-        ,{
-          "id": "CVE-2025-5245",
-          "severity": "Negligible",
-          "package": "libbinutils",
           "version": "2.40-2"
         }
         ,{
@@ -5516,6 +5517,12 @@
           "id": "CVE-2025-5245",
           "severity": "Negligible",
           "package": "binutils-common",
+          "version": "2.40-2"
+        }
+        ,{
+          "id": "CVE-2025-5245",
+          "severity": "Negligible",
+          "package": "libbinutils",
           "version": "2.40-2"
         }
         ,{
@@ -5539,12 +5546,6 @@
         ,{
           "id": "CVE-2025-55160",
           "severity": "Negligible",
-          "package": "libmagickcore-6.q16-dev",
-          "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
-        }
-        ,{
-          "id": "CVE-2025-55160",
-          "severity": "Negligible",
           "package": "libmagickcore-dev",
           "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
         }
@@ -5563,13 +5564,13 @@
         ,{
           "id": "CVE-2025-55160",
           "severity": "Negligible",
-          "package": "imagemagick-6-common",
+          "package": "libmagickwand-6.q16-dev",
           "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
         }
         ,{
           "id": "CVE-2025-55160",
           "severity": "Negligible",
-          "package": "libmagickwand-6.q16-dev",
+          "package": "imagemagick-6-common",
           "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
         }
         ,{
@@ -5582,6 +5583,12 @@
           "id": "CVE-2025-55160",
           "severity": "Negligible",
           "package": "imagemagick",
+          "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
+        }
+        ,{
+          "id": "CVE-2025-55160",
+          "severity": "Negligible",
+          "package": "libmagickcore-6.q16-dev",
           "version": "8:6.9.11.60+dfsg-1.6+deb12u6"
         }
         ,{
@@ -5611,36 +5618,36 @@
         ,{
           "id": "CVE-2025-66861",
           "severity": "Negligible",
-          "package": "binutils-x86-64-linux-gnu",
-          "version": "2.40-2"
-        }
-        ,{
-          "id": "CVE-2025-66861",
-          "severity": "Negligible",
-          "package": "libgprofng0",
-          "version": "2.40-2"
-        }
-        ,{
-          "id": "CVE-2025-66861",
-          "severity": "Negligible",
-          "package": "binutils",
-          "version": "2.40-2"
-        }
-        ,{
-          "id": "CVE-2025-66861",
-          "severity": "Negligible",
-          "package": "binutils-common",
-          "version": "2.40-2"
-        }
-        ,{
-          "id": "CVE-2025-66861",
-          "severity": "Negligible",
           "package": "libbinutils",
           "version": "2.40-2"
         }
         ,{
           "id": "CVE-2025-66861",
           "severity": "Negligible",
+          "package": "libgprofng0",
+          "version": "2.40-2"
+        }
+        ,{
+          "id": "CVE-2025-66861",
+          "severity": "Negligible",
+          "package": "binutils",
+          "version": "2.40-2"
+        }
+        ,{
+          "id": "CVE-2025-66861",
+          "severity": "Negligible",
+          "package": "binutils-common",
+          "version": "2.40-2"
+        }
+        ,{
+          "id": "CVE-2025-66861",
+          "severity": "Negligible",
+          "package": "binutils-x86-64-linux-gnu",
+          "version": "2.40-2"
+        }
+        ,{
+          "id": "CVE-2025-66861",
+          "severity": "Negligible",
           "package": "libctf-nobfd0",
           "version": "2.40-2"
         }
@@ -5755,30 +5762,24 @@
         ,{
           "id": "CVE-2025-66864",
           "severity": "Negligible",
-          "package": "libgprofng0",
-          "version": "2.40-2"
-        }
-        ,{
-          "id": "CVE-2025-66864",
-          "severity": "Negligible",
           "package": "libbinutils",
           "version": "2.40-2"
         }
         ,{
           "id": "CVE-2025-66864",
           "severity": "Negligible",
+          "package": "binutils-x86-64-linux-gnu",
+          "version": "2.40-2"
+        }
+        ,{
+          "id": "CVE-2025-66864",
+          "severity": "Negligible",
           "package": "binutils",
           "version": "2.40-2"
         }
         ,{
           "id": "CVE-2025-66864",
           "severity": "Negligible",
-          "package": "binutils-x86-64-linux-gnu",
-          "version": "2.40-2"
-        }
-        ,{
-          "id": "CVE-2025-66865",
-          "severity": "Negligible",
           "package": "libgprofng0",
           "version": "2.40-2"
         }
@@ -5803,7 +5804,7 @@
         ,{
           "id": "CVE-2025-66865",
           "severity": "Negligible",
-          "package": "libbinutils",
+          "package": "binutils-common",
           "version": "2.40-2"
         }
         ,{
@@ -5815,13 +5816,43 @@
         ,{
           "id": "CVE-2025-66865",
           "severity": "Negligible",
-          "package": "binutils-common",
+          "package": "libbinutils",
+          "version": "2.40-2"
+        }
+        ,{
+          "id": "CVE-2025-66865",
+          "severity": "Negligible",
+          "package": "libgprofng0",
           "version": "2.40-2"
         }
         ,{
           "id": "CVE-2025-66866",
           "severity": "Negligible",
           "package": "libbinutils",
+          "version": "2.40-2"
+        }
+        ,{
+          "id": "CVE-2025-66866",
+          "severity": "Negligible",
+          "package": "libctf-nobfd0",
+          "version": "2.40-2"
+        }
+        ,{
+          "id": "CVE-2025-66866",
+          "severity": "Negligible",
+          "package": "libctf0",
+          "version": "2.40-2"
+        }
+        ,{
+          "id": "CVE-2025-66866",
+          "severity": "Negligible",
+          "package": "binutils-common",
+          "version": "2.40-2"
+        }
+        ,{
+          "id": "CVE-2025-66866",
+          "severity": "Negligible",
+          "package": "binutils-x86-64-linux-gnu",
           "version": "2.40-2"
         }
         ,{
@@ -5837,45 +5868,15 @@
           "version": "2.40-2"
         }
         ,{
-          "id": "CVE-2025-66866",
-          "severity": "Negligible",
-          "package": "binutils-common",
-          "version": "2.40-2"
-        }
-        ,{
-          "id": "CVE-2025-66866",
-          "severity": "Negligible",
-          "package": "libctf-nobfd0",
-          "version": "2.40-2"
-        }
-        ,{
-          "id": "CVE-2025-66866",
-          "severity": "Negligible",
-          "package": "binutils-x86-64-linux-gnu",
-          "version": "2.40-2"
-        }
-        ,{
-          "id": "CVE-2025-66866",
-          "severity": "Negligible",
-          "package": "libctf0",
-          "version": "2.40-2"
-        }
-        ,{
           "id": "CVE-2025-7545",
           "severity": "Negligible",
-          "package": "binutils",
+          "package": "libgprofng0",
           "version": "2.40-2"
         }
         ,{
           "id": "CVE-2025-7545",
           "severity": "Negligible",
           "package": "binutils-x86-64-linux-gnu",
-          "version": "2.40-2"
-        }
-        ,{
-          "id": "CVE-2025-7545",
-          "severity": "Negligible",
-          "package": "binutils-common",
           "version": "2.40-2"
         }
         ,{
@@ -5887,7 +5888,7 @@
         ,{
           "id": "CVE-2025-7545",
           "severity": "Negligible",
-          "package": "libctf0",
+          "package": "binutils-common",
           "version": "2.40-2"
         }
         ,{
@@ -5898,6 +5899,30 @@
         }
         ,{
           "id": "CVE-2025-7545",
+          "severity": "Negligible",
+          "package": "binutils",
+          "version": "2.40-2"
+        }
+        ,{
+          "id": "CVE-2025-7545",
+          "severity": "Negligible",
+          "package": "libctf0",
+          "version": "2.40-2"
+        }
+        ,{
+          "id": "CVE-2025-7546",
+          "severity": "Negligible",
+          "package": "libctf-nobfd0",
+          "version": "2.40-2"
+        }
+        ,{
+          "id": "CVE-2025-7546",
+          "severity": "Negligible",
+          "package": "binutils",
+          "version": "2.40-2"
+        }
+        ,{
+          "id": "CVE-2025-7546",
           "severity": "Negligible",
           "package": "libgprofng0",
           "version": "2.40-2"
@@ -5911,37 +5936,19 @@
         ,{
           "id": "CVE-2025-7546",
           "severity": "Negligible",
-          "package": "binutils-common",
-          "version": "2.40-2"
-        }
-        ,{
-          "id": "CVE-2025-7546",
-          "severity": "Negligible",
-          "package": "libctf-nobfd0",
-          "version": "2.40-2"
-        }
-        ,{
-          "id": "CVE-2025-7546",
-          "severity": "Negligible",
-          "package": "libgprofng0",
-          "version": "2.40-2"
-        }
-        ,{
-          "id": "CVE-2025-7546",
-          "severity": "Negligible",
           "package": "libctf0",
           "version": "2.40-2"
         }
         ,{
           "id": "CVE-2025-7546",
           "severity": "Negligible",
-          "package": "binutils",
+          "package": "binutils-x86-64-linux-gnu",
           "version": "2.40-2"
         }
         ,{
           "id": "CVE-2025-7546",
           "severity": "Negligible",
-          "package": "binutils-x86-64-linux-gnu",
+          "package": "binutils-common",
           "version": "2.40-2"
         }
         ,{
@@ -5983,25 +5990,7 @@
         ,{
           "id": "CVE-2025-8224",
           "severity": "Negligible",
-          "package": "binutils-common",
-          "version": "2.40-2"
-        }
-        ,{
-          "id": "CVE-2025-8224",
-          "severity": "Negligible",
-          "package": "libctf0",
-          "version": "2.40-2"
-        }
-        ,{
-          "id": "CVE-2025-8224",
-          "severity": "Negligible",
           "package": "libctf-nobfd0",
-          "version": "2.40-2"
-        }
-        ,{
-          "id": "CVE-2025-8224",
-          "severity": "Negligible",
-          "package": "binutils",
           "version": "2.40-2"
         }
         ,{
@@ -6013,11 +6002,53 @@
         ,{
           "id": "CVE-2025-8224",
           "severity": "Negligible",
+          "package": "binutils-x86-64-linux-gnu",
+          "version": "2.40-2"
+        }
+        ,{
+          "id": "CVE-2025-8224",
+          "severity": "Negligible",
+          "package": "binutils-common",
+          "version": "2.40-2"
+        }
+        ,{
+          "id": "CVE-2025-8224",
+          "severity": "Negligible",
+          "package": "binutils",
+          "version": "2.40-2"
+        }
+        ,{
+          "id": "CVE-2025-8224",
+          "severity": "Negligible",
           "package": "libgprofng0",
           "version": "2.40-2"
         }
         ,{
           "id": "CVE-2025-8224",
+          "severity": "Negligible",
+          "package": "libctf0",
+          "version": "2.40-2"
+        }
+        ,{
+          "id": "CVE-2025-8225",
+          "severity": "Negligible",
+          "package": "libctf0",
+          "version": "2.40-2"
+        }
+        ,{
+          "id": "CVE-2025-8225",
+          "severity": "Negligible",
+          "package": "libctf-nobfd0",
+          "version": "2.40-2"
+        }
+        ,{
+          "id": "CVE-2025-8225",
+          "severity": "Negligible",
+          "package": "libbinutils",
+          "version": "2.40-2"
+        }
+        ,{
+          "id": "CVE-2025-8225",
           "severity": "Negligible",
           "package": "binutils-x86-64-linux-gnu",
           "version": "2.40-2"
@@ -6031,37 +6062,13 @@
         ,{
           "id": "CVE-2025-8225",
           "severity": "Negligible",
-          "package": "libbinutils",
-          "version": "2.40-2"
-        }
-        ,{
-          "id": "CVE-2025-8225",
-          "severity": "Negligible",
-          "package": "binutils-x86-64-linux-gnu",
-          "version": "2.40-2"
-        }
-        ,{
-          "id": "CVE-2025-8225",
-          "severity": "Negligible",
           "package": "binutils-common",
           "version": "2.40-2"
         }
         ,{
           "id": "CVE-2025-8225",
           "severity": "Negligible",
-          "package": "libctf-nobfd0",
-          "version": "2.40-2"
-        }
-        ,{
-          "id": "CVE-2025-8225",
-          "severity": "Negligible",
           "package": "binutils",
-          "version": "2.40-2"
-        }
-        ,{
-          "id": "CVE-2025-8225",
-          "severity": "Negligible",
-          "package": "libctf0",
           "version": "2.40-2"
         }
         ,{

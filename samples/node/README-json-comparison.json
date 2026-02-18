@@ -15,18 +15,19 @@
           ,"unknown/unknown"
         ],
         "size_mb": "54.11 MB",
+        "size_bytes": 56740957,
         "total_layers": 4,
         "efficiency": 99.97,
         "wasted_bytes": "0.06 MB",
         "total_packages": 215,
         "security": {
-          "scan_time": "2026-02-18T05:35:07Z",
+          "scan_time": "2026-02-18T21:40:16Z",
           "summary": {
             "critical": 0,
-            "high": 10,
+            "high": 13,
             "medium": 3,
             "low": 1,
-            "total": 14
+            "total": 17
           },
           "vulnerabilities": [
             {
@@ -54,16 +55,34 @@
               "version": "10.4.5"
             }
             ,{
-              "id": "GHSA-8qq5-rm4j-mr97",
+              "id": "GHSA-83g3-92jg-28cx",
               "severity": "High",
               "package": "tar",
               "version": "6.2.1"
+            }
+            ,{
+              "id": "GHSA-83g3-92jg-28cx",
+              "severity": "High",
+              "package": "tar",
+              "version": "7.4.3"
+            }
+            ,{
+              "id": "GHSA-83g3-92jg-28cx",
+              "severity": "High",
+              "package": "tar",
+              "version": "7.4.3"
             }
             ,{
               "id": "GHSA-8qq5-rm4j-mr97",
               "severity": "High",
               "package": "tar",
               "version": "7.4.3"
+            }
+            ,{
+              "id": "GHSA-8qq5-rm4j-mr97",
+              "severity": "High",
+              "package": "tar",
+              "version": "6.2.1"
             }
             ,{
               "id": "GHSA-8qq5-rm4j-mr97",
@@ -990,18 +1009,19 @@
           ,"unknown/unknown"
         ],
         "size_mb": "53.59 MB",
+        "size_bytes": 56194055,
         "total_layers": 4,
         "efficiency": 99.97,
         "wasted_bytes": "0.06 MB",
         "total_packages": 180,
         "security": {
-          "scan_time": "2026-02-18T05:35:06Z",
+          "scan_time": "2026-02-18T21:40:17Z",
           "summary": {
             "critical": 0,
-            "high": 2,
+            "high": 3,
             "medium": 3,
             "low": 0,
-            "total": 5
+            "total": 6
           },
           "vulnerabilities": [
             {
@@ -1015,6 +1035,12 @@
               "severity": "High",
               "package": "@isaacs/brace-expansion",
               "version": "5.0.0"
+            }
+            ,{
+              "id": "GHSA-83g3-92jg-28cx",
+              "severity": "High",
+              "package": "tar",
+              "version": "7.5.4"
             }
             ,{
               "id": "CVE-2025-60876",
