@@ -1,3 +1,5 @@
+// Package config handles loading and validating YAML configuration files
+// that define documentation sections, templates, and output paths.
 package config
 
 import (
@@ -60,11 +62,26 @@ func (s Section) ResolvedImages() []ImageEntry {
 	return resolved
 }
 
+// ToolConfig configures how a single external tool (syft, grype, dive) is
+// downloaded. Enterprise users can use this to point at internal mirrors or
+// artifact proxies instead of the default GitHub Releases URLs.
+type ToolConfig struct {
+	// Version pins the tool to a specific release tag (e.g., "v1.21.0").
+	// When set, the installer skips the GitHub API call for the latest release.
+	Version string `yaml:"version,omitempty"`
+	// URL is a download URL template that overrides the default GitHub release URL.
+	// Supported placeholders: {name}, {version} (no "v" prefix), {tag} (with "v"),
+	// {os} (runtime.GOOS), {arch} (runtime.GOARCH).
+	// Requires Version to also be set.
+	URL string `yaml:"url,omitempty"`
+}
+
 // Config is the top-level structure for a dock-docs YAML configuration file.
 type Config struct {
-	Output       string    `yaml:"output"`
-	BadgeBaseURL string    `yaml:"badgeBaseURL,omitempty"`
-	Sections     []Section `yaml:"sections"`
+	Output       string                `yaml:"output"`
+	BadgeBaseURL string                `yaml:"badgeBaseURL,omitempty"`
+	Tools        map[string]ToolConfig `yaml:"tools,omitempty"`
+	Sections     []Section             `yaml:"sections"`
 	// Template is the global template configuration (can be overridden per-section).
 	Template *TemplateConfig `yaml:"template,omitempty"`
 }

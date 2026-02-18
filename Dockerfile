@@ -1,23 +1,26 @@
-# Build stage
-FROM golang:1.25-alpine AS builder
+# Build stage — downloads external tools only (no Go compilation needed;
+# GoReleaser builds the binary separately).
+FROM alpine:3.21 AS builder
 
-WORKDIR /app
-ARG TARGETARCH
-
-# Install build dependencies
-RUN apk add --no-cache curl tar
-
-# 1. Download and prepare external tools
 WORKDIR /tmp/tools
 
-# Install syft
-RUN curl -sSfL https://raw.githubusercontent.com/anchore/syft/main/install.sh | sh -s -- -b /tmp/tools
+# Install download utilities
+RUN apk add --no-cache curl tar
 
-# Install grype
-RUN curl -sSfL https://raw.githubusercontent.com/anchore/grype/main/install.sh | sh -s -- -b /tmp/tools
-
-# Install dive (Architecture specific)
+# Pin tool versions for reproducibility.
+ARG SYFT_VERSION=1.42.1
+ARG GRYPE_VERSION=0.108.0
 ARG DIVE_VERSION=0.13.1
+ARG DOCKER_VERSION=29.2.1
+ARG TARGETARCH
+
+# Install syft (pinned version instead of latest-from-script)
+RUN curl -sSfL https://raw.githubusercontent.com/anchore/syft/main/install.sh | sh -s -- -b /tmp/tools v${SYFT_VERSION}
+
+# Install grype (pinned version instead of latest-from-script)
+RUN curl -sSfL https://raw.githubusercontent.com/anchore/grype/main/install.sh | sh -s -- -b /tmp/tools v${GRYPE_VERSION}
+
+# Install dive (architecture-specific)
 RUN if [ "$TARGETARCH" = "arm64" ]; then \
         curl -L https://github.com/wagoodman/dive/releases/download/v${DIVE_VERSION}/dive_${DIVE_VERSION}_linux_arm64.tar.gz -o dive.tar.gz; \
     else \
@@ -27,7 +30,6 @@ RUN if [ "$TARGETARCH" = "arm64" ]; then \
     rm dive.tar.gz
 
 # Get Docker CLI (static binary)
-ARG DOCKER_VERSION=29.2.1
 RUN if [ "$TARGETARCH" = "arm64" ]; then \
         curl -fsSLO https://download.docker.com/linux/static/stable/aarch64/docker-${DOCKER_VERSION}.tgz; \
     else \

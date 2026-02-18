@@ -385,8 +385,8 @@ func TestDiveRunner_Run(t *testing.T) {
 	if stats.Efficiency != 98.0 {
 		t.Errorf("Efficiency = %v, want 98.0", stats.Efficiency)
 	}
-	if stats.WastedBytes != "0.00 MB" {
-		t.Errorf("WastedBytes = %q, want %q", stats.WastedBytes, "0.00 MB")
+	if stats.WastedBytes != 1024 {
+		t.Errorf("WastedBytes = %d, want %d", stats.WastedBytes, 1024)
 	}
 }
 
@@ -1077,7 +1077,7 @@ func TestParseDiveOutput(t *testing.T) {
 		json           string
 		wantErr        bool
 		wantEfficiency float64
-		wantWasted     string
+		wantWasted     int64
 	}{
 		{
 			name: "standard output",
@@ -1088,7 +1088,7 @@ func TestParseDiveOutput(t *testing.T) {
 				}
 			}`,
 			wantEfficiency: 95.0,
-			wantWasted:     "10.00 MB",
+			wantWasted:     10485760,
 		},
 		{
 			name: "perfect efficiency",
@@ -1099,7 +1099,7 @@ func TestParseDiveOutput(t *testing.T) {
 				}
 			}`,
 			wantEfficiency: 100.0,
-			wantWasted:     "0.00 MB",
+			wantWasted:     0,
 		},
 		{
 			name: "low efficiency",
@@ -1110,7 +1110,7 @@ func TestParseDiveOutput(t *testing.T) {
 				}
 			}`,
 			wantEfficiency: 42.0,
-			wantWasted:     "100.00 MB",
+			wantWasted:     104857600,
 		},
 		{
 			name:    "invalid json",
@@ -1592,7 +1592,7 @@ func TestParseDiveOutput_EdgeCases(t *testing.T) {
 		json           string
 		wantErr        bool
 		wantEfficiency float64
-		wantWasted     string
+		wantWasted     int64
 	}{
 		{
 			name: "zero efficiency score",
@@ -1603,14 +1603,14 @@ func TestParseDiveOutput_EdgeCases(t *testing.T) {
 				}
 			}`,
 			wantEfficiency: 0.0,
-			wantWasted:     "50.00 MB",
+			wantWasted:     52428800,
 		},
 		{
 			name: "missing image key entirely",
 			json: `{}`,
 			// json.Unmarshal succeeds with zero values
 			wantEfficiency: 0.0,
-			wantWasted:     "0.00 MB",
+			wantWasted:     0,
 		},
 		{
 			name: "efficiency rounding (0.999)",
@@ -1621,7 +1621,7 @@ func TestParseDiveOutput_EdgeCases(t *testing.T) {
 				}
 			}`,
 			wantEfficiency: 99.9,
-			wantWasted:     "0.00 MB",
+			wantWasted:     1024,
 		},
 		{
 			name: "efficiency above 1.0 (malformed)",
@@ -1632,7 +1632,7 @@ func TestParseDiveOutput_EdgeCases(t *testing.T) {
 				}
 			}`,
 			wantEfficiency: 150.0,
-			wantWasted:     "0.00 MB",
+			wantWasted:     0,
 		},
 		{
 			name: "very large wasted bytes (GB range)",
@@ -1643,7 +1643,7 @@ func TestParseDiveOutput_EdgeCases(t *testing.T) {
 				}
 			}`,
 			wantEfficiency: 50.0,
-			wantWasted:     "1024.00 MB",
+			wantWasted:     1073741824,
 		},
 		{
 			name:    "empty input",
@@ -1660,7 +1660,7 @@ func TestParseDiveOutput_EdgeCases(t *testing.T) {
 				}
 			}`,
 			wantEfficiency: 88.0,
-			wantWasted:     "5.00 MB",
+			wantWasted:     5242880,
 		},
 	}
 
@@ -1680,7 +1680,7 @@ func TestParseDiveOutput_EdgeCases(t *testing.T) {
 				t.Errorf("Efficiency = %v, want %v", stats.Efficiency, tt.wantEfficiency)
 			}
 			if stats.WastedBytes != tt.wantWasted {
-				t.Errorf("WastedBytes = %q, want %q", stats.WastedBytes, tt.wantWasted)
+				t.Errorf("WastedBytes = %d, want %d", stats.WastedBytes, tt.wantWasted)
 			}
 		})
 	}

@@ -17,7 +17,7 @@
         "size_bytes": {{ $img.SizeBytes }},
         "total_layers": {{ $img.TotalLayers }},
         "efficiency": {{ printf "%.2f" $img.Efficiency }},
-        "wasted_bytes": "{{ $img.WastedBytes }}",
+        "wasted_bytes": {{ $img.WastedBytes }},
         "total_packages": {{ $img.TotalPackages }},
         "security": {
           "scan_time": "{{ $img.VulnScanTime.Format "2006-01-02T15:04:05Z07:00" }}",

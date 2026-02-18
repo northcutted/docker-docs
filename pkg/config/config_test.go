@@ -549,6 +549,93 @@ sections:
 	}
 }
 
+func TestLoad_WithToolsConfig(t *testing.T) {
+	yamlContent := `output: "README.md"
+tools:
+  syft:
+    version: "v1.21.0"
+    url: "https://proxy.corp.com/{name}_{version}_{os}_{arch}.tar.gz"
+  grype:
+    version: "v0.87.0"
+  dive:
+    version: "v0.12.0"
+sections:
+  - type: "image"
+    marker: "main"
+`
+
+	tmpDir := t.TempDir()
+	configPath := filepath.Join(tmpDir, "dock-docs.yaml")
+	if err := os.WriteFile(configPath, []byte(yamlContent), 0644); err != nil {
+		t.Fatalf("failed to write test config: %v", err)
+	}
+
+	cfg, err := Load(configPath)
+	if err != nil {
+		t.Fatalf("Load() error = %v", err)
+	}
+
+	if len(cfg.Tools) != 3 {
+		t.Fatalf("expected 3 tool configs, got %d", len(cfg.Tools))
+	}
+
+	syft, ok := cfg.Tools["syft"]
+	if !ok {
+		t.Fatal("expected 'syft' in tools map")
+	}
+	if syft.Version != "v1.21.0" {
+		t.Errorf("syft.Version = %q, want %q", syft.Version, "v1.21.0")
+	}
+	if syft.URL != "https://proxy.corp.com/{name}_{version}_{os}_{arch}.tar.gz" {
+		t.Errorf("syft.URL = %q, want proxy URL template", syft.URL)
+	}
+
+	grype, ok := cfg.Tools["grype"]
+	if !ok {
+		t.Fatal("expected 'grype' in tools map")
+	}
+	if grype.Version != "v0.87.0" {
+		t.Errorf("grype.Version = %q, want %q", grype.Version, "v0.87.0")
+	}
+	if grype.URL != "" {
+		t.Errorf("grype.URL = %q, want empty", grype.URL)
+	}
+
+	dive, ok := cfg.Tools["dive"]
+	if !ok {
+		t.Fatal("expected 'dive' in tools map")
+	}
+	if dive.Version != "v0.12.0" {
+		t.Errorf("dive.Version = %q, want %q", dive.Version, "v0.12.0")
+	}
+	if dive.URL != "" {
+		t.Errorf("dive.URL = %q, want empty", dive.URL)
+	}
+}
+
+func TestLoad_WithoutToolsConfig(t *testing.T) {
+	yamlContent := `output: "README.md"
+sections:
+  - type: "image"
+    marker: "main"
+`
+
+	tmpDir := t.TempDir()
+	configPath := filepath.Join(tmpDir, "dock-docs.yaml")
+	if err := os.WriteFile(configPath, []byte(yamlContent), 0644); err != nil {
+		t.Fatalf("failed to write test config: %v", err)
+	}
+
+	cfg, err := Load(configPath)
+	if err != nil {
+		t.Fatalf("Load() error = %v", err)
+	}
+
+	if len(cfg.Tools) != 0 {
+		t.Errorf("expected nil or empty tools map, got %v", cfg.Tools)
+	}
+}
+
 func TestResolveRelativePaths(t *testing.T) {
 	tests := []struct {
 		name           string

@@ -1,3 +1,5 @@
+// Package renderer executes Go templates against parsed Dockerfile
+// documentation and image analysis results to produce formatted output.
 package renderer
 
 import (

@@ -97,19 +97,61 @@ func Status(installDir string) []ToolStatus {
 // replaced in tests to point at a mock server.
 var httpClient = http.DefaultClient
 
+// InstallOptions configures per-tool installation behavior for enterprise
+// environments that need to download tools from internal mirrors or proxies.
+type InstallOptions struct {
+	// Version pins the tool to a specific release tag (e.g., "v1.21.0").
+	// When set, the installer skips the GitHub API call for the latest release.
+	Version string
+	// URL is a download URL template that overrides the default GitHub release URL.
+	// Supported placeholders: {name}, {version} (no "v" prefix), {tag} (with "v"),
+	// {os} (runtime.GOOS), {arch} (runtime.GOARCH).
+	// Requires Version to also be set.
+	URL string
+}
+
+// expandURL replaces placeholders in a URL template with concrete values.
+func expandURL(urlTemplate, name, tag string) string {
+	version := strings.TrimPrefix(tag, "v")
+	r := strings.NewReplacer(
+		"{name}", name,
+		"{version}", version,
+		"{tag}", tag,
+		"{os}", runtime.GOOS,
+		"{arch}", runtime.GOARCH,
+	)
+	return r.Replace(urlTemplate)
+}
+
 // Install downloads and installs a single tool into installDir.
 // It fetches the latest release tag from GitHub, downloads the
 // platform-appropriate tarball, extracts the binary, and writes
 // it to installDir/<name> with mode 0755.
-func Install(tool Tool, installDir string) error {
-	tag, err := latestReleaseTag(tool.Repo)
-	if err != nil {
-		return fmt.Errorf("failed to find latest release for %s: %w", tool.Name, err)
+//
+// When opts.Version is set, the GitHub API call for the latest release is
+// skipped. When opts.URL is also set, the default GitHub download URL is
+// replaced with the expanded template.
+func Install(tool Tool, installDir string, opts InstallOptions) error {
+	var tag string
+
+	if opts.Version != "" {
+		tag = opts.Version
+	} else {
+		var err error
+		tag, err = latestReleaseTag(tool.Repo)
+		if err != nil {
+			return fmt.Errorf("failed to find latest release for %s: %w", tool.Name, err)
+		}
 	}
 
-	version := strings.TrimPrefix(tag, "v")
-	assetName := fmt.Sprintf("%s_%s_%s_%s.tar.gz", tool.Name, version, runtime.GOOS, runtime.GOARCH)
-	assetURL := fmt.Sprintf("https://github.com/%s/releases/download/%s/%s", tool.Repo, tag, assetName)
+	var assetURL string
+	if opts.URL != "" {
+		assetURL = expandURL(opts.URL, tool.Name, tag)
+	} else {
+		version := strings.TrimPrefix(tag, "v")
+		assetName := fmt.Sprintf("%s_%s_%s_%s.tar.gz", tool.Name, version, runtime.GOOS, runtime.GOARCH)
+		assetURL = fmt.Sprintf("https://github.com/%s/releases/download/%s/%s", tool.Repo, tag, assetName)
+	}
 
 	slog.Info("downloading tool", "tool", tool.Name, "tag", tag, "os", runtime.GOOS, "arch", runtime.GOARCH)
 
@@ -121,7 +163,7 @@ func Install(tool Tool, installDir string) error {
 	// Download the tarball
 	body, err := httpGet(assetURL)
 	if err != nil {
-		return fmt.Errorf("failed to download %s: %w", assetName, err)
+		return fmt.Errorf("failed to download %s: %w", assetURL, err)
 	}
 	defer func() { _ = body.Close() }()
 
@@ -149,7 +191,9 @@ func Install(tool Tool, installDir string) error {
 }
 
 // InstallAll installs each tool that is missing (or all if force is true).
-func InstallAll(installDir string, force bool) error {
+// The overrides map is keyed by tool name (e.g., "syft") and allows per-tool
+// version pinning and download URL overrides. A nil map uses defaults.
+func InstallAll(installDir string, force bool, overrides map[string]InstallOptions) error {
 	statuses := Status(installDir)
 	var toInstall []Tool
 
@@ -168,7 +212,8 @@ func InstallAll(installDir string, force bool) error {
 
 	var errs []string
 	for _, t := range toInstall {
-		if err := Install(t, installDir); err != nil {
+		opts := overrides[t.Name] // zero value if not present
+		if err := Install(t, installDir, opts); err != nil {
 			errs = append(errs, fmt.Sprintf("%s: %v", t.Name, err))
 		}
 	}

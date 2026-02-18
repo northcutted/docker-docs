@@ -1,3 +1,5 @@
+// Package parser extracts documentation items (ENV, ARG, EXPOSE, LABEL)
+// from Dockerfiles by parsing inline comments and directives.
 package parser
 
 import (

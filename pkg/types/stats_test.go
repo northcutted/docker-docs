@@ -441,6 +441,128 @@ func TestImageStats_EmptyStats(t *testing.T) {
 	}
 }
 
+func TestSortBySeverity(t *testing.T) {
+	tests := []struct {
+		name    string
+		vulns   []Vulnerability
+		wantIDs []string // expected order of IDs after sort
+	}{
+		{
+			name: "mixed severities",
+			vulns: []Vulnerability{
+				{ID: "CVE-LOW-1", Severity: "Low"},
+				{ID: "CVE-CRIT-1", Severity: "Critical"},
+				{ID: "CVE-MED-1", Severity: "Medium"},
+				{ID: "CVE-HIGH-1", Severity: "High"},
+			},
+			wantIDs: []string{"CVE-CRIT-1", "CVE-HIGH-1", "CVE-MED-1", "CVE-LOW-1"},
+		},
+		{
+			name: "same severity sorted by ID",
+			vulns: []Vulnerability{
+				{ID: "CVE-2023-9999", Severity: "High"},
+				{ID: "CVE-2023-0001", Severity: "High"},
+				{ID: "CVE-2023-5000", Severity: "High"},
+			},
+			wantIDs: []string{"CVE-2023-0001", "CVE-2023-5000", "CVE-2023-9999"},
+		},
+		{
+			name: "unknown severity ranks lowest",
+			vulns: []Vulnerability{
+				{ID: "CVE-UNK-1", Severity: "Unknown"},
+				{ID: "CVE-LOW-1", Severity: "Low"},
+				{ID: "CVE-CRIT-1", Severity: "Critical"},
+			},
+			wantIDs: []string{"CVE-CRIT-1", "CVE-LOW-1", "CVE-UNK-1"},
+		},
+		{
+			name:    "empty slice",
+			vulns:   []Vulnerability{},
+			wantIDs: []string{},
+		},
+		{
+			name: "single element",
+			vulns: []Vulnerability{
+				{ID: "CVE-ONLY-1", Severity: "Medium"},
+			},
+			wantIDs: []string{"CVE-ONLY-1"},
+		},
+		{
+			name: "all severities with duplicates",
+			vulns: []Vulnerability{
+				{ID: "CVE-LOW-2", Severity: "Low"},
+				{ID: "CVE-CRIT-2", Severity: "Critical"},
+				{ID: "CVE-UNK-1", Severity: "Unknown"},
+				{ID: "CVE-HIGH-1", Severity: "High"},
+				{ID: "CVE-CRIT-1", Severity: "Critical"},
+				{ID: "CVE-MED-1", Severity: "Medium"},
+				{ID: "CVE-LOW-1", Severity: "Low"},
+			},
+			wantIDs: []string{"CVE-CRIT-1", "CVE-CRIT-2", "CVE-HIGH-1", "CVE-MED-1", "CVE-LOW-1", "CVE-LOW-2", "CVE-UNK-1"},
+		},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			SortBySeverity(tt.vulns)
+
+			gotIDs := make([]string, len(tt.vulns))
+			for i, v := range tt.vulns {
+				gotIDs[i] = v.ID
+			}
+
+			if len(gotIDs) != len(tt.wantIDs) {
+				t.Fatalf("SortBySeverity() got %d items, want %d", len(gotIDs), len(tt.wantIDs))
+			}
+			for i := range gotIDs {
+				if gotIDs[i] != tt.wantIDs[i] {
+					t.Errorf("SortBySeverity()[%d] = %q, want %q\n  full order: %v", i, gotIDs[i], tt.wantIDs[i], gotIDs)
+					break
+				}
+			}
+		})
+	}
+}
+
+func TestImageStats_SizeMB(t *testing.T) {
+	tests := []struct {
+		name  string
+		bytes int64
+		want  string
+	}{
+		{"zero", 0, ""},
+		{"non-zero", 67633152, "64.50 MB"},
+		{"1 GB", 1073741824, "1024.00 MB"},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			s := &ImageStats{SizeBytes: tt.bytes}
+			if got := s.SizeMB(); got != tt.want {
+				t.Errorf("SizeMB() = %q, want %q", got, tt.want)
+			}
+		})
+	}
+}
+
+func TestImageStats_WastedMB(t *testing.T) {
+	tests := []struct {
+		name  string
+		bytes int64
+		want  string
+	}{
+		{"zero", 0, ""},
+		{"non-zero", 5242880, "5.00 MB"},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			s := &ImageStats{WastedBytes: tt.bytes}
+			if got := s.WastedMB(); got != tt.want {
+				t.Errorf("WastedMB() = %q, want %q", got, tt.want)
+			}
+		})
+	}
+}
+
 func TestImageStats_VulnBadge_IncludesUnknown(t *testing.T) {
 	baseURL := "https://img.shields.io/static/v1"
 

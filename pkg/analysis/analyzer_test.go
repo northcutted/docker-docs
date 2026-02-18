@@ -47,16 +47,17 @@ func TestAnalyzeComparison(t *testing.T) {
 		Efficiency: 95.0,
 	}
 
-	runner := &MockRunner{
-		name:        "TestRunner",
-		available:   true,
-		returnStats: mockStats,
+	images := []string{"img1:latest", "img2:latest"}
+
+	newRunners := func() []Runner {
+		return []Runner{&MockRunner{
+			name:        "TestRunner",
+			available:   true,
+			returnStats: mockStats,
+		}}
 	}
 
-	images := []string{"img1:latest", "img2:latest"}
-	runners := []Runner{runner}
-
-	results, err := AnalyzeComparison(context.Background(), images, runners, false)
+	results, err := AnalyzeComparison(context.Background(), images, newRunners, false)
 	if err != nil {
 		t.Fatalf("AnalyzeComparison failed: %v", err)
 	}
@@ -82,14 +83,13 @@ func TestAnalyzeComparison_PartialFailure(t *testing.T) {
 	// The current implementation of AnalyzeComparison prints error and returns nil for that slot,
 	// then filters out nils.
 
-	smartRunner := &SmartMockRunner{
-		failOnImage: "bad:image",
+	images := []string{"good:image", "bad:image", "good:image2"}
+
+	newRunners := func() []Runner {
+		return []Runner{&SmartMockRunner{failOnImage: "bad:image"}}
 	}
 
-	images := []string{"good:image", "bad:image", "good:image2"}
-	runners := []Runner{smartRunner}
-
-	results, err := AnalyzeComparison(context.Background(), images, runners, false)
+	results, err := AnalyzeComparison(context.Background(), images, newRunners, false)
 	if err != nil {
 		t.Fatalf("AnalyzeComparison failed: %v", err)
 	}
@@ -249,7 +249,7 @@ func TestMergeStats_Comprehensive(t *testing.T) {
 		SizeBytes:              52428800, // 50 MB
 		TotalLayers:            10,
 		Efficiency:             92.5,
-		WastedBytes:            "5MB",
+		WastedBytes:            5242880, // 5 MB
 		TotalPackages:          20,
 		SupportedArchitectures: []string{"amd64", "arm64"},
 		VulnSummary:            map[string]int{"High": 2, "Critical": 1},
@@ -282,8 +282,8 @@ func TestMergeStats_Comprehensive(t *testing.T) {
 	if dest.Efficiency != 92.5 {
 		t.Errorf("Expected Efficiency 92.5, got %f", dest.Efficiency)
 	}
-	if dest.WastedBytes != "5MB" {
-		t.Errorf("Expected WastedBytes 5MB, got %s", dest.WastedBytes)
+	if dest.WastedBytes != 5242880 {
+		t.Errorf("Expected WastedBytes 5242880, got %d", dest.WastedBytes)
 	}
 	if dest.TotalPackages != 20 {
 		t.Errorf("Expected TotalPackages 20, got %d", dest.TotalPackages)

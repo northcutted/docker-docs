@@ -55,7 +55,7 @@
     "size_bytes": {{ .Stats.SizeBytes }},
     "total_layers": {{ .Stats.TotalLayers }},
     "efficiency": {{ printf "%.2f" .Stats.Efficiency }},
-    "wasted_bytes": "{{ .Stats.WastedBytes }}",
+    "wasted_bytes": {{ .Stats.WastedBytes }},
     "total_packages": {{ .Stats.TotalPackages }},
     "security": {
       "scan_time": "{{ .Stats.VulnScanTime.Format "2006-01-02T15:04:05Z07:00" }}",

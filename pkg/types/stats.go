@@ -1,3 +1,5 @@
+// Package types defines shared data structures for image analysis results,
+// vulnerability reports, and package summaries used across the application.
 package types
 
 import (
@@ -31,7 +33,7 @@ type ImageStats struct {
 	SizeBytes              int64
 	TotalLayers            int
 	Efficiency             float64 // from Dive (0-100)
-	WastedBytes            string  // from Dive
+	WastedBytes            int64   // from Dive (raw bytes wasted by inefficient layers)
 	TotalPackages          int
 	Packages               []PackageSummary // from Syft (Key Frameworks only)
 	Vulnerabilities        []Vulnerability  // from Grype (Sorted by severity)
@@ -47,6 +49,15 @@ func (s *ImageStats) SizeMB() string {
 		return ""
 	}
 	return fmt.Sprintf("%.2f MB", float64(s.SizeBytes)/1024/1024)
+}
+
+// WastedMB returns the wasted space formatted as a human-readable string (e.g., "5.00 MB").
+// Templates can call {{ .WastedMB }} or {{ .Stats.WastedMB }}.
+func (s *ImageStats) WastedMB() string {
+	if s.WastedBytes == 0 {
+		return ""
+	}
+	return fmt.Sprintf("%.2f MB", float64(s.WastedBytes)/1024/1024)
 }
 
 // Badge Helpers

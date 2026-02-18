@@ -145,7 +145,7 @@ func parseDiveOutput(content []byte) (*types.ImageStats, error) {
 
 	stats := &types.ImageStats{
 		Efficiency:  diveOutput.Image.EfficiencyScore * 100,
-		WastedBytes: fmt.Sprintf("%.2f MB", float64(diveOutput.Image.InefficientBytes)/1024/1024),
+		WastedBytes: int64(diveOutput.Image.InefficientBytes), //nolint:gosec // InefficientBytes is a byte count that won't exceed int64 max
 	}
 
 	return stats, nil

@@ -44,7 +44,7 @@ func TestRender(t *testing.T) {
 		Architecture: "amd64",
 		OS:           "linux",
 		Efficiency:   95.5,
-		WastedBytes:  "2 MB",
+		WastedBytes:  2097152, // 2 MB
 		TotalLayers:  10,
 		VulnSummary:  map[string]int{"Critical": 1, "High": 2},
 		VulnScanTime: scanTime,

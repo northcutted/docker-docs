@@ -1,3 +1,5 @@
+// Package cmd implements the CLI commands and flags for dock-docs using
+// the cobra framework, delegating business logic to packages in pkg/.
 package cmd
 
 import (

@@ -230,7 +230,7 @@
                 {{- if .Stats.SupportedArchitectures }}
                 <tr><td><strong>Supported Architectures</strong></td><td>{{ join .Stats.SupportedArchitectures ", " }}</td></tr>
                 {{- end }}
-                <tr><td><strong>Wasted Space</strong></td><td>{{ .Stats.WastedBytes }}</td></tr>
+                <tr><td><strong>Wasted Space</strong></td><td>{{ .Stats.WastedMB }}</td></tr>
             </tbody>
         </table>
 

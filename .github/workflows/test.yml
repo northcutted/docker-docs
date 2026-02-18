@@ -6,6 +6,10 @@ on:
   pull_request:
     branches: [ main ]
 
+concurrency:
+  group: test-${{ github.ref }}
+  cancel-in-progress: true
+
 permissions:
   contents: write
   pull-requests: write
@@ -24,6 +28,9 @@ jobs:
 
       - name: Install dependencies
         run: go mod download
+
+      - name: golangci-lint
+        uses: golangci/golangci-lint-action@v9
 
       - name: Run tests with coverage
         run: go test -race -v -coverprofile=coverage.out -covermode=atomic ./...
@@ -172,6 +179,3 @@ jobs:
                 body: body,
               });
             }
-
-      - name: golangci-lint
-        uses: golangci/golangci-lint-action@v9

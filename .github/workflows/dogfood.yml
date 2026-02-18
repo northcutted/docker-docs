@@ -7,6 +7,10 @@ on:
     types:
       - completed
 
+concurrency:
+  group: dogfood-${{ github.ref }}
+  cancel-in-progress: false
+
 jobs:
   generate-samples:
     if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
@@ -16,7 +20,9 @@ jobs:
       contents: write
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
 
       - name: Generate Go Sample Docs
         uses: ./
@@ -46,13 +52,13 @@ jobs:
 
       - name: Commit changes
         run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git add samples/
           if git diff --staged --quiet; then
             echo "No changes to commit"
           else
             git commit -m "docs: regenerate sample documentation [skip ci]"
             git pull --rebase origin main || true
-            git push
+            git push origin main
           fi

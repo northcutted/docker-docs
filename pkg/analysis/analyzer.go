@@ -1,3 +1,5 @@
+// Package analysis orchestrates image analysis by running external tools
+// in parallel and merging their results into a unified ImageStats.
 package analysis
 
 import (
@@ -20,20 +22,21 @@ type Runner interface {
 }
 
 // AnalyzeComparison runs analysis on multiple images in parallel.
+// The newRunners factory is called once per goroutine so that each image
+// gets its own runner instances, avoiding data races on mutable state
+// (e.g., the binary field written by IsAvailable).
 // The provided context controls the overall deadline for the comparison;
 // individual runner timeouts are derived from this parent context.
-func AnalyzeComparison(ctx context.Context, images []string, runners []Runner, verbose bool) ([]*types.ImageStats, error) {
+func AnalyzeComparison(ctx context.Context, images []string, newRunners func() []Runner, verbose bool) ([]*types.ImageStats, error) {
 	var g errgroup.Group
 
 	// Create a slice to hold results
 	results := make([]*types.ImageStats, len(images))
 
 	for i, img := range images {
-		// Capture loop variables
-		i, img := i, img
 		g.Go(func() error {
-			// Run analysis for this image
-			stats, err := AnalyzeImage(ctx, img, runners, verbose)
+			// Each goroutine gets fresh runner instances via the factory.
+			stats, err := AnalyzeImage(ctx, img, newRunners(), verbose)
 			if err != nil {
 				slog.Warn("comparison analysis failed", "image", img, "error", err)
 				if stats != nil {
@@ -97,7 +100,6 @@ func AnalyzeImage(ctx context.Context, image string, runners []Runner, verbose b
 			continue
 		}
 
-		r := r // capture loop variable
 		g.Go(func() error {
 			stats, err := r.Run(ctx, image, verbose)
 			if err != nil {
@@ -160,7 +162,7 @@ func mergeStats(dest, src *types.ImageStats) {
 	if src.Efficiency != 0 {
 		dest.Efficiency = src.Efficiency
 	}
-	if src.WastedBytes != "" {
+	if src.WastedBytes != 0 {
 		dest.WastedBytes = src.WastedBytes
 	}
 	if src.TotalPackages != 0 {

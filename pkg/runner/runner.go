@@ -1,3 +1,5 @@
+// Package runner provides concrete implementations for invoking external
+// analysis tools (docker/podman, syft, grype, dive) and parsing their output.
 package runner
 
 import (

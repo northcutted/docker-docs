@@ -400,3 +400,52 @@ sections:
 		t.Errorf("expected warning about missing markers in slog output, got:\n%s", logOut)
 	}
 }
+
+func TestRunYAMLMode_ComparisonSection_AnalysisFails(t *testing.T) {
+	defer resetFlags()()
+
+	tmpDir := t.TempDir()
+
+	readme := filepath.Join(tmpDir, "README.md")
+	if err := os.WriteFile(readme, []byte("<!-- BEGIN: comp -->\nold\n<!-- END: comp -->"), 0644); err != nil {
+		t.Fatal(err)
+	}
+
+	// Use a fake image tag that will fail analysis (no real Docker daemon
+	// may be available, or the image doesn't exist). AnalyzeComparison
+	// tolerates partial failures and returns empty results for unreachable
+	// images, so the section renders successfully with no image data.
+	yamlContent := fmt.Sprintf(`output: %s
+sections:
+  - type: comparison
+    marker: comp
+    images:
+      - tag: "fake-image-a:latest"
+      - tag: "fake-image-b:latest"
+`, readme)
+	cfgPath := filepath.Join(tmpDir, "dock-docs.yaml")
+	if err := os.WriteFile(cfgPath, []byte(yamlContent), 0644); err != nil {
+		t.Fatal(err)
+	}
+
+	dryRun = true
+	templateName = ""
+
+	// This exercises the comparison code path in processSection
+	// (case config.SectionTypeComparison). Analysis may fail for the
+	// fake images, but AnalyzeComparison tolerates partial failures.
+	_, logOut := captureAll(func() {
+		err := runYAMLMode(context.Background(), cfgPath)
+		// The function may return an error (if ensureImage fails hard) or
+		// succeed with warnings (if analysis partially completes).
+		if err != nil {
+			// That's OK — it means the comparison path was exercised
+			t.Logf("runYAMLMode returned error (expected): %v", err)
+		}
+	})
+
+	// Verify the comparison analysis code path was entered
+	if !strings.Contains(logOut, "analyzing comparison") {
+		t.Errorf("expected 'analyzing comparison' in log output, got:\n%s", logOut)
+	}
+}

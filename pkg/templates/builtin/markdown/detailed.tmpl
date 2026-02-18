@@ -71,7 +71,7 @@
 | **Image Size** | {{ .Stats.SizeMB }} |
 | **Total Layers** | {{ .Stats.TotalLayers }} |
 | **Efficiency Score** | {{ printf "%.1f" .Stats.Efficiency }}% |
-| **Wasted Space** | {{ .Stats.WastedBytes }} |
+| **Wasted Space** | {{ .Stats.WastedMB }} |
 
 ### Vulnerability Summary
 {{- if not .Stats.VulnScanTime.IsZero }}

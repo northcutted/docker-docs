@@ -1,3 +1,5 @@
+// Package templates provides built-in template loading, custom template
+// functions, and emoji helpers used during documentation rendering.
 package templates
 
 import (

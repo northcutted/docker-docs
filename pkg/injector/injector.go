@@ -1,3 +1,5 @@
+// Package injector provides marker-based content injection into existing
+// documents, replacing content between matched start/end marker comments.
 package injector
 
 import (

@@ -221,7 +221,7 @@ func TestInstall_MockServer(t *testing.T) {
 	installDir := t.TempDir()
 	tool := Tool{Name: "faketool", Repo: "test/faketool"}
 
-	err := Install(tool, installDir)
+	err := Install(tool, installDir, InstallOptions{})
 	if err != nil {
 		// The "version" verification step will fail since this is a shell script,
 		// but Install should still succeed (version check is non-fatal).
@@ -292,7 +292,7 @@ func TestInstall_APIError(t *testing.T) {
 	installDir := t.TempDir()
 	tool := Tool{Name: "badtool", Repo: "test/badtool"}
 
-	err := Install(tool, installDir)
+	err := Install(tool, installDir, InstallOptions{})
 	if err == nil {
 		t.Fatal("expected error for 404 API response")
 	}
@@ -326,7 +326,7 @@ func TestInstall_BadArchive(t *testing.T) {
 	installDir := t.TempDir()
 	tool := Tool{Name: "badarchive", Repo: "test/badarchive"}
 
-	err := Install(tool, installDir)
+	err := Install(tool, installDir, InstallOptions{})
 	if err == nil {
 		t.Fatal("expected error for corrupt archive")
 	}
@@ -419,7 +419,7 @@ func TestInstallAll_AllInstalled(t *testing.T) {
 		}
 	}
 
-	err := InstallAll(tmpDir, false)
+	err := InstallAll(tmpDir, false, nil)
 	if err != nil {
 		t.Fatalf("InstallAll() unexpected error: %v", err)
 	}
@@ -455,7 +455,7 @@ func TestInstallAll_ForceReinstall(t *testing.T) {
 		}
 	}
 
-	err := InstallAll(tmpDir, true)
+	err := InstallAll(tmpDir, true, nil)
 	if err == nil {
 		t.Fatal("expected error when force-reinstalling with mock 404 server")
 	}
@@ -771,7 +771,7 @@ func TestInstall_DownloadError(t *testing.T) {
 	installDir := t.TempDir()
 	tool := Tool{Name: "dltool", Repo: "test/dltool"}
 
-	err := Install(tool, installDir)
+	err := Install(tool, installDir, InstallOptions{})
 	if err == nil {
 		t.Fatal("expected error when asset download returns 404")
 	}
@@ -809,9 +809,211 @@ func TestInstall_BinaryNotInArchive(t *testing.T) {
 	installDir := t.TempDir()
 	tool := Tool{Name: "missingtool", Repo: "test/missingtool"}
 
-	err := Install(tool, installDir)
+	err := Install(tool, installDir, InstallOptions{})
 	if err == nil {
 		t.Fatal("expected error when binary not found in archive")
+	}
+}
+
+func TestExpandURL(t *testing.T) {
+	tests := []struct {
+		name     string
+		template string
+		toolName string
+		tag      string
+		want     string
+	}{
+		{
+			name:     "all placeholders",
+			template: "https://proxy.corp.com/{name}_{version}_{os}_{arch}.tar.gz",
+			toolName: "syft",
+			tag:      "v1.21.0",
+			want:     fmt.Sprintf("https://proxy.corp.com/syft_1.21.0_%s_%s.tar.gz", runtime.GOOS, runtime.GOARCH),
+		},
+		{
+			name:     "tag placeholder keeps v prefix",
+			template: "https://mirror.example.com/{name}/{tag}/{name}_{version}.tar.gz",
+			toolName: "grype",
+			tag:      "v0.87.0",
+			want:     "https://mirror.example.com/grype/v0.87.0/grype_0.87.0.tar.gz",
+		},
+		{
+			name:     "no placeholders",
+			template: "https://static.example.com/tools/grype.tar.gz",
+			toolName: "grype",
+			tag:      "v0.87.0",
+			want:     "https://static.example.com/tools/grype.tar.gz",
+		},
+		{
+			name:     "version without v prefix in tag",
+			template: "https://proxy.corp.com/{name}_{version}.tar.gz",
+			toolName: "dive",
+			tag:      "0.12.0",
+			want:     "https://proxy.corp.com/dive_0.12.0.tar.gz",
+		},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			got := expandURL(tt.template, tt.toolName, tt.tag)
+			if got != tt.want {
+				t.Errorf("expandURL() = %q, want %q", got, tt.want)
+			}
+		})
+	}
+}
+
+func TestInstall_VersionPin(t *testing.T) {
+	// When Version is set, Install should skip the GitHub API call and
+	// use the pinned version to construct the download URL.
+	fakeBinary := []byte("#!/bin/sh\nexit 0\n")
+	tarball := makeTarGz(t, "pintool", fakeBinary)
+
+	apiCalled := false
+	mux := http.NewServeMux()
+
+	// The API endpoint should NOT be called when version is pinned
+	mux.HandleFunc("/repos/test/pintool/releases/latest", func(w http.ResponseWriter, r *http.Request) {
+		apiCalled = true
+		resp := map[string]string{"tag_name": "v9.9.9"}
+		w.Header().Set("Content-Type", "application/json")
+		_ = json.NewEncoder(w).Encode(resp)
+	})
+
+	// The download URL should use the pinned version
+	assetName := fmt.Sprintf("pintool_3.0.0_%s_%s.tar.gz", runtime.GOOS, runtime.GOARCH)
+	mux.HandleFunc("/repos/test/pintool/releases/download/v3.0.0/"+assetName, func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Content-Type", "application/octet-stream")
+		_, _ = w.Write(tarball)
+	})
+
+	server := httptest.NewServer(mux)
+	defer server.Close()
+
+	origClient := httpClient
+	httpClient = &http.Client{
+		Transport: &urlRewriteTransport{
+			base:      http.DefaultTransport,
+			serverURL: server.URL,
+		},
+	}
+	defer func() { httpClient = origClient }()
+
+	installDir := t.TempDir()
+	tool := Tool{Name: "pintool", Repo: "test/pintool"}
+
+	err := Install(tool, installDir, InstallOptions{Version: "v3.0.0"})
+	if err != nil {
+		t.Fatalf("Install() error: %v", err)
+	}
+
+	if apiCalled {
+		t.Error("expected GitHub API NOT to be called when version is pinned")
+	}
+
+	// Verify the binary was written
+	data, err := os.ReadFile(filepath.Join(installDir, "pintool"))
+	if err != nil {
+		t.Fatalf("failed to read installed binary: %v", err)
+	}
+	if !bytes.Equal(data, fakeBinary) {
+		t.Error("installed binary content mismatch")
+	}
+}
+
+func TestInstall_URLOverride(t *testing.T) {
+	// When both Version and URL are set, Install should use the expanded
+	// URL template instead of constructing a GitHub URL.
+	fakeBinary := []byte("#!/bin/sh\nexit 0\n")
+	tarball := makeTarGz(t, "urltool", fakeBinary)
+
+	mux := http.NewServeMux()
+
+	// Serve the tarball at the custom URL path
+	expectedPath := fmt.Sprintf("/custom/urltool_2.5.0_%s_%s.tar.gz", runtime.GOOS, runtime.GOARCH)
+	mux.HandleFunc(expectedPath, func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Content-Type", "application/octet-stream")
+		_, _ = w.Write(tarball)
+	})
+
+	server := httptest.NewServer(mux)
+	defer server.Close()
+
+	origClient := httpClient
+	httpClient = server.Client()
+	defer func() { httpClient = origClient }()
+
+	installDir := t.TempDir()
+	tool := Tool{Name: "urltool", Repo: "test/urltool"}
+
+	urlTemplate := server.URL + "/custom/{name}_{version}_{os}_{arch}.tar.gz"
+	err := Install(tool, installDir, InstallOptions{
+		Version: "v2.5.0",
+		URL:     urlTemplate,
+	})
+	if err != nil {
+		t.Fatalf("Install() error: %v", err)
+	}
+
+	// Verify the binary was written
+	data, err := os.ReadFile(filepath.Join(installDir, "urltool"))
+	if err != nil {
+		t.Fatalf("failed to read installed binary: %v", err)
+	}
+	if !bytes.Equal(data, fakeBinary) {
+		t.Error("installed binary content mismatch")
+	}
+}
+
+func TestInstallAll_WithOverrides(t *testing.T) {
+	// Test that InstallAll passes overrides to individual Install calls.
+	// We set up version pins for all tools and serve tarballs for each.
+	mux := http.NewServeMux()
+
+	for _, tool := range Tools {
+		name := tool.Name
+		binary := []byte("#!/bin/sh\necho " + name + "\n")
+		tarball := makeTarGz(t, name, binary)
+
+		assetName := fmt.Sprintf("%s_1.0.0_%s_%s.tar.gz", name, runtime.GOOS, runtime.GOARCH)
+		path := fmt.Sprintf("/repos/%s/releases/download/v1.0.0/%s", tool.Repo, assetName)
+		mux.HandleFunc(path, func(w http.ResponseWriter, r *http.Request) {
+			w.Header().Set("Content-Type", "application/octet-stream")
+			_, _ = w.Write(tarball)
+		})
+	}
+
+	server := httptest.NewServer(mux)
+	defer server.Close()
+
+	origClient := httpClient
+	httpClient = &http.Client{
+		Transport: &urlRewriteTransport{
+			base:      http.DefaultTransport,
+			serverURL: server.URL,
+		},
+	}
+	defer func() { httpClient = origClient }()
+
+	installDir := t.TempDir()
+
+	overrides := map[string]InstallOptions{
+		"syft":  {Version: "v1.0.0"},
+		"grype": {Version: "v1.0.0"},
+		"dive":  {Version: "v1.0.0"},
+	}
+
+	err := InstallAll(installDir, true, overrides)
+	if err != nil {
+		t.Fatalf("InstallAll() error: %v", err)
+	}
+
+	// Verify all binaries were written
+	for _, tool := range Tools {
+		destPath := filepath.Join(installDir, tool.Name)
+		if _, err := os.Stat(destPath); os.IsNotExist(err) {
+			t.Errorf("expected %s to be installed", tool.Name)
+		}
 	}
 }
 

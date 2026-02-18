@@ -92,7 +92,6 @@ func runYAMLMode(ctx context.Context, path string) error {
 
 	g, gctx := errgroup.WithContext(ctx)
 	for _, is := range directWriteSections {
-		is := is // capture loop variable
 		g.Go(func() error {
 			content, err := processSection(gctx, is.section, is.tmplSel, is.format, renderOpts)
 			if err != nil {
@@ -235,7 +234,7 @@ func processSection(ctx context.Context, section config.Section, tmplSel rendere
 		}
 
 		slog.Info("analyzing comparison", "images", tags)
-		statsList, err := analysis.AnalyzeComparison(ctx, tags, runners, verbose)
+		statsList, err := analysis.AnalyzeComparison(ctx, tags, newRunners, verbose)
 		if err != nil {
 			return "", fmt.Errorf("comparison analysis failed: %w", err)
 		}

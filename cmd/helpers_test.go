@@ -38,6 +38,8 @@ func resetFlags() func() {
 	savedSetupDir := setupDir
 	savedSetupForce := setupForce
 	savedSetupCheck := setupCheck
+	savedLoadToolConfig := loadToolConfig
+	savedResolveToolOverrides := resolveToolOverrides
 
 	// Version vars (version.go)
 	savedVersion := Version
@@ -66,6 +68,8 @@ func resetFlags() func() {
 		setupDir = savedSetupDir
 		setupForce = savedSetupForce
 		setupCheck = savedSetupCheck
+		loadToolConfig = savedLoadToolConfig
+		resolveToolOverrides = savedResolveToolOverrides
 
 		Version = savedVersion
 		Commit = savedCommit

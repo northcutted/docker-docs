@@ -15,7 +15,7 @@ func TestRenderComparison(t *testing.T) {
 			Architecture: "amd64",
 			OS:           "linux",
 			Efficiency:   90.0,
-			WastedBytes:  "10 MB",
+			WastedBytes:  10485760, // 10 MB
 			TotalLayers:  5,
 			VulnSummary:  map[string]int{"Critical": 1, "High": 0},
 			Vulnerabilities: []types.Vulnerability{
@@ -32,7 +32,7 @@ func TestRenderComparison(t *testing.T) {
 			Architecture: "amd64",
 			OS:           "linux",
 			Efficiency:   98.0,
-			WastedBytes:  "2 MB",
+			WastedBytes:  2097152, // 2 MB
 			TotalLayers:  4,
 			VulnSummary:  map[string]int{"Critical": 0, "High": 1},
 			Vulnerabilities: []types.Vulnerability{
