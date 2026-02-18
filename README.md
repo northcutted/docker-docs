@@ -55,22 +55,19 @@ A CLI tool that automatically generates documentation from your Dockerfiles. It 
 
 ## Quick Start
 
-1. **Install prerequisites** (for image analysis):
-
-   ```bash
-   # macOS
-   brew install syft grype dive
-
-   # Linux (see Prerequisites section for details)
-   curl -sSfL https://raw.githubusercontent.com/anchore/syft/main/install.sh | sh -s -- -b /usr/local/bin
-   curl -sSfL https://raw.githubusercontent.com/anchore/grype/main/install.sh | sh -s -- -b /usr/local/bin
-   ```
-
-2. **Install dock-docs**:
+1. **Install dock-docs**:
 
    ```bash
    go install github.com/northcutted/dock-docs@latest
    ```
+
+2. **Install analysis tools** (for image analysis):
+
+   ```bash
+   dock-docs setup
+   ```
+
+   This downloads `syft`, `grype`, and `dive` from their GitHub Releases into `~/.dock-docs/bin/`. See [Prerequisites](#prerequisites) for manual install alternatives.
 
 3. **Run it**:
 
@@ -150,11 +147,24 @@ docker run --rm \
 
 Dock-docs shells out to three external tools for image analysis. **These are only required if you want deep analysis** (vulnerability scanning, SBOM, layer efficiency). Dockerfile parsing works without them.
 
+The easiest way to install them is:
+
+```bash
+dock-docs setup              # Install all missing tools to ~/.dock-docs/bin
+dock-docs setup --check      # Show status only, don't install
+dock-docs setup --force      # Reinstall even if present
+dock-docs setup --dir /path  # Install to a custom directory
+```
+
+Alternatively, install them manually:
+
 | Tool | Purpose | Install |
 |------|---------|---------|
 | [Syft](https://github.com/anchore/syft) | SBOM / package listing | `brew install syft` or [install script](https://github.com/anchore/syft#installation) |
 | [Grype](https://github.com/anchore/grype) | Vulnerability scanning | `brew install grype` or [install script](https://github.com/anchore/grype#installation) |
 | [Dive](https://github.com/wagoodman/dive) | Layer efficiency analysis | `brew install dive` or [GitHub Releases](https://github.com/wagoodman/dive/releases) |
+
+System-installed tools (found in PATH) are always preferred over `dock-docs setup` installs. The `~/.dock-docs/bin/` directory is only checked as a fallback.
 
 You also need a container runtime: **Docker** or **Podman**. Dock-docs auto-detects which one is available.
 
@@ -489,7 +499,7 @@ Check out the sample projects to see `dock-docs` in action. Each sample includes
 
 **"syft: command not found" / "grype: command not found" / "dive: command not found"**
 
-Install the [prerequisites](#prerequisites). These tools are only required for image analysis -- Dockerfile parsing works without them. Use `--ignore-errors` to skip analysis failures.
+Run `dock-docs setup` to automatically download and install all three tools. Alternatively, install the [prerequisites](#prerequisites) manually. These tools are only required for image analysis -- Dockerfile parsing works without them. Use `--ignore-errors` to skip analysis failures.
 
 **"Cannot connect to the Docker daemon"**
 

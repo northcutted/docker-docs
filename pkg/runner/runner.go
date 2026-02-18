@@ -9,8 +9,17 @@ import (
 	"strings"
 	"time"
 
+	"github.com/northcutted/dock-docs/pkg/installer"
 	"github.com/northcutted/dock-docs/pkg/types"
 )
+
+// lookupTool resolves the path to an external tool binary. It checks
+// the system PATH first and falls back to the dock-docs install
+// directory (~/.dock-docs/bin/).
+func lookupTool(name string) (string, error) {
+	path, _, err := installer.FindTool(name)
+	return path, err
+}
 
 // ToolRunner defines the interface for external tool integration
 type ToolRunner interface {
@@ -234,17 +243,27 @@ func (r *ManifestRunner) Run(image string, verbose bool) (*types.ImageStats, err
 }
 
 // SyftRunner runs 'syft <image> -o json'
-type SyftRunner struct{}
+type SyftRunner struct {
+	binary string
+}
 
 func (r *SyftRunner) Name() string { return "syft" }
 
 func (r *SyftRunner) IsAvailable() bool {
-	_, err := exec.LookPath("syft")
-	return err == nil
+	if path, err := lookupTool("syft"); err == nil {
+		r.binary = path
+		return true
+	}
+	return false
 }
 
 func (r *SyftRunner) Run(image string, verbose bool) (*types.ImageStats, error) {
-	cmd := exec.Command("syft", image, "-o", "json")
+	if r.binary == "" {
+		if !r.IsAvailable() {
+			return nil, fmt.Errorf("syft not found")
+		}
+	}
+	cmd := exec.Command(r.binary, image, "-o", "json")
 	output, err := runCommand(cmd, verbose)
 	if err != nil {
 		return nil, err
@@ -307,17 +326,27 @@ func (r *SyftRunner) Run(image string, verbose bool) (*types.ImageStats, error) 
 }
 
 // GrypeRunner runs 'grype <image> -o json'
-type GrypeRunner struct{}
+type GrypeRunner struct {
+	binary string
+}
 
 func (r *GrypeRunner) Name() string { return "grype" }
 
 func (r *GrypeRunner) IsAvailable() bool {
-	_, err := exec.LookPath("grype")
-	return err == nil
+	if path, err := lookupTool("grype"); err == nil {
+		r.binary = path
+		return true
+	}
+	return false
 }
 
 func (r *GrypeRunner) Run(image string, verbose bool) (*types.ImageStats, error) {
-	cmd := exec.Command("grype", image, "-o", "json")
+	if r.binary == "" {
+		if !r.IsAvailable() {
+			return nil, fmt.Errorf("grype not found")
+		}
+	}
+	cmd := exec.Command(r.binary, image, "-o", "json")
 	output, err := runCommand(cmd, verbose)
 	if err != nil {
 		return nil, err
@@ -395,13 +424,18 @@ func (r *GrypeRunner) Run(image string, verbose bool) (*types.ImageStats, error)
 }
 
 // DiveRunner runs 'dive <image> --json output.json'
-type DiveRunner struct{}
+type DiveRunner struct {
+	binary string
+}
 
 func (r *DiveRunner) Name() string { return "dive" }
 
 func (r *DiveRunner) IsAvailable() bool {
-	_, err := exec.LookPath("dive")
-	return err == nil
+	if path, err := lookupTool("dive"); err == nil {
+		r.binary = path
+		return true
+	}
+	return false
 }
 
 func (r *DiveRunner) Run(image string, verbose bool) (*types.ImageStats, error) {
@@ -417,9 +451,15 @@ func (r *DiveRunner) Run(image string, verbose bool) (*types.ImageStats, error) 
 	// Close immediately, dive will write to it. Ignore error.
 	_ = tmpFile.Close()
 
+	if r.binary == "" {
+		if !r.IsAvailable() {
+			return nil, fmt.Errorf("dive not found")
+		}
+	}
+
 	// Note: CI=true suppresses interactive UI which might be default for dive?
 	// The --json flag should suffice.
-	cmd := exec.Command("dive", image, "--json", tmpFile.Name())
+	cmd := exec.Command(r.binary, image, "--json", tmpFile.Name())
 
 	// Podman Support: Check if running via Podman and if DOCKER_HOST is missing
 	// If 'docker' command is missing but 'podman' is present, we likely need to help dive connect.

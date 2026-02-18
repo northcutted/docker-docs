@@ -12,6 +12,7 @@ import (
 	"github.com/northcutted/dock-docs/pkg/analysis"
 	"github.com/northcutted/dock-docs/pkg/config"
 	"github.com/northcutted/dock-docs/pkg/injector"
+	"github.com/northcutted/dock-docs/pkg/installer"
 	"github.com/northcutted/dock-docs/pkg/parser"
 	"github.com/northcutted/dock-docs/pkg/renderer"
 	"github.com/northcutted/dock-docs/pkg/runner"
@@ -370,10 +371,10 @@ func checkToolStatus() string {
 	}
 
 	for _, tool := range tools {
-		if _, err := exec.LookPath(tool); err == nil {
-			status.WriteString(fmt.Sprintf("  [OK] %s\n", tool))
+		if path, source, err := installer.FindTool(tool); err == nil {
+			status.WriteString(fmt.Sprintf("  [OK] %s (%s: %s)\n", tool, source, path))
 		} else {
-			status.WriteString(fmt.Sprintf("  [MISSING] %s (install for full functionality)\n", tool))
+			status.WriteString(fmt.Sprintf("  [MISSING] %s (run 'dock-docs setup' to install)\n", tool))
 		}
 	}
 	return status.String()
