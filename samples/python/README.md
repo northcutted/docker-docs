@@ -31,7 +31,7 @@ Each template is shown for both **image** (single image analysis) and **comparis
 **Efficiency Score:** 96.7%
 
 ### Vulnerabilities
-**Last scanned:** 2026-02-18T21:46:14Z
+**Last scanned:** 2026-02-18T23:48:57Z
 
 | Critical | High | Medium | Low |
 |:---:|:---:|:---:|:---:|
@@ -221,7 +221,7 @@ Each template is shown for both **image** (single image analysis) and **comparis
 
 | Tag | Size | Vulns | Efficiency | Architectures |
 |-----|------|-------|------------|---------------|
-| `python:3.12-slim` | ![Size](https://img.shields.io/static/v1?label=Size&message=41.20+MB&color=blue) | ![Vulns](https://img.shields.io/static/v1?label=Security&message=76+Vulns+%280+Crit%29&color=orange) | 96.7% | `linux/amd64` |
+| `python:3.12-slim` | ![Size](https://img.shields.io/static/v1?label=Size&message=41.20+MB&color=blue) | ![Vulns](https://img.shields.io/static/v1?label=Security&message=76+Vulns+%280+Crit%29&color=orange) | 96.7% | `linux/386, linux/amd64, linux/arm, linux/arm64, linux/ppc64le, linux/riscv64, linux/s390x, unknown/unknown` |
 | `python:3.13-slim` | ![Size](https://img.shields.io/static/v1?label=Size&message=40.90+MB&color=blue) | ![Vulns](https://img.shields.io/static/v1?label=Security&message=71+Vulns+%280+Crit%29&color=orange) | 96.7% | `linux/386, linux/amd64, linux/arm, linux/arm64, linux/ppc64le, linux/riscv64, linux/s390x, unknown/unknown` |
 | `python:3.14-slim` | ![Size](https://img.shields.io/static/v1?label=Size&message=41.32+MB&color=blue) | ![Vulns](https://img.shields.io/static/v1?label=Security&message=71+Vulns+%280+Crit%29&color=orange) | 96.7% | `linux/386, linux/amd64, linux/arm, linux/arm64, linux/ppc64le, linux/riscv64, linux/s390x, unknown/unknown` |
 
@@ -231,10 +231,11 @@ Each template is shown for both **image** (single image analysis) and **comparis
 ## 🛡️ Security & Efficiency
 
 **Base Image:** `Debian GNU/Linux 13 (trixie) (linux/amd64)`
+**Supported Architectures:** `linux/386, linux/amd64, linux/arm, linux/arm64, linux/ppc64le, linux/riscv64, linux/s390x, unknown/unknown`
 **Efficiency Score:** 96.7%
 
 ### Vulnerabilities
-**Last scanned:** 2026-02-18T21:46:58Z
+**Last scanned:** 2026-02-18T23:49:32Z
 
 | Critical | High | Medium | Low |
 |:---:|:---:|:---:|:---:|
@@ -432,7 +433,7 @@ Each template is shown for both **image** (single image analysis) and **comparis
 **Efficiency Score:** 96.7%
 
 ### Vulnerabilities
-**Last scanned:** 2026-02-18T21:46:59Z
+**Last scanned:** 2026-02-18T23:49:31Z
 
 | Critical | High | Medium | Low |
 |:---:|:---:|:---:|:---:|
@@ -625,7 +626,7 @@ Each template is shown for both **image** (single image analysis) and **comparis
 **Efficiency Score:** 96.7%
 
 ### Vulnerabilities
-**Last scanned:** 2026-02-18T21:46:58Z
+**Last scanned:** 2026-02-18T23:49:32Z
 
 | Critical | High | Medium | Low |
 |:---:|:---:|:---:|:---:|
@@ -888,7 +889,7 @@ Each template is shown for both **image** (single image analysis) and **comparis
 
 ### Vulnerability Summary
 
-**Last scanned:** 2026-02-18T21:46:33Z
+**Last scanned:** 2026-02-18T23:49:10Z
 
 | Critical | High | Medium | Low | Total |
 |:---:|:---:|:---:|:---:|:---:|
@@ -1097,7 +1098,7 @@ Each template is shown for both **image** (single image analysis) and **comparis
 
 ### Vulnerability Summary
 
-**Last scanned:** 2026-02-18T21:47:31Z
+**Last scanned:** 2026-02-18T23:50:02Z
 
 | Critical | High | Medium | Low | Total |
 |:---:|:---:|:---:|:---:|:---:|
@@ -1299,7 +1300,7 @@ Each template is shown for both **image** (single image analysis) and **comparis
 
 ### Vulnerability Summary
 
-**Last scanned:** 2026-02-18T21:47:30Z
+**Last scanned:** 2026-02-18T23:50:01Z
 
 | Critical | High | Medium | Low | Total |
 |:---:|:---:|:---:|:---:|:---:|
@@ -1496,7 +1497,7 @@ Each template is shown for both **image** (single image analysis) and **comparis
 
 ### Vulnerability Summary
 
-**Last scanned:** 2026-02-18T21:47:30Z
+**Last scanned:** 2026-02-18T23:50:02Z
 
 | Critical | High | Medium | Low | Total |
 |:---:|:---:|:---:|:---:|:---:|

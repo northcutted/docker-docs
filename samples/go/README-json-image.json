@@ -38,10 +38,10 @@
     "size_bytes": 71349130,
     "total_layers": 5,
     "efficiency": 99.90,
-    "wasted_bytes": "0.47 MB",
+    "wasted_bytes": 490147,
     "total_packages": 29,
     "security": {
-      "scan_time": "2026-02-18T21:37:03Z",
+      "scan_time": "2026-02-18T23:39:56Z",
       "summary": {
         "critical": 0,
         "high": 0,

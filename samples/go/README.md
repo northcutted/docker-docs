@@ -31,7 +31,7 @@ Each template is shown for both **image** (single image analysis) and **comparis
 **Efficiency Score:** 99.9%
 
 ### Vulnerabilities
-**Last scanned:** 2026-02-18T21:37:11Z
+**Last scanned:** 2026-02-18T23:40:05Z
 
 | Critical | High | Medium | Low |
 |:---:|:---:|:---:|:---:|
@@ -106,7 +106,7 @@ Each template is shown for both **image** (single image analysis) and **comparis
 **Efficiency Score:** 99.9%
 
 ### Vulnerabilities
-**Last scanned:** 2026-02-18T21:38:02Z
+**Last scanned:** 2026-02-18T23:40:50Z
 
 | Critical | High | Medium | Low |
 |:---:|:---:|:---:|:---:|
@@ -180,7 +180,7 @@ Each template is shown for both **image** (single image analysis) and **comparis
 **Efficiency Score:** 99.9%
 
 ### Vulnerabilities
-**Last scanned:** 2026-02-18T21:37:58Z
+**Last scanned:** 2026-02-18T23:40:49Z
 
 | Critical | High | Medium | Low |
 |:---:|:---:|:---:|:---:|
@@ -243,7 +243,7 @@ Each template is shown for both **image** (single image analysis) and **comparis
 **Efficiency Score:** 99.9%
 
 ### Vulnerabilities
-**Last scanned:** 2026-02-18T21:38:01Z
+**Last scanned:** 2026-02-18T23:40:49Z
 
 | Critical | High | Medium | Low |
 |:---:|:---:|:---:|:---:|
@@ -377,7 +377,7 @@ Each template is shown for both **image** (single image analysis) and **comparis
 
 ### Vulnerability Summary
 
-**Last scanned:** 2026-02-18T21:37:30Z
+**Last scanned:** 2026-02-18T23:40:21Z
 
 | Critical | High | Medium | Low | Total |
 |:---:|:---:|:---:|:---:|:---:|
@@ -457,7 +457,7 @@ Each template is shown for both **image** (single image analysis) and **comparis
 
 ### Vulnerability Summary
 
-**Last scanned:** 2026-02-18T21:38:43Z
+**Last scanned:** 2026-02-18T23:41:31Z
 
 | Critical | High | Medium | Low | Total |
 |:---:|:---:|:---:|:---:|:---:|
@@ -535,7 +535,7 @@ Each template is shown for both **image** (single image analysis) and **comparis
 
 ### Vulnerability Summary
 
-**Last scanned:** 2026-02-18T21:38:41Z
+**Last scanned:** 2026-02-18T23:41:30Z
 
 | Critical | High | Medium | Low | Total |
 |:---:|:---:|:---:|:---:|:---:|
@@ -602,7 +602,7 @@ Each template is shown for both **image** (single image analysis) and **comparis
 
 ### Vulnerability Summary
 
-**Last scanned:** 2026-02-18T21:38:42Z
+**Last scanned:** 2026-02-18T23:41:31Z
 
 | Critical | High | Medium | Low | Total |
 |:---:|:---:|:---:|:---:|:---:|

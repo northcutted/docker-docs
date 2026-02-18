@@ -18,10 +18,10 @@
         "size_bytes": 56740957,
         "total_layers": 4,
         "efficiency": 99.97,
-        "wasted_bytes": "0.06 MB",
+        "wasted_bytes": 63979,
         "total_packages": 215,
         "security": {
-          "scan_time": "2026-02-18T21:40:16Z",
+          "scan_time": "2026-02-18T23:42:59Z",
           "summary": {
             "critical": 0,
             "high": 13,
@@ -1012,10 +1012,10 @@
         "size_bytes": 56194055,
         "total_layers": 4,
         "efficiency": 99.97,
-        "wasted_bytes": "0.06 MB",
+        "wasted_bytes": 63979,
         "total_packages": 180,
         "security": {
-          "scan_time": "2026-02-18T21:40:17Z",
+          "scan_time": "2026-02-18T23:43:04Z",
           "summary": {
             "critical": 0,
             "high": 3,

@@ -31,7 +31,7 @@ Each template is shown for both **image** (single image analysis) and **comparis
 **Efficiency Score:** 99.4%
 
 ### Vulnerabilities
-**Last scanned:** 2026-02-18T21:41:48Z
+**Last scanned:** 2026-02-18T23:44:34Z
 
 | Critical | High | Medium | Low |
 |:---:|:---:|:---:|:---:|
@@ -1670,7 +1670,7 @@ Each template is shown for both **image** (single image analysis) and **comparis
 **Efficiency Score:** 100.0%
 
 ### Vulnerabilities
-**Last scanned:** 2026-02-18T21:44:28Z
+**Last scanned:** 2026-02-18T23:47:12Z
 
 | Critical | High | Medium | Low |
 |:---:|:---:|:---:|:---:|
@@ -1934,7 +1934,7 @@ Each template is shown for both **image** (single image analysis) and **comparis
 **Efficiency Score:** 100.0%
 
 ### Vulnerabilities
-**Last scanned:** 2026-02-18T21:44:28Z
+**Last scanned:** 2026-02-18T23:47:12Z
 
 | Critical | High | Medium | Low |
 |:---:|:---:|:---:|:---:|
@@ -2221,7 +2221,7 @@ Each template is shown for both **image** (single image analysis) and **comparis
 
 ### Vulnerability Summary
 
-**Last scanned:** 2026-02-18T21:43:22Z
+**Last scanned:** 2026-02-18T23:46:07Z
 
 | Critical | High | Medium | Low | Total |
 |:---:|:---:|:---:|:---:|:---:|
@@ -3865,7 +3865,7 @@ Each template is shown for both **image** (single image analysis) and **comparis
 
 ### Vulnerability Summary
 
-**Last scanned:** 2026-02-18T21:45:05Z
+**Last scanned:** 2026-02-18T23:47:51Z
 
 | Critical | High | Medium | Low | Total |
 |:---:|:---:|:---:|:---:|:---:|
@@ -4133,7 +4133,7 @@ Each template is shown for both **image** (single image analysis) and **comparis
 
 ### Vulnerability Summary
 
-**Last scanned:** 2026-02-18T21:45:06Z
+**Last scanned:** 2026-02-18T23:47:51Z
 
 | Critical | High | Medium | Low | Total |
 |:---:|:---:|:---:|:---:|:---:|
