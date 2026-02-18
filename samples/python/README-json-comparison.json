@@ -23,7 +23,7 @@
         "wasted_bytes": "5.38 MB",
         "total_packages": 90,
         "security": {
-          "scan_time": "2026-02-18T04:47:53Z",
+          "scan_time": "2026-02-18T05:37:28Z",
           "summary": {
             "critical": 0,
             "high": 7,
@@ -874,7 +874,7 @@
         "wasted_bytes": "5.38 MB",
         "total_packages": 90,
         "security": {
-          "scan_time": "2026-02-18T04:47:52Z",
+          "scan_time": "2026-02-18T05:37:28Z",
           "summary": {
             "critical": 0,
             "high": 6,
@@ -1695,7 +1695,7 @@
         "wasted_bytes": "5.38 MB",
         "total_packages": 90,
         "security": {
-          "scan_time": "2026-02-18T04:47:53Z",
+          "scan_time": "2026-02-18T05:37:28Z",
           "summary": {
             "critical": 0,
             "high": 6,

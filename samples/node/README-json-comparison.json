@@ -20,7 +20,7 @@
         "wasted_bytes": "0.06 MB",
         "total_packages": 215,
         "security": {
-          "scan_time": "2026-02-18T04:45:20Z",
+          "scan_time": "2026-02-18T05:35:07Z",
           "summary": {
             "critical": 0,
             "high": 10,
@@ -995,7 +995,7 @@
         "wasted_bytes": "0.06 MB",
         "total_packages": 180,
         "security": {
-          "scan_time": "2026-02-18T04:45:20Z",
+          "scan_time": "2026-02-18T05:35:06Z",
           "summary": {
             "critical": 0,
             "high": 2,
