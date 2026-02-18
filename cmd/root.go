@@ -372,9 +372,9 @@ func checkToolStatus() string {
 
 	for _, tool := range tools {
 		if path, source, err := installer.FindTool(tool); err == nil {
-			status.WriteString(fmt.Sprintf("  [OK] %s (%s: %s)\n", tool, source, path))
+			fmt.Fprintf(&status, "  [OK] %s (%s: %s)\n", tool, source, path)
 		} else {
-			status.WriteString(fmt.Sprintf("  [MISSING] %s (run 'dock-docs setup' to install)\n", tool))
+			fmt.Fprintf(&status, "  [MISSING] %s (run 'dock-docs setup' to install)\n", tool)
 		}
 	}
 	return status.String()

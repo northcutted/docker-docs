@@ -146,7 +146,7 @@ func TestLatestReleaseTag(t *testing.T) {
 	mux.HandleFunc("/repos/anchore/syft/releases/latest", func(w http.ResponseWriter, r *http.Request) {
 		resp := map[string]string{"tag_name": "v1.42.0"}
 		w.Header().Set("Content-Type", "application/json")
-		json.NewEncoder(w).Encode(resp)
+		_ = json.NewEncoder(w).Encode(resp)
 	})
 	server := httptest.NewServer(mux)
 	defer server.Close()
@@ -165,12 +165,14 @@ func TestLatestReleaseTag(t *testing.T) {
 	if err != nil {
 		t.Fatalf("mock server request failed: %v", err)
 	}
-	defer resp.Body.Close()
+	defer func() { _ = resp.Body.Close() }()
 
 	var release struct {
 		TagName string `json:"tag_name"`
 	}
-	json.NewDecoder(resp.Body).Decode(&release)
+	if err := json.NewDecoder(resp.Body).Decode(&release); err != nil {
+		t.Fatalf("failed to decode response: %v", err)
+	}
 	if release.TagName != "v1.42.0" {
 		t.Errorf("expected tag_name v1.42.0, got %s", release.TagName)
 	}
@@ -187,14 +189,14 @@ func TestInstall_MockServer(t *testing.T) {
 	mux.HandleFunc("/repos/test/faketool/releases/latest", func(w http.ResponseWriter, r *http.Request) {
 		resp := map[string]string{"tag_name": "v2.0.0"}
 		w.Header().Set("Content-Type", "application/json")
-		json.NewEncoder(w).Encode(resp)
+		_ = json.NewEncoder(w).Encode(resp)
 	})
 
 	// Mock asset download
 	assetName := fmt.Sprintf("faketool_2.0.0_%s_%s.tar.gz", runtime.GOOS, runtime.GOARCH)
 	mux.HandleFunc("/repos/test/faketool/releases/download/v2.0.0/"+assetName, func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("Content-Type", "application/octet-stream")
-		w.Write(tarball)
+		_, _ = w.Write(tarball)
 	})
 
 	server := httptest.NewServer(mux)
@@ -299,12 +301,12 @@ func TestInstall_BadArchive(t *testing.T) {
 	mux.HandleFunc("/repos/test/badarchive/releases/latest", func(w http.ResponseWriter, r *http.Request) {
 		resp := map[string]string{"tag_name": "v1.0.0"}
 		w.Header().Set("Content-Type", "application/json")
-		json.NewEncoder(w).Encode(resp)
+		_ = json.NewEncoder(w).Encode(resp)
 	})
 
 	assetName := fmt.Sprintf("badarchive_1.0.0_%s_%s.tar.gz", runtime.GOOS, runtime.GOARCH)
 	mux.HandleFunc("/repos/test/badarchive/releases/download/v1.0.0/"+assetName, func(w http.ResponseWriter, r *http.Request) {
-		w.Write([]byte("not a valid tarball"))
+		_, _ = w.Write([]byte("not a valid tarball"))
 	})
 
 	server := httptest.NewServer(mux)

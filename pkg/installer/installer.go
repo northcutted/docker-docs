@@ -121,7 +121,7 @@ func Install(tool Tool, installDir string) error {
 	if err != nil {
 		return fmt.Errorf("failed to download %s: %w", assetName, err)
 	}
-	defer body.Close()
+	defer func() { _ = body.Close() }()
 
 	// Extract the binary from the tarball
 	binaryData, err := extractBinaryFromTarGz(body, tool.Name)
@@ -196,8 +196,7 @@ func latestReleaseTag(repo string) (string, error) {
 	if err != nil {
 		return "", fmt.Errorf("HTTP request failed: %w", err)
 	}
-	defer resp.Body.Close()
-
+	defer func() { _ = resp.Body.Close() }()
 	if resp.StatusCode != http.StatusOK {
 		return "", fmt.Errorf("GitHub API returned %d for %s", resp.StatusCode, repo)
 	}
@@ -235,7 +234,7 @@ func httpGet(url string) (io.ReadCloser, error) {
 	}
 
 	if resp.StatusCode != http.StatusOK {
-		resp.Body.Close()
+		_ = resp.Body.Close()
 		return nil, fmt.Errorf("HTTP %d for %s", resp.StatusCode, url)
 	}
 
@@ -249,7 +248,7 @@ func extractBinaryFromTarGz(r io.Reader, binaryName string) ([]byte, error) {
 	if err != nil {
 		return nil, fmt.Errorf("gzip error: %w", err)
 	}
-	defer gz.Close()
+	defer func() { _ = gz.Close() }()
 
 	tr := tar.NewReader(gz)
 	for {
