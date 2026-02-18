@@ -162,6 +162,33 @@ func TestGetEmoji(t *testing.T) {
 	}
 }
 
+func TestTemplateSelection_Format(t *testing.T) {
+	tests := []struct {
+		name     string
+		sel      TemplateSelection
+		expected string
+	}{
+		{"default name", TemplateSelection{Name: "default"}, "markdown"},
+		{"empty name defaults to markdown", TemplateSelection{}, "markdown"},
+		{"html name", TemplateSelection{Name: "html"}, "html"},
+		{"json name", TemplateSelection{Name: "json"}, "json"},
+		{"minimal name", TemplateSelection{Name: "minimal"}, "markdown"},
+		{"compact name", TemplateSelection{Name: "compact"}, "markdown"},
+		{"detailed name", TemplateSelection{Name: "detailed"}, "markdown"},
+		{"custom path defaults to markdown", TemplateSelection{Path: "/some/file.tmpl"}, "markdown"},
+		{"path overrides name", TemplateSelection{Name: "html", Path: "/some/file.tmpl"}, "markdown"},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			result := tt.sel.Format()
+			if result != tt.expected {
+				t.Errorf("Format() = %q, want %q", result, tt.expected)
+			}
+		})
+	}
+}
+
 func TestRender_AllSections(t *testing.T) {
 	doc := &parser.Documentation{
 		Items: []parser.DocItem{

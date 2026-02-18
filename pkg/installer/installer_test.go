@@ -6,6 +6,7 @@ import (
 	"compress/gzip"
 	"encoding/json"
 	"fmt"
+	"io"
 	"net/http"
 	"net/http/httptest"
 	"os"
@@ -327,5 +328,264 @@ func TestInstall_BadArchive(t *testing.T) {
 	err := Install(tool, installDir)
 	if err == nil {
 		t.Fatal("expected error for corrupt archive")
+	}
+}
+
+func TestFindTool_NotFound(t *testing.T) {
+	// A tool name that definitely doesn't exist anywhere
+	_, _, err := FindTool("nonexistent_tool_xyz_12345")
+	if err == nil {
+		t.Fatal("expected error for non-existent tool")
+	}
+}
+
+func TestFindTool_InDockDocsDir(t *testing.T) {
+	// Override HOME so DefaultInstallDir() points to our temp dir
+	tmpHome := t.TempDir()
+	origHome := os.Getenv("HOME")
+	os.Setenv("HOME", tmpHome)
+	defer os.Setenv("HOME", origHome)
+
+	// Create the fake binary in the expected dock-docs install path
+	binDir := filepath.Join(tmpHome, ".dock-docs", "bin")
+	if err := os.MkdirAll(binDir, 0755); err != nil {
+		t.Fatalf("failed to create bin dir: %v", err)
+	}
+
+	fakeName := "faketool_findtest"
+	fakePath := filepath.Join(binDir, fakeName)
+	if err := os.WriteFile(fakePath, []byte("fake"), 0755); err != nil {
+		t.Fatalf("failed to write fake binary: %v", err)
+	}
+
+	path, source, err := FindTool(fakeName)
+	if err != nil {
+		t.Fatalf("FindTool() unexpected error: %v", err)
+	}
+	if path != fakePath {
+		t.Errorf("path = %q, want %q", path, fakePath)
+	}
+	if source != "dock-docs" {
+		t.Errorf("source = %q, want %q", source, "dock-docs")
+	}
+}
+
+func TestFindTool_DirectoryIgnored(t *testing.T) {
+	// A directory with the tool name should not be found
+	tmpHome := t.TempDir()
+	origHome := os.Getenv("HOME")
+	os.Setenv("HOME", tmpHome)
+	defer os.Setenv("HOME", origHome)
+
+	binDir := filepath.Join(tmpHome, ".dock-docs", "bin")
+	if err := os.MkdirAll(binDir, 0755); err != nil {
+		t.Fatalf("failed to create bin dir: %v", err)
+	}
+
+	// Create a directory (not a file) with the tool name
+	dirName := "dirtool_test"
+	dirPath := filepath.Join(binDir, dirName)
+	if err := os.MkdirAll(dirPath, 0755); err != nil {
+		t.Fatalf("failed to create fake dir: %v", err)
+	}
+
+	_, _, err := FindTool(dirName)
+	if err == nil {
+		t.Fatal("expected error when candidate is a directory, not a file")
+	}
+}
+
+func TestInstallAll_AllInstalled(t *testing.T) {
+	tmpDir := t.TempDir()
+
+	// Create fake binaries for all tools so Status() reports them as installed
+	for _, tool := range Tools {
+		fakePath := filepath.Join(tmpDir, tool.Name)
+		if err := os.WriteFile(fakePath, []byte("fake"), 0755); err != nil {
+			t.Fatalf("failed to write fake %s: %v", tool.Name, err)
+		}
+	}
+
+	err := InstallAll(tmpDir, false)
+	if err != nil {
+		t.Fatalf("InstallAll() unexpected error: %v", err)
+	}
+}
+
+func TestInstallAll_ForceReinstall(t *testing.T) {
+	// With force=true, Install is called even for installed tools.
+	// Since Install tries to download from GitHub, this will fail with our mock.
+	// Set up a mock server that returns errors to verify the force path is taken.
+	mux := http.NewServeMux()
+	mux.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		w.WriteHeader(http.StatusNotFound)
+	})
+	server := httptest.NewServer(mux)
+	defer server.Close()
+
+	origClient := httpClient
+	httpClient = &http.Client{
+		Transport: &urlRewriteTransport{
+			base:      http.DefaultTransport,
+			serverURL: server.URL,
+		},
+	}
+	defer func() { httpClient = origClient }()
+
+	tmpDir := t.TempDir()
+
+	// Create fake binaries so they appear installed
+	for _, tool := range Tools {
+		fakePath := filepath.Join(tmpDir, tool.Name)
+		if err := os.WriteFile(fakePath, []byte("fake"), 0755); err != nil {
+			t.Fatalf("failed to write fake %s: %v", tool.Name, err)
+		}
+	}
+
+	err := InstallAll(tmpDir, true)
+	if err == nil {
+		t.Fatal("expected error when force-reinstalling with mock 404 server")
+	}
+}
+
+func TestHttpGet_Non200(t *testing.T) {
+	mux := http.NewServeMux()
+	mux.HandleFunc("/forbidden", func(w http.ResponseWriter, r *http.Request) {
+		w.WriteHeader(http.StatusForbidden)
+	})
+	mux.HandleFunc("/server-error", func(w http.ResponseWriter, r *http.Request) {
+		w.WriteHeader(http.StatusInternalServerError)
+	})
+	server := httptest.NewServer(mux)
+	defer server.Close()
+
+	origClient := httpClient
+	httpClient = server.Client()
+	defer func() { httpClient = origClient }()
+
+	tests := []struct {
+		name string
+		path string
+	}{
+		{"403 forbidden", "/forbidden"},
+		{"500 server error", "/server-error"},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			_, err := httpGet(server.URL + tt.path)
+			if err == nil {
+				t.Errorf("httpGet() expected error for %s, got nil", tt.name)
+			}
+		})
+	}
+}
+
+func TestLatestReleaseTag_EmptyTag(t *testing.T) {
+	mux := http.NewServeMux()
+	mux.HandleFunc("/repos/test/emptytag/releases/latest", func(w http.ResponseWriter, r *http.Request) {
+		resp := map[string]string{"tag_name": ""}
+		w.Header().Set("Content-Type", "application/json")
+		_ = json.NewEncoder(w).Encode(resp)
+	})
+	server := httptest.NewServer(mux)
+	defer server.Close()
+
+	origClient := httpClient
+	httpClient = &http.Client{
+		Transport: &urlRewriteTransport{
+			base:      http.DefaultTransport,
+			serverURL: server.URL,
+		},
+	}
+	defer func() { httpClient = origClient }()
+
+	_, err := latestReleaseTag("test/emptytag")
+	if err == nil {
+		t.Fatal("expected error for empty tag_name")
+	}
+}
+
+func TestLatestReleaseTag_InvalidJSON(t *testing.T) {
+	mux := http.NewServeMux()
+	mux.HandleFunc("/repos/test/badjson/releases/latest", func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Content-Type", "application/json")
+		_, _ = w.Write([]byte("not json"))
+	})
+	server := httptest.NewServer(mux)
+	defer server.Close()
+
+	origClient := httpClient
+	httpClient = &http.Client{
+		Transport: &urlRewriteTransport{
+			base:      http.DefaultTransport,
+			serverURL: server.URL,
+		},
+	}
+	defer func() { httpClient = origClient }()
+
+	_, err := latestReleaseTag("test/badjson")
+	if err == nil {
+		t.Fatal("expected error for invalid JSON response")
+	}
+}
+
+func TestLatestReleaseTag_Success(t *testing.T) {
+	mux := http.NewServeMux()
+	mux.HandleFunc("/repos/test/goodtool/releases/latest", func(w http.ResponseWriter, r *http.Request) {
+		// Verify Accept header is set correctly
+		if got := r.Header.Get("Accept"); got != "application/vnd.github+json" {
+			t.Errorf("Accept header = %q, want %q", got, "application/vnd.github+json")
+		}
+		resp := map[string]string{"tag_name": "v3.1.0"}
+		w.Header().Set("Content-Type", "application/json")
+		_ = json.NewEncoder(w).Encode(resp)
+	})
+	server := httptest.NewServer(mux)
+	defer server.Close()
+
+	origClient := httpClient
+	httpClient = &http.Client{
+		Transport: &urlRewriteTransport{
+			base:      http.DefaultTransport,
+			serverURL: server.URL,
+		},
+	}
+	defer func() { httpClient = origClient }()
+
+	tag, err := latestReleaseTag("test/goodtool")
+	if err != nil {
+		t.Fatalf("latestReleaseTag() unexpected error: %v", err)
+	}
+	if tag != "v3.1.0" {
+		t.Errorf("tag = %q, want %q", tag, "v3.1.0")
+	}
+}
+
+func TestHttpGet_Success(t *testing.T) {
+	mux := http.NewServeMux()
+	mux.HandleFunc("/data", func(w http.ResponseWriter, r *http.Request) {
+		w.WriteHeader(http.StatusOK)
+		_, _ = w.Write([]byte("hello world"))
+	})
+	server := httptest.NewServer(mux)
+	defer server.Close()
+
+	origClient := httpClient
+	httpClient = server.Client()
+	defer func() { httpClient = origClient }()
+
+	body, err := httpGet(server.URL + "/data")
+	if err != nil {
+		t.Fatalf("httpGet() unexpected error: %v", err)
+	}
+	defer func() { _ = body.Close() }()
+
+	data, err := io.ReadAll(body)
+	if err != nil {
+		t.Fatalf("failed to read body: %v", err)
+	}
+	if string(data) != "hello world" {
+		t.Errorf("body = %q, want %q", string(data), "hello world")
 	}
 }

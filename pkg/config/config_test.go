@@ -351,6 +351,52 @@ sections:
 	}
 }
 
+func TestResolveTemplate(t *testing.T) {
+	globalTmpl := &TemplateConfig{Name: "minimal"}
+	sectionTmpl := &TemplateConfig{Name: "detailed"}
+
+	tests := []struct {
+		name     string
+		cfg      *Config
+		section  Section
+		expected *TemplateConfig
+	}{
+		{
+			name:     "section override wins",
+			cfg:      &Config{Template: globalTmpl},
+			section:  Section{Template: sectionTmpl},
+			expected: sectionTmpl,
+		},
+		{
+			name:     "falls back to global",
+			cfg:      &Config{Template: globalTmpl},
+			section:  Section{},
+			expected: globalTmpl,
+		},
+		{
+			name:     "both nil returns nil",
+			cfg:      &Config{},
+			section:  Section{},
+			expected: nil,
+		},
+		{
+			name:     "section set global nil",
+			cfg:      &Config{},
+			section:  Section{Template: sectionTmpl},
+			expected: sectionTmpl,
+		},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			result := tt.cfg.ResolveTemplate(tt.section)
+			if result != tt.expected {
+				t.Errorf("ResolveTemplate() = %v, want %v", result, tt.expected)
+			}
+		})
+	}
+}
+
 func TestLoad_ComparisonDetailsDefault(t *testing.T) {
 	yaml := `output: "README.md"
 sections:

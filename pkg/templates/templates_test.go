@@ -393,10 +393,21 @@ func TestGetEmoji(t *testing.T) {
 		{"check text", "check", true, "[YES]"},
 		{"cross emoji", "cross", false, "\u274C"},
 		{"cross text", "cross", true, "[NO]"},
+		{"gear emoji", "gear", false, "\u2699\uFE0F "},
+		{"shield emoji", "shield", false, "\U0001F6E1\uFE0F "},
+		{"tag emoji", "tag", false, "\U0001F3F7\uFE0F "},
+		{"search emoji", "search", false, "\U0001F50D "},
+		{"down emoji", "down", false, "\U0001F447 "},
+		{"package emoji", "package", false, "\U0001F4E6 "},
+		{"critical emoji", "critical", false, "\U0001F6D1"},
 		{"critical text", "critical", true, "[CRIT]"},
+		{"high emoji", "high", false, "\U0001F7E0"},
 		{"high text", "high", true, "[HIGH]"},
+		{"medium emoji", "medium", false, "\U0001F7E1"},
 		{"medium text", "medium", true, "[MED]"},
+		{"low emoji", "low", false, "\U0001F535"},
 		{"low text", "low", true, "[LOW]"},
+		{"clean emoji", "clean", false, "\U0001F7E2"},
 		{"clean text", "clean", true, "[OK]"},
 		{"unknown emoji", "unknown", false, ""},
 		{"unknown text", "unknown", true, ""},
@@ -524,6 +535,48 @@ func TestLimitedWriter(t *testing.T) {
 	// Verify content from successful write
 	if w.String() != "hello" {
 		t.Errorf("String() = %q, want 'hello'", w.String())
+	}
+}
+
+func TestOutputExtension(t *testing.T) {
+	tests := []struct {
+		format   string
+		expected string
+	}{
+		{"markdown", ".md"},
+		{"html", ".html"},
+		{"json", ".json"},
+		{"", ".md"},
+		{"unknown", ".md"},
+	}
+	for _, tt := range tests {
+		t.Run(tt.format, func(t *testing.T) {
+			result := OutputExtension(tt.format)
+			if result != tt.expected {
+				t.Errorf("OutputExtension(%q) = %q, want %q", tt.format, result, tt.expected)
+			}
+		})
+	}
+}
+
+func TestIsDirectWriteFormat(t *testing.T) {
+	tests := []struct {
+		format   string
+		expected bool
+	}{
+		{"html", true},
+		{"json", true},
+		{"markdown", false},
+		{"", false},
+		{"md", false},
+	}
+	for _, tt := range tests {
+		t.Run(tt.format, func(t *testing.T) {
+			result := IsDirectWriteFormat(tt.format)
+			if result != tt.expected {
+				t.Errorf("IsDirectWriteFormat(%q) = %v, want %v", tt.format, result, tt.expected)
+			}
+		})
 	}
 }
 
