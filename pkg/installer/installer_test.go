@@ -343,8 +343,14 @@ func TestFindTool_InDockDocsDir(t *testing.T) {
 	// Override HOME so DefaultInstallDir() points to our temp dir
 	tmpHome := t.TempDir()
 	origHome := os.Getenv("HOME")
-	os.Setenv("HOME", tmpHome)
-	defer os.Setenv("HOME", origHome)
+	if err := os.Setenv("HOME", tmpHome); err != nil {
+		t.Fatalf("failed to set HOME: %v", err)
+	}
+	defer func() {
+		if err := os.Setenv("HOME", origHome); err != nil {
+			t.Errorf("failed to restore HOME: %v", err)
+		}
+	}()
 
 	// Create the fake binary in the expected dock-docs install path
 	binDir := filepath.Join(tmpHome, ".dock-docs", "bin")
@@ -374,8 +380,14 @@ func TestFindTool_DirectoryIgnored(t *testing.T) {
 	// A directory with the tool name should not be found
 	tmpHome := t.TempDir()
 	origHome := os.Getenv("HOME")
-	os.Setenv("HOME", tmpHome)
-	defer os.Setenv("HOME", origHome)
+	if err := os.Setenv("HOME", tmpHome); err != nil {
+		t.Fatalf("failed to set HOME: %v", err)
+	}
+	defer func() {
+		if err := os.Setenv("HOME", origHome); err != nil {
+			t.Errorf("failed to restore HOME: %v", err)
+		}
+	}()
 
 	binDir := filepath.Join(tmpHome, ".dock-docs", "bin")
 	if err := os.MkdirAll(binDir, 0755); err != nil {
