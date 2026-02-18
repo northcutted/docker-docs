@@ -50,7 +50,7 @@ If applicable, provide a minimal Dockerfile that reproduces the issue:
 
 ## Configuration File
 
-If using config mode, provide your `dock-docs.yaml`:
+If using YAML mode, provide your `dock-docs.yaml`:
 
 ```yaml
 # Paste config here (remove any sensitive data)

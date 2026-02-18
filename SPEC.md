@@ -270,9 +270,9 @@ Template Logic: Ensure the template handles empty lists gracefully (e.g., if the
 Here is the Markdown block for **Phase 8**. Append this to your `SPEC.md`.
 
 ```markdown
-## 8. Phase 6: Matrix Mode & Configuration
+## 8. Phase 6: Comparison Mode & Configuration
 
-**Objective:** Support multi-variant documentation (e.g., `python:3.12`, `python:3.13`, `python:alpine`) by introducing a configuration file and a "Tag Matrix" table.
+**Objective:** Support multi-variant documentation (e.g., `python:3.12`, `python:3.13`, `python:alpine`) by introducing a configuration file and a "Tag Comparison" table.
 **Architecture:**
 * **New Input:** `docker-docs.yaml` (replaces complex CLI flags).
 * **New Logic:** The "Manager" reads the config, runs runners in parallel for each image, and renders multiple templates into named markers.
@@ -287,23 +287,24 @@ output: "README.md"
 sections:
   # 1. Main Configuration (ENV/ARG)
   # Uses the local Dockerfile or a specific image as the "Source of Truth"
-  - type: "config"
-    marker: "main-config" # source: "Dockerfile"  # or image: "my-app:latest"
+  - type: "image"
+    marker: "main-config" # source: "Dockerfile"  # or tag: "my-app:latest"
 
-  # 2. Tag Matrix (Dynamic Stats)
+  # 2. Tag Comparison (Dynamic Stats)
   # Scans multiple images to create a comparison table
-  - type: "matrix"
-    marker: "tag-matrix" # images:
-      - "my-app:3.12"
-      - "my-app:3.13"
-      - "my-app:3.12-alpine"
-      - "my-app:3.13-alpine"
+  - type: "comparison"
+    marker: "tag-comparison"
+    images:
+      - tag: "my-app:3.12"
+      - tag: "my-app:3.13"
+      - tag: "my-app:3.12-alpine"
+      - tag: "my-app:3.13-alpine"
 
 ```
 
-### B. The "Tag Matrix" Renderer
+### B. The "Tag Comparison" Renderer
 
-Create a new template `pkg/renderer/templates/matrix.md` that renders a row for each image in the `matrix` section.
+Create a new template `pkg/renderer/templates/comparison.md` that renders a row for each image in the `comparison` section.
 
 **Template Logic:**
 
@@ -315,11 +316,11 @@ Create a new template `pkg/renderer/templates/matrix.md` that renders a row for 
 **Proposed Template:**
 
 ```markdown
-### 🏷️ Supported Tags
+### Supported Tags
 
 | Tag | Size | Vulns | Efficiency | OS/Arch |
 |-----|------|-------|------------|---------|
-{{- range .Matrix }}
+{{- range .Images }}
 | `{{ .Tag }}` | ![Size]({{ .Stats.SizeBadge }}) | ![Vulns]({{ .Stats.VulnBadge }}) | {{ .Stats.Efficiency }}% | {{ .Stats.OS }}/{{ .Stats.Architecture }} |
 {{- end }}
 

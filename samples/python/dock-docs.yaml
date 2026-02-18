@@ -1,14 +1,108 @@
 output: "README.md"
-sections:
-  - type: "config"
-    marker: "config"
-    source: "Dockerfile"
-    # We use a public image here for demonstration to ensure analysis works without local build
-    image: "python:3.14-slim" 
 
-  - type: "matrix"
-    marker: "comparison"
+sections:
+  # --- Markdown Templates: Image Sections ---
+  - type: "image"
+    marker: "default-image"
+    source: "Dockerfile"
+    tag: "python:3.14-slim"
+    template:
+      name: "default"
+
+  - type: "image"
+    marker: "minimal-image"
+    source: "Dockerfile"
+    tag: "python:3.14-slim"
+    template:
+      name: "minimal"
+
+  - type: "image"
+    marker: "detailed-image"
+    source: "Dockerfile"
+    tag: "python:3.14-slim"
+    template:
+      name: "detailed"
+
+  - type: "image"
+    marker: "compact-image"
+    source: "Dockerfile"
+    tag: "python:3.14-slim"
+    template:
+      name: "compact"
+
+  # --- Markdown Templates: Comparison Sections ---
+  - type: "comparison"
+    marker: "default-comparison"
+    source: "Dockerfile"
     images:
-      - "python:3.12-slim"
-      - "python:3.13-slim"
-      - "python:3.14-slim"
+      - tag: "python:3.12-slim"
+      - tag: "python:3.13-slim"
+      - tag: "python:3.14-slim"
+    template:
+      name: "default"
+
+  - type: "comparison"
+    marker: "minimal-comparison"
+    source: "Dockerfile"
+    images:
+      - tag: "python:3.12-slim"
+      - tag: "python:3.13-slim"
+      - tag: "python:3.14-slim"
+    template:
+      name: "minimal"
+
+  - type: "comparison"
+    marker: "detailed-comparison"
+    source: "Dockerfile"
+    images:
+      - tag: "python:3.12-slim"
+      - tag: "python:3.13-slim"
+      - tag: "python:3.14-slim"
+    template:
+      name: "detailed"
+
+  - type: "comparison"
+    marker: "compact-comparison"
+    source: "Dockerfile"
+    images:
+      - tag: "python:3.12-slim"
+      - tag: "python:3.13-slim"
+      - tag: "python:3.14-slim"
+    template:
+      name: "compact"
+
+  # --- HTML Templates (standalone files) ---
+  - type: "image"
+    marker: "html-image"
+    source: "Dockerfile"
+    tag: "python:3.14-slim"
+    template:
+      name: "html"
+
+  - type: "comparison"
+    marker: "html-comparison"
+    source: "Dockerfile"
+    images:
+      - tag: "python:3.12-slim"
+      - tag: "python:3.13-slim"
+      - tag: "python:3.14-slim"
+    template:
+      name: "html"
+
+  # --- JSON Templates (standalone files) ---
+  - type: "image"
+    marker: "json-image"
+    source: "Dockerfile"
+    tag: "python:3.14-slim"
+    template:
+      name: "json"
+
+  - type: "comparison"
+    marker: "json-comparison"
+    source: "Dockerfile"
+    images:
+      - tag: "python:3.12-slim"
+      - tag: "python:3.13-slim"
+      - tag: "python:3.14-slim"
+    template:
+      name: "json"

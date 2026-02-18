@@ -1,0 +1,7 @@
+### Supported Tags
+
+| Tag | Size | Vulns | Efficiency |
+|-----|------|-------|------------|
+{{- range .Images }}
+| `{{ .ImageTag }}` | {{ .SizeMB }} | {{ index .VulnSummary "Critical" }}C / {{ index .VulnSummary "High" }}H | {{ printf "%.1f" .Efficiency }}% |
+{{- end }}

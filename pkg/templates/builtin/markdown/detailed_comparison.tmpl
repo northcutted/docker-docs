@@ -1,0 +1,64 @@
+### {{ .Emoji "tag" }}Supported Tags
+
+| Tag | Size | Vulns | Efficiency | Architectures |
+|-----|------|-------|------------|---------------|
+{{- range .Images }}
+| `{{ .ImageTag }}` | ![Size]({{ .SizeBadge $.Options.BadgeBaseURL }}) | ![Vulns]({{ .VulnBadge $.Options.BadgeBaseURL }}) | {{ printf "%.1f" .Efficiency }}% | {{ if .SupportedArchitectures }}`{{ join .SupportedArchitectures ", " }}`{{ else }}`{{ .OS }}/{{ .Architecture }}`{{ end }} |
+{{- end }}
+
+---
+
+{{- range .Images }}
+
+## {{ $.Emoji "search" }}Full Report: {{ .ImageTag }}
+
+### Image Metadata
+
+| Property | Value |
+|----------|-------|
+| **Tag** | `{{ .ImageTag }}` |
+| **Base Image OS** | `{{ if .OSDistro }}{{ .OSDistro }}{{ else }}{{ .OS }}{{ end }}` |
+| **Architecture** | `{{ .Architecture }}` |
+| **OS** | `{{ .OS }}` |
+{{- if .SupportedArchitectures }}
+| **Supported Architectures** | `{{ join .SupportedArchitectures ", " }}` |
+{{- end }}
+| **Image Size** | {{ .SizeMB }} |
+| **Total Layers** | {{ .TotalLayers }} |
+| **Efficiency Score** | {{ printf "%.1f" .Efficiency }}% |
+| **Wasted Space** | {{ .WastedBytes }} |
+
+### Vulnerability Summary
+{{- if not .VulnScanTime.IsZero }}
+
+**Last scanned:** {{ .VulnScanTime.Format "2006-01-02T15:04:05Z07:00" }}
+{{- end }}
+
+| Critical | High | Medium | Low | Total |
+|:---:|:---:|:---:|:---:|:---:|
+| {{ if gt (index .VulnSummary "Critical") 0 }}{{ $.Emoji "critical" }} {{ else }}{{ $.Emoji "clean" }} {{ end }}{{ index .VulnSummary "Critical" }} | {{ if gt (index .VulnSummary "High") 0 }}{{ $.Emoji "high" }} {{ else }}{{ $.Emoji "clean" }} {{ end }}{{ index .VulnSummary "High" }} | {{ if gt (index .VulnSummary "Medium") 0 }}{{ $.Emoji "medium" }} {{ else }}{{ $.Emoji "clean" }} {{ end }}{{ index .VulnSummary "Medium" }} | {{ if gt (index .VulnSummary "Low") 0 }}{{ $.Emoji "low" }} {{ else }}{{ $.Emoji "clean" }} {{ end }}{{ index .VulnSummary "Low" }} | {{ .TotalVulns }} |
+
+### Vulnerability Details
+
+| ID | Severity | Package | Version |
+|----|----------|---------|---------|
+{{- range .Vulnerabilities }}
+| [{{ .ID }}](https://nvd.nist.gov/vuln/detail/{{ .ID }}) | {{ .Severity }} | `{{ .Package }}` | `{{ .Version }}` |
+{{- end }}
+{{- if not .Vulnerabilities }}
+| - | - | No vulnerabilities found | - |
+{{- end }}
+
+### Installed Packages ({{ .TotalPackages }} total)
+
+| Package | Version |
+|---------|---------|
+{{- range .Packages }}
+| {{ .Name }} | {{ .Version }} |
+{{- end }}
+{{- if not .Packages }}
+| - | No packages found |
+{{- end }}
+
+---
+{{- end }}

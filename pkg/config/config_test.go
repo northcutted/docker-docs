@@ -10,15 +10,15 @@ func TestLoad_ValidConfig(t *testing.T) {
 	validYAML := `output: "DOCS.md"
 badgeBaseURL: "https://custom-badges.example.com/static/v1"
 sections:
-  - type: "config"
+  - type: "image"
     marker: "main"
     source: "Dockerfile"
-    image: "myapp:latest"
-  - type: "matrix"
+    tag: "myapp:latest"
+  - type: "comparison"
     marker: "comparison"
     images:
-      - "alpine:3.18"
-      - "ubuntu:22.04"
+      - tag: "alpine:3.18"
+      - tag: "ubuntu:22.04"
 `
 
 	tmpDir := t.TempDir()
@@ -45,10 +45,10 @@ sections:
 		t.Fatalf("expected 2 sections, got %d", len(cfg.Sections))
 	}
 
-	// Test first section (config type)
+	// Test first section (image type)
 	section1 := cfg.Sections[0]
-	if section1.Type != SectionTypeConfig {
-		t.Errorf("Section[0].Type = %v, want %v", section1.Type, SectionTypeConfig)
+	if section1.Type != SectionTypeImage {
+		t.Errorf("Section[0].Type = %v, want %v", section1.Type, SectionTypeImage)
 	}
 	if section1.Marker != "main" {
 		t.Errorf("Section[0].Marker = %v, want main", section1.Marker)
@@ -56,32 +56,32 @@ sections:
 	if section1.Source != "Dockerfile" {
 		t.Errorf("Section[0].Source = %v, want Dockerfile", section1.Source)
 	}
-	if section1.Image != "myapp:latest" {
-		t.Errorf("Section[0].Image = %v, want myapp:latest", section1.Image)
+	if section1.Tag != "myapp:latest" {
+		t.Errorf("Section[0].Tag = %v, want myapp:latest", section1.Tag)
 	}
 
-	// Test second section (matrix type)
+	// Test second section (comparison type)
 	section2 := cfg.Sections[1]
-	if section2.Type != SectionTypeMatrix {
-		t.Errorf("Section[1].Type = %v, want %v", section2.Type, SectionTypeMatrix)
+	if section2.Type != SectionTypeComparison {
+		t.Errorf("Section[1].Type = %v, want %v", section2.Type, SectionTypeComparison)
 	}
 	if section2.Marker != "comparison" {
 		t.Errorf("Section[1].Marker = %v, want comparison", section2.Marker)
 	}
 	if len(section2.Images) != 2 {
-		t.Fatalf("expected 2 images in matrix, got %d", len(section2.Images))
+		t.Fatalf("expected 2 images in comparison, got %d", len(section2.Images))
 	}
-	if section2.Images[0] != "alpine:3.18" {
-		t.Errorf("Section[1].Images[0] = %v, want alpine:3.18", section2.Images[0])
+	if section2.Images[0].Tag != "alpine:3.18" {
+		t.Errorf("Section[1].Images[0].Tag = %v, want alpine:3.18", section2.Images[0].Tag)
 	}
-	if section2.Images[1] != "ubuntu:22.04" {
-		t.Errorf("Section[1].Images[1] = %v, want ubuntu:22.04", section2.Images[1])
+	if section2.Images[1].Tag != "ubuntu:22.04" {
+		t.Errorf("Section[1].Images[1].Tag = %v, want ubuntu:22.04", section2.Images[1].Tag)
 	}
 }
 
 func TestLoad_Defaults(t *testing.T) {
 	minimalYAML := `sections:
-  - type: "config"
+  - type: "image"
     marker: "main"
 `
 
@@ -117,7 +117,7 @@ func TestLoad_FileNotFound(t *testing.T) {
 func TestLoad_InvalidYAML(t *testing.T) {
 	invalidYAML := `output: "test.md"
 sections:
-  - type: config
+  - type: image
     marker: "main"
     invalid: [unclosed bracket
 `
@@ -183,22 +183,22 @@ func TestLoad_OnlyOutput(t *testing.T) {
 	}
 }
 
-func TestLoad_ComplexMatrixConfig(t *testing.T) {
+func TestLoad_ComplexComparisonConfig(t *testing.T) {
 	complexYAML := `output: "README.md"
 sections:
-  - type: "matrix"
+  - type: "comparison"
     marker: "versions"
     images:
-      - "python:3.10"
-      - "python:3.11"
-      - "python:3.12"
-      - "python:3.10-alpine"
-      - "python:3.11-alpine"
-      - "python:3.12-alpine"
+      - tag: "python:3.10"
+      - tag: "python:3.11"
+      - tag: "python:3.12"
+      - tag: "python:3.10-alpine"
+      - tag: "python:3.11-alpine"
+      - tag: "python:3.12-alpine"
 `
 
 	tmpDir := t.TempDir()
-	configPath := filepath.Join(tmpDir, "matrix.yaml")
+	configPath := filepath.Join(tmpDir, "comparison.yaml")
 	err := os.WriteFile(configPath, []byte(complexYAML), 0644)
 	if err != nil {
 		t.Fatalf("failed to write test config: %v", err)
@@ -214,8 +214,8 @@ sections:
 	}
 
 	section := cfg.Sections[0]
-	if section.Type != SectionTypeMatrix {
-		t.Errorf("Type = %v, want matrix", section.Type)
+	if section.Type != SectionTypeComparison {
+		t.Errorf("Type = %v, want comparison", section.Type)
 	}
 
 	if len(section.Images) != 6 {
@@ -223,25 +223,25 @@ sections:
 	}
 }
 
-func TestLoad_MultipleConfigSections(t *testing.T) {
-	multipleConfigsYAML := `output: "README.md"
+func TestLoad_MultipleImageSections(t *testing.T) {
+	multipleImagesYAML := `output: "README.md"
 sections:
-  - type: "config"
+  - type: "image"
     marker: "production"
     source: "Dockerfile.prod"
-    image: "myapp:prod"
-  - type: "config"
+    tag: "myapp:prod"
+  - type: "image"
     marker: "development"
     source: "Dockerfile.dev"
-    image: "myapp:dev"
-  - type: "config"
+    tag: "myapp:dev"
+  - type: "image"
     marker: "testing"
     source: "Dockerfile.test"
 `
 
 	tmpDir := t.TempDir()
-	configPath := filepath.Join(tmpDir, "multi-config.yaml")
-	err := os.WriteFile(configPath, []byte(multipleConfigsYAML), 0644)
+	configPath := filepath.Join(tmpDir, "multi-image.yaml")
+	err := os.WriteFile(configPath, []byte(multipleImagesYAML), 0644)
 	if err != nil {
 		t.Fatalf("failed to write test config: %v", err)
 	}
@@ -258,11 +258,11 @@ sections:
 	// Verify each section
 	expectedMarkers := []string{"production", "development", "testing"}
 	expectedSources := []string{"Dockerfile.prod", "Dockerfile.dev", "Dockerfile.test"}
-	expectedImages := []string{"myapp:prod", "myapp:dev", ""}
+	expectedTags := []string{"myapp:prod", "myapp:dev", ""}
 
 	for i, section := range cfg.Sections {
-		if section.Type != SectionTypeConfig {
-			t.Errorf("Section[%d].Type = %v, want config", i, section.Type)
+		if section.Type != SectionTypeImage {
+			t.Errorf("Section[%d].Type = %v, want image", i, section.Type)
 		}
 		if section.Marker != expectedMarkers[i] {
 			t.Errorf("Section[%d].Marker = %v, want %v", i, section.Marker, expectedMarkers[i])
@@ -270,18 +270,110 @@ sections:
 		if section.Source != expectedSources[i] {
 			t.Errorf("Section[%d].Source = %v, want %v", i, section.Source, expectedSources[i])
 		}
-		if section.Image != expectedImages[i] {
-			t.Errorf("Section[%d].Image = %v, want %v", i, section.Image, expectedImages[i])
+		if section.Tag != expectedTags[i] {
+			t.Errorf("Section[%d].Tag = %v, want %v", i, section.Tag, expectedTags[i])
 		}
 	}
 }
 
 func TestSectionType_Constants(t *testing.T) {
-	if SectionTypeConfig != "config" {
-		t.Errorf("SectionTypeConfig = %v, want 'config'", SectionTypeConfig)
+	if SectionTypeImage != "image" {
+		t.Errorf("SectionTypeImage = %v, want 'image'", SectionTypeImage)
 	}
 
-	if SectionTypeMatrix != "matrix" {
-		t.Errorf("SectionTypeMatrix = %v, want 'matrix'", SectionTypeMatrix)
+	if SectionTypeComparison != "comparison" {
+		t.Errorf("SectionTypeComparison = %v, want 'comparison'", SectionTypeComparison)
+	}
+}
+
+func TestLoad_ComparisonWithSharedSource(t *testing.T) {
+	yaml := `output: "README.md"
+sections:
+  - type: "comparison"
+    marker: "compare"
+    source: "Dockerfile"
+    details: true
+    images:
+      - tag: "myapp:dev"
+      - source: "Dockerfile.prod"
+        tag: "myapp:prod"
+      - tag: "myapp:staging"
+`
+
+	tmpDir := t.TempDir()
+	configPath := filepath.Join(tmpDir, "shared-source.yaml")
+	err := os.WriteFile(configPath, []byte(yaml), 0644)
+	if err != nil {
+		t.Fatalf("failed to write test config: %v", err)
+	}
+
+	cfg, err := Load(configPath)
+	if err != nil {
+		t.Fatalf("Load() error = %v", err)
+	}
+
+	section := cfg.Sections[0]
+	if section.Source != "Dockerfile" {
+		t.Errorf("Section.Source = %v, want Dockerfile", section.Source)
+	}
+	if !section.Details {
+		t.Error("Section.Details = false, want true")
+	}
+
+	// Test ResolvedImages
+	resolved := section.ResolvedImages()
+	if len(resolved) != 3 {
+		t.Fatalf("expected 3 resolved images, got %d", len(resolved))
+	}
+
+	// First image: inherits shared source
+	if resolved[0].Source != "Dockerfile" {
+		t.Errorf("resolved[0].Source = %v, want Dockerfile (inherited)", resolved[0].Source)
+	}
+	if resolved[0].Tag != "myapp:dev" {
+		t.Errorf("resolved[0].Tag = %v, want myapp:dev", resolved[0].Tag)
+	}
+
+	// Second image: overrides shared source
+	if resolved[1].Source != "Dockerfile.prod" {
+		t.Errorf("resolved[1].Source = %v, want Dockerfile.prod (override)", resolved[1].Source)
+	}
+	if resolved[1].Tag != "myapp:prod" {
+		t.Errorf("resolved[1].Tag = %v, want myapp:prod", resolved[1].Tag)
+	}
+
+	// Third image: inherits shared source
+	if resolved[2].Source != "Dockerfile" {
+		t.Errorf("resolved[2].Source = %v, want Dockerfile (inherited)", resolved[2].Source)
+	}
+	if resolved[2].Tag != "myapp:staging" {
+		t.Errorf("resolved[2].Tag = %v, want myapp:staging", resolved[2].Tag)
+	}
+}
+
+func TestLoad_ComparisonDetailsDefault(t *testing.T) {
+	yaml := `output: "README.md"
+sections:
+  - type: "comparison"
+    marker: "compare"
+    images:
+      - tag: "myapp:v1"
+`
+
+	tmpDir := t.TempDir()
+	configPath := filepath.Join(tmpDir, "details-default.yaml")
+	err := os.WriteFile(configPath, []byte(yaml), 0644)
+	if err != nil {
+		t.Fatalf("failed to write test config: %v", err)
+	}
+
+	cfg, err := Load(configPath)
+	if err != nil {
+		t.Fatalf("Load() error = %v", err)
+	}
+
+	section := cfg.Sections[0]
+	if section.Details {
+		t.Error("Section.Details should default to false")
 	}
 }

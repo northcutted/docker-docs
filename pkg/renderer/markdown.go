@@ -1,20 +1,43 @@
 package renderer
 
 import (
-	"bytes"
-	"strings"
+	"fmt"
 	"text/template"
 
 	"github.com/northcutted/dock-docs/pkg/parser"
+	"github.com/northcutted/dock-docs/pkg/templates"
 	"github.com/northcutted/dock-docs/pkg/types"
 )
 
+// RenderOptions configures rendering behavior.
 type RenderOptions struct {
 	NoMoji       bool
 	BadgeBaseURL string
 }
 
-// ReportContext holds all data passed to the template
+// TemplateSelection specifies which template to use.
+// If both Name and Path are empty, the "default" built-in is used.
+type TemplateSelection struct {
+	// Name is a built-in template name (e.g., "default", "minimal", "detailed", "compact", "html", "json").
+	Name string
+	// Path is the file path to a custom template (overrides Name).
+	Path string
+}
+
+// Format returns the output format for this template selection.
+// Returns "markdown", "html", or "json". Custom file templates default to "markdown".
+func (s TemplateSelection) Format() string {
+	if s.Path != "" {
+		return "markdown" // custom templates default to markdown
+	}
+	name := s.Name
+	if name == "" {
+		name = "default"
+	}
+	return templates.FormatForTemplate(name)
+}
+
+// ReportContext holds all data passed to the image template.
 type ReportContext struct {
 	Doc      *parser.Documentation
 	Stats    *types.ImageStats
@@ -22,7 +45,19 @@ type ReportContext struct {
 	Options  RenderOptions
 }
 
+// Emoji returns the emoji or text alternative for the given name.
 func (r ReportContext) Emoji(name string) string {
+	return getEmoji(name, r.Options.NoMoji)
+}
+
+// ComparisonContext holds all data passed to the comparison template.
+type ComparisonContext struct {
+	Images  []*types.ImageStats
+	Options RenderOptions
+}
+
+// Emoji returns the emoji or text alternative for the given name.
+func (r ComparisonContext) Emoji(name string) string {
 	return getEmoji(name, r.Options.NoMoji)
 }
 
@@ -82,107 +117,17 @@ func getEmoji(name string, noMoji bool) string {
 	}
 }
 
-const defaultTemplate = `
-# {{ .Emoji "whale" }}Docker Image Analysis: {{ .ImageTag }}
-
-{{- if .Stats }}
-![Size]({{ .Stats.SizeBadge $.Options.BadgeBaseURL }}) ![Layers]({{ .Stats.LayersBadge $.Options.BadgeBaseURL }}) ![Vulns]({{ .Stats.VulnBadge $.Options.BadgeBaseURL }}) ![Efficiency]({{ .Stats.EfficiencyBadge $.Options.BadgeBaseURL }})
-{{- end }}
-
-## {{ .Emoji "gear" }}Configuration
-
-{{- if (len (.Doc.FilterByType "ENV")) }}
-### Environment Variables
-| Name | Description | Default | Required |
-|------|-------------|---------|:--------:|
-{{- range (.Doc.FilterByType "ENV") }}
-| ` + "`{{ .Name }}`" + ` | {{ .Description }} | ` + "`{{ if .Value }}{{ .Value }}{{ else }}\"\"{{ end }}`" + ` | {{ if .Required }}{{ $.Emoji "check" }}{{ else }}{{ $.Emoji "cross" }}{{ end }} |
-{{- end }}
-{{- end }}
-
-{{- if (len (.Doc.FilterByType "ARG")) }}
-### Build Arguments
-| Name | Description | Default | Required |
-|------|-------------|---------|:--------:|
-{{- range (.Doc.FilterByType "ARG") }}
-| ` + "`{{ .Name }}`" + ` | {{ .Description }} | ` + "`{{ .Value }}`" + ` | {{ if .Required }}{{ $.Emoji "check" }}{{ else }}{{ $.Emoji "cross" }}{{ end }} |
-{{- end }}
-{{- end }}
-
-{{- if (len (.Doc.FilterByType "EXPOSE")) }}
-### Exposed Ports
-| Port | Description |
-|------|-------------|
-{{- range (.Doc.FilterByType "EXPOSE") }}
-| ` + "`{{ .Name }}`" + ` | {{ .Description }} |
-{{- end }}
-{{- end }}
-
-{{- if (len (.Doc.FilterByType "LABEL")) }}
-### Labels
-| Key | Value |
-|-----|-------|
-{{- range (.Doc.FilterByType "LABEL") }}
-| ` + "`{{ .Name }}`" + ` | {{ .Value }} |
-{{- end }}
-{{- end }}
-
-{{- if .Stats }}
----
-
-## {{ .Emoji "shield" }}Security & Efficiency
-
-**Base Image:** ` + "`{{ if .Stats.OSDistro }}{{ .Stats.OSDistro }} ({{ .Stats.OS }}/{{ .Stats.Architecture }}){{ else }}{{ .Stats.OS }} ({{ .Stats.Architecture }}){{ end }}`" + `
-{{- if .Stats.SupportedArchitectures }}
-**Supported Architectures:** ` + "`{{ join .Stats.SupportedArchitectures \", \" }}`" + `
-{{- end }}
-**Efficiency Score:** {{ printf "%.1f" .Stats.Efficiency }}%
-
-### Vulnerabilities
-{{- if not .Stats.VulnScanTime.IsZero }}
-**Last scanned:** {{ .Stats.VulnScanTime.Format "2006-01-02T15:04:05Z07:00" }}
-{{- end }}
-
-| Critical | High | Medium | Low |
-|:---:|:---:|:---:|:---:|
-| {{ if gt (index .Stats.VulnSummary "Critical") 0 }}{{ .Emoji "critical" }} {{ else }}{{ .Emoji "clean" }} {{ end }}{{ index .Stats.VulnSummary "Critical" }} | {{ if gt (index .Stats.VulnSummary "High") 0 }}{{ .Emoji "high" }} {{ else }}{{ .Emoji "clean" }} {{ end }}{{ index .Stats.VulnSummary "High" }} | {{ if gt (index .Stats.VulnSummary "Medium") 0 }}{{ .Emoji "medium" }} {{ else }}{{ .Emoji "clean" }} {{ end }}{{ index .Stats.VulnSummary "Medium" }} | {{ if gt (index .Stats.VulnSummary "Low") 0 }}{{ .Emoji "low" }} {{ else }}{{ .Emoji "clean" }} {{ end }}{{ index .Stats.VulnSummary "Low" }} |
-
-<details>
-<summary><strong>{{ .Emoji "down" }}Expand Vulnerability Details ({{ .Stats.TotalVulns }} found)</strong></summary>
-
-| ID | Severity | Package | Version |
-|----|----------|---------|---------|
-{{- range .Stats.Vulnerabilities }}
-| [{{ .ID }}](https://nvd.nist.gov/vuln/detail/{{ .ID }}) | {{ .Severity }} | ` + "`{{ .Package }}`" + ` | ` + "`{{ .Version }}`" + ` |
-{{- end }}
-</details>
-
-<details>
-<summary><strong>{{ .Emoji "package" }}Installed Packages ({{ .Stats.TotalPackages }} total)</strong></summary>
-
-| Package | Version |
-|---------|---------|
-{{- range .Stats.Packages }}
-| {{ .Name }} | {{ .Version }} |
-{{- end }}
-</details>
-{{- end }}
-`
-
-// Render generates the Markdown table from documentation items.
+// Render generates documentation using the default built-in template.
+// This is the backward-compatible entry point.
 func Render(doc *parser.Documentation, stats *types.ImageStats, opts RenderOptions) (string, error) {
-	tmpl, err := template.New("dock-docs").Funcs(template.FuncMap{
-		"index": func(m map[string]int, k string) int {
-			if v, ok := m[k]; ok {
-				return v
-			}
-			return 0
-		},
-		"join": strings.Join,
-	}).Parse(defaultTemplate)
+	return RenderWithTemplate(doc, stats, opts, TemplateSelection{Name: "default"})
+}
 
+// RenderWithTemplate generates documentation using the specified template.
+func RenderWithTemplate(doc *parser.Documentation, stats *types.ImageStats, opts RenderOptions, sel TemplateSelection) (string, error) {
+	tmpl, err := resolveTemplate(sel, templates.TemplateTypeImage, opts.NoMoji)
 	if err != nil {
-		return "", err
+		return "", fmt.Errorf("failed to load template: %w", err)
 	}
 
 	ctx := ReportContext{
@@ -193,108 +138,56 @@ func Render(doc *parser.Documentation, stats *types.ImageStats, opts RenderOptio
 	if stats != nil {
 		ctx.ImageTag = stats.ImageTag
 	} else {
-		// Fallback if no stats provided
 		if ctx.ImageTag == "" {
 			ctx.ImageTag = "Dockerfile"
 		}
 	}
 
-	var buf bytes.Buffer
-	if err := tmpl.Execute(&buf, ctx); err != nil {
-		return "", err
-	}
-
-	return buf.String(), nil
+	sec := templates.DefaultSecurityConfig()
+	return templates.ExecuteWithLimits(tmpl, ctx, sec)
 }
 
-type MatrixContext struct {
-	Matrix  []*types.ImageStats
-	Options RenderOptions
+// RenderComparison generates the comparison table using the default built-in template.
+// This is the backward-compatible entry point.
+func RenderComparison(stats []*types.ImageStats, opts RenderOptions) (string, error) {
+	return RenderComparisonWithTemplate(stats, opts, TemplateSelection{Name: "default"})
 }
 
-func (r MatrixContext) Emoji(name string) string {
-	return getEmoji(name, r.Options.NoMoji)
-}
-
-const matrixTemplate = `
-### {{ .Emoji "tag" }}Supported Tags
-
-| Tag | Size | Vulns | Efficiency | Architectures |
-|-----|------|-------|------------|---------------|
-{{- range .Matrix }}
-| ` + "`{{ .ImageTag }}`" + ` | ![Size]({{ .SizeBadge $.Options.BadgeBaseURL }}) | ![Vulns]({{ .VulnBadge $.Options.BadgeBaseURL }}) | {{ printf "%.1f" .Efficiency }}% | {{ if .SupportedArchitectures }}` + "`{{ join .SupportedArchitectures \", \" }}`" + `{{ else }}` + "`{{ .OS }}/{{ .Architecture }}`" + `{{ end }} |
-{{- end }}
-
-{{- range .Matrix }}
-
-<details>
-<summary><strong>{{ $.Emoji "search" }}Full Report: {{ .ImageTag }}</strong></summary>
-
-## {{ $.Emoji "shield" }}Security & Efficiency
-
-**Base Image:** ` + "`{{ if .OSDistro }}{{ .OSDistro }} ({{ .OS }}/{{ .Architecture }}){{ else }}{{ .OS }} ({{ .Architecture }}){{ end }}`" + `
-{{- if .SupportedArchitectures }}
-**Supported Architectures:** ` + "`{{ join .SupportedArchitectures \", \" }}`" + `
-{{- end }}
-**Efficiency Score:** {{ printf "%.1f" .Efficiency }}%
-
-### Vulnerabilities
-{{- if not .VulnScanTime.IsZero }}
-**Last scanned:** {{ .VulnScanTime.Format "2006-01-02T15:04:05Z07:00" }}
-{{- end }}
-
-| Critical | High | Medium | Low |
-|:---:|:---:|:---:|:---:|
-| {{ if gt (index .VulnSummary "Critical") 0 }}{{ $.Emoji "critical" }} {{ else }}{{ $.Emoji "clean" }} {{ end }}{{ index .VulnSummary "Critical" }} | {{ if gt (index .VulnSummary "High") 0 }}{{ $.Emoji "high" }} {{ else }}{{ $.Emoji "clean" }} {{ end }}{{ index .VulnSummary "High" }} | {{ if gt (index .VulnSummary "Medium") 0 }}{{ $.Emoji "medium" }} {{ else }}{{ $.Emoji "clean" }} {{ end }}{{ index .VulnSummary "Medium" }} | {{ if gt (index .VulnSummary "Low") 0 }}{{ $.Emoji "low" }} {{ else }}{{ $.Emoji "clean" }} {{ end }}{{ index .VulnSummary "Low" }} |
-
-<details>
-<summary><strong>{{ $.Emoji "down" }}Expand Vulnerability Details ({{ .TotalVulns }} found)</strong></summary>
-
-| ID | Severity | Package | Version |
-|----|----------|---------|---------|
-{{- range .Vulnerabilities }}
-| [{{ .ID }}](https://nvd.nist.gov/vuln/detail/{{ .ID }}) | {{ .Severity }} | ` + "`{{ .Package }}`" + ` | ` + "`{{ .Version }}`" + ` |
-{{- end }}
-</details>
-
-<details>
-<summary><strong>{{ $.Emoji "package" }}Installed Packages ({{ .TotalPackages }} total)</strong></summary>
-
-| Package | Version |
-|---------|---------|
-{{- range .Packages }}
-| {{ .Name }} | {{ .Version }} |
-{{- end }}
-</details>
-
-</details>
-{{- end }}
-`
-
-// RenderMatrix generates the comparison table for multiple images.
-func RenderMatrix(stats []*types.ImageStats, opts RenderOptions) (string, error) {
-	tmpl, err := template.New("dock-docs-matrix").Funcs(template.FuncMap{
-		"index": func(m map[string]int, k string) int {
-			if v, ok := m[k]; ok {
-				return v
-			}
-			return 0
-		},
-		"join": strings.Join,
-	}).Parse(matrixTemplate)
+// RenderComparisonWithTemplate generates the comparison table using the specified template.
+func RenderComparisonWithTemplate(stats []*types.ImageStats, opts RenderOptions, sel TemplateSelection) (string, error) {
+	tmpl, err := resolveTemplate(sel, templates.TemplateTypeComparison, opts.NoMoji)
 	if err != nil {
-		return "", err
+		return "", fmt.Errorf("failed to load template: %w", err)
 	}
 
-	ctx := MatrixContext{
-		Matrix:  stats,
+	ctx := ComparisonContext{
+		Images:  stats,
 		Options: opts,
 	}
 
-	var buf bytes.Buffer
-	if err := tmpl.Execute(&buf, ctx); err != nil {
-		return "", err
+	sec := templates.DefaultSecurityConfig()
+	return templates.ExecuteWithLimits(tmpl, ctx, sec)
+}
+
+// resolveTemplate loads the appropriate template based on the selection.
+func resolveTemplate(sel TemplateSelection, tmplType templates.TemplateType, noMoji bool) (*template.Template, error) {
+	loader := templates.NewLoader(noMoji)
+
+	// Custom file path takes precedence
+	if sel.Path != "" {
+		return loader.LoadFile(sel.Path)
 	}
 
-	return buf.String(), nil
+	// Built-in template by name
+	name := sel.Name
+	if name == "" {
+		name = "default"
+	}
+
+	// Check if it's a built-in name
+	if !templates.IsBuiltin(name) {
+		return nil, fmt.Errorf("unknown template %q: not a built-in template name or file path", name)
+	}
+
+	return loader.LoadBuiltin(name, tmplType)
 }

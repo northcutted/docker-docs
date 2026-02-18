@@ -17,8 +17,8 @@ type Runner interface {
 	Run(image string, verbose bool) (*types.ImageStats, error)
 }
 
-// AnalyzeMatrix runs analysis on multiple images in parallel.
-func AnalyzeMatrix(images []string, runners []Runner, verbose bool) ([]*types.ImageStats, error) {
+// AnalyzeComparison runs analysis on multiple images in parallel.
+func AnalyzeComparison(images []string, runners []Runner, verbose bool) ([]*types.ImageStats, error) {
 	var g errgroup.Group
 
 	// Create a slice to hold results
@@ -31,7 +31,7 @@ func AnalyzeMatrix(images []string, runners []Runner, verbose bool) ([]*types.Im
 			// Run analysis for this image
 			stats, err := AnalyzeImage(img, runners, verbose)
 			if err != nil {
-				fmt.Printf("Matrix Analysis Failed for %s: %v\n", img, err)
+				fmt.Printf("Comparison Analysis Failed for %s: %v\n", img, err)
 				if stats != nil {
 					results[i] = stats
 				}

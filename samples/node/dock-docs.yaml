@@ -1,13 +1,102 @@
 output: "README.md"
-sections:
-  - type: "config"
-    marker: "config"
-    source: "Dockerfile"
-    # Analyzing public node image to demonstrate capabilities
-    image: "node:24"
 
-  - type: "matrix"
-    marker: "comparison"
+sections:
+  # --- Markdown Templates: Image Sections ---
+  - type: "image"
+    marker: "default-image"
+    source: "Dockerfile"
+    tag: "node:24"
+    template:
+      name: "default"
+
+  - type: "image"
+    marker: "minimal-image"
+    source: "Dockerfile"
+    tag: "node:24"
+    template:
+      name: "minimal"
+
+  - type: "image"
+    marker: "detailed-image"
+    source: "Dockerfile"
+    tag: "node:24"
+    template:
+      name: "detailed"
+
+  - type: "image"
+    marker: "compact-image"
+    source: "Dockerfile"
+    tag: "node:24"
+    template:
+      name: "compact"
+
+  # --- Markdown Templates: Comparison Sections ---
+  - type: "comparison"
+    marker: "default-comparison"
+    source: "Dockerfile"
     images:
-      - "node:22-alpine"
-      - "node:24-alpine"
+      - tag: "node:22-alpine"
+      - tag: "node:24-alpine"
+    template:
+      name: "default"
+
+  - type: "comparison"
+    marker: "minimal-comparison"
+    source: "Dockerfile"
+    images:
+      - tag: "node:22-alpine"
+      - tag: "node:24-alpine"
+    template:
+      name: "minimal"
+
+  - type: "comparison"
+    marker: "detailed-comparison"
+    source: "Dockerfile"
+    images:
+      - tag: "node:22-alpine"
+      - tag: "node:24-alpine"
+    template:
+      name: "detailed"
+
+  - type: "comparison"
+    marker: "compact-comparison"
+    source: "Dockerfile"
+    images:
+      - tag: "node:22-alpine"
+      - tag: "node:24-alpine"
+    template:
+      name: "compact"
+
+  # --- HTML Templates (standalone files) ---
+  - type: "image"
+    marker: "html-image"
+    source: "Dockerfile"
+    tag: "node:24"
+    template:
+      name: "html"
+
+  - type: "comparison"
+    marker: "html-comparison"
+    source: "Dockerfile"
+    images:
+      - tag: "node:22-alpine"
+      - tag: "node:24-alpine"
+    template:
+      name: "html"
+
+  # --- JSON Templates (standalone files) ---
+  - type: "image"
+    marker: "json-image"
+    source: "Dockerfile"
+    tag: "node:24"
+    template:
+      name: "json"
+
+  - type: "comparison"
+    marker: "json-comparison"
+    source: "Dockerfile"
+    images:
+      - tag: "node:22-alpine"
+      - tag: "node:24-alpine"
+    template:
+      name: "json"

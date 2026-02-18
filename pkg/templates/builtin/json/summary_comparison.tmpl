@@ -1,0 +1,53 @@
+{
+  "comparison": {
+    "image_count": {{ len .Images }},
+    "images": [
+      {{- range $i, $img := .Images }}
+      {{ if $i }},{{ end }}{
+        "tag": "{{ $img.ImageTag }}",
+        "architecture": "{{ $img.Architecture }}",
+        "os": "{{ $img.OS }}",
+        "os_distro": "{{ $img.OSDistro }}",
+        "supported_architectures": [
+          {{- range $j, $arch := $img.SupportedArchitectures }}
+          {{ if $j }},{{ end }}"{{ $arch }}"
+          {{- end }}
+        ],
+        "size_mb": "{{ $img.SizeMB }}",
+        "total_layers": {{ $img.TotalLayers }},
+        "efficiency": {{ printf "%.2f" $img.Efficiency }},
+        "wasted_bytes": "{{ $img.WastedBytes }}",
+        "total_packages": {{ $img.TotalPackages }},
+        "security": {
+          "scan_time": "{{ $img.VulnScanTime.Format "2006-01-02T15:04:05Z07:00" }}",
+          "summary": {
+            "critical": {{ index $img.VulnSummary "Critical" }},
+            "high": {{ index $img.VulnSummary "High" }},
+            "medium": {{ index $img.VulnSummary "Medium" }},
+            "low": {{ index $img.VulnSummary "Low" }},
+            "total": {{ $img.TotalVulns }}
+          },
+          "vulnerabilities": [
+            {{- range $k, $vuln := $img.Vulnerabilities }}
+            {{ if $k }},{{ end }}{
+              "id": "{{ $vuln.ID }}",
+              "severity": "{{ $vuln.Severity }}",
+              "package": "{{ $vuln.Package }}",
+              "version": "{{ $vuln.Version }}"
+            }
+            {{- end }}
+          ]
+        },
+        "packages": [
+          {{- range $k, $pkg := $img.Packages }}
+          {{ if $k }},{{ end }}{
+            "name": "{{ $pkg.Name }}",
+            "version": "{{ $pkg.Version }}"
+          }
+          {{- end }}
+        ]
+      }
+      {{- end }}
+    ]
+  }
+}

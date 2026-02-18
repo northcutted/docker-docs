@@ -13,7 +13,7 @@ inputs:
   
   # --- Configuration Inputs ---
   config:
-    description: 'Path to configuration file. Enables Config Mode if present.'
+    description: 'Path to configuration file. Enables YAML Mode if present.'
     default: 'dock-docs.yaml'
     required: false
   output:
@@ -39,12 +39,12 @@ inputs:
     default: 'false'
     required: false
 
-  # --- Simple Mode Inputs (Mutually exclusive with config usually) ---
+  # --- CLI Mode Inputs (Mutually exclusive with config usually) ---
   file:
-    description: 'Path to Dockerfile (Simple Mode only).'
+    description: 'Path to Dockerfile (CLI Mode only).'
     required: false
   image:
-    description: 'Docker image tag to analyze (Simple Mode only).'
+    description: 'Docker image tag to analyze (CLI Mode only).'
     required: false
 
 runs:
@@ -120,12 +120,12 @@ runs:
         # Always add output
         CMD_ARGS+=("--output" "${{ inputs.output }}")
 
-        # Config Mode: Only add if input is not empty
+        # YAML Mode: Only add if input is not empty
         if [ -n "${{ inputs.config }}" ]; then
           CMD_ARGS+=("--config" "${{ inputs.config }}")
         fi
 
-        # Simple Mode: File and Image (only if provided)
+        # CLI Mode: File and Image (only if provided)
         if [ -n "${{ inputs.file }}" ]; then
           CMD_ARGS+=("--file" "${{ inputs.file }}")
         fi

@@ -7,8 +7,8 @@ import (
 	"github.com/northcutted/dock-docs/pkg/types"
 )
 
-func TestRenderMatrix(t *testing.T) {
-	matrixStats := []*types.ImageStats{
+func TestRenderComparison(t *testing.T) {
+	comparisonStats := []*types.ImageStats{
 		{
 			ImageTag:     "app:v1",
 			SizeMB:       "100 MB",
@@ -46,9 +46,9 @@ func TestRenderMatrix(t *testing.T) {
 		},
 	}
 
-	output, err := RenderMatrix(matrixStats, RenderOptions{})
+	output, err := RenderComparison(comparisonStats, RenderOptions{})
 	if err != nil {
-		t.Fatalf("RenderMatrix() error = %v", err)
+		t.Fatalf("RenderComparison() error = %v", err)
 	}
 
 	// 1. Check for the Summary Table

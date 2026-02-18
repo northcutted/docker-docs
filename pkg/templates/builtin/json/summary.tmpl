@@ -1,0 +1,88 @@
+{
+  "image": "{{ .ImageTag }}",
+  "configuration": {
+    "environment_variables": [
+      {{- $envItems := (.Doc.FilterByType "ENV") }}
+      {{- range $i, $item := $envItems }}
+      {{ if $i }},{{ end }}{
+        "name": "{{ $item.Name }}",
+        "description": "{{ jsonEscape $item.Description }}",
+        "default": "{{ jsonEscape $item.Value }}",
+        "required": {{ $item.Required }}
+      }
+      {{- end }}
+    ],
+    "build_arguments": [
+      {{- $argItems := (.Doc.FilterByType "ARG") }}
+      {{- range $i, $item := $argItems }}
+      {{ if $i }},{{ end }}{
+        "name": "{{ $item.Name }}",
+        "description": "{{ jsonEscape $item.Description }}",
+        "default": "{{ jsonEscape $item.Value }}",
+        "required": {{ $item.Required }}
+      }
+      {{- end }}
+    ],
+    "exposed_ports": [
+      {{- $portItems := (.Doc.FilterByType "EXPOSE") }}
+      {{- range $i, $item := $portItems }}
+      {{ if $i }},{{ end }}{
+        "port": "{{ $item.Name }}",
+        "description": "{{ jsonEscape $item.Description }}"
+      }
+      {{- end }}
+    ],
+    "labels": [
+      {{- $labelItems := (.Doc.FilterByType "LABEL") }}
+      {{- range $i, $item := $labelItems }}
+      {{ if $i }},{{ end }}{
+        "key": "{{ $item.Name }}",
+        "value": "{{ jsonEscape $item.Value }}"
+      }
+      {{- end }}
+    ]
+  }{{ if .Stats }},
+  "analysis": {
+    "architecture": "{{ .Stats.Architecture }}",
+    "os": "{{ .Stats.OS }}",
+    "os_distro": "{{ .Stats.OSDistro }}",
+    "supported_architectures": [
+      {{- range $i, $arch := .Stats.SupportedArchitectures }}
+      {{ if $i }},{{ end }}"{{ $arch }}"
+      {{- end }}
+    ],
+    "size_mb": "{{ .Stats.SizeMB }}",
+    "total_layers": {{ .Stats.TotalLayers }},
+    "efficiency": {{ printf "%.2f" .Stats.Efficiency }},
+    "wasted_bytes": "{{ .Stats.WastedBytes }}",
+    "total_packages": {{ .Stats.TotalPackages }},
+    "security": {
+      "scan_time": "{{ .Stats.VulnScanTime.Format "2006-01-02T15:04:05Z07:00" }}",
+      "summary": {
+        "critical": {{ index .Stats.VulnSummary "Critical" }},
+        "high": {{ index .Stats.VulnSummary "High" }},
+        "medium": {{ index .Stats.VulnSummary "Medium" }},
+        "low": {{ index .Stats.VulnSummary "Low" }},
+        "total": {{ .Stats.TotalVulns }}
+      },
+      "vulnerabilities": [
+        {{- range $i, $vuln := .Stats.Vulnerabilities }}
+        {{ if $i }},{{ end }}{
+          "id": "{{ $vuln.ID }}",
+          "severity": "{{ $vuln.Severity }}",
+          "package": "{{ $vuln.Package }}",
+          "version": "{{ $vuln.Version }}"
+        }
+        {{- end }}
+      ]
+    },
+    "packages": [
+      {{- range $i, $pkg := .Stats.Packages }}
+      {{ if $i }},{{ end }}{
+        "name": "{{ $pkg.Name }}",
+        "version": "{{ $pkg.Version }}"
+      }
+      {{- end }}
+    ]
+  }{{ end }}
+}
