@@ -1,0 +1,85 @@
+
+# {{ .Emoji "whale" }}Docker Image Analysis: {{ .ImageTag }}
+
+{{- if .Stats }}
+![Size]({{ .Stats.SizeBadge $.Options.BadgeBaseURL }}) ![Layers]({{ .Stats.LayersBadge $.Options.BadgeBaseURL }}) ![Vulns]({{ .Stats.VulnBadge $.Options.BadgeBaseURL }}) ![Efficiency]({{ .Stats.EfficiencyBadge $.Options.BadgeBaseURL }})
+{{- end }}
+
+## {{ .Emoji "gear" }}Configuration
+
+{{- if (len (.Doc.FilterByType "ENV")) }}
+### Environment Variables
+| Name | Description | Default | Required |
+|------|-------------|---------|:--------:|
+{{- range (.Doc.FilterByType "ENV") }}
+| `{{ .Name }}` | {{ .Description }} | `{{ if .Value }}{{ .Value }}{{ else }}""{{ end }}` | {{ if .Required }}{{ $.Emoji "check" }}{{ else }}{{ $.Emoji "cross" }}{{ end }} |
+{{- end }}
+{{- end }}
+
+{{- if (len (.Doc.FilterByType "ARG")) }}
+### Build Arguments
+| Name | Description | Default | Required |
+|------|-------------|---------|:--------:|
+{{- range (.Doc.FilterByType "ARG") }}
+| `{{ .Name }}` | {{ .Description }} | `{{ .Value }}` | {{ if .Required }}{{ $.Emoji "check" }}{{ else }}{{ $.Emoji "cross" }}{{ end }} |
+{{- end }}
+{{- end }}
+
+{{- if (len (.Doc.FilterByType "EXPOSE")) }}
+### Exposed Ports
+| Port | Description |
+|------|-------------|
+{{- range (.Doc.FilterByType "EXPOSE") }}
+| `{{ .Name }}` | {{ .Description }} |
+{{- end }}
+{{- end }}
+
+{{- if (len (.Doc.FilterByType "LABEL")) }}
+### Labels
+| Key | Value |
+|-----|-------|
+{{- range (.Doc.FilterByType "LABEL") }}
+| `{{ .Name }}` | {{ .Value }} |
+{{- end }}
+{{- end }}
+
+{{- if .Stats }}
+---
+
+## {{ .Emoji "shield" }}Security & Efficiency
+
+**Base Image:** `{{ if .Stats.OSDistro }}{{ .Stats.OSDistro }} ({{ .Stats.OS }}/{{ .Stats.Architecture }}){{ else }}{{ .Stats.OS }} ({{ .Stats.Architecture }}){{ end }}`
+{{- if .Stats.SupportedArchitectures }}
+**Supported Architectures:** `{{ join .Stats.SupportedArchitectures ", " }}`
+{{- end }}
+**Efficiency Score:** {{ printf "%.1f" .Stats.Efficiency }}%
+
+### Vulnerabilities
+{{- if not .Stats.VulnScanTime.IsZero }}
+**Last scanned:** {{ .Stats.VulnScanTime.Format "2006-01-02T15:04:05Z07:00" }}
+{{- end }}
+
+| Critical | High | Medium | Low |
+|:---:|:---:|:---:|:---:|
+| {{ if gt (index .Stats.VulnSummary "Critical") 0 }}{{ .Emoji "critical" }} {{ else }}{{ .Emoji "clean" }} {{ end }}{{ index .Stats.VulnSummary "Critical" }} | {{ if gt (index .Stats.VulnSummary "High") 0 }}{{ .Emoji "high" }} {{ else }}{{ .Emoji "clean" }} {{ end }}{{ index .Stats.VulnSummary "High" }} | {{ if gt (index .Stats.VulnSummary "Medium") 0 }}{{ .Emoji "medium" }} {{ else }}{{ .Emoji "clean" }} {{ end }}{{ index .Stats.VulnSummary "Medium" }} | {{ if gt (index .Stats.VulnSummary "Low") 0 }}{{ .Emoji "low" }} {{ else }}{{ .Emoji "clean" }} {{ end }}{{ index .Stats.VulnSummary "Low" }} |
+
+<details>
+<summary><strong>{{ .Emoji "down" }}Expand Vulnerability Details ({{ .Stats.TotalVulns }} found)</strong></summary>
+
+| ID | Severity | Package | Version |
+|----|----------|---------|---------|
+{{- range .Stats.Vulnerabilities }}
+| [{{ .ID }}](https://nvd.nist.gov/vuln/detail/{{ .ID }}) | {{ .Severity }} | `{{ .Package }}` | `{{ .Version }}` |
+{{- end }}
+</details>
+
+<details>
+<summary><strong>{{ .Emoji "package" }}Installed Packages ({{ .Stats.TotalPackages }} total)</strong></summary>
+
+| Package | Version |
+|---------|---------|
+{{- range .Stats.Packages }}
+| {{ .Name }} | {{ .Version }} |
+{{- end }}
+</details>
+{{- end }}

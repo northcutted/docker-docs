@@ -37,7 +37,7 @@ func (m *MockRunner) Run(image string, verbose bool) (*types.ImageStats, error) 
 	return &stats, nil
 }
 
-func TestAnalyzeMatrix(t *testing.T) {
+func TestAnalyzeComparison(t *testing.T) {
 	oldEnsureImage := ensureImage
 	defer func() { ensureImage = oldEnsureImage }()
 	ensureImage = func(image string, verbose bool) error { return nil }
@@ -55,9 +55,9 @@ func TestAnalyzeMatrix(t *testing.T) {
 	images := []string{"img1:latest", "img2:latest"}
 	runners := []Runner{runner}
 
-	results, err := AnalyzeMatrix(images, runners, false)
+	results, err := AnalyzeComparison(images, runners, false)
 	if err != nil {
-		t.Fatalf("AnalyzeMatrix failed: %v", err)
+		t.Fatalf("AnalyzeComparison failed: %v", err)
 	}
 
 	if len(results) != 2 {
@@ -73,12 +73,12 @@ func TestAnalyzeMatrix(t *testing.T) {
 	}
 }
 
-func TestAnalyzeMatrix_PartialFailure(t *testing.T) {
+func TestAnalyzeComparison_PartialFailure(t *testing.T) {
 	oldEnsureImage := ensureImage
 	defer func() { ensureImage = oldEnsureImage }()
 	ensureImage = func(image string, verbose bool) error { return nil }
 	// Test that if one image analysis fails, others still return (or at least function doesn't crash)
-	// The current implementation of AnalyzeMatrix prints error and returns nil for that slot,
+	// The current implementation of AnalyzeComparison prints error and returns nil for that slot,
 	// then filters out nils.
 
 	smartRunner := &SmartMockRunner{
@@ -88,14 +88,14 @@ func TestAnalyzeMatrix_PartialFailure(t *testing.T) {
 	images := []string{"good:image", "bad:image", "good:image2"}
 	runners := []Runner{smartRunner}
 
-	results, err := AnalyzeMatrix(images, runners, false)
+	results, err := AnalyzeComparison(images, runners, false)
 	if err != nil {
-		t.Fatalf("AnalyzeMatrix failed: %v", err)
+		t.Fatalf("AnalyzeComparison failed: %v", err)
 	}
 
 	// Should have 3 results, even if one failed (it returns partial/empty stats)
 	// Wait, check implementation: if AnalyzeImage fails, it returns nil stats but we capture error.
-	// In AnalyzeMatrix, if err != nil, we check if stats != nil.
+	// In AnalyzeComparison, if err != nil, we check if stats != nil.
 	// But AnalyzeImage returns partial stats even on failure IF it collected partial results?
 	// Actually, AnalyzeImage returns "finalStats" even if errs > 0.
 	// So results should be 3 valid stats objects.

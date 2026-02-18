@@ -1,9 +1,17 @@
-# Go Docker Analysis
+# Go Docker Analysis — Template Showcase
 
-<!-- BEGIN: dock-docs:config -->
+This document demonstrates all 6 built-in dock-docs templates applied to the Go sample project.
+Each template is shown for both **image** (single image analysis) and **comparison** (multi-image comparison) section types.
+
+---
+
+## Default Template
+
+### Image Analysis
+<!-- BEGIN: dock-docs:default-image -->
 
 # 🐳 Docker Image Analysis: golang:1.26-alpine
-![Size](https://img.shields.io/static/v1?label=Size&message=68.04+MB&color=blue) ![Layers](https://img.shields.io/static/v1?label=Layers&message=5&color=blue) ![Vulns](https://img.shields.io/static/v1?label=Security&message=3+Vulns+%280+Crit%29&color=green) ![Efficiency](https://img.shields.io/static/v1?label=Efficiency&message=99.9%&color=green)
+![Size](https://img.shields.io/static/v1?label=Size&message=237.87+MB&color=blue) ![Layers](https://img.shields.io/static/v1?label=Layers&message=5&color=blue) ![Vulns](https://img.shields.io/static/v1?label=Security&message=3+Vulns+%280+Crit%29&color=green) ![Efficiency](https://img.shields.io/static/v1?label=Efficiency&message=99.9%&color=green)
 
 ## ⚙️ Configuration
 ### Build Arguments
@@ -18,12 +26,12 @@
 
 ## 🛡️ Security & Efficiency
 
-**Base Image:** `Alpine Linux (linux/amd64)`
+**Base Image:** `Alpine Linux (linux/arm64)`
 **Supported Architectures:** `linux/386, linux/amd64, linux/arm, linux/arm64, linux/ppc64le, linux/riscv64, linux/s390x, unknown/unknown`
 **Efficiency Score:** 99.9%
 
 ### Vulnerabilities
-**Last scanned:** 2026-02-17T03:18:28Z
+**Last scanned:** 2026-02-17T20:09:47-06:00
 
 | Critical | High | Medium | Low |
 |:---:|:---:|:---:|:---:|
@@ -75,31 +83,30 @@
 | zlib | 1.3.1-r2 |
 </details>
 
-<!-- END: dock-docs:config -->
+<!-- END: dock-docs:default-image -->
 
-## Version Comparison
-
-<!-- BEGIN: dock-docs:comparison -->
+### Comparison
+<!-- BEGIN: dock-docs:default-comparison -->
 
 ### 🏷️ Supported Tags
 
 | Tag | Size | Vulns | Efficiency | Architectures |
 |-----|------|-------|------------|---------------|
-| `golang:1.24-alpine` | ![Size](https://img.shields.io/static/v1?label=Size&message=79.44+MB&color=blue) | ![Vulns](https://img.shields.io/static/v1?label=Security&message=3+Vulns+%280+Crit%29&color=green) | 99.9% | `linux/386, linux/amd64, linux/arm, linux/arm64, linux/ppc64le, linux/riscv64, linux/s390x, unknown/unknown` |
-| `golang:1.25-alpine` | ![Size](https://img.shields.io/static/v1?label=Size&message=61.35+MB&color=blue) | ![Vulns](https://img.shields.io/static/v1?label=Security&message=3+Vulns+%280+Crit%29&color=green) | 99.9% | `linux/386, linux/amd64, linux/arm, linux/arm64, linux/ppc64le, linux/riscv64, linux/s390x, unknown/unknown` |
-| `golang:1.26-alpine` | ![Size](https://img.shields.io/static/v1?label=Size&message=68.04+MB&color=blue) | ![Vulns](https://img.shields.io/static/v1?label=Security&message=3+Vulns+%280+Crit%29&color=green) | 99.9% | `linux/386, linux/amd64, linux/arm, linux/arm64, linux/ppc64le, linux/riscv64, linux/s390x, unknown/unknown` |
+| `golang:1.24-alpine` | ![Size](https://img.shields.io/static/v1?label=Size&message=258.71+MB&color=blue) | ![Vulns](https://img.shields.io/static/v1?label=Security&message=3+Vulns+%280+Crit%29&color=green) | 99.9% | `linux/386, linux/amd64, linux/arm, linux/arm64, linux/ppc64le, linux/riscv64, linux/s390x, unknown/unknown` |
+| `golang:1.25-alpine` | ![Size](https://img.shields.io/static/v1?label=Size&message=213.88+MB&color=blue) | ![Vulns](https://img.shields.io/static/v1?label=Security&message=3+Vulns+%280+Crit%29&color=green) | 99.9% | `linux/386, linux/amd64, linux/arm, linux/arm64, linux/ppc64le, linux/riscv64, linux/s390x, unknown/unknown` |
+| `golang:1.26-alpine` | ![Size](https://img.shields.io/static/v1?label=Size&message=237.87+MB&color=blue) | ![Vulns](https://img.shields.io/static/v1?label=Security&message=3+Vulns+%280+Crit%29&color=green) | 99.9% | `linux/386, linux/amd64, linux/arm, linux/arm64, linux/ppc64le, linux/riscv64, linux/s390x, unknown/unknown` |
 
 <details>
 <summary><strong>🔍 Full Report: golang:1.24-alpine</strong></summary>
 
 ## 🛡️ Security & Efficiency
 
-**Base Image:** `Alpine Linux (linux/amd64)`
+**Base Image:** `Alpine Linux (linux/arm64)`
 **Supported Architectures:** `linux/386, linux/amd64, linux/arm, linux/arm64, linux/ppc64le, linux/riscv64, linux/s390x, unknown/unknown`
 **Efficiency Score:** 99.9%
 
 ### Vulnerabilities
-**Last scanned:** 2026-02-17T03:18:53Z
+**Last scanned:** 2026-02-17T20:10:24-06:00
 
 | Critical | High | Medium | Low |
 |:---:|:---:|:---:|:---:|
@@ -168,12 +175,12 @@
 
 ## 🛡️ Security & Efficiency
 
-**Base Image:** `Alpine Linux (linux/amd64)`
+**Base Image:** `Alpine Linux (linux/arm64)`
 **Supported Architectures:** `linux/386, linux/amd64, linux/arm, linux/arm64, linux/ppc64le, linux/riscv64, linux/s390x, unknown/unknown`
 **Efficiency Score:** 99.9%
 
 ### Vulnerabilities
-**Last scanned:** 2026-02-17T03:18:52Z
+**Last scanned:** 2026-02-17T20:10:23-06:00
 
 | Critical | High | Medium | Low |
 |:---:|:---:|:---:|:---:|
@@ -231,12 +238,12 @@
 
 ## 🛡️ Security & Efficiency
 
-**Base Image:** `Alpine Linux (linux/amd64)`
+**Base Image:** `Alpine Linux (linux/arm64)`
 **Supported Architectures:** `linux/386, linux/amd64, linux/arm, linux/arm64, linux/ppc64le, linux/riscv64, linux/s390x, unknown/unknown`
 **Efficiency Score:** 99.9%
 
 ### Vulnerabilities
-**Last scanned:** 2026-02-17T03:18:46Z
+**Last scanned:** 2026-02-17T20:10:23-06:00
 
 | Critical | High | Medium | Low |
 |:---:|:---:|:---:|:---:|
@@ -290,4 +297,385 @@
 
 </details>
 
-<!-- END: dock-docs:comparison -->
+<!-- END: dock-docs:default-comparison -->
+
+---
+
+## Minimal Template
+
+### Image Analysis
+<!-- BEGIN: dock-docs:minimal-image -->
+## Configuration: golang:1.26-alpine
+
+### Build Arguments
+
+| Name | Default |
+|------|---------|
+| `CGO_ENABLED=0` | `` |
+
+### Exposed Ports
+
+| Port | Description |
+|------|-------------|
+| `8080` | The default port for the Go application |
+
+<!-- END: dock-docs:minimal-image -->
+
+### Comparison
+<!-- BEGIN: dock-docs:minimal-comparison -->
+### Supported Tags
+
+| Tag | Size | Vulns | Efficiency |
+|-----|------|-------|------------|
+| `golang:1.24-alpine` | 258.71 MB | 0C / 0H | 99.9% |
+| `golang:1.25-alpine` | 213.88 MB | 0C / 0H | 99.9% |
+| `golang:1.26-alpine` | 237.87 MB | 0C / 0H | 99.9% |
+
+<!-- END: dock-docs:minimal-comparison -->
+
+---
+
+## Detailed Template
+
+### Image Analysis
+<!-- BEGIN: dock-docs:detailed-image -->
+
+# 🐳 Docker Image Analysis: golang:1.26-alpine
+![Size](https://img.shields.io/static/v1?label=Size&message=237.87+MB&color=blue) ![Layers](https://img.shields.io/static/v1?label=Layers&message=5&color=blue) ![Vulns](https://img.shields.io/static/v1?label=Security&message=3+Vulns+%280+Crit%29&color=green) ![Efficiency](https://img.shields.io/static/v1?label=Efficiency&message=99.9%&color=green)
+
+## ⚙️ Configuration
+
+### Build Arguments
+
+| Name | Description | Default | Required |
+|------|-------------|---------|:--------:|
+| `CGO_ENABLED=0` | Enable CGO for building (default false) | `` | ❌ |
+
+### Exposed Ports
+
+| Port | Description |
+|------|-------------|
+| `8080` | The default port for the Go application |
+
+---
+
+## 🛡️ Security & Efficiency
+
+### Image Metadata
+
+| Property | Value |
+|----------|-------|
+| **Tag** | `golang:1.26-alpine` |
+| **Base Image OS** | `Alpine Linux` |
+| **Architecture** | `arm64` |
+| **OS** | `linux` |
+| **Supported Architectures** | `linux/386, linux/amd64, linux/arm, linux/arm64, linux/ppc64le, linux/riscv64, linux/s390x, unknown/unknown` |
+| **Image Size** | 237.87 MB |
+| **Total Layers** | 5 |
+| **Efficiency Score** | 99.9% |
+| **Wasted Space** | 0.47 MB |
+
+### Vulnerability Summary
+
+**Last scanned:** 2026-02-17T20:09:58-06:00
+
+| Critical | High | Medium | Low | Total |
+|:---:|:---:|:---:|:---:|:---:|
+| 🟢 0 | 🟢 0 | 🟡 3 | 🟢 0 | 3 |
+
+### Vulnerability Details
+
+| ID | Severity | Package | Version |
+|----|----------|---------|---------|
+| [CVE-2025-60876](https://nvd.nist.gov/vuln/detail/CVE-2025-60876) | Medium | `busybox` | `1.37.0-r30` |
+| [CVE-2025-60876](https://nvd.nist.gov/vuln/detail/CVE-2025-60876) | Medium | `busybox-binsh` | `1.37.0-r30` |
+| [CVE-2025-60876](https://nvd.nist.gov/vuln/detail/CVE-2025-60876) | Medium | `ssl_client` | `1.37.0-r30` |
+
+### Installed Packages (29 total)
+
+| Package | Version |
+|---------|---------|
+| alpine-baselayout | 3.7.1-r8 |
+| alpine-baselayout-data | 3.7.1-r8 |
+| alpine-keys | 2.6-r0 |
+| alpine-release | 3.23.3-r0 |
+| apk-tools | 3.0.3-r1 |
+| busybox | 1.37.0-r30 |
+| busybox-binsh | 1.37.0-r30 |
+| ca-certificates | 20251003-r0 |
+| ca-certificates-bundle | 20251003-r0 |
+| cmd/asm | UNKNOWN |
+| cmd/cgo | UNKNOWN |
+| cmd/compile | UNKNOWN |
+| cmd/cover | UNKNOWN |
+| cmd/fix | UNKNOWN |
+| cmd/go | UNKNOWN |
+| cmd/gofmt | UNKNOWN |
+| cmd/link | UNKNOWN |
+| cmd/preprofile | UNKNOWN |
+| cmd/vet | UNKNOWN |
+| go | 1.26.0 |
+| libapk | 3.0.3-r1 |
+| libcrypto3 | 3.5.5-r0 |
+| libssl3 | 3.5.5-r0 |
+| musl | 1.2.5-r21 |
+| musl-utils | 1.2.5-r21 |
+| scanelf | 1.3.8-r2 |
+| ssl_client | 1.37.0-r30 |
+| stdlib | go1.26.0 |
+| zlib | 1.3.1-r2 |
+
+<!-- END: dock-docs:detailed-image -->
+
+### Comparison
+<!-- BEGIN: dock-docs:detailed-comparison -->
+### 🏷️ Supported Tags
+
+| Tag | Size | Vulns | Efficiency | Architectures |
+|-----|------|-------|------------|---------------|
+| `golang:1.24-alpine` | ![Size](https://img.shields.io/static/v1?label=Size&message=258.71+MB&color=blue) | ![Vulns](https://img.shields.io/static/v1?label=Security&message=3+Vulns+%280+Crit%29&color=green) | 99.9% | `linux/386, linux/amd64, linux/arm, linux/arm64, linux/ppc64le, linux/riscv64, linux/s390x, unknown/unknown` |
+| `golang:1.25-alpine` | ![Size](https://img.shields.io/static/v1?label=Size&message=213.88+MB&color=blue) | ![Vulns](https://img.shields.io/static/v1?label=Security&message=3+Vulns+%280+Crit%29&color=green) | 99.9% | `linux/386, linux/amd64, linux/arm, linux/arm64, linux/ppc64le, linux/riscv64, linux/s390x, unknown/unknown` |
+| `golang:1.26-alpine` | ![Size](https://img.shields.io/static/v1?label=Size&message=237.87+MB&color=blue) | ![Vulns](https://img.shields.io/static/v1?label=Security&message=3+Vulns+%280+Crit%29&color=green) | 99.9% | `linux/386, linux/amd64, linux/arm, linux/arm64, linux/ppc64le, linux/riscv64, linux/s390x, unknown/unknown` |
+
+---
+
+## 🔍 Full Report: golang:1.24-alpine
+
+### Image Metadata
+
+| Property | Value |
+|----------|-------|
+| **Tag** | `golang:1.24-alpine` |
+| **Base Image OS** | `Alpine Linux` |
+| **Architecture** | `arm64` |
+| **OS** | `linux` |
+| **Supported Architectures** | `linux/386, linux/amd64, linux/arm, linux/arm64, linux/ppc64le, linux/riscv64, linux/s390x, unknown/unknown` |
+| **Image Size** | 258.71 MB |
+| **Total Layers** | 5 |
+| **Efficiency Score** | 99.9% |
+| **Wasted Space** | 0.47 MB |
+
+### Vulnerability Summary
+
+**Last scanned:** 2026-02-17T20:11:10-06:00
+
+| Critical | High | Medium | Low | Total |
+|:---:|:---:|:---:|:---:|:---:|
+| 🟢 0 | 🟢 0 | 🟡 3 | 🟢 0 | 3 |
+
+### Vulnerability Details
+
+| ID | Severity | Package | Version |
+|----|----------|---------|---------|
+| [CVE-2025-60876](https://nvd.nist.gov/vuln/detail/CVE-2025-60876) | Medium | `busybox` | `1.37.0-r30` |
+| [CVE-2025-60876](https://nvd.nist.gov/vuln/detail/CVE-2025-60876) | Medium | `busybox-binsh` | `1.37.0-r30` |
+| [CVE-2025-60876](https://nvd.nist.gov/vuln/detail/CVE-2025-60876) | Medium | `ssl_client` | `1.37.0-r30` |
+
+### Installed Packages (39 total)
+
+| Package | Version |
+|---------|---------|
+| alpine-baselayout | 3.7.1-r8 |
+| alpine-baselayout-data | 3.7.1-r8 |
+| alpine-keys | 2.6-r0 |
+| alpine-release | 3.23.3-r0 |
+| apk-tools | 3.0.3-r1 |
+| busybox | 1.37.0-r30 |
+| busybox-binsh | 1.37.0-r30 |
+| ca-certificates | 20251003-r0 |
+| ca-certificates-bundle | 20251003-r0 |
+| cmd/addr2line | UNKNOWN |
+| cmd/asm | UNKNOWN |
+| cmd/buildid | UNKNOWN |
+| cmd/cgo | UNKNOWN |
+| cmd/compile | UNKNOWN |
+| cmd/covdata | UNKNOWN |
+| cmd/cover | UNKNOWN |
+| cmd/doc | UNKNOWN |
+| cmd/fix | UNKNOWN |
+| cmd/go | UNKNOWN |
+| cmd/gofmt | UNKNOWN |
+| cmd/link | UNKNOWN |
+| cmd/nm | UNKNOWN |
+| cmd/objdump | UNKNOWN |
+| cmd/pack | UNKNOWN |
+| cmd/pprof | UNKNOWN |
+| cmd/preprofile | UNKNOWN |
+| cmd/test2json | UNKNOWN |
+| cmd/trace | UNKNOWN |
+| cmd/vet | UNKNOWN |
+| go | 1.24.13 |
+| libapk | 3.0.3-r1 |
+| libcrypto3 | 3.5.5-r0 |
+| libssl3 | 3.5.5-r0 |
+| musl | 1.2.5-r21 |
+| musl-utils | 1.2.5-r21 |
+| scanelf | 1.3.8-r2 |
+| ssl_client | 1.37.0-r30 |
+| stdlib | go1.24.13 |
+| zlib | 1.3.1-r2 |
+
+---
+
+## 🔍 Full Report: golang:1.25-alpine
+
+### Image Metadata
+
+| Property | Value |
+|----------|-------|
+| **Tag** | `golang:1.25-alpine` |
+| **Base Image OS** | `Alpine Linux` |
+| **Architecture** | `arm64` |
+| **OS** | `linux` |
+| **Supported Architectures** | `linux/386, linux/amd64, linux/arm, linux/arm64, linux/ppc64le, linux/riscv64, linux/s390x, unknown/unknown` |
+| **Image Size** | 213.88 MB |
+| **Total Layers** | 5 |
+| **Efficiency Score** | 99.9% |
+| **Wasted Space** | 0.47 MB |
+
+### Vulnerability Summary
+
+**Last scanned:** 2026-02-17T20:11:08-06:00
+
+| Critical | High | Medium | Low | Total |
+|:---:|:---:|:---:|:---:|:---:|
+| 🟢 0 | 🟢 0 | 🟡 3 | 🟢 0 | 3 |
+
+### Vulnerability Details
+
+| ID | Severity | Package | Version |
+|----|----------|---------|---------|
+| [CVE-2025-60876](https://nvd.nist.gov/vuln/detail/CVE-2025-60876) | Medium | `busybox` | `1.37.0-r30` |
+| [CVE-2025-60876](https://nvd.nist.gov/vuln/detail/CVE-2025-60876) | Medium | `busybox-binsh` | `1.37.0-r30` |
+| [CVE-2025-60876](https://nvd.nist.gov/vuln/detail/CVE-2025-60876) | Medium | `ssl_client` | `1.37.0-r30` |
+
+### Installed Packages (28 total)
+
+| Package | Version |
+|---------|---------|
+| alpine-baselayout | 3.7.1-r8 |
+| alpine-baselayout-data | 3.7.1-r8 |
+| alpine-keys | 2.6-r0 |
+| alpine-release | 3.23.3-r0 |
+| apk-tools | 3.0.3-r1 |
+| busybox | 1.37.0-r30 |
+| busybox-binsh | 1.37.0-r30 |
+| ca-certificates | 20251003-r0 |
+| ca-certificates-bundle | 20251003-r0 |
+| cmd/asm | UNKNOWN |
+| cmd/cgo | UNKNOWN |
+| cmd/compile | UNKNOWN |
+| cmd/cover | UNKNOWN |
+| cmd/go | UNKNOWN |
+| cmd/gofmt | UNKNOWN |
+| cmd/link | UNKNOWN |
+| cmd/preprofile | UNKNOWN |
+| cmd/vet | UNKNOWN |
+| go | 1.25.7 |
+| libapk | 3.0.3-r1 |
+| libcrypto3 | 3.5.5-r0 |
+| libssl3 | 3.5.5-r0 |
+| musl | 1.2.5-r21 |
+| musl-utils | 1.2.5-r21 |
+| scanelf | 1.3.8-r2 |
+| ssl_client | 1.37.0-r30 |
+| stdlib | go1.25.7 |
+| zlib | 1.3.1-r2 |
+
+---
+
+## 🔍 Full Report: golang:1.26-alpine
+
+### Image Metadata
+
+| Property | Value |
+|----------|-------|
+| **Tag** | `golang:1.26-alpine` |
+| **Base Image OS** | `Alpine Linux` |
+| **Architecture** | `arm64` |
+| **OS** | `linux` |
+| **Supported Architectures** | `linux/386, linux/amd64, linux/arm, linux/arm64, linux/ppc64le, linux/riscv64, linux/s390x, unknown/unknown` |
+| **Image Size** | 237.87 MB |
+| **Total Layers** | 5 |
+| **Efficiency Score** | 99.9% |
+| **Wasted Space** | 0.47 MB |
+
+### Vulnerability Summary
+
+**Last scanned:** 2026-02-17T20:11:08-06:00
+
+| Critical | High | Medium | Low | Total |
+|:---:|:---:|:---:|:---:|:---:|
+| 🟢 0 | 🟢 0 | 🟡 3 | 🟢 0 | 3 |
+
+### Vulnerability Details
+
+| ID | Severity | Package | Version |
+|----|----------|---------|---------|
+| [CVE-2025-60876](https://nvd.nist.gov/vuln/detail/CVE-2025-60876) | Medium | `busybox` | `1.37.0-r30` |
+| [CVE-2025-60876](https://nvd.nist.gov/vuln/detail/CVE-2025-60876) | Medium | `busybox-binsh` | `1.37.0-r30` |
+| [CVE-2025-60876](https://nvd.nist.gov/vuln/detail/CVE-2025-60876) | Medium | `ssl_client` | `1.37.0-r30` |
+
+### Installed Packages (29 total)
+
+| Package | Version |
+|---------|---------|
+| alpine-baselayout | 3.7.1-r8 |
+| alpine-baselayout-data | 3.7.1-r8 |
+| alpine-keys | 2.6-r0 |
+| alpine-release | 3.23.3-r0 |
+| apk-tools | 3.0.3-r1 |
+| busybox | 1.37.0-r30 |
+| busybox-binsh | 1.37.0-r30 |
+| ca-certificates | 20251003-r0 |
+| ca-certificates-bundle | 20251003-r0 |
+| cmd/asm | UNKNOWN |
+| cmd/cgo | UNKNOWN |
+| cmd/compile | UNKNOWN |
+| cmd/cover | UNKNOWN |
+| cmd/fix | UNKNOWN |
+| cmd/go | UNKNOWN |
+| cmd/gofmt | UNKNOWN |
+| cmd/link | UNKNOWN |
+| cmd/preprofile | UNKNOWN |
+| cmd/vet | UNKNOWN |
+| go | 1.26.0 |
+| libapk | 3.0.3-r1 |
+| libcrypto3 | 3.5.5-r0 |
+| libssl3 | 3.5.5-r0 |
+| musl | 1.2.5-r21 |
+| musl-utils | 1.2.5-r21 |
+| scanelf | 1.3.8-r2 |
+| ssl_client | 1.37.0-r30 |
+| stdlib | go1.26.0 |
+| zlib | 1.3.1-r2 |
+
+---
+
+<!-- END: dock-docs:detailed-comparison -->
+
+---
+
+## Compact Template
+
+### Image Analysis
+<!-- BEGIN: dock-docs:compact-image -->
+**golang:1.26-alpine** | Size: 237.87 MB | Layers: 5 | Efficiency: 99.9% | Vulns: 0C/0H/3M/0L
+| ARG | Default | Req |
+|-----|---------|:---:|
+| `CGO_ENABLED=0` | `` | ❌ |
+| Port |
+|------|
+| `8080` |
+
+<!-- END: dock-docs:compact-image -->
+
+### Comparison
+<!-- BEGIN: dock-docs:compact-comparison -->
+| Tag | Size | Vulns | Efficiency |
+|-----|------|-------|------------|
+| `golang:1.24-alpine` | 258.71 MB | 0C/0H/3M | 99.9% |
+| `golang:1.25-alpine` | 213.88 MB | 0C/0H/3M | 99.9% |
+| `golang:1.26-alpine` | 237.87 MB | 0C/0H/3M | 99.9% |
+
+<!-- END: dock-docs:compact-comparison -->

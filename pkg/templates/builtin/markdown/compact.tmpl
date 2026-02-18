@@ -1,0 +1,23 @@
+**{{ .ImageTag }}**{{ if .Stats }} | Size: {{ .Stats.SizeMB }} | Layers: {{ .Stats.TotalLayers }} | Efficiency: {{ printf "%.1f" .Stats.Efficiency }}% | Vulns: {{ index .Stats.VulnSummary "Critical" }}C/{{ index .Stats.VulnSummary "High" }}H/{{ index .Stats.VulnSummary "Medium" }}M/{{ index .Stats.VulnSummary "Low" }}L{{ end }}
+
+{{- if (len (.Doc.FilterByType "ENV")) }}
+| ENV | Default | Req |
+|-----|---------|:---:|
+{{- range (.Doc.FilterByType "ENV") }}
+| `{{ .Name }}` | `{{ if .Value }}{{ .Value }}{{ else }}""{{ end }}` | {{ if .Required }}{{ $.Emoji "check" }}{{ else }}{{ $.Emoji "cross" }}{{ end }} |
+{{- end }}
+{{- end }}
+{{- if (len (.Doc.FilterByType "ARG")) }}
+| ARG | Default | Req |
+|-----|---------|:---:|
+{{- range (.Doc.FilterByType "ARG") }}
+| `{{ .Name }}` | `{{ .Value }}` | {{ if .Required }}{{ $.Emoji "check" }}{{ else }}{{ $.Emoji "cross" }}{{ end }} |
+{{- end }}
+{{- end }}
+{{- if (len (.Doc.FilterByType "EXPOSE")) }}
+| Port |
+|------|
+{{- range (.Doc.FilterByType "EXPOSE") }}
+| `{{ .Name }}` |
+{{- end }}
+{{- end }}

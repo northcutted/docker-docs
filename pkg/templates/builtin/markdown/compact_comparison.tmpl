@@ -1,0 +1,5 @@
+| Tag | Size | Vulns | Efficiency |
+|-----|------|-------|------------|
+{{- range .Images }}
+| `{{ .ImageTag }}` | {{ .SizeMB }} | {{ index .VulnSummary "Critical" }}C/{{ index .VulnSummary "High" }}H/{{ index .VulnSummary "Medium" }}M | {{ printf "%.1f" .Efficiency }}% |
+{{- end }}

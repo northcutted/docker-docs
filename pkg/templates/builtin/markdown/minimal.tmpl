@@ -1,0 +1,34 @@
+## Configuration: {{ .ImageTag }}
+
+{{- if (len (.Doc.FilterByType "ENV")) }}
+
+### Environment Variables
+
+| Name | Default | Required |
+|------|---------|:--------:|
+{{- range (.Doc.FilterByType "ENV") }}
+| `{{ .Name }}` | `{{ if .Value }}{{ .Value }}{{ else }}""{{ end }}` | {{ if .Required }}{{ $.Emoji "check" }}{{ else }}{{ $.Emoji "cross" }}{{ end }} |
+{{- end }}
+{{- end }}
+
+{{- if (len (.Doc.FilterByType "ARG")) }}
+
+### Build Arguments
+
+| Name | Default |
+|------|---------|
+{{- range (.Doc.FilterByType "ARG") }}
+| `{{ .Name }}` | `{{ .Value }}` |
+{{- end }}
+{{- end }}
+
+{{- if (len (.Doc.FilterByType "EXPOSE")) }}
+
+### Exposed Ports
+
+| Port | Description |
+|------|-------------|
+{{- range (.Doc.FilterByType "EXPOSE") }}
+| `{{ .Name }}` | {{ .Description }} |
+{{- end }}
+{{- end }}

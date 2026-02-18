@@ -48,8 +48,8 @@ go build -o dock-docs .
 - [ ] All existing tests pass
 - [ ] Added new tests for new functionality
 - [ ] Tested manually with example Dockerfiles
-- [ ] Tested in Simple Mode
-- [ ] Tested in Config Mode
+- [ ] Tested in CLI Mode
+- [ ] Tested in YAML Mode
 - [ ] Tested with `--verbose` flag
 - [ ] No race conditions (`go test -race ./...`)
 

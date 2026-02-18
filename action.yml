@@ -13,7 +13,7 @@ inputs:
   
   # --- Configuration Inputs ---
   config:
-    description: 'Path to configuration file. Enables Config Mode if present.'
+    description: 'Path to configuration file. Enables YAML Mode if present.'
     default: 'dock-docs.yaml'
     required: false
   output:
@@ -39,12 +39,12 @@ inputs:
     default: 'false'
     required: false
 
-  # --- Simple Mode Inputs (Mutually exclusive with config usually) ---
+  # --- CLI Mode Inputs (Mutually exclusive with config usually) ---
   file:
-    description: 'Path to Dockerfile (Simple Mode only).'
+    description: 'Path to Dockerfile (CLI Mode only).'
     required: false
   image:
-    description: 'Docker image tag to analyze (Simple Mode only).'
+    description: 'Docker image tag to analyze (CLI Mode only).'
     required: false
 
 runs:
@@ -54,42 +54,25 @@ runs:
     - name: Setup Tool Cache
       shell: bash
       run: |
+        set -euo pipefail
         TOOL_DIR="$HOME/.dock-docs/bin"
         mkdir -p "$TOOL_DIR"
         echo "$TOOL_DIR" >> $GITHUB_PATH
 
-    # 2. Install Dependencies (Syft, Grype, Dive)
-    - name: Install Dependencies
-      shell: bash
-      run: |
-        TOOL_DIR="$HOME/.dock-docs/bin"
-        
-        # Install Syft & Grype
-        curl -sSfL https://raw.githubusercontent.com/anchore/syft/main/install.sh | sh -s -- -b "$TOOL_DIR"
-        curl -sSfL https://raw.githubusercontent.com/anchore/grype/main/install.sh | sh -s -- -b "$TOOL_DIR"
-
-        # Install Dive (Architecture Detection)
-        DIVE_VERSION="0.13.1"
-        if [ "${{ runner.arch }}" = "ARM64" ]; then
-           DIVE_ARCH="linux_arm64"
-        else
-           DIVE_ARCH="linux_amd64"
-        fi
-        
-        curl -sL "https://github.com/wagoodman/dive/releases/download/v${DIVE_VERSION}/dive_${DIVE_VERSION}_${DIVE_ARCH}.tar.gz" \
-          | tar xz -C "$TOOL_DIR" dive
-
-    # 3. Install dock-docs
+    # 2. Install dock-docs
     - name: Install dock-docs
       shell: bash
       env:
         GH_TOKEN: ${{ github.token }}
+        INPUT_VERSION: ${{ inputs.version }}
+        RUNNER_ARCH: ${{ runner.arch }}
       run: |
+        set -euo pipefail
         TOOL_DIR="$HOME/.dock-docs/bin"
         
         # Map GitHub Runner OS/Arch to GoReleaser naming convention
         OS_NAME=$(uname -s) # Linux, Darwin
-        if [ "${{ runner.arch }}" = "ARM64" ]; then
+        if [ "$RUNNER_ARCH" = "ARM64" ]; then
           ARCH_NAME="arm64"
         else
           ARCH_NAME="x86_64"
@@ -99,10 +82,10 @@ runs:
         ASSET_PATTERN="*_${OS_NAME}_${ARCH_NAME}.tar.gz"
         
         # Download via GH CLI
-        if [ "${{ inputs.version }}" = "latest" ]; then
+        if [ "$INPUT_VERSION" = "latest" ]; then
            gh release download --repo northcutted/dock-docs --pattern "$ASSET_PATTERN" --output "$TOOL_DIR/dock-docs.tar.gz" --clobber
         else
-           gh release download ${{ inputs.version }} --repo northcutted/dock-docs --pattern "$ASSET_PATTERN" --output "$TOOL_DIR/dock-docs.tar.gz" --clobber
+           gh release download "$INPUT_VERSION" --repo northcutted/dock-docs --pattern "$ASSET_PATTERN" --output "$TOOL_DIR/dock-docs.tar.gz" --clobber
         fi
 
         # Extract
@@ -110,40 +93,60 @@ runs:
         rm "$TOOL_DIR/dock-docs.tar.gz"
         chmod +x "$TOOL_DIR/dock-docs"
 
+    # 3. Install Dependencies (Syft, Grype, Dive) via dock-docs setup
+    - name: Install Dependencies
+      shell: bash
+      env:
+        GITHUB_TOKEN: ${{ github.token }}
+      run: |
+        set -euo pipefail
+        TOOL_DIR="$HOME/.dock-docs/bin"
+        "$TOOL_DIR/dock-docs" setup --dir "$TOOL_DIR"
+
     # 4. Run dock-docs with all flags
     - name: Run dock-docs
       shell: bash
+      env:
+        INPUT_OUTPUT: ${{ inputs.output }}
+        INPUT_CONFIG: ${{ inputs.config }}
+        INPUT_FILE: ${{ inputs.file }}
+        INPUT_IMAGE: ${{ inputs.image }}
+        INPUT_DRY_RUN: ${{ inputs.dry-run }}
+        INPUT_NOMOJI: ${{ inputs.nomoji }}
+        INPUT_IGNORE_ERRORS: ${{ inputs.ignore-errors }}
+        INPUT_VERBOSE: ${{ inputs.verbose }}
       run: |
+        set -euo pipefail
         # Build arguments array dynamically
         CMD_ARGS=()
 
         # Always add output
-        CMD_ARGS+=("--output" "${{ inputs.output }}")
+        CMD_ARGS+=("--output" "$INPUT_OUTPUT")
 
-        # Config Mode: Only add if input is not empty
-        if [ -n "${{ inputs.config }}" ]; then
-          CMD_ARGS+=("--config" "${{ inputs.config }}")
+        # YAML Mode: Only add if input is not empty
+        if [ -n "$INPUT_CONFIG" ]; then
+          CMD_ARGS+=("--config" "$INPUT_CONFIG")
         fi
 
-        # Simple Mode: File and Image (only if provided)
-        if [ -n "${{ inputs.file }}" ]; then
-          CMD_ARGS+=("--file" "${{ inputs.file }}")
+        # CLI Mode: File and Image (only if provided)
+        if [ -n "${INPUT_FILE:-}" ]; then
+          CMD_ARGS+=("--file" "$INPUT_FILE")
         fi
-        if [ -n "${{ inputs.image }}" ]; then
-          CMD_ARGS+=("--image" "${{ inputs.image }}")
+        if [ -n "${INPUT_IMAGE:-}" ]; then
+          CMD_ARGS+=("--image" "$INPUT_IMAGE")
         fi
 
         # Boolean Flags
-        if [ "${{ inputs.dry-run }}" == "true" ]; then
+        if [ "$INPUT_DRY_RUN" == "true" ]; then
           CMD_ARGS+=("--dry-run")
         fi
-        if [ "${{ inputs.nomoji }}" == "true" ]; then
+        if [ "$INPUT_NOMOJI" == "true" ]; then
           CMD_ARGS+=("--nomoji")
         fi
-        if [ "${{ inputs.ignore-errors }}" == "true" ]; then
+        if [ "$INPUT_IGNORE_ERRORS" == "true" ]; then
           CMD_ARGS+=("--ignore-errors")
         fi
-        if [ "${{ inputs.verbose }}" == "true" ]; then
+        if [ "$INPUT_VERBOSE" == "true" ]; then
           CMD_ARGS+=("--verbose")
         fi
 
